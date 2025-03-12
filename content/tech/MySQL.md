@@ -9,11 +9,13 @@ title = 'MySQL'
 
 # MySQL
 
+> 本文仅仅是笔者对于SQL语句的简单熟悉和复习的笔记，所以并不会对于更深刻的细节进行考究，也不会介绍怎么安装和配置MySQL的环境以及为什么我们要使用关系型数据库。
+
 # 1.Table
 
 创建表：有B格的创建一张表
 
-![image.png](../../static/img/image.png)
+![image.png](/img/image.png)
 
 查看表结构：desc
 
@@ -23,17 +25,21 @@ delete:drop table if exists;
 
 修改表字段
 
-![image.png](../../static/img/image 1.png)
+![image1.png](/img/image1.png)
 
+```sql
 **`alter table <name> add/change/modify <name> <name1>……`**
 
 **`alter table <name1> rename to <name2>`**
 
 delete from student;
+```
 
 绝对不要用这样的方式去清空一张表1.遍历删除，会浪费时间和资源2.若设置auto increment 主键，那么再加入数据的时候会从原来增长的部分继续
 
+```sql
 truncate table student;
+```
 
 直接报废表并且创建一张和原来一样的新表
 
@@ -41,13 +47,17 @@ truncate table student;
 
 update data:
 
+```sql
 `update <tablename> set <field>=<newValue> where <field>=<value>;`  
+```
 
 search data from table:
 
+```sql
 `select <fieldname,…> from <tablename>;`
 
 `select* from<tablename>`
+```
 
 database definition language: create drop alter show
 
@@ -75,9 +85,11 @@ set存储原理？？？
 
 2.加快数据的查询速度—用来做表的关联
 
+```sql
 `alter table <tablename> add primary key (<filedname>......);`添加主键，多个字段就是**组合键**
 
 `alter table <tablename> drop primary key;`
+```
 
 复合主键解决的问题
 
@@ -85,7 +97,9 @@ unique唯一键
 
 和primary的区别：可以为null，不和其他表产生关联，但是必须唯一（null不唯一）
 
+```sql
 delete:`alter  table <tablename> drop index <filedname>;`
+```
 
 comment 注释问题
 
@@ -99,19 +113,21 @@ SQL内注释和代码注释
 
 主表：
 
-![image.png](../../static/img/image 2.png)
+![image.png](/img/image 2.png)
 
 建立从表：
 
-![image.png](../../static/img/image 3.png)
+![image.png](/img/image 3.png)
 
 从表：
 
-![image.png](../../static/img/image 4.png)
+![image.png](/img/image 4.png)
 
+```sql
 `alter table <tablename> add foreign key (<filedname>) references <tablename>(<filedname>);`
 
 `show create table <tablename>;`
+```
 
 查看创建的表结构并且删除外键
 
@@ -123,11 +139,11 @@ SQL内注释和代码注释
 
 级联：主表中的数据发生修改，从表中的外键对应字段的数据全部发生修改；
 
-![image.png](../../static/img/image 5.png)
+![image.png](/img/image 5.png)
 
 如图：删除——set null
 
-![image.png](../../static/img/image 6.png)
+![image.png](/img/image 6.png)
 
 # 5.数据库设计思维
 
@@ -165,19 +181,19 @@ Codd第三范式：消除传递依赖——根据实际情况，我们到底要�
 
 ### select
 
-![image.png](../../static/img/image 7.png)
+![image.png](/img/image 7.png)
 
 ### from
 
 指定要查的表；返回两张表的笛卡尔积
 
-![image.png](../../static/img/image 8.png)
+![image.png](/img/image 8.png)
 
 ### dual
 
 默认的一个虚拟表，单行单列
 
-![image.png](../../static/img/image 9.png)
+![image.png](/img/image 9.png)
 
 ### where
 
@@ -187,13 +203,13 @@ Codd第三范式：消除传递依赖——根据实际情况，我们到底要�
 
 限定查询的字段的值在一个范围之内
 
-![image.png](../../static/img/image 10.png)
+![image.png](/img/image 10.png)
 
 ### **between…and…**
 
 限制查询的范围在给定的闭区间内部
 
-![image.png](../../static/img/image 11.png)
+![image.png](/img/image 11.png)
 
 ### is null
 
@@ -201,13 +217,13 @@ Codd第三范式：消除传递依赖——根据实际情况，我们到底要�
 
 ### 几种常见的聚合函数
 
-![image.png](../../static/img/image 12.png)
+![image.png](/img/image 12.png)
 
 Q:select  count(*) and select count(1); what’s the difference?
 
 ### like模糊查询——通配符
 
-![image.png](../../static/img/image 13.png)
+![image.png](/img/image 13.png)
 
 ### group by分组查询
 
@@ -215,15 +231,15 @@ Q:select  count(*) and select count(1); what’s the difference?
 select <function-name>(<fieldname1>) as 'alias1', <fieldname2> as 'alias2' group by <fieldname2>;#要根据哪个字段去查询
 ```
 
-![image.png](../../static/img/image 14.png)
+![image.png](/img/image 14.png)
 
 比如想求男性和女性的平均年龄：
 
-![image.png](../../static/img/image 15.png)
+![image.png](/img/image 15.png)
 
 利用group_concat函数查询对应字段对应的实体
 
-![image.png](../../static/img/image 16.png)
+![image.png](./img/image 16.png)
 
 ### having
 
@@ -233,7 +249,7 @@ select <function-name>(<fieldname1>) as 'alias1', <fieldname2> as 'alias2' group
 
 2.having对于查询之后的虚拟表使用——比如配合group_by(此时就不能使用where条件来处理)
 
-![image.png](../../static/img/image 17.png)
+![image.png](/img/image 17.png)
 
 ### limit
 
@@ -243,7 +259,7 @@ select <function-name>(<fieldname1>) as 'alias1', <fieldname2> as 'alias2' group
 select <fieldname> from <tablename> limit <start-index>,<length>;
 ```
 
-![image.png](../../static/img/image 18.png)
+![image.png](/img/image 18.png)
 
 ### distinct
 
@@ -255,7 +271,7 @@ select <fieldname> from <tablename> limit <start-index>,<length>;
 select (all) <fieldname> from <tablename>;
 ```
 
-![image.png](../../static/img/image 19.png)
+![image.png](/img/image 19.png)
 
 至此，单表查询基础结束。
 
@@ -273,7 +289,7 @@ select… + union + DISTINCT + select…
 
 用两个表创建公共字段进行连接——内连接——有多张表就用多个inner进行连接
 
-![image.png](../../static/img/image 20.png)
+![image.png](/img/image 20.png)
 
 ```sql
 select f1,f2 from t1 inner join t2 on t1.f3=t2.f4 (having score > 90);
@@ -281,7 +297,7 @@ select f1,f2 from t1 inner join t2 on t1.f3=t2.f4 (having score > 90);
 
 left join 以左表为一个基准（就算左边没有也要写上去 right join 同理）
 
-![image.png](../../static/img/image 21.png)
+![image.png](/img/image 21.png)
 
 cross join返回两张表的笛卡尔积
 
@@ -297,17 +313,17 @@ using
 
 当两张表的字段完全相同的时候，using指定建立连接的公共字段
 
-![image.png](../../static/img/image 22.png)
+![image.png](/img/image 22.png)
 
 # 8.子查询
 
 用一个select语句返回的数据范围作为限制的基准（用in和not in 来控制）
 
-![image.png](../../static/img/image 23.png)
+![image.png](/img/image 23.png)
 
 只要存在就全部查询 exists and not exists
 
-![image.png](../../static/img/image 24.png)
+![image.png](/img/image 24.png)
 
 至此，所有基础内容结束，以上的内容都是对于一名实习生来说最为重要的内容（每一种语法单独看来都是很好理解的，但是都联合起来的话就显得很困难），以下为扩展：
 
@@ -319,11 +335,11 @@ using
 
 创建视图
 
-![image.png](../../static/img/image 25.png)
+![image.png](/img/image 25.png)
 
 以后就可以直接查询
 
-![image.png](../../static/img/image 26.png)
+![image.png](/img/image 26.png)
 
 alter修改视图
 
@@ -343,11 +359,11 @@ drop直接删除视图
 
 处理非常严谨的操作，例如转账等
 
-![image.png](../../static/img/image 27.png)
+![image.png](/img/image 27.png)
 
 设置回滚点 并且返回—— rollback to
 
-![image.png](../../static/img/image 28.png)
+![image.png](/img/image 28.png)
 
 [**事务的ACID特性**](https://zh.wikipedia.org/wiki/ACID)
 
@@ -367,7 +383,7 @@ drop直接删除视图
 
 利用delimiter设置结束符号
 
-![image.png](../../static/img/image 29.png)
+![image.png](/img/image 29.png)
 
 # ***企业规范约束***
 
