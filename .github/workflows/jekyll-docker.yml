@@ -1,0 +1,41 @@
+name: deploy 
+# 这个 action 的名字
+
+on:
+    push: 
+    # 代表每次 push 都会 turn on action
+    workflow_dispatch: 
+    # 代表我们也可以手动 turn on
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v2
+              with:
+                  submodules: true
+                  fetch-depth: 0
+
+            - name: setup
+              uses: peaceiris/actions-hugo@v2.6.0
+              with:
+                  hugo-version: "latest"
+                  extended: true 
+                  # 按需选择是否使用 hugo-extended
+
+            - name: build
+              run: hugo
+
+            - name: deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }} 
+                  # 生成的 token 就用在这里，因为下面用到 external repository
+                  EXTERNAL_REPOSITORY: Ada-Church-Closure/Ada-Church-Closure.github.io
+                  # 修改为你的 Github Pages 仓库
+                  PUBLISH_BRANCH: master 
+                  # 以及对应的分支 main/master
+                  PUBLISH_DIR: ./public 
+                  # 指定将自动部署得到的 public 文件夹 push 上去
+                  commit_message: ${{ github.event.head_commit.message }}
