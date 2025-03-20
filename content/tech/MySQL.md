@@ -35,7 +35,11 @@ delete:drop table if exists;
 delete from student;
 ```
 
-绝对不要用这样的方式去清空一张表1.遍历删除，会浪费时间和资源2.若设置auto increment 主键，那么再加入数据的时候会从原来增长的部分继续
+**绝对不要用这样的方式去清空一张表**
+
+1.遍历删除，会浪费时间和资源
+
+2.若设置auto increment 主键，那么再加入数据的时候会从原来增长的部分继续
 
 ```sql
 truncate table student;
@@ -59,11 +63,11 @@ search data from table:
 `select* from<tablename>`
 ```
 
-database definition language: create drop alter show
+**database** **definition** **language**: create drop alter show
 
-data manipulation language: insert delete update select
+**data** **manipulation** **language**: insert delete update select
 
-database control language: 关于数据库的角色控制？
+**database** **control** **language**: 关于数据库的角色控制？
 
 # 3.DataType
 
@@ -77,7 +81,9 @@ set存储原理？？？
 
 # 4.列属性完整性(重点)
 
-    auto_increment 必须是 primarykey主键
+```sql
+auto_increment 必须是 primarykey主键
+```
 
 ### **primary key主键：唯一性—>一组或者一个字段**
 
@@ -113,15 +119,15 @@ SQL内注释和代码注释
 
 主表：
 
-![image.png](/img/image 2.png)
+![image2.png](/img/image2.png)
 
 建立从表：
 
-![image.png](/img/image 3.png)
+![image3.png](/img/image3.png)
 
 从表：
 
-![image.png](/img/image 4.png)
+![image4.png](/img/image4.png)
 
 ```sql
 `alter table <tablename> add foreign key (<filedname>) references <tablename>(<filedname>);`
@@ -139,11 +145,11 @@ SQL内注释和代码注释
 
 级联：主表中的数据发生修改，从表中的外键对应字段的数据全部发生修改；
 
-![image.png](/img/image 5.png)
+![image5.png](/img/image5.png)
 
 如图：删除——set null
 
-![image.png](/img/image 6.png)
+![image6.png](/img/image6.png)
 
 # 5.数据库设计思维
 
@@ -181,19 +187,19 @@ Codd第三范式：消除传递依赖——根据实际情况，我们到底要�
 
 ### select
 
-![image.png](/img/image 7.png)
+![image7.png](/img/image7.png)
 
 ### from
 
 指定要查的表；返回两张表的笛卡尔积
 
-![image.png](/img/image 8.png)
+![image8.png](/img/image8.png)
 
 ### dual
 
 默认的一个虚拟表，单行单列
 
-![image.png](/img/image 9.png)
+![image9.png](/img/image9.png)
 
 ### where
 
@@ -203,13 +209,13 @@ Codd第三范式：消除传递依赖——根据实际情况，我们到底要�
 
 限定查询的字段的值在一个范围之内
 
-![image.png](/img/image 10.png)
+![image10.png](/img/image10.png)
 
 ### **between…and…**
 
 限制查询的范围在给定的闭区间内部
 
-![image.png](/img/image 11.png)
+![image11.png](/img/image11.png)
 
 ### is null
 
@@ -217,13 +223,17 @@ Codd第三范式：消除传递依赖——根据实际情况，我们到底要�
 
 ### 几种常见的聚合函数
 
-![image.png](/img/image 12.png)
+![image12.png](/img/image12.png)
 
-Q:select  count(*) and select count(1); what’s the difference?
+> [!TIP]
+>
+> **Q:select  count(*) and select count(1); **
+>
+> **what’s the difference?**
 
 ### like模糊查询——通配符
 
-![image.png](/img/image 13.png)
+![image13.png](/img/image13.png)
 
 ### group by分组查询
 
@@ -231,15 +241,15 @@ Q:select  count(*) and select count(1); what’s the difference?
 select <function-name>(<fieldname1>) as 'alias1', <fieldname2> as 'alias2' group by <fieldname2>;#要根据哪个字段去查询
 ```
 
-![image.png](/img/image 14.png)
+![image14.png](/img/image14.png)
 
 比如想求男性和女性的平均年龄：
 
-![image.png](/img/image 15.png)
+![image15.png](/img/image15.png)
 
 利用group_concat函数查询对应字段对应的实体
 
-![image.png](./img/image 16.png)
+![image16.png](./img/image16.png)
 
 ### having
 
@@ -249,7 +259,7 @@ select <function-name>(<fieldname1>) as 'alias1', <fieldname2> as 'alias2' group
 
 2.having对于查询之后的虚拟表使用——比如配合group_by(此时就不能使用where条件来处理)
 
-![image.png](/img/image 17.png)
+![image17.png](/img/image17.png)
 
 ### limit
 
@@ -259,7 +269,7 @@ select <function-name>(<fieldname1>) as 'alias1', <fieldname2> as 'alias2' group
 select <fieldname> from <tablename> limit <start-index>,<length>;
 ```
 
-![image.png](/img/image 18.png)
+![image18.png](/img/image18.png)
 
 ### distinct
 
@@ -271,7 +281,7 @@ select <fieldname> from <tablename> limit <start-index>,<length>;
 select (all) <fieldname> from <tablename>;
 ```
 
-![image.png](/img/image 19.png)
+![image19.png](/img/image19.png)
 
 至此，单表查询基础结束。
 
@@ -289,7 +299,7 @@ select… + union + DISTINCT + select…
 
 用两个表创建公共字段进行连接——内连接——有多张表就用多个inner进行连接
 
-![image.png](/img/image 20.png)
+![image20.png](/img/image20.png)
 
 ```sql
 select f1,f2 from t1 inner join t2 on t1.f3=t2.f4 (having score > 90);
@@ -297,7 +307,7 @@ select f1,f2 from t1 inner join t2 on t1.f3=t2.f4 (having score > 90);
 
 left join 以左表为一个基准（就算左边没有也要写上去 right join 同理）
 
-![image.png](/img/image 21.png)
+![image21.png](/img/image21.png)
 
 cross join返回两张表的笛卡尔积
 
@@ -313,17 +323,17 @@ using
 
 当两张表的字段完全相同的时候，using指定建立连接的公共字段
 
-![image.png](/img/image 22.png)
+![image22.png](/img/image22.png)
 
 # 8.子查询
 
 用一个select语句返回的数据范围作为限制的基准（用in和not in 来控制）
 
-![image.png](/img/image 23.png)
+![image23.png](/img/image23.png)
 
 只要存在就全部查询 exists and not exists
 
-![image.png](/img/image 24.png)
+![image24.png](/img/image24.png)
 
 至此，所有基础内容结束，以上的内容都是对于一名实习生来说最为重要的内容（每一种语法单独看来都是很好理解的，但是都联合起来的话就显得很困难），以下为扩展：
 
@@ -335,11 +345,11 @@ using
 
 创建视图
 
-![image.png](/img/image 25.png)
+![image25.png](/img/image25.png)
 
 以后就可以直接查询
 
-![image.png](/img/image 26.png)
+![image26.png](/img/image26.png)
 
 alter修改视图
 
@@ -359,11 +369,11 @@ drop直接删除视图
 
 处理非常严谨的操作，例如转账等
 
-![image.png](/img/image 27.png)
+![image27.png](/img/image27.png)
 
 设置回滚点 并且返回—— rollback to
 
-![image.png](/img/image 28.png)
+![image28.png](/img/image28.png)
 
 [**事务的ACID特性**](https://zh.wikipedia.org/wiki/ACID)
 
@@ -375,7 +385,7 @@ drop直接删除视图
 
 ## 3.index（索引）
 
-快速查询数据——实习生要理解到什么程度？
+快速查询数据——**实习生要理解到什么程度**？
 
 ## 4.存储过程
 
@@ -383,7 +393,7 @@ drop直接删除视图
 
 利用delimiter设置结束符号
 
-![image.png](/img/image 29.png)
+![image29.png](/img/image29.png)
 
 # ***企业规范约束***
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -15,7 +15,9 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/tech/mysql/" />
+  <link rel="canonical" href="https://Ada-Church-Closure.github.io/tech/mysql/" />
+  
+  
   
   
   
@@ -67,7 +69,7 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/tech/mysql/">
+  <meta property="og:url" content="https://Ada-Church-Closure.github.io/tech/mysql/">
   <meta property="og:site_name" content="Mio&#39;s Tea Time">
   <meta property="og:title" content="MySQL">
   <meta property="og:locale" content="en">
@@ -91,7 +93,7 @@
     
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/tech\/mysql\/",
+    "url" : "https:\/\/Ada-Church-Closure.github.io\/tech\/mysql\/",
     "author" : {
       "@type": "Person",
       "name": "mio"
@@ -105,7 +107,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "456"
+    "wordCount": "404"
   }]
   </script>
 
@@ -433,7 +435,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <span>456 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <span>404 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -642,7 +644,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">**`</span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name1</span><span class="o">&gt;</span><span class="w"> </span><span class="k">rename</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name2</span><span class="o">&gt;`**</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>绝对不要用这样的方式去清空一张表1.遍历删除，会浪费时间和资源2.若设置auto increment 主键，那么再加入数据的时候会从原来增长的部分继续</p>
+</span></span></span></code></pre></div><p><strong>绝对不要用这样的方式去清空一张表</strong></p>
+<p>1.遍历删除，会浪费时间和资源</p>
+<p>2.若设置auto increment 主键，那么再加入数据的时候会从原来增长的部分继续</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">truncate</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><p>直接报废表并且创建一张和原来一样的新表</p>
 
@@ -663,9 +667,9 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">`</span><span class="k">select</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fieldname</span><span class="p">,</span><span class="err">…</span><span class="o">&gt;</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablename</span><span class="o">&gt;</span><span class="p">;</span><span class="o">`</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="k">select</span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="o">&lt;</span><span class="n">tablename</span><span class="o">&gt;`</span><span class="w">
-</span></span></span></code></pre></div><p>database definition language: create drop alter show</p>
-<p>data manipulation language: insert delete update select</p>
-<p>database control language: 关于数据库的角色控制？</p>
+</span></span></span></code></pre></div><p><strong>database</strong> <strong>definition</strong> <strong>language</strong>: create drop alter show</p>
+<p><strong>data</strong> <strong>manipulation</strong> <strong>language</strong>: insert delete update select</p>
+<p><strong>database</strong> <strong>control</strong> <strong>language</strong>: 关于数据库的角色控制？</p>
 
 
 <h1 class="relative group">3.DataType 
@@ -694,9 +698,8 @@
     </span>        
     
 </h1>
-<pre><code>auto_increment 必须是 primarykey主键
-</code></pre>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">auto_increment</span><span class="w"> </span><span class="err">必须是</span><span class="w"> </span><span class="n">primarykey主键</span><span class="w">
+</span></span></span></code></pre></div>
 
 <h3 class="relative group"><strong>primary key主键：唯一性—&gt;一组或者一个字段</strong> 
     <div id="primary-key%E4%B8%BB%E9%94%AE%E5%94%AF%E4%B8%80%E6%80%A7%E4%B8%80%E7%BB%84%E6%88%96%E8%80%85%E4%B8%80%E4%B8%AA%E5%AD%97%E6%AE%B5" class="anchor"></div>
@@ -734,11 +737,26 @@
 </h3>
 <p>怎么在两张表之间建立联系？</p>
 <p>主表：</p>
-<p>![image.png](/img/image 2.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image2.png" alt="image2.png" />
+      
+    </figure>
+</p>
 <p>建立从表：</p>
-<p>![image.png](/img/image 3.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image3.png" alt="image3.png" />
+      
+    </figure>
+</p>
 <p>从表：</p>
-<p>![image.png](/img/image 4.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image4.png" alt="image4.png" />
+      
+    </figure>
+</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">`</span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablename</span><span class="o">&gt;</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">filedname</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">references</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablename</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">filedname</span><span class="o">&gt;</span><span class="p">);</span><span class="o">`</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="k">show</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablename</span><span class="o">&gt;</span><span class="p">;</span><span class="o">`</span><span class="w">
@@ -758,9 +776,19 @@
 </h2>
 <p>置空：主表中的数据被删除，那么从表中的数据依然保存，但是外键的被删除的字段为NULL；</p>
 <p>级联：主表中的数据发生修改，从表中的外键对应字段的数据全部发生修改；</p>
-<p>![image.png](/img/image 5.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image5.png" alt="image5.png" />
+      
+    </figure>
+</p>
 <p>如图：删除——set null</p>
-<p>![image.png](/img/image 6.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image6.png" alt="image6.png" />
+      
+    </figure>
+</p>
 
 
 <h1 class="relative group">5.数据库设计思维 
@@ -856,7 +884,12 @@
     </span>        
     
 </h3>
-<p>![image.png](/img/image 7.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image7.png" alt="image7.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">from 
@@ -870,7 +903,12 @@
     
 </h3>
 <p>指定要查的表；返回两张表的笛卡尔积</p>
-<p>![image.png](/img/image 8.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image8.png" alt="image8.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">dual 
@@ -884,7 +922,12 @@
     
 </h3>
 <p>默认的一个虚拟表，单行单列</p>
-<p>![image.png](/img/image 9.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image9.png" alt="image9.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">where 
@@ -911,7 +954,12 @@
     
 </h3>
 <p>限定查询的字段的值在一个范围之内</p>
-<p>![image.png](/img/image 10.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image10.png" alt="image10.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group"><strong>between…and…</strong> 
@@ -925,7 +973,12 @@
     
 </h3>
 <p>限制查询的范围在给定的闭区间内部</p>
-<p>![image.png](/img/image 11.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image11.png" alt="image11.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">is null 
@@ -951,8 +1004,16 @@
     </span>        
     
 </h3>
-<p>![image.png](/img/image 12.png)</p>
-<p>Q:select  count(*) and select count(1); what’s the difference?</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image12.png" alt="image12.png" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>[!TIP]</p>
+<p>**Q:select  count(*) and select count(1); **</p>
+<p><strong>what’s the difference?</strong></p></blockquote>
 
 
 <h3 class="relative group">like模糊查询——通配符 
@@ -965,7 +1026,12 @@
     </span>        
     
 </h3>
-<p>![image.png](/img/image 13.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image13.png" alt="image13.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">group by分组查询 
@@ -979,11 +1045,26 @@
     
 </h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">&lt;</span><span class="k">function</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">fieldname1</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s1">&#39;alias1&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fieldname2</span><span class="o">&gt;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s1">&#39;alias2&#39;</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fieldname2</span><span class="o">&gt;</span><span class="p">;</span><span class="o">#</span><span class="err">要根据哪个字段去查询</span><span class="w">
-</span></span></span></code></pre></div><p>![image.png](/img/image 14.png)</p>
+</span></span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image14.png" alt="image14.png" />
+      
+    </figure>
+</p>
 <p>比如想求男性和女性的平均年龄：</p>
-<p>![image.png](/img/image 15.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image15.png" alt="image15.png" />
+      
+    </figure>
+</p>
 <p>利用group_concat函数查询对应字段对应的实体</p>
-<p>![image.png](./img/image 16.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/image16.png" alt="image16.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">having 
@@ -999,7 +1080,12 @@
 <p>和where一样作为条件筛选，但是：</p>
 <p>1.where是根据条件对于实际存在于数据库中的数据进行筛选</p>
 <p>2.having对于查询之后的虚拟表使用——比如配合group_by(此时就不能使用where条件来处理)</p>
-<p>![image.png](/img/image 17.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image17.png" alt="image17.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">limit 
@@ -1014,7 +1100,12 @@
 </h3>
 <p>选取顺序中的下标范围</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fieldname</span><span class="o">&gt;</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablename</span><span class="o">&gt;</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="o">&lt;</span><span class="k">start</span><span class="o">-</span><span class="k">index</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="k">length</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>![image.png](/img/image 18.png)</p>
+</span></span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image18.png" alt="image18.png" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">distinct 
@@ -1030,7 +1121,12 @@
 <p>去重复关键字</p>
 <p>默认情况下有all</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="p">(</span><span class="k">all</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fieldname</span><span class="o">&gt;</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablename</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>![image.png](/img/image 19.png)</p>
+</span></span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image19.png" alt="image19.png" />
+      
+    </figure>
+</p>
 <p>至此，单表查询基础结束。</p>
 
 
@@ -1071,17 +1167,32 @@
     
 </h3>
 <p>用两个表创建公共字段进行连接——内连接——有多张表就用多个inner进行连接</p>
-<p>![image.png](/img/image 20.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image20.png" alt="image20.png" />
+      
+    </figure>
+</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">f3</span><span class="o">=</span><span class="n">t2</span><span class="p">.</span><span class="n">f4</span><span class="w"> </span><span class="p">(</span><span class="k">having</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">90</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><p>left join 以左表为一个基准（就算左边没有也要写上去 right join 同理）</p>
-<p>![image.png](/img/image 21.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image21.png" alt="image21.png" />
+      
+    </figure>
+</p>
 <p>cross join返回两张表的笛卡尔积</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">cross</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><p>natural join自动寻找公共字段并且建立inner join的连接</p>
 <p>没有公共字段就返回cross join的结果</p>
 <p>using</p>
 <p>当两张表的字段完全相同的时候，using指定建立连接的公共字段</p>
-<p>![image.png](/img/image 22.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image22.png" alt="image22.png" />
+      
+    </figure>
+</p>
 
 
 <h1 class="relative group">8.子查询 
@@ -1095,9 +1206,19 @@
     
 </h1>
 <p>用一个select语句返回的数据范围作为限制的基准（用in和not in 来控制）</p>
-<p>![image.png](/img/image 23.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image23.png" alt="image23.png" />
+      
+    </figure>
+</p>
 <p>只要存在就全部查询 exists and not exists</p>
-<p>![image.png](/img/image 24.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image24.png" alt="image24.png" />
+      
+    </figure>
+</p>
 <p>至此，所有基础内容结束，以上的内容都是对于一名实习生来说最为重要的内容（每一种语法单独看来都是很好理解的，但是都联合起来的话就显得很困难），以下为扩展：</p>
 
 
@@ -1125,9 +1246,19 @@
 </h2>
 <p>作用：简化SQL查询；掩盖敏感数据</p>
 <p>创建视图</p>
-<p>![image.png](/img/image 25.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image25.png" alt="image25.png" />
+      
+    </figure>
+</p>
 <p>以后就可以直接查询</p>
-<p>![image.png](/img/image 26.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image26.png" alt="image26.png" />
+      
+    </figure>
+</p>
 <p>alter修改视图</p>
 <p>drop直接删除视图</p>
 <p>视图底层算法（在使用子查询创建视图的时候）</p>
@@ -1148,9 +1279,19 @@
     
 </h2>
 <p>处理非常严谨的操作，例如转账等</p>
-<p>![image.png](/img/image 27.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image27.png" alt="image27.png" />
+      
+    </figure>
+</p>
 <p>设置回滚点 并且返回—— rollback to</p>
-<p>![image.png](/img/image 28.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image28.png" alt="image28.png" />
+      
+    </figure>
+</p>
 <p><a href="https://zh.wikipedia.org/wiki/ACID" target="_blank"><strong>事务的ACID特性</strong></a></p>
 <p>原子：一个事务不可再分，要么全部执行，要么不执行</p>
 <p>隔离：多个事务同时对一个数据库进行操作，不会产生冲突</p>
@@ -1167,7 +1308,7 @@
     </span>        
     
 </h2>
-<p>快速查询数据——实习生要理解到什么程度？</p>
+<p>快速查询数据——<strong>实习生要理解到什么程度</strong>？</p>
 
 
 <h2 class="relative group">4.存储过程 
@@ -1182,7 +1323,12 @@
 </h2>
 <p>提前写好SQL一次执行，有点像函数</p>
 <p>利用delimiter设置结束符号</p>
-<p>![image.png](/img/image 29.png)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image29.png" alt="image29.png" />
+      
+    </figure>
+</p>
 
 
 <h1 class="relative group"><em><strong>企业规范约束</strong></em> 
@@ -1338,6 +1484,26 @@
         </span>
         <span>
           
+            <a class="flex text-right group ml-3" href="/tech/csappattacklab/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >CSAPP:AttackLab</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
         </span>
       </div>
     </div>
@@ -1415,7 +1581,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/"
+  data-url="https://Ada-Church-Closure.github.io/"
   style="z-index:500"
 >
   <div
