@@ -19,11 +19,10 @@
   name = "Author"
   weight = 20
 
-#[[main]]
-#  name = "example sub-menu 1"
-#  parent = "Parent"
-#  pageRef = "posts"
-#  weight = 20
+[[main]]
+  name = "Thinking"
+  pageRef = "thinking"
+  weight = 20
 
 #[[main]]
 #  name = "example sub-menu 2"
