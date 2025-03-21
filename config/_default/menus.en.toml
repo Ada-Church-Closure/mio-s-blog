@@ -24,11 +24,11 @@
   pageRef = "thinking"
   weight = 20
 
-#[[main]]
-#  name = "example sub-menu 2"
-#  parent = "Parent"
-#  pageRef = "posts"
-#  weight = 20
+[[main]]
+  pre = "github"
+  url = "https://github.com/Ada-Church-Closure"
+  weight = 30
+  
 
 #[[subnavigation]]
 #  name = "An interesting topic"
