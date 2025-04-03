@@ -12,43 +12,43 @@
     <lastBuildDate>Sat, 08 Mar 2025 21:28:15 +0800</lastBuildDate><atom:link href="https://Ada-Church-Closure.github.io/tech/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>CSAPP:AttackLab</title>
-      <link>https://Ada-Church-Closure.github.io/tech/csappattacklab/</link>
-      <pubDate>Thu, 20 Mar 2025 15:49:11 +0800</pubDate>
-      <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>https://Ada-Church-Closure.github.io/tech/csappattacklab/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>MySQL</title>
       <link>https://Ada-Church-Closure.github.io/tech/mysql/</link>
       <pubDate>Wed, 12 Mar 2025 18:02:43 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
       <guid>https://Ada-Church-Closure.github.io/tech/mysql/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/mysql/featured3.jpg" />
     </item>
     
     <item>
-      <title>ComputerOrgnization</title>
+      <title></title>
       <link>https://Ada-Church-Closure.github.io/tech/computerorgnization/</link>
-      <pubDate>Mon, 10 Mar 2025 12:35:52 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
       <guid>https://Ada-Church-Closure.github.io/tech/computerorgnization/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/computerorgnization/featured.png" />
     </item>
     
     <item>
-      <title>CSAPP:BombLab</title>
+      <title></title>
+      <link>https://Ada-Church-Closure.github.io/tech/csappattacklab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>nunotabashinobu066@gmail.com (mio)</author>
+      <guid>https://Ada-Church-Closure.github.io/tech/csappattacklab/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/csappattacklab/featured1.png" />
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://Ada-Church-Closure.github.io/tech/csappbomblab/</link>
-      <pubDate>Sun, 09 Mar 2025 18:11:55 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
       <guid>https://Ada-Church-Closure.github.io/tech/csappbomblab/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/csappbomblab/featured2.png" />
     </item>
     
   </channel>

@@ -4,6 +4,8 @@ draft = false
 title = 'CSAPP:BombLab'
 +++
 
+> 本期封面是动漫《轻音少女》第一季时唯一律澪之间发生小矛盾的故事，此时，她们三个正在远远的看着mio......
+
 # CSAPP:BombLab
 
 > [!NOTE]

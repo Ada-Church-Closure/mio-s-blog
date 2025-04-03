@@ -5,6 +5,8 @@ title = 'CSAPP:AttackLab'
 
 +++
 
+> 本期封面是动漫《Girls Band Cry》的主角团一行人参拜时的场景。
+
 # CSAPP:AttackLab
 
 > [!WARNING]
