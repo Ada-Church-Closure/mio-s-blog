@@ -16,18 +16,19 @@
   weight = 10
 
 [[main]]
-  name = "Author"
-  weight = 20
-
-[[main]]
   name = "Thinking"
   pageRef = "thinking"
   weight = 20
 
 [[main]]
+  name = "Author"
+  pageRef = "author"
+  weight = 30
+  
+[[main]]
   pre = "github"
   url = "https://github.com/Ada-Church-Closure"
-  weight = 30
+  weight = 40
   
 
 #[[subnavigation]]

@@ -27,8 +27,20 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/tech/mysql/</loc>
+    <lastmod>2025-03-12T18:02:43+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/tech/computerorgnization/</loc>
     <lastmod>2025-03-10T12:35:52+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tech/csappbomblab/</loc>
+    <lastmod>2025-03-09T18:11:55+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -39,12 +51,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tech/csappbomblab/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tech/mysql/</loc>
+    <loc>http://localhost:1313/author/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
