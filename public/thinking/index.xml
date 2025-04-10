@@ -2,23 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thinking on Mio&#39;s Tea Time</title>
-    <link>http://localhost:1313/thinking/</link>
+    <link>https://Ada-Church-Closure.github.io/thinking/</link>
     <description>Recent content in Thinking on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Fri, 21 Mar 2025 18:02:52 +0800</lastBuildDate><atom:link href="http://localhost:1313/thinking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Mar 2025 18:02:52 +0800</lastBuildDate><atom:link href="https://Ada-Church-Closure.github.io/thinking/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>IT:Solving_Problems</title>
-      <link>http://localhost:1313/thinking/itsolving_problems/</link>
+      <link>https://Ada-Church-Closure.github.io/thinking/itsolving_problems/</link>
       <pubDate>Fri, 21 Mar 2025 18:05:17 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/thinking/itsolving_problems/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thinking/itsolving_problems/featured.png" />
+      <guid>https://Ada-Church-Closure.github.io/thinking/itsolving_problems/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本期封面是《響け！ユーフォニアム》配角之一，中川夏纪，声音真的很好听，听说这个动漫到《利兹与青鸟》就完结了来着（？）&lt;/p&gt;&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;&lt;strong&gt;关于IT行业的看法（IT另解笔记）&lt;/strong&gt; 
+    &lt;div id=&#34;%E5%85%B3%E4%BA%8Eit%E8%A1%8C%E4%B8%9A%E7%9A%84%E7%9C%8B%E6%B3%95it%E5%8F%A6%E8%A7%A3%E7%AC%94%E8%AE%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E5%85%B3%E4%BA%8Eit%E8%A1%8C%E4%B8%9A%E7%9A%84%E7%9C%8B%E6%B3%95it%E5%8F%A6%E8%A7%A3%E7%AC%94%E8%AE%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;学历在CS的行业不会成为任何优势（但是它重要），过硬的技术和能力才是，记清楚这一点，才不会盲目。请勿再将未来的希望寄托在你所在的学校身上了，你的一切，你的兴趣，都要自己费力去追寻&amp;hellip;&amp;hellip;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Caution!本篇博文是强烈带有主观意见的意识流笔记，并且部分观点可能跟不上时代（2021年），因为我们的国家每天都在大步前进口牙！！！并且不代表笔者的全部观点，但是希望能对于在校的尚对于目标不明确的学生带来一些帮助，视频来源（https://space.bilibili.com/19658621），顺带推荐一下他的C语言视频，如果你还没有学过，或者已经工作但是有进一步理解的需要，学习一下这个视频，会颠覆你对于POP编程的认知。&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;要明确的几个点 
+    &lt;div id=&#34;%E8%A6%81%E6%98%8E%E7%A1%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E8%A6%81%E6%98%8E%E7%A1%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;专业不是职业。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/thinking/itsolving_problems/featured.png" />
     </item>
     
   </channel>
