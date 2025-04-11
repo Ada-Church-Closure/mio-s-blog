@@ -3,61 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://Ada-Church-Closure.github.io/tech/csappoptimizationlab/</loc>
+    <loc>http://localhost:1313/tech/csappoptimizationlab/</loc>
     <lastmod>2025-04-10T23:57:57+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-04-10T23:57:57+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/thinking/itsolving_problems/</loc>
+    <loc>http://localhost:1313/thinking/itsolving_problems/</loc>
     <lastmod>2025-03-21T18:05:17+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/thinking/</loc>
+    <loc>http://localhost:1313/thinking/</loc>
     <lastmod>2025-03-21T18:02:52+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/tech/csappattacklab/</loc>
+    <loc>http://localhost:1313/tech/csappattacklab/</loc>
     <lastmod>2025-03-20T15:49:11+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/tech/mysql/</loc>
+    <loc>http://localhost:1313/tech/mysql/</loc>
     <lastmod>2025-03-12T18:02:43+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/tech/computerorgnization/</loc>
+    <loc>http://localhost:1313/tech/computerorgnization/</loc>
     <lastmod>2025-03-10T12:35:52+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/tech/csappbomblab/</loc>
+    <loc>http://localhost:1313/tech/csappbomblab/</loc>
     <lastmod>2025-03-09T18:11:55+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/tech/</loc>
+    <loc>http://localhost:1313/tech/</loc>
     <lastmod>2025-03-08T21:28:15+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://Ada-Church-Closure.github.io/author/</loc>
+    <loc>http://localhost:1313/author/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
