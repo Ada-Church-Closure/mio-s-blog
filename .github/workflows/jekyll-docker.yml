@@ -20,7 +20,7 @@ jobs:
             - name: setup
               uses: peaceiris/actions-hugo@v2.6.0
               with:
-                  hugo-version: "latest"
+                  hugo-version: "0.143.0"
                   extended: true 
                   # 按需选择是否使用 hugo-extended
 
