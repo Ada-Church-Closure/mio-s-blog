@@ -125,13 +125,13 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   cardViewScreenWidth = false
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
+   apiKey = "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co"
+   authDomain = "mio-s-app.firebaseapp.com"
+   projectId = "mio-s-app"
+   storageBucket = "mio-s-app.firebasestorage.app"
+   messagingSenderId = "491061548873"
+   appId = "1:491061548873:web:9de625ab436bdfd1e3ec98"
+   measurementId = "G-EH5EXVC7V4"
 
 [fathomAnalytics]
   # site = "ABC12345"
