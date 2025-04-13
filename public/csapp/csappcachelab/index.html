@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>CSAPP:CacheLab &middot; Mio&#39;s Tea Time</title>
+  <meta name="title" content="CSAPP:CacheLab &middot; Mio&#39;s Tea Time" />
+  
+  <meta name="description" content="Mio&#39;s Tea Time" />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/csapp/csappcachelab/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
+    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/csapp/csappcachelab/">
+  <meta property="og:site_name" content="Mio&#39;s Tea Time">
+  <meta property="og:title" content="CSAPP:CacheLab">
+  <meta property="og:description" content="CSAPP:CacheLab # 本次lab分为A和B两部分，我先看情况做，并且会部分引用我校助教撰写的一些内容以及思考题，首先我们要熟悉一下Cache的工作原理，关于这一部分的内容，你也可以看我的ComputerOrgnization中的内容（写的不怎么样，你最好还是看课本，而且我还建议你做一下课本上的习题），A部分是实现一个3级Cache，实现的过程中我们应当会对Cache的工作原理更加熟悉，B部分是优化矩阵转置函数，我认为会教会我们什么是Cahce友好的代码。
+注意：以下不会从零开始讲述Cache的知识，并且不要抄袭，不要抄袭，不要抄袭。
+Cache:计算机的世界无处不在的伟大思想……
+熟悉：">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="csapp">
+    <meta property="article:published_time" content="2025-04-13T18:04:22+08:00">
+    <meta property="article:modified_time" content="2025-04-13T18:04:22+08:00">
+    <meta property="og:image" content="http://localhost:1313/csapp/csappcachelab/featured.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/csapp/csappcachelab/featured.png">
+  <meta name="twitter:title" content="CSAPP:CacheLab">
+  <meta name="twitter:description" content="CSAPP:CacheLab # 本次lab分为A和B两部分，我先看情况做，并且会部分引用我校助教撰写的一些内容以及思考题，首先我们要熟悉一下Cache的工作原理，关于这一部分的内容，你也可以看我的ComputerOrgnization中的内容（写的不怎么样，你最好还是看课本，而且我还建议你做一下课本上的习题），A部分是实现一个3级Cache，实现的过程中我们应当会对Cache的工作原理更加熟悉，B部分是优化矩阵转置函数，我认为会教会我们什么是Cahce友好的代码。
+注意：以下不会从零开始讲述Cache的知识，并且不要抄袭，不要抄袭，不要抄袭。
+Cache:计算机的世界无处不在的伟大思想……
+熟悉：">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "CSAPP:CacheLab",
+    "headline": "CSAPP:CacheLab",
+    
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eCSAPP:CacheLab \n    \u003cdiv id=\u0022csappcachelab\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#csappcachelab\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e本次lab分为A和B两部分，我先看情况做，并且会部分引用我校助教撰写的一些内容以及思考题，首先我们要熟悉一下Cache的工作原理，关于这一部分的内容，你也可以看我的ComputerOrgnization中的内容（写的不怎么样，你最好还是看课本，而且我还建议你做一下课本上的习题），A部分是实现一个3级Cache，实现的过程中我们应当会对Cache的工作原理更加熟悉，B部分是优化矩阵转置函数，我认为会教会我们什么是Cahce友好的代码。\u003c\/p\u003e\n\u003cp\u003e注意：以下不会从零开始讲述Cache的知识，并且\u003cstrong\u003e不要抄袭，不要抄袭，不要抄袭\u003c\/strong\u003e。\u003c\/p\u003e\n\u003cp\u003eCache:计算机的世界无处不在的伟大思想\u0026hellip;\u0026hellip;\u003c\/p\u003e\u003c\/blockquote\u003e\n\u003cp\u003e熟悉：\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/csapp\/csappcachelab\/",
+    "author" : {
+      "@type": "Person",
+      "name": "mio"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-04-13T18:04:22\u002b08:00",
+    "datePublished": "2025-04-13T18:04:22\u002b08:00",
+    
+    "dateModified": "2025-04-13T18:04:22\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1317"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="mio" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    
+    
+    <div>
+        <a href="/" class="flex">
+            <span class="sr-only">Mio&rsquo;s Tea Time</span>
+
+            
+            <img src="/img/logo.png" width="342" height="318"
+                class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Mio&#39;s Tea Time" />
+            
+
+        </a>
+    </div>
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Mio&rsquo;s Tea Time</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Class
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            CS:APP
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tech">
+        Tech
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Thinking">
+        Thinking
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Author
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Class
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            CS:APP
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tech">
+            Tech
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Thinking">
+            Thinking
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Author
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      CSAPP:CacheLab
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-04-13T18:04:22&#43;08:00">13 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1317 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="views_csapp/CSAPP:CacheLab/index.md" class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400" title="views">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="likes_csapp/CSAPP:CacheLab/index.md"
+    class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400"
+    title="likes">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+    <button id="button_likes"
+        class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+        onclick="process_article()">
+        <span id="button_likes_heart" style="display:none" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+ </span>
+        <span id="button_likes_emtpty_heart" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
+  </span>
+
+</span>
+        <span id="button_likes_text">&nbsp;Like</span>
+    </button>
+</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cacheline的组织方式">CacheLine的组织方式</a></li>
+    <li><a href="#处理写操作的方法">处理写操作的方法</a></li>
+    <li><a href="#多级cache的包含准则inclusion-policy">多级cache的包含准则(inclusion policy)</a></li>
+    <li><a href="#三级cache模拟器">三级Cache模拟器</a></li>
+    <li><a href="#关于cache的一些思考">关于Cache的一些思考</a>
+      <ul>
+        <li><a href="#-折中方案viptvirtual-index-physical-tag">🤝 折中方案：<strong>VIPT（Virtual Index, Physical Tag）</strong></a>
+          <ul>
+            <li><a href="#-优势">✅ 优势：</a></li>
+            <li><a href="#-设计要点">📌 设计要点：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cacheline的组织方式">CacheLine的组织方式</a></li>
+    <li><a href="#处理写操作的方法">处理写操作的方法</a></li>
+    <li><a href="#多级cache的包含准则inclusion-policy">多级cache的包含准则(inclusion policy)</a></li>
+    <li><a href="#三级cache模拟器">三级Cache模拟器</a></li>
+    <li><a href="#关于cache的一些思考">关于Cache的一些思考</a>
+      <ul>
+        <li><a href="#-折中方案viptvirtual-index-physical-tag">🤝 折中方案：<strong>VIPT（Virtual Index, Physical Tag）</strong></a>
+          <ul>
+            <li><a href="#-优势">✅ 优势：</a></li>
+            <li><a href="#-设计要点">📌 设计要点：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">CSAPP:CacheLab 
+    <div id="csappcachelab" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#csappcachelab" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>本次lab分为A和B两部分，我先看情况做，并且会部分引用我校助教撰写的一些内容以及思考题，首先我们要熟悉一下Cache的工作原理，关于这一部分的内容，你也可以看我的ComputerOrgnization中的内容（写的不怎么样，你最好还是看课本，而且我还建议你做一下课本上的习题），A部分是实现一个3级Cache，实现的过程中我们应当会对Cache的工作原理更加熟悉，B部分是优化矩阵转置函数，我认为会教会我们什么是Cahce友好的代码。</p>
+<p>注意：以下不会从零开始讲述Cache的知识，并且<strong>不要抄袭，不要抄袭，不要抄袭</strong>。</p>
+<p>Cache:计算机的世界无处不在的伟大思想&hellip;&hellip;</p></blockquote>
+<p>熟悉：</p>
+
+
+<h2 class="relative group">CacheLine的组织方式 
+    <div id="cacheline%E7%9A%84%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cacheline%E7%9A%84%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>可以看成是一个元素是CacheLine的二维数组。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/cachelab_memory_orgnization.png" alt="https://xjtu-ics.github.io/assets/images/cachelab_memory_orgnization.png" />
+      
+    </figure>
+</p>
+<p>E = 1:直接映射</p>
+<p>S = 1：全相联映射</p>
+
+
+<h2 class="relative group">处理写操作的方法 
+    <div id="%E5%A4%84%E7%90%86%E5%86%99%E6%93%8D%E4%BD%9C%E7%9A%84%E6%96%B9%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%84%E7%90%86%E5%86%99%E6%93%8D%E4%BD%9C%E7%9A%84%E6%96%B9%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>cache处理写操作的流程比读取要复杂，因为写入操作涉及<strong>数据的更改</strong>，一旦涉及修改操作，就会带来各种一致性问题，因此cache需要合理的处理数据更改的时机和范围。同时还需要处理写miss的情况。我们在这里简要介绍一下有关写cache的一些问题和处理机制。</p>
+<p>一般而言，对于写入操作，cache一般有两种处理机制，分别是：</p>
+<ul>
+<li><strong>write back（写回）</strong>：即数据的修改只发生在当前这一级cache中，通常会引入一个<strong>dirty</strong>标记位，表示cache中的数据和下一级cache（或内存）中的数据<strong>不一致</strong>，只有在当前的cacheline被evict的时候才会将数据写回到下一级cache（或内存）。</li>
+<li><strong>write through（写直达）</strong>：顾名思义，写入操作会同时将数据写入到当前cache和下一级cache（或内存中），因此二者的数据是同步的。</li>
+</ul>
+<p>除了上述的两种策略，cache还需要确定如何处理write miss的情况，一般而言，也有两种方法：</p>
+<ul>
+<li><strong>write allocate（写分配）</strong>：当发生cache miss时，需要访问下一级cache（或内存）将需要的cache line加载到当前cache中，然后再修改这个cache line中的内容</li>
+<li><strong>no write allocate（写不分配）</strong>：当发生cache miss时，无需修改当前cache中的内容，直接写入下一级cache（或内存）</li>
+</ul>
+<p>上述策略两两组合可以产生4种不同的写策略，但是一般常见的只有以下两种：</p>
+<ul>
+<li>
+<p><strong>write back/write allocate</strong>：即写回+写分配策略（图片来自wiki）</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/1024px-Write-back_with_write-allocation.svg.png" alt="undefined" />
+      
+    </figure>
+</p>
+<p><strong>write through/no write allocate</strong>：即写直达+写不分配策略</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/1024px-Write-through_with_no-write-allocation.svg.png" alt="undefined" />
+      
+    </figure>
+</p>
+</li>
+</ul>
+<blockquote>
+<p>Q：为什么没有写回和写不分配的操作？</p>
+<p>A：试想一下这样的情况：有二级缓存L1和L2,我们在L1写某个内存时发生了CacheMiss，假如我们写这个的概率很高，那么这块内存应该加载到L1才更加合理，但是每次都会发生CacheMiss，这不符合时间局部性的要求。另外一种方式也可以这样思考一下。</p></blockquote>
+
+
+<h2 class="relative group">多级cache的包含准则(inclusion policy) 
+    <div id="%E5%A4%9A%E7%BA%A7cache%E7%9A%84%E5%8C%85%E5%90%AB%E5%87%86%E5%88%99inclusion-policy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%9A%E7%BA%A7cache%E7%9A%84%E5%8C%85%E5%90%AB%E5%87%86%E5%88%99inclusion-policy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>这是本Lab的重中之重，请务必仔细理解。</p></blockquote>
+<p>包含性策略：更高层次的，访问速度更快的cache包含的内容是下层cache的一个子集。</p>
+<p>现代处理器中的 <strong>L1 和 L2 Cache</strong> 可能采用不同的 <strong>一致性策略</strong>，主要有：</p>
+<ul>
+<li><strong>包容式（Inclusive）Cache</strong>：L2 <strong>必须包含</strong> L1 中的所有数据。</li>
+<li><strong>非包容式（Non-Inclusive）Cache</strong>：L1 和 L2 <strong>不必强制包含相同数据</strong>，可以各自缓存不同的数据。</li>
+<li><strong>独占式（Exclusive）Cache</strong>：L1 和 L2 <strong>不共享数据</strong>，数据只存在一个层级。</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/Inclusive.png" alt="https://xjtu-ics.github.io/assets/images/Inclusive.png" />
+      
+    </figure>
+</p>
+<p>如上图的一个模拟情况：</p>
+<p>多余不再赘述，我们只需要注意这样两点：</p>
+<p>1.上层的存储不断Cache Miss时，直到找到没有Cache Miss的这样一层，接着要把这个数据加载到之前Cache Miss的每一层。</p>
+<p>2.当下层的存储发生Cache Evict时，我们要把这一层之上的所有这个数据置为无效，显然，对于<strong>Inclusive</strong> <strong>Policy</strong>，如果不驱逐就不满足子集条件。</p>
+
+
+<h2 class="relative group">三级Cache模拟器 
+    <div id="%E4%B8%89%E7%BA%A7cache%E6%A8%A1%E6%8B%9F%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%89%E7%BA%A7cache%E6%A8%A1%E6%8B%9F%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>我们要实现这样一个Cache：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/three_level_cache.png" alt="https://xjtu-ics.github.io/assets/images/three_level_cache.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>
+<p>L1分为L1D（数据读写）和L1I（指令读取）两个分离的cache，并且L1I是<strong>只读</strong>的。</p>
+</li>
+<li>
+<p>L1和L2为<strong>每个核心私有</strong></p>
+</li>
+<li>
+<p>L2为unfied cache，也就是会<strong>同时存储指令和数据</strong></p>
+</li>
+<li>
+<p>L3为unfied cache，且<strong>所有核心共享</strong></p>
+<p>每个Cache的具体配置，方便查阅：</p>
+<p>每个cache的具体配置如下：</p>
+<ul>
+<li>L1D(I) cache
+<ul>
+<li>size: 64B</li>
+<li>set: 4</li>
+<li>associativity: 2-way</li>
+<li>cache line size: 8B</li>
+<li>write policy: write back + write allocate</li>
+</ul>
+</li>
+<li>L2 cache
+<ul>
+<li>size: 256B</li>
+<li>set: 8</li>
+<li>associativity: 4-way</li>
+<li>cache line size: 8B</li>
+<li>write poliy: write back + write allocate</li>
+<li>inclusion policy: inclusive</li>
+</ul>
+</li>
+<li>L3 cache
+<ul>
+<li>size: 2KB</li>
+<li>set: 16</li>
+<li>associativity: 8-way</li>
+<li>cache line size: 16B</li>
+<li>write policy: write back + write allocate</li>
+<li>inclusion policy: inclusive</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>我们实现单核的CPU中的缓存机制，不考虑并发访问和与核心的缓存一致性问题。</p>
+<p>小小吐槽一下：我们学校的助教简直已经把lab喂到嘴里了，把一整个lab变成了leetcode一样的核心代码模式，这样不好，但是门槛会变低。</p>
+<p>（对不起，误会了，还是挺难的&hellip;&hellip;）</p></blockquote>
+<p>先读一下定义的头文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * cachelab.h - Prototypes for Cache Lab helper functions
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#ifndef CACHE_LAB_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define CACHE_LAB_H
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define L1_SET_NUM 4
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define L1_LINE_NUM 2
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define L1_CACHELINE_SIZE 8
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define L2_SET_NUM 8
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define L2_LINE_NUM 4
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define L2_CACHELINE_SIZE 8
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define L3_SET_NUM 16
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define L3_LINE_NUM 8
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define L3_CACHELINE_SIZE 16
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define ADDRESS_LENGTH 64
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define MAX_TRANS_FUNCS 100
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//核心的CacheLine是一个结构体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">bool</span> <span class="n">valid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">bool</span> <span class="n">dirty</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint64_t</span> <span class="n">tag</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint64_t</span> <span class="n">latest_used</span><span class="p">;</span> <span class="c1">// for LRU
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">CacheLine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">trans_func</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func_ptr</span><span class="p">)(</span><span class="kt">int</span> <span class="n">M</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="kt">int</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">M</span><span class="p">],</span> <span class="kt">int</span><span class="p">[</span><span class="n">M</span><span class="p">][</span><span class="n">N</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">correct</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num_hits</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num_misses</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num_evictions</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kt">trans_func_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// defined in csim.c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">extern</span> <span class="n">CacheLine</span> <span class="n">l1dcache</span><span class="p">[</span><span class="n">L1_SET_NUM</span><span class="p">][</span><span class="n">L1_LINE_NUM</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// L1 Instruction Cache
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">extern</span> <span class="n">CacheLine</span> <span class="n">l1icache</span><span class="p">[</span><span class="n">L1_SET_NUM</span><span class="p">][</span><span class="n">L1_LINE_NUM</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// L2 Unified Cache
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">extern</span> <span class="n">CacheLine</span> <span class="n">l2ucache</span><span class="p">[</span><span class="n">L2_SET_NUM</span><span class="p">][</span><span class="n">L2_LINE_NUM</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// L2 Unified Cache
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">extern</span> <span class="n">CacheLine</span> <span class="n">l3ucache</span><span class="p">[</span><span class="n">L3_SET_NUM</span><span class="p">][</span><span class="n">L3_LINE_NUM</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* Fill the matrix with data */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">initMatrix</span><span class="p">(</span><span class="kt">int</span> <span class="n">M</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="kt">int</span> <span class="n">A</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">M</span><span class="p">],</span> <span class="kt">int</span> <span class="n">B</span><span class="p">[</span><span class="n">M</span><span class="p">][</span><span class="n">N</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* The baseline trans function that produces correct results. */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">correctTrans</span><span class="p">(</span><span class="kt">int</span> <span class="n">M</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="kt">int</span> <span class="n">A</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">M</span><span class="p">],</span> <span class="kt">int</span> <span class="n">B</span><span class="p">[</span><span class="n">M</span><span class="p">][</span><span class="n">N</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* Add the given function to the function list */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">registerTransFunction</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">trans</span><span class="p">)(</span><span class="kt">int</span> <span class="n">M</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="kt">int</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">M</span><span class="p">],</span> <span class="kt">int</span><span class="p">[</span><span class="n">M</span><span class="p">][</span><span class="n">N</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">                           <span class="kt">char</span> <span class="o">*</span><span class="n">desc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></div><p>实现的时候我们按照如下的顺序（程序框图,假设我们在访问第i级Cache）：</p>
+<ol>
+<li>根据内存地址得到相应的tag，set字段的值</li>
+<li>检查第 i 级cache是否命中</li>
+<li>如果命中，跳到<strong>第8步</strong></li>
+<li>否则，继续访问下一级cache（或内存）获取数据</li>
+<li>在本级cache对应的set中找一个invalid的cache line，用于放置从下一级cache（或内存）加载的cache line，如果有多个invalid的cache line，<strong>选择下标最小的一个</strong>，然后跳到<strong>第8步</strong></li>
+<li>如果在第5步对应的set已满，你需要<strong>首先evict一个cache line</strong>，evict的过程<strong>使用LRU算法</strong>，如果evict的cache line是dirty的，你需要首先将其写入到下一级缓存（或内存）</li>
+<li>由于<strong>inclusive policy</strong>，你可能需要back invalidation第 i - 1 级cache中的cache line</li>
+<li>设置这个cache line对应的tag字段，LRU字段和valid字段</li>
+<li>如果访问模式是<strong>写操作</strong>，设置dirty字段</li>
+<li>返回</li>
+</ol>
+<blockquote>
+<p>给了我们一个例子，我来看看&hellip;&hellip;</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/cache_sim.png" alt="https://xjtu-ics.github.io/assets/images/cache_sim.png" />
+      
+    </figure>
+</p>
+<p>cache的访问trace依次为：</p>
+<ul>
+<li>Read a</li>
+<li>Read b</li>
+<li>Read a</li>
+<li>Write b</li>
+<li>Read c</li>
+<li>Write a</li>
+<li>Read d</li>
+<li>Read c</li>
+<li>Write b</li>
+<li>Write c</li>
+<li>Read e</li>
+<li>Read f</li>
+<li>Read b</li>
+<li>Read d</li>
+</ul>
+<blockquote>
+<p>画一画吧，这个还是挺复杂的，最复杂的地方就在于驱逐的时候Back Invalidation的逻辑。</p></blockquote>
+<blockquote>
+<p>助教给出的一些<strong>注意事项</strong>：</p>
+<ul>
+<li>
+<p>在访问cache之前，你需要正确的初始化所有的cache line, 换句话说，你需要把所有的字段全部初始化为0</p>
+</li>
+<li>
+<p>你可以假设，对于单个cache的访问，不会出现跨两个cache line的情况，换句话说，你可以<strong>忽略cacheAccess函数中的第三个参数</strong></p>
+</li>
+<li>
+<p>对于<code>M</code>类型的访问，你可以等价的将他看作为<strong>一次读取和一次写入</strong></p>
+</li>
+<li>
+<p>需要注意的是，L2和L3 cache会同时包含指令和数据</p>
+</li>
+<li>
+<p>你可以假设指令和数据不会访问同一块内存，换句话说，你可以假设L2中的某个cache line不会同时出现在L1D cache和L1I cache中</p>
+<p><strong>这里TMD是这样的么，我假设访问一块内存之后就过了一堆样例（也有可能是我误人子弟了。。。。。。）</strong></p>
+</li>
+<li>
+<p>本次实验仅要求模拟cache访问，因此你<strong>无需关心具体的写入数据</strong></p>
+</li>
+<li>
+<p>你可以使用位运算相关技巧从传入的地址中提取出tag，set，block等信息</p>
+</li>
+<li>
+<p>你可以使用位运算相关技巧根据tag，set，block的信息拼接出内存地址</p>
+</li>
+<li>
+<p>在加载一条cache line时，你需要在当前cache set中找出一条可用的cache line, 换句话说，你需要找到<strong>一条valid字段为false</strong>的cache line。如果有多条可用的cache line，你需要选择<strong>下标最小的一个</strong></p>
+</li>
+<li>
+<p>你需要<strong>严格使用LRU算法</strong>来找到需要evict的cache line</p>
+</li>
+<li>
+<p>你可以简单使用循环的方式来暴力实现LRU，而不考虑复杂度的问题，为此，你可以维护一个全局时钟并且仔细的设置cache line结构中的latest_used字段</p>
+</li>
+<li>
+<p>在evict一条cache line时，你需要考虑dirty字段的影响，换句话说，如果dirty为true，你需要在加载新的cache  line之前，将旧的cache line写回到下一级cache（或内存）。如果dirty为false，你可以简单的将这条cache line丢弃</p>
+</li>
+<li>
+<p><strong>你在进行evict的时候，无需对evict的cache line的LRU字段进行改动</strong></p>
+</li>
+<li>
+<p>你需要在每次成功访问一条cache line之后设置LRU字段，成功访问指写入/读取命中，或者是<strong>从下级缓存加载了相应的cache line之后</strong>的读取/写入操作</p>
+</li>
+<li>
+<p><strong>在发生conflict miss时，你需要严格遵守先fetch，后evict的过程，即先访问下一级缓存或者内存得到数据所在的cache line，再选择需要evict的cache line，这可能会影响LRU设置的顺序。考虑一个例子，假如某个时刻全局时钟为10，L1发生conflict miss，L2 hit，你需要首先访问L2，由于L2 hit，设置L2中对应的cache line的LRU为10，然后将cache  line返回给L1，假设L1需要evict的cache line是dirty的，你需要将其首先写回L2，这是100%  hit的（为什么？），因此设置L2中对应的cache line的LRU为11，最后将需要的cache  line放置在L1经evict空出的位置上，然后设置对应的LRU为12</strong></p>
+</li>
+<li>
+<p>本次实验要求上一级cache的内容一定存在于下一级cache中，这叫做inclusive policy。你需要时刻保证这一条性质，并且好好利用它</p>
+</li>
+<li>
+<p>受限于inclusive policy，写回脏数据的过程实际上是100% hit的，你需要合理的安排代码顺序实现这一点</p>
+</li>
+<li>
+<p><strong>当你处理write miss时，需要首先访问下一级缓存（或者内存）获取cache line，然后再写入这条cache line。在此过程中，你需要仔细思考对于下一级缓存应该以什么类型进行访问</strong></p>
+</li>
+<li>
+<p>如果你需要从L2 evict某个cache line，假设这个cache line也存在于L1, 你需要将L1中对应的cache  line也进行evict，这个过程叫做back invalidation。如果L1中的数据是dirty的，你需要首先将其写回L2。</p>
+</li>
+<li>
+<p>如果你需要从L3 evict一个cache line，你也需要分别将L1和L2中对应的cache line进行evict。在此过程中，你需要好好思考evict的顺序，以保证inclusive的性质。</p>
+</li>
+<li>
+<p>注意，不同级别的缓存cache line的大小可能是不一样，你在设计代码的时候需要考虑这会产生哪些影响，并仔细的处理相关流程</p>
+</li>
+</ul></blockquote>
+<blockquote>
+<p>vscode ctrl + shift + I整理代码</p></blockquote>
+<blockquote>
+<p>我草，debug快疯了&hellip;&hellip;（debug日记）</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">//分析一下错误
+</span></span><span class="line"><span class="cl">Testcase                                     Lines     Result    Random    Score     
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">traces-data-intensive/long.trace             <span class="m">267988</span>    FAIL      IGNORE    0/3       
+</span></span><span class="line"><span class="cl">  Details <span class="k">for</span> trace &lt;traces-data-intensive/long.trace&gt;
+</span></span><span class="line"><span class="cl">                          Your simulator           Reference simulator
+</span></span><span class="line"><span class="cl">     Level      Hits    Misses    Evicts      Hits    Misses    Evicts
+</span></span><span class="line"><span class="cl">      L1 D    <span class="m">231249</span>     <span class="m">55715</span>     <span class="m">53833</span>    <span class="m">230444</span>     <span class="m">56520</span>     <span class="m">53285</span>
+</span></span><span class="line"><span class="cl">      L1 I         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>         <span class="m">0</span>
+</span></span><span class="line"><span class="cl">        L2     <span class="m">46998</span>     <span class="m">26645</span>     <span class="m">26424</span>     <span class="m">47391</span>     <span class="m">27797</span>     <span class="m">24629</span>
+</span></span><span class="line"><span class="cl">        L3     <span class="m">32061</span>     <span class="m">10181</span>     <span class="m">10053</span>     <span class="m">33435</span>     <span class="m">11645</span>     <span class="m">11517</span>
+</span></span></code></pre></div><p>hits 和 misses的和相等，但是差刚好差了805,hits多了，misses少了，随之evict也会变多，这应该不是计数而是逻辑的问题</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">races-basic/mixed-2.trace                   <span class="m">90</span>        FAIL      IGNORE    0/5       
+</span></span><span class="line"><span class="cl">  Details <span class="k">for</span> trace &lt;traces-basic/mixed-2.trace&gt;
+</span></span><span class="line"><span class="cl">                          Your simulator           Reference simulator
+</span></span><span class="line"><span class="cl">     Level      Hits    Misses    Evicts      Hits    Misses    Evicts
+</span></span><span class="line"><span class="cl">      L1 D        <span class="m">20</span>        <span class="m">60</span>        <span class="m">52</span>        <span class="m">20</span>        <span class="m">60</span>        <span class="m">52</span>
+</span></span><span class="line"><span class="cl">      L1 I        <span class="m">18</span>        <span class="m">12</span>         <span class="m">7</span>        <span class="m">17</span>        <span class="m">13</span>         <span class="m">6</span>
+</span></span><span class="line"><span class="cl">        L2        <span class="m">71</span>        <span class="m">43</span>        <span class="m">15</span>        <span class="m">71</span>        <span class="m">44</span>        <span class="m">16</span>
+</span></span><span class="line"><span class="cl">        L3        <span class="m">19</span>        <span class="m">28</span>         <span class="m">0</span>        <span class="m">21</span>        <span class="m">28</span>         <span class="m">0</span>
+</span></span></code></pre></div><p>为什么I指令自己没错，分开都没错，但是结合到一起就出错了,两者之间为什么会相互影响？？？</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">traces-hard/grep.trace                       <span class="m">406467</span>    FAIL      IGNORE    0/1       
+</span></span><span class="line"><span class="cl">  Details <span class="k">for</span> trace &lt;traces-hard/grep.trace&gt;
+</span></span><span class="line"><span class="cl">                          Your simulator           Reference simulator
+</span></span><span class="line"><span class="cl">     Level      Hits    Misses    Evicts      Hits    Misses    Evicts
+</span></span><span class="line"><span class="cl">      L1 D     <span class="m">37304</span>      <span class="m">1068</span>       <span class="m">949</span>     <span class="m">22544</span>     <span class="m">15828</span>       <span class="m">502</span>
+</span></span><span class="line"><span class="cl">      L1 I    <span class="m">184075</span>    <span class="m">184064</span>    <span class="m">184034</span>    <span class="m">184075</span>    <span class="m">184064</span>    <span class="m">184016</span>
+</span></span><span class="line"><span class="cl">        L2    <span class="m">176099</span>      <span class="m">9087</span>      <span class="m">9055</span>    <span class="m">118023</span>     <span class="m">81983</span>     <span class="m">81951</span>
+</span></span><span class="line"><span class="cl">        L3      <span class="m">6693</span>      <span class="m">2413</span>      <span class="m">2285</span>     <span class="m">79669</span>      <span class="m">2416</span>      <span class="m">2288</span>
+</span></span></code></pre></div><p>L3hits之间差距过大,L2中的数据没有及时驱逐？？？</p>
+<p>先放这，休息一下再看。</p>
+<blockquote>
+<p>已经拿了76分，但实在是很难找到剩下的逻辑错误！煎熬！</p></blockquote>
+<blockquote>
+<p>OK，最后拿了93分，差一点点实在是找不出来为啥了,不贴源代码了，写了六七百行能跑的垃圾，之后再精简总结一下,这下是真尽力了，我感觉已经不是一个设计的问题了，到最后我甚至要去猜哪里的设计提示是不是说的有问题，有错误，那就没有意思了对么&hellip;&hellip;</p>
+<p>最后应该是因为三层地址中block位并不一样的原因，这里要细节处理一下，因为你直接把L3的block干成0,可能会对于L2的setIndex位产生影响。</p></blockquote>
+<blockquote>
+<p>我不在这里放代码：</p>
+<p>1.我写的代码很垃圾，没有放的意义。</p>
+<p>2.维护学术诚信。</p></blockquote>
+
+
+<h2 class="relative group">关于Cache的一些思考 
+    <div id="%E5%85%B3%E4%BA%8Ecache%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%B3%E4%BA%8Ecache%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>也不算很深，进一步探究一下，以下都是我自己或者问gpt得到的观点，自己的一些看法，如果您对于某个问题有着更好的理解，欢迎在评论区指出来，这里我说的低级cache或者下层的cache指的是靠近内存的cache。</p></blockquote>
+<p>1.在这个实验中一直强调的一个点是Inclusive policy，这种设计方法在以前的CPU，特别是Intel的CPU中很常见，但其实现代的CPU以及逐渐转向使用NINE模式，因此会产生以下问题：</p>
+<ul>
+<li>
+<p><strong>使用Inclusive policy的缓存必须满足什么条件？这样设计的优缺点分别是什么？</strong></p>
+<p>​	<em>底层缓存必须包含上层的缓存，在底层缓存驱逐的时候要做back invalidation。</em></p>
+<p><em>好处：</em></p>
+<p>​	<em>好判断，多核的时候很好知道高级缓存的内容是否存在于低级缓存之中。</em></p>
+<p><em>缺点：</em></p>
+<p>​	<em>冗余数据驱逐：L2 驱逐某数据时，即使 L1 正在频繁使用，也必须一并驱逐它，增加了不必要的 L1 miss。</em></p>
+<p>​	<em>容量浪费：为了维护包含关系，L2 的一些空间可能被迫用于保持与 L1 相同的数据，降低了有效利用率。</em></p>
+<p>​	<em>降低性能上限：高级缓存未能成为真正的“补充层”，而是受限于 L1 的命中内容。</em></p>
+</li>
+<li>
+<p><strong>NINE策略不要求低级cache强制包含高级cache内容，这样做相比inclusive的好处和坏处分别是什么？</strong></p>
+<p>​	<em><strong>（NINE：Non-Inclusive, Non-Exclusive）</strong></em></p>
+<p>​	   <em>NINE就是说下层的cache和上层的cache，二者之间不要求下层cache一定要包含上层cache的内容，同时也不要求两层cache之间的内容一定要是相互排斥的。</em></p>
+<p><em>好处：</em></p>
+<p>​	<em>减少了数据冗余，提高了缓存的利用率，当下层的cache要被驱逐的时候，不会影响上层的cache，从而导致没有必要的cache miss。</em></p>
+<p><em>缺点：</em></p>
+<p>​	<em>我很难保证一致性的问题，并且数据的管理相对复杂（NINE就是在包含性和排他性策略之间的一种状态），比如说我在L2 cache hit了之后，决定到底要不要把这个数据加载到L1中去之后干掉L2,包含性就是不能干掉，排他性就是必须干掉。</em></p>
+</li>
+<li>
+<p><strong>本次实验实际上借助inclusive的性质大大简化了设计，如果采用NINE结构，你将如何调整你的代码？</strong></p>
+<p>​	<em>首先去除back invalidation的这部分逻辑，其次和上一个问题一样，我要设置premote下层cacheline的一个逻辑。</em></p>
+</li>
+</ul>
+<p><strong>2.现代CPU几乎都采用L1D和L1I两种缓存结构，而在L2及更低级的缓存使用统一指令和数据的方式，这么做的好处是什么？</strong></p>
+<p>以下是gpt的回答（我觉得写的还好，是否合理我也就不算很清楚了）：</p>
+<p><em>✅ 为什么 L1 要分成 L1D 和 L1I？</em></p>
+<p><em>➕ 好处一：提高访问带宽（并行性）</em></p>
+<ul>
+<li><em>CPU 在每个周期通常同时需要取指（fetch instruction）和访问数据。</em></li>
+<li><em>如果 L1 是 unified 的，指令和数据会争用同一个缓存端口（cache port）。</em></li>
+<li><em>分离 L1I 和 L1D 后，CPU 能 同时读取指令和访问数据，实现并发访问，提升执行效率。</em></li>
+</ul>
+<p><em>➕ 好处二：降低访问延迟（latency）</em></p>
+<ul>
+<li><em>L1 是最靠近执行核心的缓存，需要尽可能小而快。</em></li>
+<li><em>分开管理指令和数据，可以让 L1I 和 L1D 各自做更有针对性的优化，例如：</em>
+<ul>
+<li><em>L1I 可以预取、预测分支；</em></li>
+<li><em>L1D 可以更好地处理 load/store、写缓冲等。</em></li>
+</ul>
+</li>
+</ul>
+<p><em>➕ 好处三：避免污染和干扰</em></p>
+<ul>
+<li><em>指令和数据的访问模式差异很大：</em>
+<ul>
+<li><em>指令访问具有更强的顺序性、局部性好；</em></li>
+<li><em>数据访问则可能跳跃、随机、重复读取。</em></li>
+</ul>
+</li>
+<li><em>分开缓存避免了数据污染指令缓存（或反之），提升命中率和稳定性。</em></li>
+</ul>
+<hr>
+<p><em>✅ 为什么 L2/L3 使用 unified cache？</em></p>
+<p><em>➕ 原因一：提高缓存利用率</em></p>
+<ul>
+<li><em>L2/L3 体积更大（通常是几百 KB 到几十 MB）。</em></li>
+<li><em>如果分为 I-cache 和 D-cache，则可能出现：</em>
+<ul>
+<li><em>L2D 已满但 L2I 还有空闲空间（或反之）；</em></li>
+<li><em>导致资源浪费。</em></li>
+</ul>
+</li>
+<li><em>Unified cache 可以动态地根据访问需求分配空间，更灵活。</em></li>
+</ul>
+<p><em>➕ 原因二：简化设计，节省成本</em></p>
+<ul>
+<li><em>L2/L3 远离核心，访问延迟更高，并发访问不再是瓶颈。</em></li>
+<li><em>统一设计结构更简单，不需要分别维护 tag、替换策略等逻辑。</em></li>
+</ul>
+<p><em>➕ 原因三：有助于 cache coherence 协议的实现</em></p>
+<ul>
+<li><em>多核共享的 L3 cache 使用统一结构更方便跟踪、标记和通信，便于维护一致性。</em></li>
+</ul>
+<p><strong>3.你觉得CPU是如何区分指令内存和数据内存的访问的？</strong></p>
+<p>​	<em>1.现代 CPU 内部有清晰划分的模块：</em></p>
+<ul>
+<li><em>取指单元（Instruction Fetch Unit） 专门负责取指令</em></li>
+<li><em>加载/存储单元（Load/Store Unit） 专门负责读写数据</em></li>
+</ul>
+<p><em>这两者访问内存的路径不同，进而访问不同的 Cache 层次结构（如 L1I vs. L1D）。</em></p>
+<p>​	<em>2.从软件视角来看：</em></p>
+<ul>
+<li><em>编译器把「执行代码」转成了存放在某段内存中的机器指令</em></li>
+<li><em>把「变量数据」分配到另一块内存空间</em></li>
+</ul>
+<p><em>于是，在 CPU 运行时：</em></p>
+<ul>
+<li><em>指令指针（<code>PC</code> / <code>IP</code>）发出的访问是“取指”</em></li>
+<li><em>普通 Load/Store 指令发出的访问是“访问数据”</em></li>
+</ul>
+<p>​	也就是说根据发出指令的操作单元就可以说明这个指令究竟是I还是L指令。</p>
+<p><strong>4.本次实验要求实现严格的LRU算法，一种暴力实现方式是遍历所有cache line, 这样时间复杂度为O（E），你可以设计一种复杂度为O（1）的实现方式吗？</strong></p>
+<p>​	<em>一道关于LRUCahce的lc，你应该能很好的理解为什么？https://leetcode.cn/problems/lru-cache/description/</em></p>
+<p>​	<em>这是实现的Java代码（我之前写过很多Java代码）</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//Least Recently Used</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//最近最少使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//HashMap + DoublyLinkedList</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">LRUCache</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//简单的双向链表</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">class</span> <span class="nc">Node</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">Node</span><span class="p">(){}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">Node</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">_key</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_val</span><span class="p">){</span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_key</span><span class="p">;</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val</span><span class="p">;}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cache</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">capacity</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//初始化缓存</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">LRUCache</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">capacity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">capacity</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">head</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">tail</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//相当于读取内存，读取成功这个值就返回value,并且放到双向链表的头部，否则返回-1（实际上要从内存中获取）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">cache</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">key</span><span class="p">)){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">moveToHead</span><span class="p">(</span><span class="n">cache</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">cache</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">).</span><span class="na">val</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//写值，道理类似</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">cache</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">key</span><span class="p">)){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cache</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">moveToHead</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">++</span><span class="n">size</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">capacity</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="o">--</span><span class="n">size</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">Node</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="p">.</span><span class="na">prev</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">remove</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">cache</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="na">key</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">cache</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//一旦get或者put，就放到head之后，作为最新的节点</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">moveToHead</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">remove</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//一旦过容量，或者其他场景，删除节点</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">prev</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">n</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//新put进来的元素，加到头节点之后</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">head</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">node</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">node</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">n</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>​	<em>基本就是利用；双向链表和hashmap，这样当我们给出一个值，我可以根据这个值直接找到对应的cacheline和在linkedlist中对应的node，直接把这个node提前到head位置，那么这个节点就是最新的，tail之前的节点就是最老的。</em></p>
+<p>​	<em>虽然是O（1），但是实际的开销并不会小。</em></p>
+<p><strong>5.LRU算法在某种特定的情形下会造成100% miss，你可以发现这种访问模式吗？</strong></p>
+<p>​	<em><strong>LRU Thrashing</strong>（LRU抖动）</em></p>
+<p>​	<em>比如这样，你的L1cache现在只有一个set，三行line，我对于四个元素A B C D进行循环的访问，那么开始就会</em></p>
+<p>​		<em>依次加入 A B C</em></p>
+<p>​		<em>接着读取D miss 去除A 放置D</em></p>
+<p>​		<em>接着读取A miss 去除B 放置A</em></p>
+<p>​		<em>接着读取B miss 去除 C 放置B</em></p>
+<p>​		<em>&hellip;&hellip;</em></p>
+<p>​	<em>上面这样的情况就会100%miss。</em></p>
+<p><strong>6.实际硬件中，实现LRU算法其实十分昂贵，因此大多数厂家采用近似LRU的方法，如果让你设计，你会如何设计这种算法？</strong></p>
+<p><em>来自于gpt，讲的并不好理解，可以看看https://en.wikipedia.org/wiki/Pseudo-LRU</em></p>
+<p>​	<em><strong>Pseudo-LRU (PLRU)</strong></em></p>
+<p><em>实现：</em></p>
+<ul>
+<li><em>最常见的是 <strong>二叉树 PLRU</strong>（Binary Tree Pseudo LRU）：</em>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/Plruexample.png" alt="Pseudo LRU working" />
+      
+    </figure>
+
+<ul>
+<li><em>适用于 4、8、16 路组相联 Cache。</em></li>
+<li><em>维护一个“树状指针结构”，每个节点记录最近访问的是左还是右。</em></li>
+<li><em>总共只需 E - 1 个 bit 就能表示选择哪条 line 替换。</em></li>
+</ul>
+</li>
+</ul>
+<p><em>原理图：</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl">    <span class="o">(</span><span class="nt">b1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">   <span class="o">/</span>   <span class="err">\</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="nt">b2</span><span class="o">)</span>   <span class="o">(</span><span class="nt">b3</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"> <span class="o">/</span> <span class="err">\</span>    <span class="o">/</span>  <span class="err">\</span>
+</span></span><span class="line"><span class="cl"><span class="nt">A</span>   <span class="nt">B</span>  <span class="nt">C</span>    <span class="nt">D</span>
+</span></span></code></pre></div><ul>
+<li><em>每个内部节点 0/1 表示最近访问的是哪一侧</em></li>
+<li><em>选择替换线时，从根节点走向“最久未访问的方向”</em></li>
+</ul>
+<p><em><strong>举个例子</strong>：</em></p>
+<ul>
+<li><em><code>b0</code>, <code>b1</code>, <code>b2</code> 是 3 个位（bit），分别控制走向哪个子树。</em></li>
+<li><em>每个 bit 记录“最近使用的是哪一边”。</em></li>
+</ul>
+<p><em>这些 bit 可以这样理解：</em></p>
+<ul>
+<li><em>如果 <code>b0 = 0</code>，表示最近访问的是左子树（A、B），因此优先替换右子树（C、D）</em></li>
+<li><em>如果 <code>b1 = 1</code>，表示在左子树中，最近访问的是 B → 替换 A</em></li>
+<li><em>如果 <code>b2 = 0</code>，表示在右子树中，最近访问的是 C → 替换 D</em></li>
+</ul>
+<p><em><strong>从根开始，按照 bit 的指示往“没被最近访问过”的方向走，直到到达一个叶子节点（就是要被替换的 cache line）。</strong></em></p>
+<p><em><strong>然后反过来，更新路径上的 bit，表示刚刚走过的那条路径是“最近访问过的”。</strong></em></p>
+<p><em>假设当前：</em></p>
+<ul>
+<li><em><code>b0 = 0</code> → 上次用了左边（A 或 B）</em></li>
+<li><em><code>b1 = 1</code> → 上次用了 B</em></li>
+<li><em><code>b2 = 0</code> → 上次用了 C</em></li>
+</ul>
+<p><em>替换时：</em></p>
+<ol>
+<li><em>从 b0 看 0 → 最近访问的是左边 → 应该替换右边</em></li>
+<li><em>进入 b2，看 0 → 最近访问的是 C → 应该替换 D</em></li>
+</ol>
+<p><em>✅ 所以选择替换 <strong>D</strong></em></p>
+<p><em>然后把：</em></p>
+<ul>
+<li><em><code>b0 = 1</code>（因为现在访问右边）</em></li>
+<li><em><code>b2 = 1</code>（访问了 D）</em></li>
+</ul>
+<p><em><strong>优点</strong>：</em></p>
+<ul>
+<li><em>硬件实现简单，开销低</em></li>
+<li><em>实际效果在很多场景下接近 LRU</em></li>
+</ul>
+<p><em><strong>缺点</strong>：</em></p>
+<ul>
+<li><em>并不是真正的最久未使用，有可能替换到常用块</em></li>
+</ul>
+<p><strong>7.本次实验中在实现上有个小细节是，在发生conflict  miss时，我们总是先从下一级fetch数据，然后再判断是否需要evict，这样做的好处和不足是什么？如果上述两个操作的流程互换之后，带来的好处和坏处是什么？你可能需要综合考虑inclusive policy带来的影响。</strong></p>
+<p>​	如果仅有一层cache和memory，那么先后顺序是无所谓的。</p>
+<p>​	<em>我们用两层Cache和memory来理解一下这个问题：</em></p>
+<p>​	<em><strong>L1 L2 memory</strong></em></p>
+<p>​	现在我访问L1 miss，L1满了，直接把那个要放入位置的数据驱逐掉。</p>
+<p>​	又访问L2 miss，L2满了，驱逐，此时要考虑back invalidation，如果L1包含，那么那行cacheline也要驱逐掉，但是此时back invalidation的cacheline，和L1时候就驱逐的cacheline有可能是一行cacheline，这是否造成了浪费。</p>
+<p>​	现在再从memory取值放入L2,L1刚刚驱逐的位置。</p>
+<table>
+  <thead>
+      <tr>
+          <th>方案</th>
+          <th>优点</th>
+          <th>缺点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th><strong>先 fetch 后 evict</strong>（实验采用）</th>
+          <th>- 避免 Inclusive 引起的无意义 invalidate - 更稳定一致性 - 实现简单</th>
+          <th>- 延迟高 - 有时多余 fetch</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th><strong>先 evict 后 fetch</strong></th>
+          <th>- 可优化延迟 - 有可能并行处理</th>
+          <th>- 易与 Inclusive 冲突 - 需要额外状态管理</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>8.进行cache访问时，需要根据内存地址提取出tag，set等字段，而CPU产生的地址实际上都是虚拟地址，需要额外的机制转换成物理地址（详见虚拟内存章节）。因此，cache的设计实际上可以分成physical index和virtual index两种方式，即采用物理地址或者虚拟地址两种地址解析tag，set等内容，那么：</strong></p>
+<ul>
+<li>
+<p><strong>使用physical index的cache的优缺点是什么？</strong></p>
+<p>避免了别名的问题，要TLB转换，带来延迟。</p>
+</li>
+<li>
+<p><strong>使用virtual index的cache的优缺点是什么？</strong></p>
+<p>访问会变快，但是有别名的问题。</p>
+</li>
+<li>
+<p><strong>你能不能设计一种方法综合利用上述两种方式各自的优势？</strong></p>
+<p>不能（？）</p>
+
+
+<h3 class="relative group">🤝 折中方案：<strong>VIPT（Virtual Index, Physical Tag）</strong> 
+    <div id="-%E6%8A%98%E4%B8%AD%E6%96%B9%E6%A1%88viptvirtual-index-physical-tag" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#-%E6%8A%98%E4%B8%AD%E6%96%B9%E6%A1%88viptvirtual-index-physical-tag" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>先用虚拟地址索引（提取 index），用物理地址比对（tag）</p></blockquote>
+
+
+<h4 class="relative group">✅ 优势： 
+    <div id="-%E4%BC%98%E5%8A%BF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#-%E4%BC%98%E5%8A%BF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>保留了虚拟访问的速度优势</strong>（用虚拟 index 找 set）</li>
+<li>同时 <strong>用物理 tag 避免 alias 问题</strong></li>
+<li>是 <strong>现代 L1 Cache 的主流设计</strong>（只要满足 index bits 不跨 page boundary）</li>
+</ul>
+
+
+<h4 class="relative group">📌 设计要点： 
+    <div id="-%E8%AE%BE%E8%AE%A1%E8%A6%81%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#-%E8%AE%BE%E8%AE%A1%E8%A6%81%E7%82%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Page offset 不变，必须保证 <strong>index bits 落在 page offset 范围</strong>（否则访问前无法知道 index）。</li>
+<li>比如：
+<ul>
+<li>页大小：4KB = 12 bits offset</li>
+<li>Index bits ≤ 12</li>
+<li>Tag 用物理地址中除去 index + block offset 部分</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>学过一点Java多线程，但是还没有系统学过OS，多少能理解一下多线程的问题，到这里已经相当复杂了，我就不再纸上谈兵了。</p></blockquote>
+<p><strong>9.本次实验中实现的模拟器只能应对顺序访问，如果需要扩展你的模拟器以支持多个线程并发访问，你该如何调整现有的代码？</strong></p>
+<p>​	每一组cacheset用mutex（互斥🔓），保证任何一个时刻，一个set最多仅有一个thread访问。</p>
+<p>​	原子操作LRU等数据。</p>
+<p><strong>10.本次实验中不要求考虑多核之间的一致性问题，如果考虑多核之间一致性的问题，且L3作为多核之间的共享缓存，你该如何调整现有的代码？</strong></p>
+<p><strong>11.在考虑多核之间cache一致性的前提下，如果需要将inclusive策略变成NINE策略，你需要如何改进现有的代码？</strong></p>
+
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="mio" src="/img/blowfish_logo_hu_2d15729eafedea4d.png" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      mio
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">I&rsquo;m Just A Student&hellip;</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+          
+
+          
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_csapp\/CSAPP:CacheLab\/index.md"
+        var oid_likes = "likes_csapp\/CSAPP:CacheLab\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/csapp/csappoptimizationlab/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >CSAPP:OptimizationLab</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-04-10T23:57:57&#43;08:00">10 April 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/categories/"
+            title="Categories">
+            
+            Categories
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      mio
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

@@ -11,8 +11,9 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "Tech"
-  pageRef = "tech"
+  name = "CS:APP"
+  parent = "Class"
+  pageRef = "csapp"
   weight = 10
 
 [[main]]
@@ -29,8 +30,16 @@
   pre = "github"
   url = "https://github.com/Ada-Church-Closure"
   weight = 40
-  
 
+[[main]]
+   name = "Class"
+   weight = 10
+
+[[main]]
+   name = "Tech"
+   pageRef = "tech"
+   weight = 10
+   
 #[[subnavigation]]
 #  name = "An interesting topic"
 #  pageRef = "tags/interesting-topic"
