@@ -39,4 +39,3 @@ jobs:
                   PUBLISH_DIR: ./public 
                   # 指定将自动部署得到的 public 文件夹 push 上去
                   commit_message: ${{ github.event.head_commit.message }}
-                  cname: ${{ secrets.DOMAIN }}
