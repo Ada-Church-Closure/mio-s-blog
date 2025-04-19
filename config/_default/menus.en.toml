@@ -39,7 +39,12 @@
    name = "Tech"
    pageRef = "tech"
    weight = 10
-   
+
+[[main]]
+	name = "せいかつ"
+	pageRef = "life"
+	weight = 29
+	
 #[[subnavigation]]
 #  name = "An interesting topic"
 #  pageRef = "tags/interesting-topic"

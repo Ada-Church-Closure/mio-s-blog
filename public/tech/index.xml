@@ -35,7 +35,7 @@
 &lt;p&gt;本文仅仅是笔者对于SQL语句的简单熟悉和复习的笔记，所以并不会对于更深刻的细节进行考究，也不会介绍怎么安装和配置MySQL的环境以及为什么我们要使用关系型数据库。&lt;/p&gt;&lt;/blockquote&gt;
 
 
-&lt;h1 class=&#34;relative group&#34;&gt;1.Table 
+&lt;h2 class=&#34;relative group&#34;&gt;1.Table 
     &lt;div id=&#34;1table&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
     &lt;span
@@ -44,7 +44,7 @@
             style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1table&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
     &lt;/span&gt;        
     
-&lt;/h1&gt;
+&lt;/h2&gt;
 &lt;p&gt;创建表：有B格的创建一张表&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/mysql/featured.jpg" />
     </item>
