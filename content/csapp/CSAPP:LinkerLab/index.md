@@ -19,7 +19,7 @@ title = 'CSAPP:LinkerLab'
 
 一个静态链接过程：
 
-![image-20250408194000629](../../../static/img/image-20250408194000629.png)
+![image-20250408194000629](/img/image-20250408194000629.png)
 
 ### 静态链接
 
@@ -55,7 +55,7 @@ LD 静态链接器 输入.o文件 输出一个可执行文件
 
 一个典型的格式如下：
 
-![image-20250408195710553](../../../static/img/image-20250408195710553.png)
+![image-20250408195710553](/img/image-20250408195710553.png)
 
 .text:机器代码
 
@@ -81,7 +81,7 @@ LD 静态链接器 输入.o文件 输出一个可执行文件
 
 **符号表条目**：
 
-![image-20250408202046410](../../../static/img/image-20250408202046410.png)
+![image-20250408202046410](/img/image-20250408202046410.png)
 
 每个字段都被分配到目标文件的某个section
 
@@ -192,7 +192,7 @@ Symbol table '.symtab' contains 6 entries:
 
 ​	静态库作为存档（archieve）存放在磁盘中，可以认为是一组可重定位目标文件的集合，当我们自己的编程中引用库时就如下图所示：
 
-![image-20250415195916810](../../../static/img/image-20250415195916810.png)
+![image-20250415195916810](/img/image-20250415195916810.png)
 
 当你引用addvec时，直接复制addvec.o到可执行的文件。
 
@@ -242,7 +242,7 @@ unix> gcc -static ./libvector.a main2.c
 
 汇编器生成目标模块时生成.rel.data .rel.text 重定位条目
 
-![image-20250417193235496](../../../static/img/image-20250417193235496.png)
+![image-20250417193235496](/img/image-20250417193235496.png)
 
 #### 重定位符号引用
 
@@ -345,7 +345,7 @@ main中113e的位置就是sum的重定位地址
 
 我们现在已经合成了这个：
 
-![image-20250417203201689](../../../static/img/image-20250417203201689.png)
+![image-20250417203201689](/img/image-20250417203201689.png)
 
 这是一个典型的格式。
 
@@ -397,14 +397,14 @@ EH_FRAME off    0x0000000000002004 vaddr 0x0000000000002004 paddr 0x000000000000
 
 ​	每个linux程序都有一个运行时内存映像。
 
-![image-20250419155903953](../../../static/img/image-20250419155903953.png)
+![image-20250419155903953](/img/image-20250419155903953.png)
 
 > 我们对于加载的描述从概念上来说是正确的，但也不是完全准确，这是有意为之。
 > 要理解加载实际是如何工作的 ，你必须理解进程 、虚拟内存和内存映射的概念，这些我们还没有加以讨论 。在后面笫8章和笫9章中遇到这些概念时 ，我们将重新回到加载的问题上，并逐渐向你揭开它的神秘面纱。
 
 ## 实验：
 
-![https://xjtu-ics.github.io/assets/images/linklab/compiler_driver.png](../../../static/img/compiler_driver.png)
+![https://xjtu-ics.github.io/assets/images/linklab/compiler_driver.png](/img/compiler_driver.png)
 
 本实验就是模仿ld，写一个静态的linker，类似于linux的ld工具。
 
@@ -412,7 +412,7 @@ EH_FRAME off    0x0000000000002004 vaddr 0x0000000000002004 paddr 0x000000000000
 
 为什么要linker：为源代码的模块化提供可以相互引用的接口（extern）。
 
-![https://xjtu-ics.github.io/assets/images/linklab/linker-workflow.png](../../../static/img/linker-workflow.png)
+![https://xjtu-ics.github.io/assets/images/linklab/linker-workflow.png](/img/linker-workflow.png)
 
 1.符号解析：为每个外部文件的符号引用找对应的解析。
 
@@ -420,7 +420,7 @@ EH_FRAME off    0x0000000000002004 vaddr 0x0000000000002004 paddr 0x000000000000
 
 3.重定位，修改可执行文件代码，使其指向正确的位置。
 
-![https://xjtu-ics.github.io/assets/images/linklab/relocation-workflow.png](../../../static/img/relocation-workflow.png)
+![https://xjtu-ics.github.io/assets/images/linklab/relocation-workflow.png](/img/relocation-workflow.png)
 
 CPU使用PC相对引用访问地址。
 
@@ -428,7 +428,7 @@ CPU使用PC相对引用访问地址。
 
 实验框架：
 
-![https://xjtu-ics.github.io/assets/images/linklab/framework-workflow.png](../../../static/img/framework-workflow.png)
+![https://xjtu-ics.github.io/assets/images/linklab/framework-workflow.png](/img/framework-workflow.png)
 
 我们要实现的就是解析和重定位这两个关键过程。
 
