@@ -4,7 +4,7 @@ draft = false
 title = 'ComputerOrgnization'
 +++
 
-> 本期封面是动漫《白箱》的主角团，如果你对于动漫制作的幕后感兴趣，这是一部不可多得的佳作。
+> 本期封面出自《轻音少女》的第20集，是我个人认为所看的动漫中印象最深刻的一集。
 
 # **Computer Organization**
 

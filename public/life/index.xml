@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Life on Mio&#39;s Tea Time</title>
-    <link>http://localhost:1313/life/</link>
+    <link>https://Ada-Church-Closure.github.io/life/</link>
     <description>Recent content in Life on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Sat, 19 Apr 2025 16:32:59 +0800</lastBuildDate><atom:link href="http://localhost:1313/life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Apr 2025 16:32:59 +0800</lastBuildDate><atom:link href="https://Ada-Church-Closure.github.io/life/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
