@@ -1,0 +1,4925 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>80X86:Assembly &middot; Mio&#39;s Tea Time</title>
+  <meta name="title" content="80X86:Assembly &middot; Mio&#39;s Tea Time" />
+  
+  <meta name="description" content="Mio&#39;s Tea Time" />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/notes/80x86assembly/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
+    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/notes/80x86assembly/">
+  <meta property="og:site_name" content="Mio&#39;s Tea Time">
+  <meta property="og:title" content="80X86:Assembly">
+  <meta property="og:description" content="汇编语言复习 # ​	1.这是某学校汇编语言的课程内容，简单做一个复习的笔记，如果能帮到校友就更好了……
+​	2.整体来看感觉内容不多，但是很杂很乱，容易一开始让人很不知所以然，再加上讲课老师感觉逻辑性不算很强，可能让人感觉有点劝退，但是这门课程本身还是相当重要的……
+​	3.然后就是关于本课程的实验，我的评价就是善用AI，如果你觉得很难写，但是前提是你先要看得懂并且会用MASM工具来调试。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-05-11T15:06:35+08:00">
+    <meta property="article:modified_time" content="2025-05-11T15:06:35+08:00">
+    <meta property="og:image" content="http://localhost:1313/notes/80x86assembly/featured.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/notes/80x86assembly/featured.jpg">
+  <meta name="twitter:title" content="80X86:Assembly">
+  <meta name="twitter:description" content="汇编语言复习 # ​	1.这是某学校汇编语言的课程内容，简单做一个复习的笔记，如果能帮到校友就更好了……
+​	2.整体来看感觉内容不多，但是很杂很乱，容易一开始让人很不知所以然，再加上讲课老师感觉逻辑性不算很强，可能让人感觉有点劝退，但是这门课程本身还是相当重要的……
+​	3.然后就是关于本课程的实验，我的评价就是善用AI，如果你觉得很难写，但是前提是你先要看得懂并且会用MASM工具来调试。">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "80X86:Assembly",
+    "headline": "80X86:Assembly",
+    
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003e汇编语言复习 \n    \u003cdiv id=\u0022%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e​\t1.这是某学校汇编语言的课程内容，简单做一个复习的笔记，如果能帮到校友就更好了\u0026hellip;\u0026hellip;\u003c\/p\u003e\n\u003cp\u003e​\t2.整体来看感觉内容不多，但是很杂很乱，容易一开始让人很不知所以然，再加上讲课老师感觉逻辑性不算很强，可能让人感觉有点劝退，但是这门课程本身还是相当重要的\u0026hellip;\u0026hellip;\u003c\/p\u003e\n\u003cp\u003e​\t3.然后就是关于本课程的实验，我的评价就是善用AI，如果你觉得很难写，但是前提是你先要看得懂并且会用MASM工具来调试。\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/notes\/80x86assembly\/",
+    "author" : {
+      "@type": "Person",
+      "name": "mio"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-05-11T15:06:35\u002b08:00",
+    "datePublished": "2025-05-11T15:06:35\u002b08:00",
+    
+    "dateModified": "2025-05-11T15:06:35\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1451"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="mio" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co",
+      authDomain: "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co",
+      projectId: "mio-s-app",
+      storageBucket: "mio-s-app.firebasestorage.app",
+      messagingSenderId: "491061548873",
+      appId: "1:491061548873:web:9de625ab436bdfd1e3ec98",
+      measurementId: "G-EH5EXVC7V4"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    
+    
+    <div>
+        <a href="/" class="flex">
+            <span class="sr-only">Mio&rsquo;s Tea Time</span>
+
+            
+            <img src="/img/logo.png" width="342" height="318"
+                class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Mio&#39;s Tea Time" />
+            
+
+        </a>
+    </div>
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Mio&rsquo;s Tea Time</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Class
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            学校课程笔记
+          </p>
+        </a>
+        
+        <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            CS:APP
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tech">
+        Tech
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Thinking">
+        Thinking
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/life/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Life">
+        せいかつ
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Author
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Class
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            学校课程笔记
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            CS:APP
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tech">
+            Tech
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Thinking">
+            Thinking
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/life/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Life">
+            せいかつ
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Author
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      80X86:Assembly
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-11T15:06:35&#43;08:00">11 May 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1451 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="views_Notes/80X86:Assembly/index.md" class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400" title="views">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="likes_Notes/80X86:Assembly/index.md"
+    class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400"
+    title="likes">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+    <button id="button_likes"
+        class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+        onclick="process_article()">
+        <span id="button_likes_heart" style="display:none" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+ </span>
+        <span id="button_likes_emtpty_heart" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
+  </span>
+
+</span>
+        <span id="button_likes_text">&nbsp;Like</span>
+    </button>
+</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-基础">第一章 基础</a>
+      <ul>
+        <li><a href="#执行过程">执行过程</a></li>
+        <li><a href="#进制的转换">进制的转换</a></li>
+        <li><a href="#数码的表示">数码的表示</a>
+          <ul>
+            <li><a href="#1原码表示法">1.原码表示法</a></li>
+            <li><a href="#2反码表示法">2.反码表示法</a></li>
+            <li><a href="#3补码表示法">3.补码表示法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第二章-80x86计算机组织">第二章 80x86计算机组织</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#21-三种模式">2.1 三种模式</a></li>
+            <li><a href="#22-寄存器register">*2.2 寄存器（Register）：</a></li>
+            <li><a href="#23-存储器">*2.3 存储器</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第三章-指令系统和寻址方式">第三章 指令系统和寻址方式</a>
+      <ul>
+        <li><a href="#31-怎么寻找地址">3.1 怎么寻找地址？</a>
+          <ul>
+            <li><a href="#311-与数据有关的寻址方式">3.1.1 与数据有关的寻址方式</a></li>
+            <li><a href="#312-和转移地址相关的方式">3.1.2 和转移地址相关的方式</a></li>
+          </ul>
+        </li>
+        <li><a href="#32-80x86语言指令概况">3.2 80X86语言指令概况</a></li>
+        <li><a href="#33-80x86指令系统">3.3 80X86指令系统</a>
+          <ul>
+            <li><a href="#331-数据传送指令">3.3.1 数据传送指令</a></li>
+            <li><a href="#332-算术指令">3.3.2 算术指令</a></li>
+            <li><a href="#333-逻辑指令">3.3.3 逻辑指令</a></li>
+            <li><a href="#334-串处理指令">3.3.4 串处理指令</a></li>
+            <li><a href="#335-控制转移指令">3.3.5 控制转移指令</a></li>
+            <li><a href="#336-处理机控制指令">3.3.6 处理机控制指令</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第四章-汇编语言程序格式">第四章 汇编语言程序格式</a>
+      <ul>
+        <li><a href="#41-汇编程序功能">4.1 汇编程序功能</a></li>
+        <li><a href="#42-伪操作">4.2 伪操作</a>
+          <ul>
+            <li><a href="#421-处理器选择伪操作">4.2.1 处理器选择伪操作</a></li>
+            <li><a href="#422-段定义伪操作">4.2.2 段定义伪操作</a></li>
+            <li><a href="#423-程序开始和结束伪操作">4.2.3 程序开始和结束伪操作</a></li>
+            <li><a href="#424-数据定义及存储器分配伪操作">4.2.4 数据定义及存储器分配伪操作</a></li>
+            <li><a href="#425-表达式赋值伪操作equ">4.2.5 表达式赋值伪操作EQU</a></li>
+            <li><a href="#426-地址计数器对准伪操作">4.2.6 地址计数器对准伪操作</a></li>
+            <li><a href="#427-基数控制伪操作">4.2.7 基数控制伪操作</a></li>
+          </ul>
+        </li>
+        <li><a href="#43-汇编语言程序格式">4.3 汇编语言程序格式</a></li>
+        <li><a href="#44-汇编语言程序上机过程">4.4 汇编语言程序上机过程</a></li>
+      </ul>
+    </li>
+    <li><a href="#第五章-循环与分支程序">第五章 循环与分支程序</a>
+      <ul>
+        <li><a href="#51循环程序设计">5.1循环程序设计</a></li>
+        <li><a href="#52分支程序设计">5.2分支程序设计</a></li>
+        <li><a href="#53如何在实模式下发挥-80386及其后继机型的优势">5.3如何在实模式下发挥 80386及其后继机型的优势</a></li>
+      </ul>
+    </li>
+    <li><a href="#第六章-子程序调用就是调用函数的准备">第六章 子程序调用（就是调用函数的准备）</a>
+      <ul>
+        <li><a href="#61子程序的设计方法">6.1子程序的设计方法</a>
+          <ul>
+            <li><a href="#参数传送">参数传送：</a></li>
+          </ul>
+        </li>
+        <li><a href="#64-dos系统功能调用">6.4 *DOS系统功能调用</a></li>
+      </ul>
+    </li>
+    <li><a href="#第七章-高级汇编语言技术">第七章 高级汇编语言技术</a>
+      <ul>
+        <li><a href="#1宏汇编">1.宏汇编</a></li>
+        <li><a href="#2重复汇编">2.重复汇编</a></li>
+        <li><a href="#3条件汇编">3.条件汇编</a></li>
+      </ul>
+    </li>
+    <li><a href="#第八章-输入输出程序设计">第八章 输入输出程序设计</a>
+      <ul>
+        <li><a href="#io设备的数据传送方式">I/O设备的数据传送方式</a>
+          <ul>
+            <li><a href="#一些io指令">一些IO指令</a></li>
+          </ul>
+        </li>
+        <li><a href="#程序直接控制io不停等待直到可以输入或者输出">程序直接控制IO，不停等待，直到可以输入或者输出：</a></li>
+        <li><a href="#中断方式">中断方式</a></li>
+        <li><a href="#屏蔽中断方式">屏蔽中断方式</a>
+          <ul>
+            <li><a href="#硬件中断服务">硬件中断服务：</a></li>
+            <li><a href="#软件中断是由程序本身导致的">软件中断是由程序本身导致的：</a></li>
+          </ul>
+        </li>
+        <li><a href="#中断向量表">中断向量表</a></li>
+        <li><a href="#和子程序调用的区别">和子程序调用的区别：</a>
+          <ul>
+            <li><a href="#进入中断服务处理程序时">进入中断服务处理程序时</a></li>
+            <li><a href="#返回时">返回时</a></li>
+            <li><a href="#时机不同">时机不同</a></li>
+          </ul>
+        </li>
+        <li><a href="#优先级的处理">优先级的处理：</a></li>
+        <li><a href="#80386程序中断">80386程序中断</a></li>
+      </ul>
+    </li>
+    <li><a href="#bios中断和dos中断">BIOS中断和DOS中断</a></li>
+    <li><a href="#1-定义"><strong>1. 定义</strong></a>
+      <ul>
+        <li><a href="#biosbasic-inputoutput-system"><strong>BIOS（Basic Input/Output System）</strong></a></li>
+        <li><a href="#dosdisk-operating-system"><strong>DOS（Disk Operating System）</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#2-作用"><strong>2. 作用</strong></a></li>
+    <li><a href="#3-联系"><strong>3. 联系</strong></a></li>
+    <li><a href="#4-区别"><strong>4. 区别</strong></a></li>
+    <li><a href="#5-总结"><strong>5. 总结</strong></a>
+      <ul>
+        <li><a href="#什么是bios">什么是BIOS</a></li>
+        <li><a href="#什么是dos">什么是DOS</a></li>
+        <li><a href="#键盘">键盘</a></li>
+      </ul>
+    </li>
+    <li><a href="#课内测试">课内测试</a></li>
+    <li><a href="#ch1-1">ch1-1</a></li>
+    <li><a href="#ch1-2">ch1-2</a></li>
+    <li><a href="#ch1-3">ch1-3</a></li>
+    <li><a href="#ch2-1">ch2-1</a></li>
+    <li><a href="#ch2-2">ch2-2</a></li>
+    <li><a href="#ch2-3">ch2-3</a></li>
+    <li><a href="#ch3-1">ch3-1</a></li>
+    <li><a href="#ch3-2">ch3-2</a></li>
+    <li><a href="#ch3-3">ch3-3</a></li>
+    <li><a href="#ch4-1">ch4-1</a></li>
+    <li><a href="#ch4-2">ch4-2</a></li>
+    <li><a href="#ch4-3">ch4-3</a></li>
+    <li><a href="#ch5-1">ch5-1</a></li>
+    <li><a href="#ch5-2">ch5-2</a></li>
+    <li><a href="#ch5-3">ch5-3</a></li>
+    <li><a href="#ch6-1">ch6-1</a></li>
+    <li><a href="#ch6-2">ch6-2</a></li>
+    <li><a href="#ch6-3">ch6-3</a></li>
+    <li><a href="#ch7-1">ch7-1</a></li>
+    <li><a href="#ch7-2">ch7-2</a></li>
+    <li><a href="#ch7-3">ch7-3</a></li>
+    <li><a href="#ch7-4">ch7-4</a></li>
+    <li><a href="#ch8-1">ch8-1</a></li>
+    <li><a href="#ch8-2">ch8-2</a></li>
+    <li><a href="#ch8-3">ch8-3</a></li>
+    <li><a href="#ch8-4">ch8-4</a></li>
+    <li><a href="#ch9-1">ch9-1</a></li>
+    <li><a href="#ch9-2">ch9-2</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-基础">第一章 基础</a>
+      <ul>
+        <li><a href="#执行过程">执行过程</a></li>
+        <li><a href="#进制的转换">进制的转换</a></li>
+        <li><a href="#数码的表示">数码的表示</a>
+          <ul>
+            <li><a href="#1原码表示法">1.原码表示法</a></li>
+            <li><a href="#2反码表示法">2.反码表示法</a></li>
+            <li><a href="#3补码表示法">3.补码表示法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第二章-80x86计算机组织">第二章 80x86计算机组织</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#21-三种模式">2.1 三种模式</a></li>
+            <li><a href="#22-寄存器register">*2.2 寄存器（Register）：</a></li>
+            <li><a href="#23-存储器">*2.3 存储器</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第三章-指令系统和寻址方式">第三章 指令系统和寻址方式</a>
+      <ul>
+        <li><a href="#31-怎么寻找地址">3.1 怎么寻找地址？</a>
+          <ul>
+            <li><a href="#311-与数据有关的寻址方式">3.1.1 与数据有关的寻址方式</a></li>
+            <li><a href="#312-和转移地址相关的方式">3.1.2 和转移地址相关的方式</a></li>
+          </ul>
+        </li>
+        <li><a href="#32-80x86语言指令概况">3.2 80X86语言指令概况</a></li>
+        <li><a href="#33-80x86指令系统">3.3 80X86指令系统</a>
+          <ul>
+            <li><a href="#331-数据传送指令">3.3.1 数据传送指令</a></li>
+            <li><a href="#332-算术指令">3.3.2 算术指令</a></li>
+            <li><a href="#333-逻辑指令">3.3.3 逻辑指令</a></li>
+            <li><a href="#334-串处理指令">3.3.4 串处理指令</a></li>
+            <li><a href="#335-控制转移指令">3.3.5 控制转移指令</a></li>
+            <li><a href="#336-处理机控制指令">3.3.6 处理机控制指令</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第四章-汇编语言程序格式">第四章 汇编语言程序格式</a>
+      <ul>
+        <li><a href="#41-汇编程序功能">4.1 汇编程序功能</a></li>
+        <li><a href="#42-伪操作">4.2 伪操作</a>
+          <ul>
+            <li><a href="#421-处理器选择伪操作">4.2.1 处理器选择伪操作</a></li>
+            <li><a href="#422-段定义伪操作">4.2.2 段定义伪操作</a></li>
+            <li><a href="#423-程序开始和结束伪操作">4.2.3 程序开始和结束伪操作</a></li>
+            <li><a href="#424-数据定义及存储器分配伪操作">4.2.4 数据定义及存储器分配伪操作</a></li>
+            <li><a href="#425-表达式赋值伪操作equ">4.2.5 表达式赋值伪操作EQU</a></li>
+            <li><a href="#426-地址计数器对准伪操作">4.2.6 地址计数器对准伪操作</a></li>
+            <li><a href="#427-基数控制伪操作">4.2.7 基数控制伪操作</a></li>
+          </ul>
+        </li>
+        <li><a href="#43-汇编语言程序格式">4.3 汇编语言程序格式</a></li>
+        <li><a href="#44-汇编语言程序上机过程">4.4 汇编语言程序上机过程</a></li>
+      </ul>
+    </li>
+    <li><a href="#第五章-循环与分支程序">第五章 循环与分支程序</a>
+      <ul>
+        <li><a href="#51循环程序设计">5.1循环程序设计</a></li>
+        <li><a href="#52分支程序设计">5.2分支程序设计</a></li>
+        <li><a href="#53如何在实模式下发挥-80386及其后继机型的优势">5.3如何在实模式下发挥 80386及其后继机型的优势</a></li>
+      </ul>
+    </li>
+    <li><a href="#第六章-子程序调用就是调用函数的准备">第六章 子程序调用（就是调用函数的准备）</a>
+      <ul>
+        <li><a href="#61子程序的设计方法">6.1子程序的设计方法</a>
+          <ul>
+            <li><a href="#参数传送">参数传送：</a></li>
+          </ul>
+        </li>
+        <li><a href="#64-dos系统功能调用">6.4 *DOS系统功能调用</a></li>
+      </ul>
+    </li>
+    <li><a href="#第七章-高级汇编语言技术">第七章 高级汇编语言技术</a>
+      <ul>
+        <li><a href="#1宏汇编">1.宏汇编</a></li>
+        <li><a href="#2重复汇编">2.重复汇编</a></li>
+        <li><a href="#3条件汇编">3.条件汇编</a></li>
+      </ul>
+    </li>
+    <li><a href="#第八章-输入输出程序设计">第八章 输入输出程序设计</a>
+      <ul>
+        <li><a href="#io设备的数据传送方式">I/O设备的数据传送方式</a>
+          <ul>
+            <li><a href="#一些io指令">一些IO指令</a></li>
+          </ul>
+        </li>
+        <li><a href="#程序直接控制io不停等待直到可以输入或者输出">程序直接控制IO，不停等待，直到可以输入或者输出：</a></li>
+        <li><a href="#中断方式">中断方式</a></li>
+        <li><a href="#屏蔽中断方式">屏蔽中断方式</a>
+          <ul>
+            <li><a href="#硬件中断服务">硬件中断服务：</a></li>
+            <li><a href="#软件中断是由程序本身导致的">软件中断是由程序本身导致的：</a></li>
+          </ul>
+        </li>
+        <li><a href="#中断向量表">中断向量表</a></li>
+        <li><a href="#和子程序调用的区别">和子程序调用的区别：</a>
+          <ul>
+            <li><a href="#进入中断服务处理程序时">进入中断服务处理程序时</a></li>
+            <li><a href="#返回时">返回时</a></li>
+            <li><a href="#时机不同">时机不同</a></li>
+          </ul>
+        </li>
+        <li><a href="#优先级的处理">优先级的处理：</a></li>
+        <li><a href="#80386程序中断">80386程序中断</a></li>
+      </ul>
+    </li>
+    <li><a href="#bios中断和dos中断">BIOS中断和DOS中断</a></li>
+    <li><a href="#1-定义"><strong>1. 定义</strong></a>
+      <ul>
+        <li><a href="#biosbasic-inputoutput-system"><strong>BIOS（Basic Input/Output System）</strong></a></li>
+        <li><a href="#dosdisk-operating-system"><strong>DOS（Disk Operating System）</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#2-作用"><strong>2. 作用</strong></a></li>
+    <li><a href="#3-联系"><strong>3. 联系</strong></a></li>
+    <li><a href="#4-区别"><strong>4. 区别</strong></a></li>
+    <li><a href="#5-总结"><strong>5. 总结</strong></a>
+      <ul>
+        <li><a href="#什么是bios">什么是BIOS</a></li>
+        <li><a href="#什么是dos">什么是DOS</a></li>
+        <li><a href="#键盘">键盘</a></li>
+      </ul>
+    </li>
+    <li><a href="#课内测试">课内测试</a></li>
+    <li><a href="#ch1-1">ch1-1</a></li>
+    <li><a href="#ch1-2">ch1-2</a></li>
+    <li><a href="#ch1-3">ch1-3</a></li>
+    <li><a href="#ch2-1">ch2-1</a></li>
+    <li><a href="#ch2-2">ch2-2</a></li>
+    <li><a href="#ch2-3">ch2-3</a></li>
+    <li><a href="#ch3-1">ch3-1</a></li>
+    <li><a href="#ch3-2">ch3-2</a></li>
+    <li><a href="#ch3-3">ch3-3</a></li>
+    <li><a href="#ch4-1">ch4-1</a></li>
+    <li><a href="#ch4-2">ch4-2</a></li>
+    <li><a href="#ch4-3">ch4-3</a></li>
+    <li><a href="#ch5-1">ch5-1</a></li>
+    <li><a href="#ch5-2">ch5-2</a></li>
+    <li><a href="#ch5-3">ch5-3</a></li>
+    <li><a href="#ch6-1">ch6-1</a></li>
+    <li><a href="#ch6-2">ch6-2</a></li>
+    <li><a href="#ch6-3">ch6-3</a></li>
+    <li><a href="#ch7-1">ch7-1</a></li>
+    <li><a href="#ch7-2">ch7-2</a></li>
+    <li><a href="#ch7-3">ch7-3</a></li>
+    <li><a href="#ch7-4">ch7-4</a></li>
+    <li><a href="#ch8-1">ch8-1</a></li>
+    <li><a href="#ch8-2">ch8-2</a></li>
+    <li><a href="#ch8-3">ch8-3</a></li>
+    <li><a href="#ch8-4">ch8-4</a></li>
+    <li><a href="#ch9-1">ch9-1</a></li>
+    <li><a href="#ch9-2">ch9-2</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">汇编语言复习 
+    <div id="%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>​	1.这是某学校汇编语言的课程内容，简单做一个复习的笔记，如果能帮到校友就更好了&hellip;&hellip;</p>
+<p>​	2.整体来看感觉内容不多，但是很杂很乱，容易一开始让人很不知所以然，再加上讲课老师感觉逻辑性不算很强，可能让人感觉有点劝退，但是这门课程本身还是相当重要的&hellip;&hellip;</p>
+<p>​	3.然后就是关于本课程的实验，我的评价就是善用AI，如果你觉得很难写，但是前提是你先要看得懂并且会用MASM工具来调试。</p>
+<p>​	4.手写代码占30分，这个要卷的话看下上机作业，不卷随缘，剩下基本都是八股。</p>
+<p>​	5.我的笔记确实复制粘贴了很多PPT，但是哪怕是PPT你也会想看带目录的对么&hellip;&hellip;</p>
+<p>​	6.关于考试，我整理了一个文件，存放了两个往年题，并且我个人的考试经验来看，第二套往年题目相当具有参考价值，<a href="/files/80X86Test.pdf">点击这里下载</a>。最后一道关于I/O的编程题目几乎是类似的，没有答案，你直接截图给某个GPT就可以了。</p></blockquote>
+
+
+<h2 class="relative group">第一章 基础 
+    <div id="%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>第一章只有一些基本的概念。</p></blockquote>
+
+
+<h3 class="relative group">执行过程 
+    <div id="%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250504204325331.png" alt="image-20250504204325331" />
+      
+    </figure>
+</p>
+<p>二进制数：计算机硬件唯一识别和使用的数制
+以2为基的数制表示法，数由2个数字构成（0、1），二进制数后缀为B，
+如10110111B。
+十进制数：人类自然语言中常用的数制
+以10为基的数制表示法，数由10个数字构成（0<del>9），十进制数后缀为D，
+如1945D。
+十六进制数：程序设计中方便使用和转换的数制
+以16为基的数制表示法，数由16个数字构成[0</del>9、A（10）、B（11）、
+C（12）、D（13）、E（14）、F（15）]，十六进制数后缀为H，如
+18ADH。</p>
+
+
+<h3 class="relative group">进制的转换 
+    <div id="%E8%BF%9B%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%9B%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250504204803342.png" alt="image-20250504204803342" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">数码的表示 
+    <div id="%E6%95%B0%E7%A0%81%E7%9A%84%E8%A1%A8%E7%A4%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E7%A0%81%E7%9A%84%E8%A1%A8%E7%A4%BA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">1.原码表示法 
+    <div id="1%E5%8E%9F%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E5%8E%9F%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>（1）原码表示法： 将数的真值形式中的正（负）号，用代码0(1)来表示，数
+值部分用二进制来表示。符号 + 绝对值
+正数：符号位为0，后面的n-1位为数值部分
+负数：符号位为1，后面的n-1位为数值部分
+（2）原码的特点
+“0” 的原码有两种表示法
+[+0]原＝00000000B, [-0]原＝10000000B
+n位二进制原码所能表示的数值范围为： -(2n-1-1)～(2n-1-1)</p>
+<p>原码表示一个数时，最高位为符号位</p>
+<p>[+3]原码 = 0 000,0011 = 03H
+[-3]原码 = 1 000,0011 = 83H
+[+0]原码 = 0 000,0000 = 00H
+[-0]原码 = 1 000,0000 = 80H</p>
+
+
+<h4 class="relative group">2.反码表示法 
+    <div id="2%E5%8F%8D%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2%E5%8F%8D%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>正数的反码同原码，负数的反码数值位与原码相反
+例：n=8bit
+[+5]反码 = 0 000,0101 = 05H
+[-5]反码 = 1 111,1010 = FAH
+[+0]反码 = 0 000,0000 = 00H
+[-0]反码 = 1 111,1111 = FFH
+0的表示不唯一</p>
+
+
+<h4 class="relative group">3.补码表示法 
+    <div id="3%E8%A1%A5%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3%E8%A1%A5%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>（1）补码表示规则：
+正数的补码: 符号 - 绝对值（与正数的原码相同）
+[+1]补码
+= 0000 0001 = 01H
+[+127]补码 = 0111 1111 = 7FH
+[+0]补码
+= 0000 0000 = 00H
+负数的补码: 负数 X 用 2n-|X| 表示
+[-1]补码
+= 28-1 = 1111 1111 = FFH
+[-127]补码 = 28-127 = 1000 0001 = 81H
+一种简单方法：
+（1）写出与该负数相对应的正数的补码
+[-1]补=1111 1111
+[+1]补= 0000 0001
+（2）按位求反1111 1110
+（3）末位加1</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250504210649399.png" alt="image-20250504210649399" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">第二章 80x86计算机组织 
+    <div id="%E7%AC%AC%E4%BA%8C%E7%AB%A0-80x86%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BB%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-80x86%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BB%87" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h4 class="relative group">2.1 三种模式 
+    <div id="21-%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#21-%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>实模式-虚拟8086模式-保护模式</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250321153928618.png" alt="image-20250321153928618" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">*2.2 寄存器（Register）： 
+    <div id="22-%E5%AF%84%E5%AD%98%E5%99%A8register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#22-%E5%AF%84%E5%AD%98%E5%99%A8register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250321154148066.png" alt="image-20250321154148066" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">数据寄存器 
+    <div id="%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>(暂态计算中用到的寄存器)</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250321154402434.png" alt="image-20250321154402434" />
+      
+    </figure>
+</p>
+<p>AH(high) AL(low)</p>
+<p>AX(adder) BX(base) CS(counter) DX(double)</p>
+
+
+<h5 class="relative group">指针寄存器 
+    <div id="%E6%8C%87%E9%92%88%E5%AF%84%E5%AD%98%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8C%87%E9%92%88%E5%AF%84%E5%AD%98%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>指针和变址寄存器用来引用一些数据：<strong>能够存放偏移量</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250321154536511.png" alt="image-20250321154536511" />
+      
+    </figure>
+</p>
+<p>SP(stack pointer)</p>
+<p>BP(base pointer)</p>
+<p>SI(source) DI(destination)</p>
+
+
+<h5 class="relative group">段寄存器 
+    <div id="%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<blockquote>
+<p>在存储器中用分段的方式来管理数据，存放了很多base地址。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250504212541554.png" alt="image-20250504212541554" />
+      
+    </figure>
+</p>
+<p>CS(code segment) SS(stack segment) DS(data segment) ES(append segment)</p>
+
+
+<h5 class="relative group">控制寄存器 
+    <div id="%E6%8E%A7%E5%88%B6%E5%AF%84%E5%AD%98%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8E%A7%E5%88%B6%E5%AF%84%E5%AD%98%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250504213006364.png" alt="image-20250504213006364" />
+      
+    </figure>
+</p>
+<p>IP（Instruction pointer）&mdash;》指令地址的偏移量</p>
+<p>flags有哪些，什么意思？</p>
+<p><strong>标志位分类</strong>
+<strong>➢ 条件（状态）标志</strong>
+OF、SF、ZF、AF、CF和PF，其值取决于一个操作完成后，算逻部件ALU所处的状态。
+<strong>➢ 控制标志和系统标志</strong>
+DF、IF和TF，其值是通过指令<strong>人为设置</strong>的，用以控制程序的执行。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505221928271.png" alt="image-20250505221928271" />
+      
+    </figure>
+</p>
+<p>陌生的flag寄存器：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505222044170.png" alt="image-20250505222044170" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505222141095.png" alt="image-20250505222141095" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">*2.3 存储器 
+    <div id="23-%E5%AD%98%E5%82%A8%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#23-%E5%AD%98%E5%82%A8%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>◆ 计算机存储信息的基本单位是一个二进制位
+◆ 8086字长为16位，地址长度20位
+◆ 80386以上机的字长为32位，地址长度32位以上</p>
+<p>怎么表示？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505222618323.png" alt="image-20250505222618323" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>​	Little Endian：小端法，03080H是低的地址，存到低位的字节，03081H是高位的地址，就存放到高位的字节，这里是重点。</p></blockquote>
+<p>存储器采用分段管理后，一个内存单元地址要用段基地址和偏移量两个逻辑地址来描述，表示为:</p>
+<p>​									<strong>段基址:偏移量</strong></p>
+<blockquote>
+<p>就是要理解分段的机制。</p></blockquote>
+<p>存储器分段：段起始地址必须是某一小段的首地址，段的大小可以是64K范围内的任意字节。
+**物理地址：**每个存储单元的唯一的20位地址。
+<strong>段基地址</strong>：段起始地址(20位)=10H * 段寄存器(16位) &mdash;-》在二进制上左移动了4个bit
+<strong>偏移地址</strong>：段内相对于段起始地址的偏移量（16位），<strong>偏移量又称为有效地址（EA）</strong>。
+<strong>物理地址</strong> = 16d * 段寄存器 + 偏移地址 = 10H * 段寄存器 + 偏移地址</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505223724463.png" alt="image-20250505223724463" />
+      
+    </figure>
+</p>
+<p>几个段？ 4个。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505224206839.png" alt="image-20250505224206839" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>中间比较复杂的部分都是操作系统的内容，可以暂时不管。</p></blockquote>
+
+
+<h2 class="relative group">第三章 指令系统和寻址方式 
+    <div id="%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>3.1	80X86寻址方式
+3.2	80X86机器语言指令概况
+3.3	80X86指令系统</strong></p>
+
+
+<h3 class="relative group">3.1 怎么寻找地址？ 
+    <div id="31-%E6%80%8E%E4%B9%88%E5%AF%BB%E6%89%BE%E5%9C%B0%E5%9D%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#31-%E6%80%8E%E4%B9%88%E5%AF%BB%E6%89%BE%E5%9C%B0%E5%9D%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>寻址方式：指令指定操作数地址的方式
+1、与操作数据有关的寻址方式
+2、与转移地址有关的寻址方式</p>
+<p>操作数通常保存在：
+（1） 指令中MOVAX, 2000H
+（2） CPU的寄存器中MOVAX, BX
+（3） 内存单元中MOVAX, [2000H]
+（4） I/O接口寄存器中INAH, 20H</p>
+
+
+<h4 class="relative group">3.1.1 与数据有关的寻址方式 
+    <div id="311-%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%9C%89%E5%85%B3%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#311-%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%9C%89%E5%85%B3%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>经常拿来改错。</p>
+<p>还会考察你什么形式是怎样的寻址方式。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508232002768.png" alt="image-20250508232002768" />
+      
+    </figure>
+</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505225609356.png" alt="image-20250505225609356" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505225632252.png" alt="image-20250505225632252" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505225901716.png" alt="image-20250505225901716" />
+      
+    </figure>
+</p>
+<p>[]间接引用地址，相当于引用，在内存中取地址。</p>
+<p>作用：</p>
+<ol>
+<li>不加 []：直接数值或地址</li>
+</ol>
+<p>mov al, VALUE</p>
+<pre><code>如果 VALUE DB 66H：不加中括号，会被解释为立即数 66H
+
+编译后等同于：
+
+mov al, 66h
+</code></pre>
+<p>⚠️ 但在某些上下文中可能错误，比如你写：</p>
+<p>mov ax, VALUE    ; VALUE 是 DB 类型，而 AX 是 16 位寄存器 → 错误！</p>
+<ol start="2">
+<li>加 []：访问内存地址中的内容</li>
+</ol>
+<p>mov al, [VALUE]</p>
+<pre><code>现在 VALUE 被当作一个内存地址，意思是：
+
+    “从地址为 VALUE 的内存中取出一个字节的值，放到 AL 里”
+
+假如：
+
+VALUE DB 66H
+
+则执行完之后：AL = 66H
+</code></pre>
+<p>这是直接寻址方式（Direct Addressing）。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505230407588.png" alt="image-20250505230407588" />
+      
+    </figure>
+</p>
+<p>怎么来做偏移？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506195353369.png" alt="image-20250506195353369" />
+      
+    </figure>
+</p>
+<p>EA的计算方法：<strong>重点</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506195735294.png" alt="image-20250506195735294" />
+      
+    </figure>
+</p>
+<p>要注意的表示方式。</p>
+<blockquote>
+<p>缺省的时候<strong>默认就是DS数据段。</strong></p></blockquote>
+<p>MOV BX，[2100H]；DS：[2100H] →BX</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506200550592.png" alt="image-20250506200550592" />
+      
+    </figure>
+</p>
+<p>容易混淆的地方：</p>
+<p>用 VALUE DB 10 定义了一个变量，那么VALUE是这个定义的变量的内存地址的符号名（指针）</p>
+<p>MOV AX，VALUE 符号不对应。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">data</span> <span class="no">segment</span>
+</span></span><span class="line"><span class="cl"><span class="nf">value</span> <span class="no">db</span> <span class="mi">66</span><span class="no">H</span>
+</span></span><span class="line"><span class="cl"><span class="nf">other</span> <span class="no">db</span> <span class="mi">88</span><span class="no">H</span>
+</span></span><span class="line"><span class="cl"><span class="nf">arr</span> <span class="no">db</span> <span class="mi">12</span><span class="no">h</span><span class="p">,</span> <span class="mi">34</span><span class="no">h</span><span class="p">,</span> <span class="mi">56</span><span class="no">h</span><span class="p">,</span> <span class="mi">78</span><span class="no">h</span>
+</span></span><span class="line"><span class="cl"><span class="nf">data</span> <span class="no">ends</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">code</span> <span class="no">segment</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="no">data</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ds</span><span class="p">,</span> <span class="no">ax</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">al</span><span class="p">,</span> <span class="no">value</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">cl</span><span class="p">,</span> <span class="p">[</span><span class="no">value</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="no">word</span> <span class="no">ptr</span> <span class="no">value</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">bx</span><span class="p">,</span> <span class="no">word</span> <span class="no">ptr</span> <span class="p">[</span><span class="no">value</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="na">...</span>
+</span></span><span class="line"><span class="cl"><span class="nf">code</span> <span class="no">ends</span>
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>正确性</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>mov al, value</code></td>
+          <td>✅</td>
+          <td>默认等价于 <code>mov al, [value]</code></td>
+      </tr>
+      <tr>
+          <td><code>mov cl, [value]</code></td>
+          <td>✅</td>
+          <td>显式间接寻址，读取一个字节</td>
+      </tr>
+      <tr>
+          <td><code>mov ax, word ptr value</code></td>
+          <td>⚠️</td>
+          <td>虽然合法，但读取了 <code>value</code> 和 <code>other</code> 两个字节</td>
+      </tr>
+      <tr>
+          <td><code>mov bx, word ptr [value]</code></td>
+          <td>⚠️</td>
+          <td>同上，低地址是 <code>value</code>，高地址是 <code>other</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506202340610.png" alt="image-20250506202340610" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506202631093.png" alt="image-20250506202631093" />
+      
+    </figure>
+</p>
+<p>都差不多。</p>
+<blockquote>
+<p>base pointer 和 stack segment（SS）来做配合处理。</p></blockquote>
+<p>◼ 只要指令寻址时使用了BP，计算物理地址时约定段是SS段。
+◼ 指令寻址时使用了除BP以外的其它寄存器，计算物理地址时约定段为DS段。</p>
+
+
+<h4 class="relative group">3.1.2 和转移地址相关的方式 
+    <div id="312-%E5%92%8C%E8%BD%AC%E7%A7%BB%E5%9C%B0%E5%9D%80%E7%9B%B8%E5%85%B3%E7%9A%84%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#312-%E5%92%8C%E8%BD%AC%E7%A7%BB%E5%9C%B0%E5%9D%80%E7%9B%B8%E5%85%B3%E7%9A%84%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506203925217.png" alt="image-20250506203925217" />
+      
+    </figure>
+</p>
+<p>寻找地址的方式，因为可能会转移到别的CS段中去。</p>
+<p><strong>段内寻址：转移指令与转向的目标指令在同一代码段中CS内容不变，IP内容修改</strong>
+<strong>段间寻址：转移指令与转向的目标指令在两个代码段中CS和IP内容修改</strong>
+<strong>直接寻址：转向的目标指令地址由转移指令直接指明</strong></p>
+<p><strong>间接寻址：转向的目标指令地址由转移指令中的寄存器或存储单元内容给出</strong></p>
+
+
+<h5 class="relative group">1.段内直接寻址 
+    <div id="1%E6%AE%B5%E5%86%85%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E6%AE%B5%E5%86%85%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>相当于给IP直接加上此时两个位置的地址之间的差值。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506210312441.png" alt="image-20250506210312441" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">2.段内间接寻址 
+    <div id="2%E6%AE%B5%E5%86%85%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2%E6%AE%B5%E5%86%85%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<blockquote>
+<p>两张PPT可以解决问题，实际上就是用offset做间接的取值。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506210903648.png" alt="image-20250506210903648" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506211147423.png" alt="image-20250506211147423" />
+      
+    </figure>
+</p>
+<p>注意这里的si是16位，也就是近转移。</p>
+<p>例题：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506211523016.png" alt="image-20250506211523016" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">3.段间直接寻址 
+    <div id="3%E6%AE%B5%E9%97%B4%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3%E6%AE%B5%E9%97%B4%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506211802872.png" alt="image-20250506211802872" />
+      
+    </figure>
+</p>
+<p>这就是直接更改代码段的CS和IP的值来跳转。<strong>IP在CS上面。</strong></p>
+
+
+<h5 class="relative group">4.段间间接寻址 
+    <div id="4%E6%AE%B5%E9%97%B4%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4%E6%AE%B5%E9%97%B4%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506212009693.png" alt="image-20250506212009693" />
+      
+    </figure>
+</p>
+<p>下面的图比较重要：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506212324349.png" alt="image-20250506212324349" />
+      
+    </figure>
+</p>
+<p><strong>条件转移指令只能使用段内直接寻址方式</strong>
+<strong>无条件转移（JMP）和转子指令（CALL）可用四种方式的任何一种</strong></p>
+
+
+<h3 class="relative group">3.2 80X86语言指令概况 
+    <div id="32-80x86%E8%AF%AD%E8%A8%80%E6%8C%87%E4%BB%A4%E6%A6%82%E5%86%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#32-80x86%E8%AF%AD%E8%A8%80%E6%8C%87%E4%BB%A4%E6%A6%82%E5%86%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>不重要吧，对于考试。</p>
+
+
+<h3 class="relative group">3.3 80X86指令系统 
+    <div id="33-80x86%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#33-80x86%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">3.3.1 数据传送指令 
+    <div id="331-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#331-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>注意<strong>pushA</strong>和<strong>popA</strong>，把所有的寄存器从<strong>stack</strong>上面进行移动。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506213227249.png" alt="image-20250506213227249" />
+      
+    </figure>
+</p>
+<p>容易错的位置：</p>
+<p><strong>DS这样的段寄存器不能用立即数更改。</strong></p>
+<p>CS不能修改。</p>
+<p>不能直接从内存到内存。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506213441507.png" alt="image-20250506213441507" />
+      
+    </figure>
+</p>
+<p>MOVSX MOVZX	有符号和0扩展的区别，比较简单。</p>
+<p><strong>push 和 pop 指令</strong></p>
+<blockquote>
+<p>注意只能处理16bit和32bit的寄存器，不能POP AL!!!</p></blockquote>
+<p>注意栈顶位于低地址位置，当你push数据的时候，sp的值应该减少。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507185237782.png" alt="image-20250507185237782" />
+      
+    </figure>
+</p>
+<p>pop是把stack里面的值拿出来放到DST里面去。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507190453576.png" alt="image-20250507190453576" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507190629703.png" alt="image-20250507190629703" />
+      
+    </figure>
+</p>
+<p><strong>XCHG直接作交换</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507190704209.png" alt="image-20250507190704209" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>注意操作数是32bit 还是 16bit，来决定SP的增减值的大小。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507190926322.png" alt="image-20250507190926322" />
+      
+    </figure>
+</p>
+<p>IN OUT这里只能用于Adder寄存器。</p>
+
+
+<h6 class="relative group"><strong>I/O指令的输入和输出</strong> 
+    <div id="io%E6%8C%87%E4%BB%A4%E7%9A%84%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#io%E6%8C%87%E4%BB%A4%E7%9A%84%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>输入和输出都是站在CPU的角度上对于端口。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507191450552.png" alt="image-20250507191450552" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507191535239.png" alt="image-20250507191535239" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507191919568.png" alt="image-20250507191919568" />
+      
+    </figure>
+</p>
+<p>用AL寄存器接收来自于27H端口的数据。</p>
+<p><strong>地址传送指令</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507224256941.png" alt="image-20250507224256941" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507224330548.png" alt="image-20250507224330548" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>能同时改变两个寄存器的原始指令。</p></blockquote>
+<p>送给寄存器的同时还送给段寄存器。</p>
+<p>低16bit给寄存器，高16bit给段寄存器。</p>
+<p>很好的一个例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507224712179.png" alt="image-20250507224712179" />
+      
+    </figure>
+</p>
+
+
+<h6 class="relative group">类型转换指令 
+    <div id="%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507225206221.png" alt="image-20250507225206221" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507225321673.png" alt="image-20250507225321673" />
+      
+    </figure>
+</p>
+<p><strong>BSWAP</strong>：什么逆天指令？</p>
+
+
+<h4 class="relative group">3.3.2 算术指令 
+    <div id="332-%E7%AE%97%E6%9C%AF%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#332-%E7%AE%97%E6%9C%AF%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507225619830.png" alt="image-20250507225619830" />
+      
+    </figure>
+</p>
+
+
+<h6 class="relative group">1.加法指令（加法指令ADD、带进位加法指令ADC、加1指令INC等） 
+    <div id="1%E5%8A%A0%E6%B3%95%E6%8C%87%E4%BB%A4%E5%8A%A0%E6%B3%95%E6%8C%87%E4%BB%A4add%E5%B8%A6%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E6%8C%87%E4%BB%A4adc%E5%8A%A01%E6%8C%87%E4%BB%A4inc%E7%AD%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E5%8A%A0%E6%B3%95%E6%8C%87%E4%BB%A4%E5%8A%A0%E6%B3%95%E6%8C%87%E4%BB%A4add%E5%B8%A6%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E6%8C%87%E4%BB%A4adc%E5%8A%A01%E6%8C%87%E4%BB%A4inc%E7%AD%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>(1)加法指令 ADD</p>
+<p>格式：ADD
+DST,SRC
+功能：（DST）＋（SRC）→ (DST)
+说明：对操作数的限定同MOV指令
+(2)带进位加法指令 ADC</p>
+<blockquote>
+<p>多个字节或者多个字的时候用ADC处理。</p></blockquote>
+<p>格式: ADC
+DST,SRC
+功能:（DST）＋（SRC）＋CF→(DST)
+说明:对操作数的限定同MOV指令,该指令适用于多字节或多字的加法运算</p>
+<p>(3)加1指令 INC
+格式：INC
+OPR
+功能：（OPR）＋1 → (OPR)
+说明：很方便地实现地址指针或循环次数的加1修改
+(4)互换并加法指令 <strong>XADD</strong>(486以上)</p>
+<blockquote>
+<p>和ADD一样，就是把SRC的值更换成了原来的DST。</p></blockquote>
+<p>格式：XADD
+DST，SRC
+功能: (SRC) + (DST) → 暂存器
+(DST) → (SRC)
+暂存器→(DST)
+说明：该指令执行后,原DST的内容在SRC中,和在DST中</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507225948790.png" alt="image-20250507225948790" />
+      
+    </figure>
+</p>
+
+
+<h6 class="relative group">2.减法指令（减法指令SUB、带借位减法指令SBB、减1指令DEC、求补指令NEG、比较指令CMP等） 
+    <div id="2%E5%87%8F%E6%B3%95%E6%8C%87%E4%BB%A4%E5%87%8F%E6%B3%95%E6%8C%87%E4%BB%A4sub%E5%B8%A6%E5%80%9F%E4%BD%8D%E5%87%8F%E6%B3%95%E6%8C%87%E4%BB%A4sbb%E5%87%8F1%E6%8C%87%E4%BB%A4dec%E6%B1%82%E8%A1%A5%E6%8C%87%E4%BB%A4neg%E6%AF%94%E8%BE%83%E6%8C%87%E4%BB%A4cmp%E7%AD%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2%E5%87%8F%E6%B3%95%E6%8C%87%E4%BB%A4%E5%87%8F%E6%B3%95%E6%8C%87%E4%BB%A4sub%E5%B8%A6%E5%80%9F%E4%BD%8D%E5%87%8F%E6%B3%95%E6%8C%87%E4%BB%A4sbb%E5%87%8F1%E6%8C%87%E4%BB%A4dec%E6%B1%82%E8%A1%A5%E6%8C%87%E4%BB%A4neg%E6%AF%94%E8%BE%83%E6%8C%87%E4%BB%A4cmp%E7%AD%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>(1)减法指令 SUB
+格式：SUB DST,SRC
+功能：（DST）－（SRC）→(DST)
+说明：除是实现减法功能外，其他要求同ADD
+(2)带借位减法指令 SBB
+格式:SBB DST,SRC
+功能:(DST)－(SRC)－CF→(DST)
+说明:除了操作为减外,其他要求同ADC,该指令适用于多字节或多字的减法运算
+(3)减1指令 DEC
+格式：DEC OPR
+功能：(OPR)－1→(OPR)
+说明：可以很方便地实现地址指针或循环次数的减1修改</p>
+<p>4)求补指令 NEG
+格式：NEG OPR
+功能：0FFFFH -(OPR)+1 → (OPR)
+对目标操作数（含符号位）求反加1，并且把结果送回目标
+说明：利用NEG指令可实现求一个数的补码
+(5)比较指令 CMP</p>
+<blockquote>
+<p>只改变FLAG，不更改实际的value.</p></blockquote>
+<p>格式:CMP OPR1,OPR2
+功能:(OPR1)－(OPR2)，只影响标志位，不影响源和目的操作数
+说明:这条指令执行相减操作后只根据结果设置标志位，并不改变两个操作数的原值，其他要求同SUB。CMP指
+令常用于比较两个数的大小。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507230302398.png" alt="image-20250507230302398" />
+      
+    </figure>
+</p>
+
+
+<h6 class="relative group">3.乘法指令 （无符号乘法指令MUL、带符号数乘法指令IMUL等） 
+    <div id="3%E4%B9%98%E6%B3%95%E6%8C%87%E4%BB%A4-%E6%97%A0%E7%AC%A6%E5%8F%B7%E4%B9%98%E6%B3%95%E6%8C%87%E4%BB%A4mul%E5%B8%A6%E7%AC%A6%E5%8F%B7%E6%95%B0%E4%B9%98%E6%B3%95%E6%8C%87%E4%BB%A4imul%E7%AD%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3%E4%B9%98%E6%B3%95%E6%8C%87%E4%BB%A4-%E6%97%A0%E7%AC%A6%E5%8F%B7%E4%B9%98%E6%B3%95%E6%8C%87%E4%BB%A4mul%E5%B8%A6%E7%AC%A6%E5%8F%B7%E6%95%B0%E4%B9%98%E6%B3%95%E6%8C%87%E4%BB%A4imul%E7%AD%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507230533324.png" alt="image-20250507230533324" />
+      
+    </figure>
+</p>
+<p>(1)无符号数乘法 MUL
+格式: <strong>MUL</strong> <strong>SRC</strong>	; SRC：除立即数以外的寻址方式
+<strong>功能: 字节操作： (AL) * (SRC) → (AX)</strong>
+<strong>字操作： (AX) * (SRC) → (DX:AX)</strong>
+<strong>双字操作： (EAX) * (SRC) → (EDX:EAX)</strong>
+乘积的高一半为0，则CF、OF均为0，否则CF、OF均为1
+这样可以检查结果是字节、字或双字。
+(2)带符号数乘法 IMUL
+格式: IMUL SRC	；SRC：除立即数以外的寻址方式
+<strong>功能: 字节操作： (AL) * (SRC) → (AX)</strong>
+<strong>字操作： (AX) * (SRC) → (DX:AX)</strong>
+<strong>双字操作： (EAX) * (SRC) → (EDX:EAX)</strong>
+乘积的高一半是低一半的符号扩展，则CF、OF均为0，否则CF、OF均为1。 其实质和MUL情况下一样，主要用于判断结果是字节、字或双字。</p>
+
+
+<h6 class="relative group">📌 <strong>DX 寄存器的常见用途</strong> 
+    <div id="-dx-%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%A8%E9%80%94" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#-dx-%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%A8%E9%80%94" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<ol>
+<li>*<strong>乘法和除法指令中用于存放高位结果</strong>：
+<ul>
+<li>如无符号乘法 <code>MUL</code>：
+<ul>
+<li>16 位乘法时：<code>AX × SRC = DX:AX</code>，结果的高 16 位在 <strong>DX</strong>。</li>
+</ul>
+</li>
+<li>除法时也是如此，例如 <code>DIV</code>：
+<ul>
+<li>被除数是 <code>DX:AX</code> 组成的 32 位数。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>端口输入输出指令中存储端口号</strong>：
+<ul>
+<li>比如 <code>IN AL, DX</code> 表示从 <code>DX</code> 寄存器所指端口读取字节到 AL。</li>
+<li><code>OUT DX, AL</code> 表示将 AL 中的数据写入 <code>DX</code> 所指端口。</li>
+</ul>
+</li>
+<li><strong>通用用途寄存器（可存储临时变量、地址、计数值等）</strong></li>
+</ol>
+<hr>
+
+
+<h6 class="relative group">4.除法指令（无符号除法指令DIV、带符号除法指令IDIV） 
+    <div id="4%E9%99%A4%E6%B3%95%E6%8C%87%E4%BB%A4%E6%97%A0%E7%AC%A6%E5%8F%B7%E9%99%A4%E6%B3%95%E6%8C%87%E4%BB%A4div%E5%B8%A6%E7%AC%A6%E5%8F%B7%E9%99%A4%E6%B3%95%E6%8C%87%E4%BB%A4idiv" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4%E9%99%A4%E6%B3%95%E6%8C%87%E4%BB%A4%E6%97%A0%E7%AC%A6%E5%8F%B7%E9%99%A4%E6%B3%95%E6%8C%87%E4%BB%A4div%E5%B8%A6%E7%AC%A6%E5%8F%B7%E9%99%A4%E6%B3%95%E6%8C%87%E4%BB%A4idiv" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508195631603.png" alt="image-20250508195631603" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508195904796.png" alt="image-20250508195904796" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>考试大题会出一道类似于这样的手写代码，最好手写一遍，处理一些细节问题：怎样写出完整的可执行程序？</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508200115555.png" alt="image-20250508200115555" />
+      
+    </figure>
+</p>
+
+
+<h6 class="relative group">5.十进制调整指令（DAA、DAS等） 
+    <div id="5%E5%8D%81%E8%BF%9B%E5%88%B6%E8%B0%83%E6%95%B4%E6%8C%87%E4%BB%A4daadas%E7%AD%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5%E5%8D%81%E8%BF%9B%E5%88%B6%E8%B0%83%E6%95%B4%E6%8C%87%E4%BB%A4daadas%E7%AD%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>懒的看，考了再说。。。。。。</p>
+
+
+<h4 class="relative group">3.3.3 逻辑指令 
+    <div id="333-%E9%80%BB%E8%BE%91%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#333-%E9%80%BB%E8%BE%91%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>逻辑指令包括：</p>
+
+
+<h5 class="relative group">１．逻辑运算指令 
+    <div id="%EF%BC%91%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%91%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>字面意思，大概看看</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508204434703.png" alt="image-20250508204434703" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508204523132.png" alt="image-20250508204523132" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">２．位测试并修改指令 
+    <div id="%EF%BC%92%E4%BD%8D%E6%B5%8B%E8%AF%95%E5%B9%B6%E4%BF%AE%E6%94%B9%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%92%E4%BD%8D%E6%B5%8B%E8%AF%95%E5%B9%B6%E4%BF%AE%E6%94%B9%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>。。。。。。</p>
+
+
+<h5 class="relative group">３．位扫描指令 
+    <div id="%EF%BC%93%E4%BD%8D%E6%89%AB%E6%8F%8F%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%93%E4%BD%8D%E6%89%AB%E6%8F%8F%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508205019710.png" alt="image-20250508205019710" />
+      
+    </figure>
+</p>
+<p>。。。。。。</p>
+
+
+<h5 class="relative group">４．移位指令 
+    <div id="%EF%BC%94%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%94%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508205120238.png" alt="image-20250508205120238" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508205313600.png" alt="image-20250508205313600" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>注意：那么✖2或者➗2的幂之类的就用位移运算最好。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508205718751.png" alt="image-20250508205718751" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">3.3.4 串处理指令 
+    <div id="334-%E4%B8%B2%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#334-%E4%B8%B2%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>处理存放在存储器里的数据串，所有串指令都可以处理字节或字，386及后继机型还可以处理双字。
+利用串操作指令可以直接处理两个存储器单元的操作数，方便地处理字符串或数据块。
+串处理指令包括：
+MOVS 串传送
+CMPS 串比较
+SCAS 串扫描
+LODS 从串取
+STOS 存入串
+INS 串输入（从I/O端口输入）
+OUTS 串输出（向I/O端口输出）</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508210214692.png" alt="image-20250508210214692" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>和MOV有什么区别？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508215507132.png" alt="image-20250508215507132" />
+      
+    </figure>
+</p></blockquote>
+<table>
+  <thead>
+      <tr>
+          <th>功能</th>
+          <th><code>MOV</code></th>
+          <th><code>MOVS</code> 系列</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>用途</th>
+          <th>常规数据传送</th>
+          <th>字符串/内存块复制</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>位置指定</th>
+          <th>显式指定源和目标</th>
+          <th>隐式使用 <code>SI/ESI/RSI</code> 和 <code>DI/EDI/RDI</code></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>可否用于循环</th>
+          <th>通常需要手写循环</th>
+          <th>可配合 <code>REP</code> 一条指令复制多次</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>是否影响 DF</th>
+          <th>不会</th>
+          <th>受方向标志位 DF 影响</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="../mio/static/img/image-20250508210709322.png" alt="image-20250508210709322" />
+      
+    </figure>
+</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>注意源和目标的要放入的寄存器的位置。</p>
+<p><strong>source:DS:[SI]/ES:[SI]</strong></p>
+<p><strong>destination:ES:[DI]</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508214850624.png" alt="image-20250508214850624" />
+      
+    </figure>
+</p>
+<p>自动化的更改这些变量，注意每次移动的大小取决于数据类型的大小。</p>
+<p><strong>DF（direction flag）</strong> 决定复制的方向。</p>
+<p>先不管REP REPZ之类的</p>
+
+
+<h4 class="relative group">3.3.5 控制转移指令 
+    <div id="335-%E6%8E%A7%E5%88%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#335-%E6%8E%A7%E5%88%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><strong>控制转移指令包括：</strong></p>
+
+
+<h5 class="relative group">１．无条件转移指令 
+    <div id="%EF%BC%91%E6%97%A0%E6%9D%A1%E4%BB%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%91%E6%97%A0%E6%9D%A1%E4%BB%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508215917083.png" alt="image-20250508215917083" />
+      
+    </figure>
+</p>
+<p>具体情况：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508220228239.png" alt="image-20250508220228239" />
+      
+    </figure>
+</p>
+<p><strong>直接用位移量（相当于是利用EA的差值)或者间接用地址（直接利用EA)跳转。</strong></p>
+<p>这里会考试：</p>
+<p>注意偏移量和位移量的区别。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508220525907.png" alt="image-20250508220525907" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508220806340.png" alt="image-20250508220806340" />
+      
+    </figure>
+</p>
+<p>段间CS IP的值都要进行更改。</p>
+
+
+<h5 class="relative group">２．条件转移指令 
+    <div id="%EF%BC%92%E6%9D%A1%E4%BB%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%92%E6%9D%A1%E4%BB%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<table>
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>条件</th>
+          <th>条件描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>JZ</code></td>
+          <td><code>ZF = 1</code></td>
+          <td>上一条操作结果为 0（等于）</td>
+      </tr>
+      <tr>
+          <td><code>JNZ</code></td>
+          <td><code>ZF = 0</code></td>
+          <td>不等于</td>
+      </tr>
+      <tr>
+          <td><code>JC</code></td>
+          <td><code>CF = 1</code></td>
+          <td>有进位（Carry）</td>
+      </tr>
+      <tr>
+          <td><code>JNC</code></td>
+          <td><code>CF = 0</code></td>
+          <td>无进位</td>
+      </tr>
+      <tr>
+          <td><code>JE</code></td>
+          <td>等于（其实和 <code>JZ</code> 一样）</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><code>JNE</code></td>
+          <td>不等于（= <code>JNZ</code>）</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508221019366.png" alt="image-20250508221019366" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508221122247.png" alt="image-20250508221122247" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508221234107.png" alt="image-20250508221234107" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">３．条件设置指令 
+    <div id="%EF%BC%93%E6%9D%A1%E4%BB%B6%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%93%E6%9D%A1%E4%BB%B6%E8%AE%BE%E7%BD%AE%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509081349720.png" alt="image-20250509081349720" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">４．循环指令 
+    <div id="%EF%BC%94%E5%BE%AA%E7%8E%AF%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%94%E5%BE%AA%E7%8E%AF%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>80X86为了简化循环程序的设计，设计了一组循环指令如下：
+<strong>LOOP OPR</strong>
+<strong>LOOPE/LOOPZ OPR</strong>
+<strong>LOOPNE/LOOPNZ OPR</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509081546022.png" alt="image-20250509081546022" />
+      
+    </figure>
+</p>
+<p><strong>1.只能短转移。</strong></p>
+<p><strong>2.CX或者ECX作为计数器。</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509081931320.png" alt="image-20250509081931320" />
+      
+    </figure>
+</p>
+<p>LOOP 指令做简化</p>
+
+
+<h5 class="relative group">５．子程序调用/返回 
+    <div id="%EF%BC%95%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E8%BF%94%E5%9B%9E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%95%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E8%BF%94%E5%9B%9E" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p><strong>子程序</strong>:子程序结构相当于高级语言中的过程(PROCEDURE).为便于模块化程序设计，往往把程序中某些具有独立功能的部分编写成独立的程序模块，称之为子程序。
+程序中 由子程序调用指令调用子程序，而在子程序执行完后由返回调用指令返回调用程序继续执行。
+80X86提供了以下指令
+<strong>CALL</strong>子程序调用
+<strong>RET</strong>子程序返回</p>
+<blockquote>
+<p>根据调用的类型：对于CS和IP进行压栈的操作。</p>
+<p>RET，就是恢复现场。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509082350043.png" alt="image-20250509082350043" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509082602971.png" alt="image-20250509082602971" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">６．中断指令/返回 
+    <div id="%EF%BC%96%E4%B8%AD%E6%96%AD%E6%8C%87%E4%BB%A4%E8%BF%94%E5%9B%9E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%EF%BC%96%E4%B8%AD%E6%96%AD%E6%8C%87%E4%BB%A4%E8%BF%94%E5%9B%9E" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>有时<strong>当系统运行或者程序运行期间在遇到某些特殊情况时，需要计算机自动执行一组专门的程序来进行处理</strong>。
+这种情况称为中断，所执行的这组程序称为中断例行程序或中断子程序。
+其它随机事件，如I/O控制和数据传送，不采用中断方式系统效率会很低。</p>
+<blockquote>
+<p>注意和子程序调用的区别。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509083025153.png" alt="image-20250509083025153" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509083202918.png" alt="image-20250509083202918" />
+      
+    </figure>
+</p>
+<p>保存疑IP CS FLAGS</p>
+<p><strong>INT INTO IRET</strong></p>
+<p><strong>硬中断就是被动的。</strong></p>
+<ol>
+<li>
+<p>中断向量
+◼中断向量：中断<strong>处理子程序的入口地址</strong>
+◼在PC机中规定中断处理子程序为<strong>FAR</strong>型
+⚫ 每个中断向量占用<strong>4个字节</strong>，其中<strong>低两个字节为中断向量的偏移量部分,高两个字节为中断向量的段基址部分</strong></p>
+</li>
+<li>
+<p>中断类型号
+IBM PC机共支持256种中断，相应编号为0～255，把这些编号称为中断类型号。</p>
+</li>
+<li>
+<blockquote>
+<p>整个中断向量表就是指向一些code segment。</p></blockquote>
+</li>
+</ol>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509083527717.png" alt="image-20250509083527717" />
+      
+    </figure>
+</p>
+<p>256 * 4 = 1024bytes</p>
+<p>0000H &mdash;》03FFH的内存单元。</p>
+<p>调用和返回：</p>
+<blockquote>
+<p>注意INT功能的过程，从中断向量表中取值。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509083910646.png" alt="image-20250509083910646" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">3.3.6 处理机控制指令 
+    <div id="336-%E5%A4%84%E7%90%86%E6%9C%BA%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#336-%E5%A4%84%E7%90%86%E6%9C%BA%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509084152759.png" alt="image-20250509084152759" />
+      
+    </figure>
+</p>
+<p>比如在调用中断程序之前，STI，设置中断允许的标志位。</p>
+
+
+<h2 class="relative group">第四章 汇编语言程序格式 
+    <div id="%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">4.1 汇编程序功能 
+    <div id="41-%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E5%8A%9F%E8%83%BD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#41-%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E5%8A%9F%E8%83%BD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>前面是linkerlab的内容。</p>
+<p>机器指令 伪指令（前面的定义数据之类的） 宏指令</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509084707063.png" alt="image-20250509084707063" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">4.2 伪操作 
+    <div id="42-%E4%BC%AA%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#42-%E4%BC%AA%E6%93%8D%E4%BD%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>伪操作：告诉汇编程序的某些功能说明或定义，仅在汇编时使用，不会汇编成任何机器指令。</p></blockquote>
+
+
+<h4 class="relative group">4.2.1 处理器选择伪操作 
+    <div id="421-%E5%A4%84%E7%90%86%E5%99%A8%E9%80%89%E6%8B%A9%E4%BC%AA%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#421-%E5%A4%84%E7%90%86%E5%99%A8%E9%80%89%E6%8B%A9%E4%BC%AA%E6%93%8D%E4%BD%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>.386P</p>
+
+
+<h4 class="relative group">4.2.2 段定义伪操作 
+    <div id="422-%E6%AE%B5%E5%AE%9A%E4%B9%89%E4%BC%AA%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#422-%E6%AE%B5%E5%AE%9A%E4%B9%89%E4%BC%AA%E6%93%8D%E4%BD%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509092011916.png" alt="image-20250509092011916" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509093102701.png" alt="image-20250509093102701" />
+      
+    </figure>
+</p>
+<p>明确关系，主程序开始之前指定。</p>
+
+
+<h4 class="relative group">4.2.3 程序开始和结束伪操作 
+    <div id="423-%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%A7%8B%E5%92%8C%E7%BB%93%E6%9D%9F%E4%BC%AA%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#423-%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%A7%8B%E5%92%8C%E7%BB%93%E6%9D%9F%E4%BC%AA%E6%93%8D%E4%BD%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509093811386.png" alt="image-20250509093811386" />
+      
+    </figure>
+</p>
+<p>NAME TITLE END</p>
+
+
+<h4 class="relative group">4.2.4 数据定义及存储器分配伪操作 
+    <div id="424-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E5%8F%8A%E5%AD%98%E5%82%A8%E5%99%A8%E5%88%86%E9%85%8D%E4%BC%AA%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#424-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E5%8F%8A%E5%AD%98%E5%82%A8%E5%99%A8%E5%88%86%E9%85%8D%E4%BC%AA%E6%93%8D%E4%BD%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>到现在才讲数据段中怎样定义数据。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509094235468.png" alt="image-20250509094235468" />
+      
+    </figure>
+</p>
+<p>看右边的具体例子。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509094518409.png" alt="image-20250509094518409" />
+      
+    </figure>
+</p>
+<p><strong>段基址 偏移量 类型</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509095032153.png" alt="image-20250509095032153" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509095134450.png" alt="image-20250509095134450" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>注意以下这个例子：偏移量和放置的问题。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509095427571.png" alt="image-20250509095427571" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">4.2.5 表达式赋值伪操作EQU 
+    <div id="425-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%B5%8B%E5%80%BC%E4%BC%AA%E6%93%8D%E4%BD%9Cequ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#425-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%B5%8B%E5%80%BC%E4%BC%AA%E6%93%8D%E4%BD%9Cequ" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509095722323.png" alt="image-20250509095722323" />
+      
+    </figure>
+</p>
+<p>知道是EQU就可以：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509095825252.png" alt="image-20250509095825252" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">4.2.6 地址计数器对准伪操作 
+    <div id="426-%E5%9C%B0%E5%9D%80%E8%AE%A1%E6%95%B0%E5%99%A8%E5%AF%B9%E5%87%86%E4%BC%AA%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#426-%E5%9C%B0%E5%9D%80%E8%AE%A1%E6%95%B0%E5%99%A8%E5%AF%B9%E5%87%86%E4%BC%AA%E6%93%8D%E4%BD%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509111802050.png" alt="image-20250509111802050" />
+      
+    </figure>
+</p>
+<p>ORG 设置，可以达到对齐的效果。</p>
+
+
+<h4 class="relative group">4.2.7 基数控制伪操作 
+    <div id="427-%E5%9F%BA%E6%95%B0%E6%8E%A7%E5%88%B6%E4%BC%AA%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#427-%E5%9F%BA%E6%95%B0%E6%8E%A7%E5%88%B6%E4%BC%AA%E6%93%8D%E4%BD%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>。。。。。。</p>
+
+
+<h3 class="relative group">4.3 汇编语言程序格式 
+    <div id="43-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#43-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509101356403.png" alt="image-20250509101356403" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509101445137.png" alt="image-20250509101445137" />
+      
+    </figure>
+</p>
+<p>考察过上述的定义。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509101809493.png" alt="image-20250509101809493" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">4.4 汇编语言程序上机过程 
+    <div id="44-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E4%B8%8A%E6%9C%BA%E8%BF%87%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#44-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E4%B8%8A%E6%9C%BA%E8%BF%87%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509102209066.png" alt="image-20250509102209066" />
+      
+    </figure>
+</p>
+<p>返回DOS的方法。</p>
+<p>MOV AX, 4C00H</p>
+<p>INT 21H</p>
+
+
+<h2 class="relative group">第五章 循环与分支程序 
+    <div id="%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%88%86%E6%94%AF%E7%A8%8B%E5%BA%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%88%86%E6%94%AF%E7%A8%8B%E5%BA%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>应该是没有考察过画图的问题：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509102655541.png" alt="image-20250509102655541" />
+      
+    </figure>
+</p>
+<p>看一个跳转的例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509103144957.png" alt="image-20250509103144957" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">5.1循环程序设计 
+    <div id="51%E5%BE%AA%E7%8E%AF%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#51%E5%BE%AA%E7%8E%AF%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>具体的多看看例题，或者自己手写代码。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510131341606.png" alt="image-20250510131341606" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510132206318.png" alt="image-20250510132206318" />
+      
+    </figure>
+</p>
+<p>用CX控制循环的变量就可以。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510132716081.png" alt="image-20250510132716081" />
+      
+    </figure>
+</p>
+<p>感觉右边的更好记忆。</p>
+
+
+<h3 class="relative group">5.2分支程序设计 
+    <div id="52%E5%88%86%E6%94%AF%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#52%E5%88%86%E6%94%AF%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>主要看一下跳转表：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510132907361.png" alt="image-20250510132907361" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">5.3如何在实模式下发挥 80386及其后继机型的优势 
+    <div id="53%E5%A6%82%E4%BD%95%E5%9C%A8%E5%AE%9E%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%8F%91%E6%8C%A5-80386%E5%8F%8A%E5%85%B6%E5%90%8E%E7%BB%A7%E6%9C%BA%E5%9E%8B%E7%9A%84%E4%BC%98%E5%8A%BF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#53%E5%A6%82%E4%BD%95%E5%9C%A8%E5%AE%9E%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%8F%91%E6%8C%A5-80386%E5%8F%8A%E5%85%B6%E5%90%8E%E7%BB%A7%E6%9C%BA%E5%9E%8B%E7%9A%84%E4%BC%98%E5%8A%BF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>。。。。。。</p>
+
+
+<h2 class="relative group">第六章 子程序调用（就是调用函数的准备） 
+    <div id="%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E5%B0%B1%E6%98%AF%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E7%9A%84%E5%87%86%E5%A4%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E5%B0%B1%E6%98%AF%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E7%9A%84%E5%87%86%E5%A4%87" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">6.1子程序的设计方法 
+    <div id="61%E5%AD%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#61%E5%AD%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510134210629.png" alt="image-20250510134210629" />
+      
+    </figure>
+</p>
+<p>procedure name PROC NEAR/FAR</p>
+<p>&hellip;&hellip;</p>
+<p>procedure name ENDP</p>
+<p>子程序和调用者在不在同一个代码段之中，利用FAR NEAR</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510134533590.png" alt="image-20250510134533590" />
+      
+    </figure>
+</p>
+<p>比如：</p>
+<blockquote>
+<p>FAR属性在<strong>同一个段或者不同的段内都可以调用</strong>。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510134727205.png" alt="image-20250510134727205" />
+      
+    </figure>
+</p>
+<p><strong>段间调用压入CS寄存器：FAR属性和NEAR属性</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250321142045587.png" alt="image-20250321142045587" />
+      
+    </figure>
+</p>
+<p><strong>保护和恢复寄存器的方法</strong></p>
+<p>◼ 子程序开始时，使用PUSH指令保存
+◼ 子程序返回前，使用POP指令恢复
+◼ 保存和恢复次序应该相反</p>
+<p><strong>优先保存FLAG寄存器</strong></p>
+
+
+<h4 class="relative group">参数传送： 
+    <div id="%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	（1）通过寄存器传送参数
+​	（2）通过存储器传送参数
+​	*子程序和调用程序在同一程序模块中，则子程序可
+直接访问模块中的变量
+​	*子程序和调用程序不在同一程序模块中
+​	（3）通过地址表传送参数地址
+​	（4）通过堆栈传送参数或参数地址</p>
+
+
+<h5 class="relative group">寄存器传送 
+    <div id="%E5%AF%84%E5%AD%98%E5%99%A8%E4%BC%A0%E9%80%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E4%BC%A0%E9%80%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510140638026.png" alt="image-20250510140638026" />
+      
+    </figure>
+</p>
+<p>大概看一下这段代码，同一个段中对于寄存器的访问都是相同的。</p>
+
+
+<h5 class="relative group">存储器直接访问 
+    <div id="%E5%AD%98%E5%82%A8%E5%99%A8%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510141026189.png" alt="image-20250510141026189" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">传送一个table（地址表） 
+    <div id="%E4%BC%A0%E9%80%81%E4%B8%80%E4%B8%AAtable%E5%9C%B0%E5%9D%80%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BC%A0%E9%80%81%E4%B8%80%E4%B8%AAtable%E5%9C%B0%E5%9D%80%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>参数很多，用offset把很多参数的起始位置放到一张表里：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510141234000.png" alt="image-20250510141234000" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">直接压入堆栈 
+    <div id="%E7%9B%B4%E6%8E%A5%E5%8E%8B%E5%85%A5%E5%A0%86%E6%A0%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%B4%E6%8E%A5%E5%8E%8B%E5%85%A5%E5%A0%86%E6%A0%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510143039900.png" alt="image-20250510143039900" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">类似于结构体的处理： 
+    <div id="%E7%B1%BB%E4%BC%BC%E4%BA%8E%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%A4%84%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B1%BB%E4%BC%BC%E4%BA%8E%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%A4%84%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510143426185.png" alt="image-20250510143426185" />
+      
+    </figure>
+</p>
+<p>怎么访问？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510143534988.png" alt="image-20250510143534988" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">6.4 *DOS系统功能调用 
+    <div id="64-dos%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E8%B0%83%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#64-dos%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E8%B0%83%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>可能是考察重点。。。。。。</p></blockquote>
+<p>系统功能调用是DOS为系统程序员及用户提供的一组常用子程序。
+用户可在程序中调用DOS提供的功能。
+<strong>DOS规定用INT 21H中断指令</strong>作为进入各功能调用子程序的<strong>总入口</strong>，再为每个功能调用规定一个功能号，以便进入相应各个子程序的入口。
+DOS系统功能调用的分类：
+<strong>设备管理、文件管理、目录管理</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510144309474.png" alt="image-20250510144309474" />
+      
+    </figure>
+</p>
+<p>过程图：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510144435746.png" alt="image-20250510144435746" />
+      
+    </figure>
+</p>
+<p>例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510144518497.png" alt="image-20250510144518497" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">第七章 高级汇编语言技术 
+    <div id="%E7%AC%AC%E4%B8%83%E7%AB%A0-%E9%AB%98%E7%BA%A7%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E9%AB%98%E7%BA%A7%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">1.宏汇编 
+    <div id="1%E5%AE%8F%E6%B1%87%E7%BC%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E5%AE%8F%E6%B1%87%E7%BC%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>宏：源程序中一段有独立功能的程序代码。
+宏指令：用户自定义的指令。在编程时，将多次使用的功能用一条宏指令来代替。</p>
+<blockquote>
+<p>像是模板或者C语言中的宏函数，直接复制粘贴。</p>
+<p>注意和子程序调用的区别：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510144856546.png" alt="image-20250510144856546" />
+      
+    </figure>
+</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324144526770.png" alt="image-20250324144526770" />
+      
+    </figure>
+</p>
+<p>怎么写一个macro,以下的格式，调用的时候和高级语言是类似的:</p>
+<p>过程：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510145309555.png" alt="image-20250510145309555" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324144758398.png" alt="image-20250324144758398" />
+      
+    </figure>
+</p>
+<p>这个替换过程的术语：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324151333203.png" alt="image-20250324151333203" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>接着是一些宏函数的特殊规定，看ppt即可&hellip;&hellip;这里就已经有高级语言的味道了&hellip;&hellip;</p>
+<p>1.可以没有参数。</p>
+<p>2.参数可以是操作数 比如ADD。</p>
+<p>3.LOCAL局部的变量，防止冲突。</p>
+<p>一个例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510145726531.png" alt="image-20250510145726531" />
+      
+    </figure>
+</p></blockquote>
+
+
+<h3 class="relative group">2.重复汇编 
+    <div id="2%E9%87%8D%E5%A4%8D%E6%B1%87%E7%BC%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2%E9%87%8D%E5%A4%8D%E6%B1%87%E7%BC%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324152602447.png" alt="image-20250324152602447" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324152832025.png" alt="image-20250324152832025" />
+      
+    </figure>
+</p>
+<p>例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510150556264.png" alt="image-20250510150556264" />
+      
+    </figure>
+</p>
+<p>在data segment定义的简化的操作：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510150704446.png" alt="image-20250510150704446" />
+      
+    </figure>
+</p>
+<p><strong>IRP</strong></p>
+<p>不定的重复，每次用一项来替换REG，天才。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510150814883.png" alt="image-20250510150814883" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510150907250.png" alt="image-20250510150907250" />
+      
+    </figure>
+</p>
+<p><strong>IRPC</strong></p>
+<p>用字符串不停地替代哑元，直到结束。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510151016012.png" alt="image-20250510151016012" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">3.条件汇编 
+    <div id="3%E6%9D%A1%E4%BB%B6%E6%B1%87%E7%BC%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3%E6%9D%A1%E4%BB%B6%E6%B1%87%E7%BC%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>还是类似于C语言的头文件编译一样的东西&hellip;&hellip;</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324154239528.png" alt="image-20250324154239528" />
+      
+    </figure>
+</p>
+<p>举个简单例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250328142359497.png" alt="image-20250328142359497" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">第八章 输入输出程序设计 
+    <div id="%E7%AC%AC%E5%85%AB%E7%AB%A0-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">I/O设备的数据传送方式 
+    <div id="io%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#io%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>由很多<strong>接口上面的寄存器</strong>来完成：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250328144029729.png" alt="image-20250328144029729" />
+      
+    </figure>
+</p>
+<p>I/O端口地址：<strong>为了访问接口上的寄存器，系统给这些寄存器分配专门的存取访问地址，这样的地址称为I/O端口地址</strong>。</p>
+<ol>
+<li>8086/8088CPU系统中，I/O端口地址和存储单元的
+地址是各自独立的，分占两个不同的地址空间。</li>
+<li>8086/8088CPU提供的I/O端口地址空间达64KB
+可接64K个8位端口(字节)，或可接32K个16位端口(字)。</li>
+<li>PC及其兼容机实际只使用0~3FFH之间的I/O端口地址。&mdash;》（PC只用了10位地址线(A0-A9)进行译码，其
+寻址的范围为0H-3FFH，共有1024个I/O地址。）</li>
+<li>存取接口寄存器中的数据是依靠I/O指令完成的。</li>
+</ol>
+
+
+<h4 class="relative group">一些IO指令 
+    <div id="%E4%B8%80%E4%BA%9Bio%E6%8C%87%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%80%E4%BA%9Bio%E6%8C%87%E4%BB%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250328144502876.png" alt="image-20250328144502876" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">程序直接控制IO，不停等待，直到可以输入或者输出： 
+    <div id="%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%8E%A5%E6%8E%A7%E5%88%B6io%E4%B8%8D%E5%81%9C%E7%AD%89%E5%BE%85%E7%9B%B4%E5%88%B0%E5%8F%AF%E4%BB%A5%E8%BE%93%E5%85%A5%E6%88%96%E8%80%85%E8%BE%93%E5%87%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%8E%A5%E6%8E%A7%E5%88%B6io%E4%B8%8D%E5%81%9C%E7%AD%89%E5%BE%85%E7%9B%B4%E5%88%B0%E5%8F%AF%E4%BB%A5%E8%BE%93%E5%85%A5%E6%88%96%E8%80%85%E8%BE%93%E5%87%BA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>查询状态端口的数据。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250328144921114.png" alt="image-20250328144921114" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">中断方式 
+    <div id="%E4%B8%AD%E6%96%AD%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%AD%E6%96%AD%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>如果你对中断感兴趣，可以查看这个网页：https://linux-kernel-labs-zh.xyz/so2/lec4-interrupts.html</p></blockquote>
+<p><strong>中断方式</strong>：
+当外设准备好时，外设主动向CPU发出中断服务请求，CPU暂时中止现行程序的执行，转入中断服务处理程序完成输入/输出工作，之后返回被中断的程序继续执行。
+<strong>中断方式特点</strong>：
+CPU和I/O设备能够并行运行。
+具有及时处理响应意外事件或异常的能力。</p>
+
+
+<h3 class="relative group">屏蔽中断方式 
+    <div id="%E5%B1%8F%E8%94%BD%E4%B8%AD%E6%96%AD%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B1%8F%E8%94%BD%E4%B8%AD%E6%96%AD%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>设置IF标志位</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331142110841.png" alt="image-20250331142110841" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">硬件中断服务： 
+    <div id="%E7%A1%AC%E4%BB%B6%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%A1%AC%E4%BB%B6%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331142302930.png" alt="image-20250331142302930" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">软件中断是由程序本身导致的： 
+    <div id="%E8%BD%AF%E4%BB%B6%E4%B8%AD%E6%96%AD%E6%98%AF%E7%94%B1%E7%A8%8B%E5%BA%8F%E6%9C%AC%E8%BA%AB%E5%AF%BC%E8%87%B4%E7%9A%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BD%AF%E4%BB%B6%E4%B8%AD%E6%96%AD%E6%98%AF%E7%94%B1%E7%A8%8B%E5%BA%8F%E6%9C%AC%E8%BA%AB%E5%AF%BC%E8%87%B4%E7%9A%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ol>
+<li>程序中的中断指令 <strong>INT n</strong>
+操作数n指出中断类型号，0—FFH
+如 INT 12H ； 存储器容量测试</li>
+<li>CPU的某些运行结果
+除法错中断：除数为零/商超出表数范围，中断类型号为0的
+内部中断
+溢出中断：运算结果溢出，OF=1，INTO指令将引起类型为4
+的内部中断</li>
+<li>调试程序（DEBUG）设置的中断
+单步中断：标志位TF=1时，中断类型号=1
+断点中断：将程序分段，每段设置一个断点（INT 3），中
+断类型号=3</li>
+</ol>
+
+
+<h3 class="relative group">中断向量表 
+    <div id="%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>相当于是一个映射map，设置对应的CS和IP，然后跳转执行对应的中断处理的程序。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331142741197.png" alt="image-20250331142741197" />
+      
+    </figure>
+</p>
+<p>X86的内存空间分配（OS课中还会学到）：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331142900026.png" alt="image-20250331142900026" />
+      
+    </figure>
+</p>
+<p><strong>一个基本处理流程：</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331143424624.png" alt="image-20250331143424624" />
+      
+    </figure>
+</p>
+<p><strong>中断响应</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510161933736.png" alt="image-20250510161933736" />
+      
+    </figure>
+</p>
+<p><strong>中断处理</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510162052983.png" alt="image-20250510162052983" />
+      
+    </figure>
+</p>
+<p><strong>中断返回</strong></p>
+<p>CPU自动恢复</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510162206195.png" alt="image-20250510162206195" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">和子程序调用的区别： 
+    <div id="%E5%92%8C%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%92%8C%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>中断与子程序调用处理过程相似，差别主要在于进入和返回时的处理不同。</p>
+
+
+<h4 class="relative group">进入中断服务处理程序时 
+    <div id="%E8%BF%9B%E5%85%A5%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E6%97%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%9B%E5%85%A5%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E6%97%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>子程序调用：<strong>只把CS和IP压入堆栈</strong>。
+中断：除把CS和IP压入堆栈外，还把<strong>标志寄存器的内容压入堆栈</strong>，并且<strong>关掉了中断和单步运行方式</strong>。</p>
+
+
+<h4 class="relative group">返回时 
+    <div id="%E8%BF%94%E5%9B%9E%E6%97%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%94%E5%9B%9E%E6%97%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>子程序返回：只把断点地址从堆栈弹出送CS和IP。
+中断返回：除恢复断点地址CS和IP外，还要恢复标志寄存器的内容。</p>
+
+
+<h4 class="relative group">时机不同 
+    <div id="%E6%97%B6%E6%9C%BA%E4%B8%8D%E5%90%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%B6%E6%9C%BA%E4%B8%8D%E5%90%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>中断：一般随机发生；软中断在程序中预先安排。
+子程序调用：程序中预先安排调用。</p>
+
+
+<h3 class="relative group">优先级的处理： 
+    <div id="%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E5%A4%84%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E5%A4%84%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331144514405.png" alt="image-20250331144514405" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">80386程序中断 
+    <div id="80386%E7%A8%8B%E5%BA%8F%E4%B8%AD%E6%96%AD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#80386%E7%A8%8B%E5%BA%8F%E4%B8%AD%E6%96%AD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>看不懂也懒得看了。</p>
+
+
+<h2 class="relative group">BIOS中断和DOS中断 
+    <div id="bios%E4%B8%AD%E6%96%AD%E5%92%8Cdos%E4%B8%AD%E6%96%AD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bios%E4%B8%AD%E6%96%AD%E5%92%8Cdos%E4%B8%AD%E6%96%AD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>以下是ChatGPT的解释</p></blockquote>
+
+
+<h2 class="relative group"><strong>1. 定义</strong> 
+    <div id="1-%E5%AE%9A%E4%B9%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-%E5%AE%9A%E4%B9%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group"><strong>BIOS（Basic Input/Output System）</strong> 
+    <div id="biosbasic-inputoutput-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#biosbasic-inputoutput-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>固件</strong>，存储在主板上的 ROM/EEPROM 芯片中，在计算机开机时运行。</li>
+<li>负责执行<strong>自检（POST, Power-On Self Test）</strong>、初始化硬件、引导操作系统。</li>
+<li>提供一组低级别的输入输出服务，如<strong>读写磁盘、键盘输入、显示输出、串口通信</strong>等。</li>
+</ul>
+
+
+<h3 class="relative group"><strong>DOS（Disk Operating System）</strong> 
+    <div id="dosdisk-operating-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dosdisk-operating-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>操作系统</strong>，存储在硬盘或软盘中，在 BIOS 引导后加载。</li>
+<li>负责管理<strong>文件系统、进程、设备驱动、命令解释</strong>等功能。</li>
+<li>典型的 DOS 版本包括 <strong>MS-DOS、PC-DOS、FreeDOS</strong> 等。</li>
+</ul>
+<hr>
+
+
+<h2 class="relative group"><strong>2. 作用</strong> 
+    <div id="2-%E4%BD%9C%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-%E4%BD%9C%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>系统</th>
+          <th>主要作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>BIOS</strong></td>
+          <td>初始化硬件，执行自检（POST），引导操作系统，提供基础 I/O 接口</td>
+      </tr>
+      <tr>
+          <td><strong>DOS</strong></td>
+          <td>管理磁盘文件系统、提供命令行界面、运行应用程序</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+
+<h2 class="relative group"><strong>3. 联系</strong> 
+    <div id="3-%E8%81%94%E7%B3%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-%E8%81%94%E7%B3%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li><strong>启动过程的衔接</strong>
+<ul>
+<li>计算机上电后，<strong>BIOS 首先执行</strong>，完成自检并寻找引导设备（软盘、硬盘、光盘等）。</li>
+<li><strong>BIOS 读取 DOS 的引导扇区（Boot Sector）</strong>，然后加载 DOS。</li>
+<li><strong>DOS 依赖 BIOS 来访问低级硬件</strong>，如磁盘、键盘、屏幕等。</li>
+</ul>
+</li>
+<li><strong>DOS 依赖 BIOS 进行硬件访问</strong>
+<ul>
+<li>早期 DOS 不直接控制硬件，而是通过**BIOS 提供的中断（如 INT 13h 读写磁盘，INT 10h 控制显示器）**与硬件交互。</li>
+<li>例如，在 DOS 下运行的程序可以通过 <code>INT 21h</code> 调用 DOS 功能，而 <code>INT 10h</code> 直接调用 BIOS 来控制显示器。</li>
+</ul>
+</li>
+<li><strong>BIOS 提供基本的驱动支持</strong>
+<ul>
+<li>DOS 启动时，可以直接使用 BIOS 的设备驱动程序（如磁盘、键盘）。</li>
+<li>但 DOS 也可以加载更高级的驱动程序（如 HIMEM.SYS、CD-ROM 驱动等）来替代 BIOS 功能。</li>
+</ul>
+</li>
+</ol>
+<hr>
+
+
+<h2 class="relative group"><strong>4. 区别</strong> 
+    <div id="4-%E5%8C%BA%E5%88%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-%E5%8C%BA%E5%88%AB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th style="text-align: left"><strong>BIOS</strong></th>
+          <th><strong>DOS</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>存储位置</strong></td>
+          <td style="text-align: left">ROM/EEPROM</td>
+          <td>磁盘（硬盘、软盘）</td>
+      </tr>
+      <tr>
+          <td><strong>运行时机</strong></td>
+          <td style="text-align: left">计算机启动时</td>
+          <td>BIOS 加载后</td>
+      </tr>
+      <tr>
+          <td><strong>作用</strong></td>
+          <td style="text-align: left">硬件初始化、系统引导</td>
+          <td>文件管理、命令执行</td>
+      </tr>
+      <tr>
+          <td><strong>是否可修改</strong></td>
+          <td style="text-align: left">固定在 ROM（可升级）</td>
+          <td>软盘/硬盘上，可修改</td>
+      </tr>
+      <tr>
+          <td><strong>硬件访问方式</strong></td>
+          <td style="text-align: left">直接控制硬件</td>
+          <td>通过 BIOS 或驱动访问硬件</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+
+<h2 class="relative group"><strong>5. 总结</strong> 
+    <div id="5-%E6%80%BB%E7%BB%93" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5-%E6%80%BB%E7%BB%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><strong>BIOS 是计算机启动的第一步</strong>，它初始化硬件，并将操作系统（如 DOS）加载到内存中。</li>
+<li><strong>DOS 是一个基于磁盘的操作系统</strong>，在 BIOS 加载后运行，提供文件管理、命令解释等功能。</li>
+<li><strong>DOS 依赖 BIOS 进行低级硬件访问</strong>，但也可以加载自己的驱动程序绕过 BIOS。</li>
+<li>现代操作系统（如 Windows、Linux）<strong>已经不再依赖 BIOS，而是直接与硬件交互</strong>，但 DOS 仍然常用于嵌入式系统、维修工具等场景。</li>
+</ul>
+<p><strong>功能调用 键盘 显示器 打印机</strong></p>
+
+
+<h3 class="relative group">什么是BIOS 
+    <div id="%E4%BB%80%E4%B9%88%E6%98%AFbios" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%80%E4%B9%88%E6%98%AFbios" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331151909444.png" alt="image-20250331151909444" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">什么是DOS 
+    <div id="%E4%BB%80%E4%B9%88%E6%98%AFdos" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%80%E4%B9%88%E6%98%AFdos" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331152346907.png" alt="image-20250331152346907" />
+      
+    </figure>
+</p>
+<p><strong>DOS系统功能调用</strong> INT 21H
+AH=1 键盘输入并回显
+AH=2 显示字符输出
+AH=9 显示字符串输出
+AH=0AH 键盘输入到缓冲区
+AH=4CH 带返回码终止
+二者之间的关系：</p>
+<p>BIOS是直接操作硬件的</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331152724819.png" alt="image-20250331152724819" />
+      
+    </figure>
+</p>
+<p>调用方法：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331152958621.png" alt="image-20250331152958621" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">键盘 
+    <div id="%E9%94%AE%E7%9B%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%94%AE%E7%9B%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510162930487.png" alt="image-20250510162930487" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">课内测试 
+    <div id="%E8%AF%BE%E5%86%85%E6%B5%8B%E8%AF%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AF%BE%E5%86%85%E6%B5%8B%E8%AF%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>理论上很多年课内测试的答案都没有改变过，所以你可以拿来参考，摆脱每节课都必须要去的痛苦，但是时间就要你自己来把控&hellip;&hellip;</p>
+<p>如果你发现你输入的数据错了（这个没办法，证明人家老师反应过来了），或者是我写的答案有错误，可以在评论区立刻指出来&hellip;&hellip;</p>
+<p>号我不知道为什么后面对不上了，自己看看吧&hellip;&hellip;</p></blockquote>
+
+
+<h2 class="relative group">ch1-1 
+    <div id="ch1-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch1-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331154500107.png" alt="image-20250331154500107" />
+      
+    </figure>
+</p>
+<p><strong>段寄存器</strong>:存放了一系列的段的base地址。</p>
+
+
+<h2 class="relative group">ch1-2 
+    <div id="ch1-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch1-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505223848467.png" alt="image-20250505223848467" />
+      
+    </figure>
+</p>
+<p><strong>23451</strong>：左边移位直接相加就可以了。</p>
+
+
+<h2 class="relative group">ch1-3 
+    <div id="ch1-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch1-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250505225954822.png" alt="image-20250505225954822" />
+      
+    </figure>
+</p>
+<p><strong>寄存器 立即</strong></p>
+
+
+<h2 class="relative group">ch2-1 
+    <div id="ch2-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch2-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506202721520.png" alt="image-20250506202721520" />
+      
+    </figure>
+</p>
+<p><strong>[BX + SI]也就是存储器中取得</strong></p>
+<p>**基址变址寻址 **</p>
+<p><strong>默认的就是DS段寄存器</strong></p>
+
+
+<h2 class="relative group">ch2-2 
+    <div id="ch2-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch2-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250506212542301.png" alt="image-20250506212542301" />
+      
+    </figure>
+</p>
+<p><strong>段间间接</strong></p>
+<p><strong>7856 3412</strong> （注意前后顺序）</p>
+
+
+<h2 class="relative group">ch2-3 
+    <div id="ch2-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch2-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507190030042.png" alt="image-20250507190030042" />
+      
+    </figure>
+</p>
+<p><strong>上面的两个操作是独立的：</strong></p>
+<p><strong>1232 1236</strong></p>
+
+
+<h2 class="relative group">ch3-1 
+    <div id="ch3-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch3-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507223917968.png" alt="image-20250507223917968" />
+      
+    </figure>
+</p>
+<p><strong>255 255</strong> 应该是吧</p>
+
+
+<h2 class="relative group">ch3-2 
+    <div id="ch3-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch3-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250507230901733.png" alt="image-20250507230901733" />
+      
+    </figure>
+</p>
+<p><strong>AX DX AX</strong></p>
+
+
+<h2 class="relative group">ch3-3 
+    <div id="ch3-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch3-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508215220170.png" alt="image-20250508215220170" />
+      
+    </figure>
+</p>
+<p><strong>DF</strong>	字操作 word&mdash;》2 bytes <strong>2</strong></p>
+
+
+<h2 class="relative group">ch4-1 
+    <div id="ch4-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch4-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250508221259357.png" alt="image-20250508221259357" />
+      
+    </figure>
+</p>
+<p><strong>ZF = 1 CF = 0</strong></p>
+<p>注意标志位即可。</p>
+
+
+<h2 class="relative group">ch4-2 
+    <div id="ch4-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch4-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509093211182.png" alt="image-20250509093211182" />
+      
+    </figure>
+</p>
+<p><strong>B C？</strong>（和连接有关系么？斟酌一下）</p>
+
+
+<h2 class="relative group">ch4-3 
+    <div id="ch4-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch4-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509100015264.png" alt="image-20250509100015264" />
+      
+    </figure>
+</p>
+<p><strong>0000 0004 0006</strong></p>
+
+
+<h2 class="relative group">ch5-1 
+    <div id="ch5-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch5-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250509103255513.png" alt="image-20250509103255513" />
+      
+    </figure>
+</p>
+<p><strong>26 36</strong></p>
+<p>ROL：循环向左移动的指令。</p>
+
+
+<h2 class="relative group">ch5-2 
+    <div id="ch5-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch5-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510132306990.png" alt="image-20250510132306990" />
+      
+    </figure>
+</p>
+<p>从最高位开始：11011100</p>
+<p>填写：<strong>1 0</strong></p>
+
+
+<h2 class="relative group">ch5-3 
+    <div id="ch5-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch5-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510133154509.png" alt="image-20250510133154509" />
+      
+    </figure>
+</p>
+<p><strong>5678</strong></p>
+<p><strong>1234</strong></p>
+
+
+<h2 class="relative group">ch6-1 
+    <div id="ch6-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch6-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510140120534.png" alt="image-20250510140120534" />
+      
+    </figure>
+</p>
+<p><strong>NEAR FAR</strong> 很简单的概念</p>
+
+
+<h2 class="relative group">ch6-2 
+    <div id="ch6-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch6-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510143132603.png" alt="image-20250510143132603" />
+      
+    </figure>
+</p>
+<p><strong>寄存器</strong> <strong>存储器</strong></p>
+
+
+<h2 class="relative group">ch6-3 
+    <div id="ch6-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch6-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250510143657001.png" alt="image-20250510143657001" />
+      
+    </figure>
+</p>
+<p><strong>0403</strong></p>
+<p><strong>0203</strong></p>
+
+
+<h2 class="relative group">ch7-1 
+    <div id="ch7-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch7-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324153946719.png" alt="image-20250324153946719" />
+      
+    </figure>
+</p>
+<p>B B</p>
+
+
+<h2 class="relative group">ch7-2 
+    <div id="ch7-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch7-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324153324543.png" alt="image-20250324153324543" />
+      
+    </figure>
+</p>
+<p>A D（我有些疑惑，难道不是节省了时间么（但是确实不节省存储空间），不用进行转移和参数的传递，还是说宏展开的时间把这段时间给浪费了？很奇怪，我牺牲了10分，孩子们）</p>
+
+
+<h2 class="relative group">ch7-3 
+    <div id="ch7-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch7-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250324153121723.png" alt="image-20250324153121723" />
+      
+    </figure>
+</p>
+<p>AX BP</p>
+
+
+<h2 class="relative group">ch7-4 
+    <div id="ch7-4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch7-4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250328142630184.png" alt="image-20250328142630184" />
+      
+    </figure>
+</p>
+<p>不带脑子：<strong>SHR</strong> <strong>SHL</strong></p>
+
+
+<h2 class="relative group">ch8-1 
+    <div id="ch8-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch8-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250328145022658.png" alt="image-20250328145022658" />
+      
+    </figure>
+</p>
+<p>第一个空就是说把输入状态端口地址的值输入到AL寄存器里面去 <strong>82H</strong></p>
+<p>第二个空是检查最低位是不是1,那么就使用 <strong>01H</strong> 检测就可以了</p>
+<p>82H 01H</p>
+
+
+<h2 class="relative group">ch8-2 
+    <div id="ch8-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch8-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250328152109648.png" alt="image-20250328152109648" />
+      
+    </figure>
+</p>
+<p><strong>外设控制器</strong> <strong>协处理器</strong></p>
+
+
+<h2 class="relative group">ch8-3 
+    <div id="ch8-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch8-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>这里也有可能是8-2,看空的个数即可</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331143742327.png" alt="image-20250331143742327" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331143800362.png" alt="image-20250331143800362" />
+      
+    </figure>
+</p>
+<p>响应 + 处理 + 返回</p>
+
+
+<h2 class="relative group">ch8-4 
+    <div id="ch8-4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch8-4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331150442783.png" alt="image-20250331150442783" />
+      
+    </figure>
+</p>
+<p>这是这张PPT之前举的每十秒钟响铃并且打印的例子：</p>
+<p>B B（主程序只要调用即可）</p>
+
+
+<h2 class="relative group">ch9-1 
+    <div id="ch9-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch9-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331153703982.png" alt="image-20250331153703982" />
+      
+    </figure>
+</p>
+<p>&hellip;&hellip;</p>
+
+
+<h2 class="relative group">ch9-2 
+    <div id="ch9-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ch9-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250331153859021.png" alt="image-20250331153859021" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">*上机实验 
+    <div id="%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><a href="https://github.com/Pine-G/XJTU-CS2020/tree/main/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80" target="_blank">https://github.com/Pine-G/XJTU-CS2020/tree/main/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80</a></p>
+<blockquote>
+<p>这个学长的仓库里有两年的考题以及上机实验的参考代码，合理使用！</p>
+<p>我个人认为这个课的代码没有查重，这个得到时候再看吧。</p></blockquote>
+
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="mio" src="/img/blowfish_logo_hu_2d15729eafedea4d.png" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      mio
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">I&rsquo;m Just A Student&hellip;</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+          
+
+          
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_Notes\/80X86:Assembly\/index.md"
+        var oid_likes = "likes_Notes\/80X86:Assembly\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/notes/algorithmdesign/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >AlgorithmDesign</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-05-11T15:06:21&#43;08:00">11 May 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/categories/"
+            title="Categories">
+            
+            Categories
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      mio
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

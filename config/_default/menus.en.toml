@@ -14,7 +14,7 @@
   name = "CS:APP"
   parent = "Class"
   pageRef = "csapp"
-  weight = 10
+  weight = 20
 
 [[main]]
   name = "Thinking"
@@ -45,6 +45,11 @@
 	pageRef = "life"
 	weight = 29
 	
+[[main]]
+	name = "学校课程笔记"
+	parent = "Class"
+	pageRef = "Notes"
+	weight = 10
 #[[subnavigation]]
 #  name = "An interesting topic"
 #  pageRef = "tags/interesting-topic"

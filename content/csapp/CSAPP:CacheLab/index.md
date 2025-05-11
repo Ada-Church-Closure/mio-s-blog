@@ -328,9 +328,9 @@ L3hits之间差距过大,L2中的数据没有及时驱逐？？？
 >
 > 最后应该是因为三层地址中block位并不一样的原因，这里要细节处理一下，因为你直接把L3的block干成0,可能会对于L2的setIndex位产生影响。
 
-> 我不在这里放代码：
+> 我放代码：
 >
-> 1.我写的代码很垃圾，没有放的意义。
+> 1.我写的代码很垃圾，放的没有意义（主要是时间很紧张，压缩一下应该能在300行左右）。
 >
 > 2.维护学术诚信。
 
@@ -712,3 +712,725 @@ A   B  C    D
 #### **11.**
 
 **在考虑多核之间cache一致性的前提下，如果需要将inclusive策略变成NINE策略，你需要如何改进现有的代码？**
+
+成品代码：
+
+在我的github上也有，在你自己实现的时候会发现很多相似的逻辑，想想怎么封装，本来应该是一个很精妙的代码构成。
+
+```C
+#include "cachelab.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+// 可能要包含的头文件
+// 要不要封装功能？具体实现的方式
+// 先写的时候可以不急着做功能抽象，先写出来试试看
+// Q：当我在l2中访问缓存命中时，我要把这个地址加载回l1,但是由于这个地址已经确定，那么不会出现明明有空但是必须驱逐的现象么
+// 相关数据统计量，是我在实现的过程中要进行维护的 容易忘记 一共3 * 4 = 12个数据
+// 当一个地址给定的时候，它的所有的SetIndex就已经定下来了
+// 注意C语言的{}的风格
+int l1d_hits = 0;
+int l1d_misses = 0;
+int l1d_evictions = 0;
+int l1i_hits = 0;
+int l1i_misses = 0;
+int l1i_evictions = 0;
+int l2_hits = 0;
+int l2_misses = 0;
+int l2_evictions = 0;
+int l3_hits = 0;
+int l3_misses = 0;
+int l3_evictions = 0;
+
+// 定义一些常量
+#define L1S 2
+#define L1B 3
+
+#define L2S 3
+#define L2B 3
+
+#define L3S 4
+#define L3B 4
+
+#define INSTRUCTION 0
+#define DATA 1
+
+//@params time:要使用LRU算法维护的一个全局时钟
+int timeStamp = 0;
+
+// 全局变量加载默认初始化为0
+void cacheInit()
+{
+}
+
+// 拼接地址,假设填充的偏移字节不会产生影响：都用0来做填充
+// 这里要好好检查有没有出错
+uint64_t addressConcate(uint64_t tag, uint64_t setIndex, int s, int b)
+{
+    uint64_t addr = ((tag << (s + b)) | (setIndex << b));
+    return addr;
+}
+
+// 把驱逐一个CacheLine的功能封装一下,要考虑无效回溯的情况，但是我很难封装到一个function里面去，最好写成四个function
+// 要驱逐的cacheLine地址
+// 并且合理利用包含准则
+// 直接把地址作为参数，复用性是不是会更强--->我的目的还是为了少传送几个参数
+// 这几个驱逐的函数只是单纯的做驱逐的处理，但是不会加载新的值
+// lru找要不要也封装？这样对地址操作有可能出错吗？
+// 还要对于统计量进行操作
+// 要考察是不是无效回溯导致的驱逐，如果是，那么这里不应该算进去统计的问题
+// l1i是一个只读的内存,
+void evictCacheLineFroml1i(uint64_t evictAddress, bool isBackInvalidation)
+{
+    uint64_t tag = (evictAddress >> (L1S + L1B));
+    uint64_t setIndex = ((evictAddress >> L1B) & 0b11);
+
+    int evictIndex = -1;
+
+    for (int index = 0; index < L1_LINE_NUM; ++index)
+    {
+        // 找到了要驱逐的行
+        if (l1icache[setIndex][index].valid && l1icache[setIndex][index].tag == tag)
+        {
+            evictIndex = index;
+            break;
+        }
+    }
+    // 没有要驱逐的行,因为要考虑Back Invalidation
+    if (evictIndex == -1)
+    {
+        return;
+    }
+    // 有要驱逐的行
+    if (!isBackInvalidation)
+    {
+        ++l1i_evictions;
+    }
+    l1icache[setIndex][evictIndex].valid = false;
+}
+
+// L1dcache的驱逐的逻辑和L1icahce的逻辑应该是类似的,其实不是
+void evictCacheLineFroml1d(uint64_t evictAddress, bool isBackInvalidation)
+{
+    uint64_t tag = (evictAddress >> (L1S + L1B));
+    uint64_t setIndex = ((evictAddress >> L1B) & 0b11);
+    int evictIndex = -1;
+    for (int index = 0; index < L1_LINE_NUM; ++index)
+    {
+        // 找到了要驱逐的行
+        if (l1dcache[setIndex][index].valid && l1dcache[setIndex][index].tag == tag)
+        {
+            evictIndex = index;
+            break;
+        }
+    }
+    // 没有要驱逐的行,因为要考虑Back Invalidation
+    if (evictIndex == -1)
+        return;
+
+    if (!isBackInvalidation)
+    {
+        ++l1d_evictions;
+    }
+    // 有要驱逐的行
+    l1dcache[setIndex][evictIndex].valid = false;
+    if (l1dcache[setIndex][evictIndex].dirty)
+    {
+        uint64_t tag2 = (evictAddress >> (L2S + L2B));
+        uint64_t setIndex2 = ((evictAddress >> L2B) & 0b111);
+        for (int index = 0; index < L2_LINE_NUM; ++index)
+        {
+            if (l2ucache[setIndex2][index].valid && l2ucache[setIndex2][index].tag == tag2)
+            {
+                // L2的这个Cache被写了，更改timeStamp
+                ++l2_hits;
+                ++timeStamp;
+                l2ucache[setIndex2][index].latest_used = timeStamp;
+                l2ucache[setIndex2][index].dirty = true;
+                return;
+            }
+        }
+    }
+}
+
+// 从l2ucache驱逐,还要考虑你驱逐的是i还是d
+void evictCacheLineFroml2(uint64_t evictAddress, int TYPE, bool isBackInvalidation)
+{
+    if (!isBackInvalidation)
+    {
+        uint64_t tag = (evictAddress >> (L2S + L2B));
+        uint64_t setIndex = ((evictAddress >> L2B) & 0b111);
+        int evictIndex = -1;
+        for (int index = 0; index < L2_LINE_NUM; ++index)
+        {
+            if (l2ucache[setIndex][index].valid && l2ucache[setIndex][index].tag == tag)
+            {
+                evictIndex = index;
+            }
+        }
+        // 没有找到要驱逐的位置
+        if (evictIndex == -1)
+        {
+            return;
+        }
+        // 这里要进行驱逐
+        // 首先从l2ucache驱逐要考虑无效回溯
+        // L2 back Invalidation L1的时候不应该给L1算一次evict?
+        ++l2_evictions;
+        evictCacheLineFroml1d(evictAddress, true);
+        evictCacheLineFroml1i(evictAddress, true);
+        l2ucache[setIndex][evictIndex].valid = false;
+
+        // 直接驱逐的情况
+        if (l2ucache[setIndex][evictIndex].dirty)
+        {
+            uint64_t tag3 = (evictAddress >> (L3S + L3B));
+            uint64_t setIndex3 = ((evictAddress >> L3B) & 0b1111);
+            for (int index = 0; index < L3_LINE_NUM; ++index)
+            {
+                if (l3ucache[setIndex3][index].valid && l3ucache[setIndex3][index].tag == tag3)
+                {
+                    ++l3_hits;
+                    ++timeStamp;
+                    l3ucache[setIndex3][index].latest_used = timeStamp;
+                    l3ucache[setIndex3][index].dirty = true;
+                    return;
+                }
+            }
+        }
+    }
+    else
+    {
+        uint64_t tag = (evictAddress >> (L2S + L2B));
+        uint64_t setIndex = ((evictAddress >> L2B) & 0b111);
+        int evictIndex = -1;
+        for (int index = 0; index < L2_LINE_NUM; ++index)
+        {
+            if (l2ucache[setIndex][index].valid && l2ucache[setIndex][index].tag == tag)
+            {
+                evictIndex = index;
+                evictCacheLineFroml1d(evictAddress, true);
+                evictCacheLineFroml1i(evictAddress, true);
+                l2ucache[setIndex][evictIndex].valid = false;
+                // 直接驱逐的情况
+                if (l2ucache[setIndex][evictIndex].dirty)
+                {
+                    uint64_t tag3 = (evictAddress >> (L3S + L3B));
+                    uint64_t setIndex3 = ((evictAddress >> L3B) & 0b1111);
+                    for (int i = 0; i < L3_LINE_NUM; ++i)
+                    {
+                        if (l3ucache[setIndex3][i].valid && l3ucache[setIndex3][i].tag == tag3)
+                        {
+                            ++l3_hits;
+                            ++timeStamp;
+                            l3ucache[setIndex3][i].latest_used = timeStamp;
+                            l3ucache[setIndex3][i].dirty = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (setIndex % 2 == 0)
+        {
+            ++setIndex;
+            evictIndex = -1;
+            for (int index = 0; index < L2_LINE_NUM; ++index)
+            {
+                if (l2ucache[setIndex][index].valid && l2ucache[setIndex][index].tag == tag)
+                {
+                    evictIndex = index;
+                    evictCacheLineFroml1d(evictAddress, true);
+                    evictCacheLineFroml1i(evictAddress, true);
+                    l2ucache[setIndex][evictIndex].valid = false;
+                    // 直接驱逐的情况
+                    if (l2ucache[setIndex][evictIndex].dirty)
+                    {
+                        uint64_t tag3 = (evictAddress >> (L3S + L3B));
+                        uint64_t setIndex3 = ((evictAddress >> L3B) & 0b1111);
+                        for (int i = 0; i < L3_LINE_NUM; ++i)
+                        {
+                            if (l3ucache[setIndex3][i].valid && l3ucache[setIndex3][i].tag == tag3)
+                            {
+                                ++l3_hits;
+                                ++timeStamp;
+                                l3ucache[setIndex3][i].latest_used = timeStamp;
+                                l3ucache[setIndex3][i].dirty = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (setIndex % 2 == 1)
+        {
+            --setIndex;
+            evictIndex = -1;
+            for (int index = 0; index < L2_LINE_NUM; ++index)
+            {
+                if (l2ucache[setIndex][index].valid && l2ucache[setIndex][index].tag == tag)
+                {
+                    evictIndex = index;
+                    evictCacheLineFroml1d(evictAddress, true);
+                    evictCacheLineFroml1i(evictAddress, true);
+                    l2ucache[setIndex][evictIndex].valid = false;
+                    // 直接驱逐的情况
+                    if (l2ucache[setIndex][evictIndex].dirty)
+                    {
+                        uint64_t tag3 = (evictAddress >> (L3S + L3B));
+                        uint64_t setIndex3 = ((evictAddress >> L3B) & 0b1111);
+                        for (int i = 0; i < L3_LINE_NUM; ++i)
+                        {
+                            if (l3ucache[setIndex3][i].valid && l3ucache[setIndex3][i].tag == tag3)
+                            {
+                                ++l3_hits;
+                                ++timeStamp;
+                                l3ucache[setIndex3][i].latest_used = timeStamp;
+                                l3ucache[setIndex3][i].dirty = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 从l3ucache驱逐，同样要考虑驱逐的类型问题
+void evictCacheLineFroml3(uint64_t evictAddress, int TYPE)
+{
+    uint64_t tag = (evictAddress >> (L3S + L3B));
+    uint64_t setIndex = ((evictAddress >> L3B) & 0b1111);
+    int evictIndex = -1;
+    for (int index = 0; index < L3_LINE_NUM; ++index)
+    {
+        if (l3ucache[setIndex][index].valid && l3ucache[setIndex][index].tag == tag)
+        {
+            evictIndex = index;
+            break;
+        }
+    }
+
+    if (evictIndex == -1)
+    {
+        return;
+    }
+
+    // Back Invalidation
+    ++l3_evictions;
+    evictCacheLineFroml2(evictAddress, INSTRUCTION, true);
+
+    l3ucache[setIndex][evictIndex].valid = false;
+}
+
+// TODO：思考fetch函数组的封装有没有问题
+// 想把一个line从L2fetch到l1i
+void fetchl2tol1i(uint64_t setIndex1, uint64_t tag1)
+{
+    // 维护l1驱逐的情况
+    int evictIndexl1i = -1;
+    uint64_t minTimeStampl1i = UINT64_MAX;
+    for (int j = 0; j < L1_LINE_NUM; ++j)
+    {
+        // 能找到L1也存在无效的情况,最好的情况
+        if (!l1icache[setIndex1][j].valid)
+        {
+            ++timeStamp;
+            l1icache[setIndex1][j].latest_used = timeStamp;
+            l1icache[setIndex1][j].dirty = false;
+            l1icache[setIndex1][j].tag = tag1;
+            l1icache[setIndex1][j].valid = true;
+            return;
+        }
+        // 要给l1驱逐的情况
+        else
+        {
+            if (l1icache[setIndex1][j].latest_used < minTimeStampl1i)
+            {
+                minTimeStampl1i = l1icache[setIndex1][j].latest_used;
+                evictIndexl1i = j;
+            }
+        }
+    }
+    // 先给l1i做驱逐
+    uint64_t evictL1iAddress = addressConcate(l1icache[setIndex1][evictIndexl1i].tag, setIndex1, L1S, L1B);
+    evictCacheLineFroml1i(evictL1iAddress, false);
+    // 此时l1i已经驱逐完毕,驱逐完了之后再fetch进去
+    ++timeStamp;
+    l1icache[setIndex1][evictIndexl1i].latest_used = timeStamp;
+    l1icache[setIndex1][evictIndexl1i].dirty = false;
+    l1icache[setIndex1][evictIndexl1i].tag = tag1;
+    l1icache[setIndex1][evictIndexl1i].valid = true;
+}
+
+// 把一个line从L2fetch到l1d
+void fetchl2tol1d(uint64_t setIndex1, uint64_t tag1)
+{
+    int evictIndexl1d = -1;
+    uint64_t minTimeStampl1d = UINT64_MAX;
+    for (int j = 0; j < L1_LINE_NUM; ++j)
+    {
+        if (!l1dcache[setIndex1][j].valid)
+        {
+            ++timeStamp;
+            l1dcache[setIndex1][j].latest_used = timeStamp;
+            l1dcache[setIndex1][j].dirty = false;
+            l1dcache[setIndex1][j].tag = tag1;
+            l1dcache[setIndex1][j].valid = true;
+            return;
+        }
+        else
+        {
+            if (l1dcache[setIndex1][j].latest_used < minTimeStampl1d)
+            {
+                minTimeStampl1d = l1dcache[setIndex1][j].latest_used;
+                evictIndexl1d = j;
+            }
+        }
+    }
+    uint64_t evictL1dAddress = addressConcate(l1dcache[setIndex1][evictIndexl1d].tag, setIndex1, L1S, L1B);
+    evictCacheLineFroml1d(evictL1dAddress, false);
+    ++timeStamp;
+    l1dcache[setIndex1][evictIndexl1d].latest_used = timeStamp;
+    l1dcache[setIndex1][evictIndexl1d].dirty = false;
+    l1dcache[setIndex1][evictIndexl1d].tag = tag1;
+    l1dcache[setIndex1][evictIndexl1d].valid = true;
+}
+
+// 把一个line从L3fetch到L2
+void fetchl3tol2(uint64_t setIndex2, uint64_t tag2, int TYPE)
+{
+    uint64_t minTimeStamp = UINT64_MAX;
+    // 如果满了，要驱逐的index
+    int evictIndex = -1;
+    for (int i = 0; i < L2_LINE_NUM; ++i)
+    {
+        if (!l2ucache[setIndex2][i].valid)
+        {
+            ++timeStamp;
+            l2ucache[setIndex2][i].latest_used = timeStamp;
+            l2ucache[setIndex2][i].dirty = false;
+            l2ucache[setIndex2][i].tag = tag2;
+            l2ucache[setIndex2][i].valid = true;
+            return;
+        }
+        else
+        {
+            if (l2ucache[setIndex2][i].latest_used < minTimeStamp)
+            {
+                minTimeStamp = l2ucache[setIndex2][i].latest_used;
+                evictIndex = i;
+            }
+        }
+    }
+    // 考虑L2的驱逐
+    uint64_t evictaddressl2 = addressConcate(l2ucache[setIndex2][evictIndex].tag, setIndex2, L2S, L2B);
+    evictCacheLineFroml2(evictaddressl2, TYPE, false);
+    ++timeStamp;
+    l2ucache[setIndex2][evictIndex].latest_used = timeStamp;
+    l2ucache[setIndex2][evictIndex].dirty = false;
+    l2ucache[setIndex2][evictIndex].tag = tag2;
+    l2ucache[setIndex2][evictIndex].valid = true;
+}
+
+// 把一个内存中的值fetch到l3
+void fetchMemoryTol3(uint64_t setIndex3, uint64_t tag3, int TYPE)
+{
+    int evictIndex = -1;
+    uint64_t minTimeStamp = UINT64_MAX;
+    for (int index = 0; index < L3_LINE_NUM; ++index)
+    {
+        if (!l3ucache[setIndex3][index].valid)
+        {
+            ++timeStamp;
+            l3ucache[setIndex3][index].latest_used = timeStamp;
+            l3ucache[setIndex3][index].dirty = false;
+            l3ucache[setIndex3][index].tag = tag3;
+            l3ucache[setIndex3][index].valid = true;
+            return;
+        }
+        else
+        {
+            if (l3ucache[setIndex3][index].latest_used < minTimeStamp)
+            {
+                minTimeStamp = l3ucache[setIndex3][index].latest_used;
+                evictIndex = index;
+            }
+        }
+    }
+    uint64_t evictAddress = addressConcate(l3ucache[setIndex3][evictIndex].tag, setIndex3, L3S, L3B);
+    evictCacheLineFroml3(evictAddress, TYPE);
+    ++timeStamp;
+    l3ucache[setIndex3][evictIndex].latest_used = timeStamp;
+    l3ucache[setIndex3][evictIndex].dirty = false;
+    l3ucache[setIndex3][evictIndex].tag = tag3;
+    l3ucache[setIndex3][evictIndex].valid = true;
+}
+
+/* 我们先写一个Instruction尝试一下:读取指令
+ * @params addr 为访问地址，它是trace文件中的地址的十进制表示的结果,64位16进制内存地址
+ * OK：经过纯I指令检测，这个函数实现的没有问题
+ */
+void instruct(uint64_t addr)
+{
+    // 先访问第一级Cache,处理addr
+    uint64_t tag1 = (addr >> (L1S + L1B));
+    uint64_t setIndex1 = ((addr >> L1B) & 0b11);
+
+    uint64_t tag2 = (addr >> (L2S + L2B));
+    uint64_t setIndex2 = ((addr >> L2B) & 0b111);
+
+    uint64_t tag3 = (addr >> (L3S + L3B));
+    uint64_t setIndex3 = ((addr >> L3B) & 0b1111);
+
+    //  根据拿到的数据看第一级有没有命中
+    for (int index = 0; index < L1_LINE_NUM; ++index)
+    {
+        // 合法并且tag相同，就是命中
+        if (l1icache[setIndex1][index].valid && l1icache[setIndex1][index].tag == tag1)
+        {
+            // 命中之后的处理
+            ++timeStamp;
+            ++l1i_hits;
+            l1icache[setIndex1][index].latest_used = timeStamp;
+            return;
+        }
+    }
+
+    // 到这里证明l1i没有命中,在l2中找
+    ++l1i_misses;
+    for (int index = 0; index < L2_LINE_NUM; ++index)
+    {
+        // l2中缓存命中
+        if (l2ucache[setIndex2][index].valid && l2ucache[setIndex2][index].tag == tag2)
+        {
+            ++timeStamp;
+            l2ucache[setIndex2][index].latest_used = timeStamp;
+            ++l2_hits;
+            fetchl2tol1i(setIndex1, tag1);
+            return;
+        }
+    }
+
+    // 到这里证明l2没有命中，在l3中找
+    ++l2_misses;
+    for (int index = 0; index < L3_LINE_NUM; ++index)
+    {
+        // l3缓存命中
+        if (l3ucache[setIndex3][index].valid && l3ucache[setIndex3][index].tag == tag3)
+        {
+            ++timeStamp;
+            l3ucache[setIndex3][index].latest_used = timeStamp;
+            ++l3_hits;
+            fetchl3tol2(setIndex2, tag2, INSTRUCTION);
+            fetchl2tol1i(setIndex1, tag1);
+            return;
+        }
+    }
+
+    // 到这里证明l3没有命中，要从缓存中取值加载到三层里面去
+    ++l3_misses;
+    // 找要驱逐的L3的地址
+    fetchMemoryTol3(setIndex3, tag3, INSTRUCTION);
+    fetchl3tol2(setIndex2, tag2, INSTRUCTION);
+    fetchl2tol1i(setIndex1, tag1);
+    // 理论上到这里取值令的过程已经结束
+}
+
+// 读取数据的问题,读取数据和读取指令是否是类似的
+void load(uint64_t addr)
+{
+    // 先访问第一级Cache,处理addr
+    uint64_t tag1 = (addr >> (L1S + L1B));
+    uint64_t setIndex1 = ((addr >> L1B) & 0b11);
+
+    uint64_t tag2 = (addr >> (L2S + L2B));
+    uint64_t setIndex2 = ((addr >> L2B) & 0b111);
+
+    uint64_t tag3 = (addr >> (L3S + L3B));
+    uint64_t setIndex3 = ((addr >> L3B) & 0b1111);
+
+    //  根据拿到的数据看第一级有没有命中
+    for (int index = 0; index < L1_LINE_NUM; ++index)
+    {
+        // 合法并且tag相同，就是命中
+        if (l1dcache[setIndex1][index].valid && l1dcache[setIndex1][index].tag == tag1)
+        {
+            // 命中之后的处理
+            ++timeStamp;
+            ++l1d_hits;
+            l1dcache[setIndex1][index].latest_used = timeStamp;
+            return;
+        }
+    }
+
+    ++l1d_misses;
+    for (int index = 0; index < L2_LINE_NUM; ++index)
+    {
+        // l2中缓存命中
+        if (l2ucache[setIndex2][index].valid && l2ucache[setIndex2][index].tag == tag2)
+        {
+            ++timeStamp;
+            l2ucache[setIndex2][index].latest_used = timeStamp;
+            ++l2_hits;
+            fetchl2tol1d(setIndex1, tag1);
+            return;
+        }
+    }
+
+    // 到这里证明l2没有命中，在l3中找
+    ++l2_misses;
+    for (int index = 0; index < L3_LINE_NUM; ++index)
+    {
+        // l3缓存命中
+        if (l3ucache[setIndex3][index].valid && l3ucache[setIndex3][index].tag == tag3)
+        {
+            ++timeStamp;
+            l3ucache[setIndex3][index].latest_used = timeStamp;
+            ++l3_hits;
+            fetchl3tol2(setIndex2, tag2, DATA);
+            fetchl2tol1d(setIndex1, tag1);
+            return;
+        }
+    }
+
+    // 到这里证明l3没有命中，要从缓存中取值加载到三层里面去
+    ++l3_misses;
+    // 找要驱逐的L3的地址
+    fetchMemoryTol3(setIndex3, tag3, DATA);
+    fetchl3tol2(setIndex2, tag2, DATA);
+    fetchl2tol1d(setIndex1, tag1);
+}
+
+// 重点逻辑：写入内存的实现
+// 先fetch这个cacheline，接着才进行改动，我这里成了先改动，再fecth上去，肯定是不行的
+// 简单来说，写入操作是不会影响L2和L3的
+void store(uint64_t addr)
+{
+    // 先列出所有可能要访问的数据
+    uint64_t tag1 = (addr >> (L1S + L1B));
+    uint64_t setIndex1 = ((addr >> L1B) & 0b11);
+
+    uint64_t tag2 = (addr >> (L2S + L2B));
+    uint64_t setIndex2 = ((addr >> L2B) & 0b111);
+
+    uint64_t tag3 = (addr >> (L3S + L3B));
+    uint64_t setIndex3 = ((addr >> L3B) & 0b1111);
+
+    // 写l1d
+    for (int index = 0; index < L1_LINE_NUM; ++index)
+    {
+        // l1d write hit
+        if (l1dcache[setIndex1][index].valid && l1dcache[setIndex1][index].tag == tag1)
+        {
+            ++l1d_hits;
+            ++timeStamp;
+            l1dcache[setIndex1][index].latest_used = timeStamp;
+            l1dcache[setIndex1][index].dirty = true;
+            return;
+        }
+    }
+
+    // l1d write misses
+    ++l1d_misses;
+
+    // 在L2中写
+    for (int index = 0; index < L2_LINE_NUM; ++index)
+    {
+        // l2 write hit
+        if (l2ucache[setIndex2][index].valid && l2ucache[setIndex2][index].tag == tag2)
+        {
+            // L2写命中，我先把这个位置加载回l1d，接着才进行dirty的修改，写命中时，首先更改一下lru
+            ++l2_hits;
+            ++timeStamp;
+            l2ucache[setIndex2][index].latest_used = timeStamp;
+            fetchl2tol1d(setIndex1, tag1);
+            for (int i = 0; i < L1_LINE_NUM; ++i)
+            {
+                // 在fetch了之后，此时这里的lru已经发生了改变，所以是不是不用再进行更改?
+                // 应该是的
+                if (l1dcache[setIndex1][i].valid && l1dcache[setIndex1][i].tag == tag1)
+                {
+                    l1dcache[setIndex1][i].dirty = true;
+                    return;
+                }
+            }
+        }
+    }
+
+    // l2u write misses
+    ++l2_misses;
+    for (int index = 0; index < L3_LINE_NUM; ++index)
+    {
+        // l3 write hit
+        if (l3ucache[setIndex3][index].valid && l3ucache[setIndex3][index].tag == tag3)
+        {
+            ++l3_hits;
+            ++timeStamp;
+            l3ucache[setIndex3][index].latest_used = timeStamp;
+            fetchl3tol2(setIndex2, tag2, DATA);
+            fetchl2tol1d(setIndex1, tag1);
+            for (int i = 0; i < L1_LINE_NUM; ++i)
+            {
+                if (l1dcache[setIndex1][i].valid && l1dcache[setIndex1][i].tag == tag1)
+                {
+                    l1dcache[setIndex1][i].dirty = true;
+                    return;
+                }
+            }
+        }
+    }
+
+    // l3u write miss,在内存中写，然后直接加载上去，是否正确,显然错误
+    ++l3_misses;
+    fetchMemoryTol3(setIndex3, tag3, DATA);
+    fetchl3tol2(setIndex2, tag2, DATA);
+    fetchl2tol1d(setIndex1, tag1);
+    // 在fetch完了之后，在set1中找要写的值，接着写入即可
+    for (int i = 0; i < L1_LINE_NUM; ++i)
+    {
+        if (l1dcache[setIndex1][i].valid && l1dcache[setIndex1][i].tag == tag1)
+        {
+            l1dcache[setIndex1][i].dirty = true;
+            return;
+        }
+    }
+}
+
+// you are not allowed to modify the declaration of this function
+/*cacheAccess函数接受三个参数，参数的定义为：
+ * 而且我们不考虑byte的个数，我们这个函数只是模拟访问内存的操作，不实际读写数据
+ *@params op 为访问类型，是一个char类型的参数，具体取值和trace文件中的类型相同，为[I, S, L，M]其中的一个。
+ *@params addr 为访问地址，它是trace文件中的地址的十进制表示的结果,64位16进制内存地址
+ *@params len 为一次访问的长度，也就是字节数量
+ *   思考过程：
+ *   1.怎么处理地址？要根据不同缓存级别的组数用不同的方式来解读地址么？然后剩下的位都是tag标志
+ *   2.I是指令加载的过程，和数据读取类似，但是一级缓存中只能从L1I中来读取指令数据
+ *   3.M修改数据，就是一次Load加上一次Store Load：就是读取 Store：就是写入数据
+ *   4.代码框架大概是怎样的？一个对应的指令实现一个功能？
+ */
+void cacheAccess(char op, uint64_t addr, uint32_t len)
+{
+    switch (op)
+    {
+    case 'I':
+        instruct(addr);
+        break;
+    case 'M':
+        load(addr);
+        store(addr);
+        break;
+    case 'L':
+        load(addr);
+        break;
+    case 'S':
+        store(addr);
+        break;
+    default:
+        break;
+    }
+}
+
+```
+

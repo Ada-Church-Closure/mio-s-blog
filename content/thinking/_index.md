@@ -5,4 +5,6 @@ title = 'Thinking'
 
 +++
 
-> **"What kind of path are we walking on?"**
+> **What has always made the state a hell on earth has been precisely that man has tried to make it his heaven.**
+>
+> **--F.Hoelderlin**
