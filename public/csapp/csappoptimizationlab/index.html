@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
   data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
@@ -28,8 +28,10 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
-    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.721003f09449a0912bb62104688e960d177f51b3c09f0e387a1d0e5fc2e5b6c8158a4ea485544ea400f5efb68debb909febd470b6dea83625d5103f116f771be.css"
+    integrity="sha512-chAD8JRJoJErtiEEaI6WDRd/UbPAnw44eh0OX8LltsgVik6khVROpAD177aN67kJ/r1HC23qg2JdUQPxFvdxvg==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -74,8 +76,8 @@
   <meta property="og:title" content="CSAPP:OptimizationLab">
   <meta property="og:description" content="CSAPP:OptimizationLab # 本次实验我们来优化一段计算多项式值的代码，并且亲自测量其性能，希望能加深同学们对机器特定优化的理解，同时为同学们提供测量性能的经验。
 基本材料都引用于我校的CSAPP实验指导书页面。
-预习：
-我们先明确几个概念">
+同时也是考试的复习笔记。
+预习：">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="csapp">
@@ -89,8 +91,8 @@
   <meta name="twitter:title" content="CSAPP:OptimizationLab">
   <meta name="twitter:description" content="CSAPP:OptimizationLab # 本次实验我们来优化一段计算多项式值的代码，并且亲自测量其性能，希望能加深同学们对机器特定优化的理解，同时为同学们提供测量性能的经验。
 基本材料都引用于我校的CSAPP实验指导书页面。
-预习：
-我们先明确几个概念">
+同时也是考试的复习笔记。
+预习：">
 
   
   <script type="application/ld+json">
@@ -101,7 +103,7 @@
     "name": "CSAPP:OptimizationLab",
     "headline": "CSAPP:OptimizationLab",
     
-    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eCSAPP:OptimizationLab \n    \u003cdiv id=\u0022csappoptimizationlab\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#csappoptimizationlab\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e本次实验我们来优化一段计算多项式值的代码，并且亲自测量其性能，希望能加深同学们对机器特定优化的理解，同时为同学们提供测量性能的经验。\u003c\/p\u003e\n\u003cp\u003e基本材料都引用于我校的CSAPP实验指导书页面。\u003c\/p\u003e\u003c\/blockquote\u003e\n\u003cp\u003e预习：\u003c\/p\u003e\n\u003cp\u003e我们先明确几个概念\u003c\/p\u003e",
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eCSAPP:OptimizationLab \n    \u003cdiv id=\u0022csappoptimizationlab\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#csappoptimizationlab\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e本次实验我们来优化一段计算多项式值的代码，并且亲自测量其性能，希望能加深同学们对机器特定优化的理解，同时为同学们提供测量性能的经验。\u003c\/p\u003e\n\u003cp\u003e基本材料都引用于我校的CSAPP实验指导书页面。\u003c\/p\u003e\n\u003cp\u003e同时也是考试的复习笔记。\u003c\/p\u003e\u003c\/blockquote\u003e\n\u003cp\u003e\u003cstrong\u003e预习：\u003c\/strong\u003e\u003c\/p\u003e",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/csapp\/csappoptimizationlab\/",
     "author" : {
@@ -117,7 +119,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1538"
+    "wordCount": "1548"
   }]
   </script>
 
@@ -695,7 +697,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-04-10T23:57:57&#43;08:00">10 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1538 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <time datetime="2025-04-10T23:57:57&#43;08:00">10 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1548 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -911,9 +913,35 @@
 </h1>
 <blockquote>
 <p>本次实验我们来优化一段计算多项式值的代码，并且亲自测量其性能，希望能加深同学们对机器特定优化的理解，同时为同学们提供测量性能的经验。</p>
-<p>基本材料都引用于我校的CSAPP实验指导书页面。</p></blockquote>
-<p>预习：</p>
-<p>我们先明确几个概念</p>
+<p>基本材料都引用于我校的CSAPP实验指导书页面。</p>
+<p>同时也是考试的复习笔记。</p></blockquote>
+<p><strong>预习：</strong></p>
+<p>我们代码优化时遇到的问题：</p>
+<p>1.函数调用，不要循环一次调用一次，可以尝试多使用中间变量。&mdash;》代码移动</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616155334665.png" alt="image-20250616155334665" />
+      
+    </figure>
+</p>
+<p>2.内存别名，一个内存位置可以被两种名称同时来访问造成问题。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616155426649.png" alt="image-20250616155426649" />
+      
+    </figure>
+</p>
+<p>3.多次调用函数，是否可以直接乘？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616160020564.png" alt="image-20250616160020564" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>[!WARNING]</p>
+<p>​	这实际上也是一个相当常见的误区，比如Java的<strong>Iterator</strong>迭代的时候造成的问题，我们要关注函数具体的内容，函数每次的调用是否会产生一种“持久性”或者“累积性”的影响。</p></blockquote>
+<p><strong>我们先明确几个概念</strong></p>
 
 
 <h2 class="relative group">CPE 
@@ -1015,6 +1043,14 @@
     
 </h3>
 <p>这样就使得依赖的路径变短。</p>
+<p>这就是重新结合变换。</p>
+<p>OP为加法的时候是没有作用的。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616164913451.png" alt="image-20250616164913451" />
+      
+    </figure>
+</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="n">i</span><span class="o">+=</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="nf">OP</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">OP</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -1099,7 +1135,7 @@
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="../../../static/img/image-20250407145409428.png" alt="image-20250407145409428" />
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250407145409428.png" alt="image-20250407145409428" />
       
     </figure>
 </p>

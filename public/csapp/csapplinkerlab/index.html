@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
   data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
@@ -28,8 +28,10 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
-    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.721003f09449a0912bb62104688e960d177f51b3c09f0e387a1d0e5fc2e5b6c8158a4ea485544ea400f5efb68debb909febd470b6dea83625d5103f116f771be.css"
+    integrity="sha512-chAD8JRJoJErtiEEaI6WDRd/UbPAnw44eh0OX8LltsgVik6khVROpAD177aN67kJ/r1HC23qg2JdUQPxFvdxvg==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -74,7 +76,7 @@
   <meta property="og:title" content="CSAPP:LinkerLab">
   <meta property="og:description" content="CSAPP:LinkerLab # CSAPP上关于链接的知识我也会放在这里……
 本文图片大多来源于英文原版CSAPP。
-链接机制详解 # 有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。">
+链接机制详解 # ​	有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="csapp">
@@ -88,7 +90,7 @@
   <meta name="twitter:title" content="CSAPP:LinkerLab">
   <meta name="twitter:description" content="CSAPP:LinkerLab # CSAPP上关于链接的知识我也会放在这里……
 本文图片大多来源于英文原版CSAPP。
-链接机制详解 # 有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。">
+链接机制详解 # ​	有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。">
 
   
   <script type="application/ld+json">
@@ -99,7 +101,7 @@
     "name": "CSAPP:LinkerLab",
     "headline": "CSAPP:LinkerLab",
     
-    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eCSAPP:LinkerLab \n    \u003cdiv id=\u0022csapplinkerlab\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#csapplinkerlab\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eCSAPP上关于链接的知识我也会放在这里\u0026hellip;\u0026hellip;\u003c\/p\u003e\n\u003cp\u003e本文图片大多来源于英文原版CSAPP。\u003c\/p\u003e\u003c\/blockquote\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e链接机制详解 \n    \u003cdiv id=\u0022%E9%93%BE%E6%8E%A5%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E9%93%BE%E6%8E%A5%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003e有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。\u003c\/p\u003e",
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eCSAPP:LinkerLab \n    \u003cdiv id=\u0022csapplinkerlab\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#csapplinkerlab\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eCSAPP上关于链接的知识我也会放在这里\u0026hellip;\u0026hellip;\u003c\/p\u003e\n\u003cp\u003e本文图片大多来源于英文原版CSAPP。\u003c\/p\u003e\u003c\/blockquote\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e链接机制详解 \n    \u003cdiv id=\u0022%E9%93%BE%E6%8E%A5%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E9%93%BE%E6%8E%A5%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003e​\t有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。\u003c\/p\u003e",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/csapp\/csapplinkerlab\/",
     "author" : {
@@ -115,7 +117,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1502"
+    "wordCount": "1520"
   }]
   </script>
 
@@ -693,7 +695,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-04-19T16:27:09&#43;08:00">19 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1502 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <time datetime="2025-04-19T16:27:09&#43;08:00">19 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1520 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -973,7 +975,7 @@
     
 </h2>
 <blockquote>
-<p>有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。</p></blockquote>
+<p>​	有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。</p></blockquote>
 
 
 <h3 class="relative group">编译器驱动程序 
@@ -1035,7 +1037,15 @@
     </span>        
     
 </h3>
+<p><strong>意思就是这个文件作为一个目标文件，可以用来重定位。</strong></p>
 <p>很多人开始区分不清楚.o和elf：elf就是一种格式</p>
+<p>包含的内容：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616170825010.png" alt="image-20250616170825010" />
+      
+    </figure>
+</p>
 <ul>
 <li>
 <p>ELF 全称是 <strong>Executable and Linkable Format（可执行与可链接格式）</strong></p>
@@ -1071,9 +1081,38 @@
 </p>
 <p>.text:机器代码</p>
 <p>.rodata:只读data</p>
-<p>.data:全局静态变量</p>
+<p>.data:全局 静态变量</p>
 <p>.bss:未初始化或者初始化为0的全局静态(<strong>better save space</strong>(?))</p>
 <p>.symtab:符号表，函数和全局变量的信息</p>
+<p>​	我们用<strong>readelf</strong>工具去读取头文件的内容，并且分析一下这个内容：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616171110203.png" alt="image-20250616171110203" />
+      
+    </figure>
+</p>
+<p>什么是<strong>Magic</strong> <strong>Number</strong>：<strong>标识了这个可重定位目标文件</strong>：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616171305797.png" alt="image-20250616171305797" />
+      
+    </figure>
+</p>
+<p>根据上述的信息，可以得到：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616172117252.png" alt="image-20250616172117252" />
+      
+    </figure>
+</p>
+<p>那么section中存放的：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616172756539.png" alt="image-20250616172756539" />
+      
+    </figure>
+</p>
+<p>就如我们上面所提到的。</p>
 
 
 <h3 class="relative group">符号和符号表 
@@ -1086,12 +1125,15 @@
     </span>        
     
 </h3>
-<p>每个<strong>可重定位模块m</strong>都有一个符号表</p>
-<p>1.全局符号 我定义的非静态C函数和全局变量。</p>
-<p>2.外部符号 别人定义的非静态C函数和全局变量。</p>
-<p>3.局部符号 我的static函数和全局变量（.symtab不关心这些东西）,直接在stack中管理。</p>
 <blockquote>
-<p>所以，在C语言多文件编程中，用static保护好自己的函数和变量是好的习惯。</p></blockquote>
+<p>*<strong>符号表</strong>是重点内容。</p></blockquote>
+<p>每个<strong>可重定位模块m</strong>都有一个<strong>符号表</strong>，这个symbol table就在section中。</p>
+<p>1.全局符号 我定义的<strong>非静态C函数</strong>和<strong>全局变量</strong>。</p>
+<p>2.外部符号 别人定义的<strong>非静态C函数</strong>和<strong>全局变量</strong>。</p>
+<p>3.<strong>局部符</strong>号 我的<strong>static函数</strong>和局部变量（.symtab不关心这些东西）,直接在<strong>stack</strong>中管理。</p>
+<blockquote>
+<p>所以，在C语言多文件编程中，用<strong>static保护好自己的函数和变量</strong>是好的习惯。</p>
+<p>不会被别人引用（明明是我先来的！！！）</p></blockquote>
 <p><strong>符号表条目</strong>：</p>
 <p>
     <figure>
@@ -1272,12 +1314,13 @@
     
 </h4>
 <p>全局&mdash;》强 弱</p>
-<p>强符号：函数 已经初始化的全局变量</p>
-<p>弱符号：未初始化的全局变量</p>
+<p>强符号：函数 <strong>已经初始化的全局变量</strong></p>
+<p>弱符号：<strong>未初始化的全局变量</strong></p>
 <p><strong>规则：</strong></p>
 <p>1.强不能重名</p>
 <p>2.一强多弱选强符号</p>
 <p>3.多个弱符号随机选择（<strong>2,3都是比较危险的情况</strong>）</p>
+<p>-fno-common:遇到多重定义的全局符号直接触发错误，比较保险。</p>
 <p>是比较好理解的部分。</p>
 
 
@@ -1299,6 +1342,12 @@
     </figure>
 </p>
 <p>当你引用addvec时，直接复制addvec.o到可执行的文件。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616201136313.png" alt="image-20250616201136313" />
+      
+    </figure>
+</p>
 
 
 <h4 class="relative group">如何使用静态库解析引用？ 
@@ -1322,10 +1371,17 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">unix&gt; gcc -static ./libvector.a main2.c
 </span></span><span class="line"><span class="cl">/tmp/cc9XH6Rp.o: In <span class="k">function</span> ‘main’:
 </span></span><span class="line"><span class="cl">/tmp/cc9XH6Rp.o<span class="o">(</span>.text+0x18<span class="o">)</span>: undefined reference to ‘addvec’
-</span></span></code></pre></div><p>那么考察这样的情况，若你把静态库放到前面，那么开始就会和U中的元素比对，但是此时U中没有元素，当main.c被扫描时，此时它引用的静态库中的函数就会是<strong>undefined</strong>。</p>
+</span></span></code></pre></div><p>​	那么考察这样的情况，若你把静态库放到前面，那么开始就会和U中的元素比对，但是此时U中没有元素，当main.c被扫描时，此时它引用的静态库中的函数就会是<strong>undefined</strong>。</p>
 <blockquote>
-<p>所以我们要把库放在最后，并且要根据库之间的依赖型进行排序（拓扑排序）。</p>
-<p>如果有更复杂的依赖性问题，就可以多次在命令行上重复库（可以看课后题目）。</p></blockquote>
+<p>所以我们要把<strong>库放在最后，并且要根据库之间的依赖型进行排序（拓扑排序）</strong>。</p>
+<p>如果有更复杂的依赖性问题，就可以多次在命令行上<strong>重复库</strong>（可以看课后题目）。</p>
+<p>如下图所示的过程：</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616201457592.png" alt="image-20250616201457592" />
+      
+    </figure>
+</p>
 
 
 <h3 class="relative group">重定位 
@@ -1338,10 +1394,12 @@
     </span>        
     
 </h3>
-<p>合并输入模块，为每个符号分配运行时地址。</p>
-<p>1.重定位节和符号定义</p>
-<p>​	比如把所有的.data节合并成一个节并且分配地址。</p>
-<p>2.重定位节中的符号引用</p>
+<blockquote>
+<p>就是更换地址。</p></blockquote>
+<p>合并输入模块，为每个符号<strong>分配运行</strong>时地址。</p>
+<p>1.重定位节和<strong>符号定义</strong></p>
+<p>​	比如把所有的**.data<strong>节合并成一个节并且</strong>分配地址**。</p>
+<p>2.重定位节中的<strong>符号引用</strong></p>
 <p>​	修改符号引用，使其指向正确的运行时地址。</p>
 
 
@@ -1355,7 +1413,7 @@
     </span>        
     
 </h4>
-<p>汇编器生成目标模块时生成.rel.data .rel.text 重定位条目</p>
+<p><strong>汇编器</strong>生成目标模块时生成.rel.data .rel.text 重定位条目</p>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250417193235496.png" alt="image-20250417193235496" />
@@ -1426,7 +1484,13 @@
 <pre tabindex="0"><code class="language-livescript" data-lang="livescript">  1b:   e8 00 00 00 00          call   20 &lt;main+0x20&gt;
 </code></pre><p>观察这一行，e8是call的操作码，后面的00 00 00 00 都是PC相对引用的占位符。</p>
 <p>在重定位时，利用上述的算法，告诉我们sum在main中的偏移量，我们可以在这里调用到sum。</p>
-<p>TODO：具体过程。</p>
+<p>求两个地址之间的相对位置：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250616202744519.png" alt="" />
+      
+    </figure>
+</p>
 
 
 <h4 class="relative group">重定位绝对引用 
@@ -1462,7 +1526,7 @@
 </span></span><span class="line"><span class="cl">    <span class="mi">1162</span><span class="o">:</span>       <span class="mi">7</span><span class="n">c</span> <span class="n">f3</span>                   <span class="n">jl</span>     <span class="mi">1157</span> <span class="o">&lt;</span><span class="n">sum</span><span class="o">+</span><span class="mh">0x10</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="mi">1164</span><span class="o">:</span>       <span class="mi">89</span> <span class="n">d0</span>                   <span class="n">mov</span>    <span class="o">%</span><span class="n">edx</span><span class="p">,</span><span class="o">%</span><span class="n">eax</span>
 </span></span><span class="line"><span class="cl">    <span class="mi">1166</span><span class="o">:</span>       <span class="n">c3</span>                      <span class="n">ret</span>    
-</span></span></code></pre></div><p>main中113e的位置就是sum的重定位地址</p>
+</span></span></code></pre></div><p>main中113e的位置就是sum的重定位地址。</p>
 <p>这里的值5就是重定位的值：当CPU执行call指令时，PC会指向下一条就是1142,为了执行这个指令，CPU把PC放进栈中，并且 PC += 5，也就是PC = 1147，此时，就会执行到sum的代码。</p>
 <p>这个逻辑是和call指令配套的，linker在🔗这两个程序的时候，就会根据重定位表，把e8之后的占位符更改成要调用的函数相对于当前PC的偏移量的大小，call会先将PC压入栈中，PC += offset，接着就会执行到目标函数。</p>
 
@@ -1541,7 +1605,7 @@
 </p>
 <blockquote>
 <p>我们对于加载的描述从概念上来说是正确的，但也不是完全准确，这是有意为之。
-要理解加载实际是如何工作的 ，你必须理解进程 、虚拟内存和内存映射的概念，这些我们还没有加以讨论 。在后面笫8章和笫9章中遇到这些概念时 ，我们将重新回到加载的问题上，并逐渐向你揭开它的神秘面纱。</p></blockquote>
+要理解加载实际是如何工作的 ，你必须理解<strong>进程 、虚拟内存和内存映射</strong>的概念，这些我们还没有加以讨论 。在后面笫8章和笫9章中遇到这些概念时 ，我们将重新回到加载的问题上，并逐渐向你揭开它的<strong>神秘面纱</strong>。</p></blockquote>
 
 
 <h2 class="relative group">实验： 
@@ -2032,6 +2096,28 @@
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/csapp/csappmalloclab/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >CSAPP:MallocLab</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-06-01T18:18:00&#43;08:00">1 June 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

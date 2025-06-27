@@ -1,0 +1,2806 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>CSAPP:MallocLab &middot; Mio&#39;s Tea Time</title>
+  <meta name="title" content="CSAPP:MallocLab &middot; Mio&#39;s Tea Time" />
+  
+  <meta name="description" content="Mio&#39;s Tea Time" />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/csapp/csappmalloclab/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.721003f09449a0912bb62104688e960d177f51b3c09f0e387a1d0e5fc2e5b6c8158a4ea485544ea400f5efb68debb909febd470b6dea83625d5103f116f771be.css"
+    integrity="sha512-chAD8JRJoJErtiEEaI6WDRd/UbPAnw44eh0OX8LltsgVik6khVROpAD177aN67kJ/r1HC23qg2JdUQPxFvdxvg==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/csapp/csappmalloclab/">
+  <meta property="og:site_name" content="Mio&#39;s Tea Time">
+  <meta property="og:title" content="CSAPP:MallocLab">
+  <meta property="og:description" content="Virtual Memory:MallocLab # CSAPP中关于虚拟内存的一点简单笔记。
+1.物理和虚拟寻址 #">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="csapp">
+    <meta property="article:published_time" content="2025-06-01T18:18:00+08:00">
+    <meta property="article:modified_time" content="2025-06-01T18:18:00+08:00">
+    <meta property="og:image" content="http://localhost:1313/csapp/csappmalloclab/featured.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/csapp/csappmalloclab/featured.png">
+  <meta name="twitter:title" content="CSAPP:MallocLab">
+  <meta name="twitter:description" content="Virtual Memory:MallocLab # CSAPP中关于虚拟内存的一点简单笔记。
+1.物理和虚拟寻址 #">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "CSAPP:MallocLab",
+    "headline": "CSAPP:MallocLab",
+    
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eVirtual Memory:MallocLab \n    \u003cdiv id=\u0022virtual-memorymalloclab\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#virtual-memorymalloclab\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eCSAPP中关于虚拟内存的一点简单笔记。\u003c\/p\u003e\u003c\/blockquote\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e1.物理和虚拟寻址 \n    \u003cdiv id=\u00221%E7%89%A9%E7%90%86%E5%92%8C%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1%E7%89%A9%E7%90%86%E5%92%8C%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003e\n    \u003cfigure\u003e\n      \u003cimg class=\u0022my-0 rounded-md\u0022 loading=\u0022lazy\u0022 src=\u0022\/img\/image-20250513200943305.png\u0022 alt=\u0022image-20250513200943305\u0022 \/\u003e\n      \n    \u003c\/figure\u003e\n\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/csapp\/csappmalloclab\/",
+    "author" : {
+      "@type": "Person",
+      "name": "mio"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-06-01T18:18:00\u002b08:00",
+    "datePublished": "2025-06-01T18:18:00\u002b08:00",
+    
+    "dateModified": "2025-06-01T18:18:00\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2388"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="mio" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co",
+      authDomain: "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co",
+      projectId: "mio-s-app",
+      storageBucket: "mio-s-app.firebasestorage.app",
+      messagingSenderId: "491061548873",
+      appId: "1:491061548873:web:9de625ab436bdfd1e3ec98",
+      measurementId: "G-EH5EXVC7V4"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    
+    
+    <div>
+        <a href="/" class="flex">
+            <span class="sr-only">Mio&rsquo;s Tea Time</span>
+
+            
+            <img src="/img/logo.png" width="342" height="318"
+                class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Mio&#39;s Tea Time" />
+            
+
+        </a>
+    </div>
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Mio&rsquo;s Tea Time</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Class
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            学校课程笔记
+          </p>
+        </a>
+        
+        <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            CS:APP
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tech">
+        Tech
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Thinking">
+        Thinking
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/life/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Life">
+        せいかつ
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Author
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Class
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            学校课程笔记
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            CS:APP
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tech">
+            Tech
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Thinking">
+            Thinking
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/life/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Life">
+            せいかつ
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Author
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      CSAPP:MallocLab
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-06-01T18:18:00&#43;08:00">1 June 2025</time><span class="px-2 text-primary-500">&middot;</span><span>2388 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">12 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="views_csapp/CSAPP:MallocLab/index.md" class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400" title="views">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="likes_csapp/CSAPP:MallocLab/index.md"
+    class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400"
+    title="likes">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+    <button id="button_likes"
+        class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+        onclick="process_article()">
+        <span id="button_likes_heart" style="display:none" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+ </span>
+        <span id="button_likes_emtpty_heart" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
+  </span>
+
+</span>
+        <span id="button_likes_text">&nbsp;Like</span>
+    </button>
+</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1物理和虚拟寻址">1.物理和虚拟寻址</a></li>
+    <li><a href="#2地址空间">2.地址空间</a></li>
+    <li><a href="#3虚拟内存作为缓存的工具">3.虚拟内存作为缓存的工具</a>
+      <ul>
+        <li><a href="#1页表">1.页表</a>
+          <ul>
+            <li><a href="#过程">过程</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4虚拟内存作为内存管理的工具">4.虚拟内存作为内存管理的工具</a></li>
+    <li><a href="#5虚拟内存作为内存保护的工具">5.虚拟内存作为内存保护的工具</a></li>
+    <li><a href="#6地址翻译">6.*地址翻译</a>
+      <ul>
+        <li><a href="#1高速缓存和虚拟内存的结合">1.高速缓存和虚拟内存的结合</a></li>
+        <li><a href="#2tlb加速地址翻译">2.TLB加速地址翻译</a></li>
+        <li><a href="#3多级页表">3.多级页表</a></li>
+        <li><a href="#4手动模拟一下">4.手动模拟一下</a></li>
+        <li><a href="#7实际案例">7.实际案例</a>
+          <ul>
+            <li><a href="#linux虚拟内存系统">linux虚拟内存系统</a></li>
+          </ul>
+        </li>
+        <li><a href="#8内存映射">8.内存映射</a>
+          <ul>
+            <li><a href="#再看共享对象">再看共享对象</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#malloc-lab">Malloc Lab</a></li>
+    <li><a href="#动态内存分配">动态内存分配</a>
+      <ul>
+        <li><a href="#1malloc和free函数">1.malloc和free函数</a></li>
+        <li><a href="#2为什么要使用动态内存分配">2.为什么要使用动态内存分配？</a></li>
+        <li><a href="#3分配器的要求和目标">3.分配器的要求和目标</a></li>
+        <li><a href="#4fragmentation碎片">4.Fragmentation（碎片）</a></li>
+        <li><a href="#5实现的问题">5.实现的问题</a></li>
+        <li><a href="#6隐式空闲链表">6.隐式空闲链表</a></li>
+        <li><a href="#7放置已经分配的块">7.放置已经分配的块</a></li>
+        <li><a href="#8分割空闲块">8.分割空闲块</a></li>
+        <li><a href="#9获取额外的堆内存">9.获取额外的堆内存</a></li>
+        <li><a href="#10合并空闲块">10.合并空闲块</a></li>
+        <li><a href="#11带边界的标记合并">11.带边界的标记合并</a></li>
+        <li><a href="#实现要求">实现要求</a></li>
+        <li><a href="#你可以使用的一些工具function">你可以使用的一些工具（function）</a></li>
+        <li><a href="#注意事项">注意事项：</a></li>
+        <li><a href="#优化">优化：</a>
+          <ul>
+            <li><a href="#分离空闲链表">分离空闲链表</a></li>
+            <li><a href="#块的更精细的结构">块的更精细的结构</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1物理和虚拟寻址">1.物理和虚拟寻址</a></li>
+    <li><a href="#2地址空间">2.地址空间</a></li>
+    <li><a href="#3虚拟内存作为缓存的工具">3.虚拟内存作为缓存的工具</a>
+      <ul>
+        <li><a href="#1页表">1.页表</a>
+          <ul>
+            <li><a href="#过程">过程</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4虚拟内存作为内存管理的工具">4.虚拟内存作为内存管理的工具</a></li>
+    <li><a href="#5虚拟内存作为内存保护的工具">5.虚拟内存作为内存保护的工具</a></li>
+    <li><a href="#6地址翻译">6.*地址翻译</a>
+      <ul>
+        <li><a href="#1高速缓存和虚拟内存的结合">1.高速缓存和虚拟内存的结合</a></li>
+        <li><a href="#2tlb加速地址翻译">2.TLB加速地址翻译</a></li>
+        <li><a href="#3多级页表">3.多级页表</a></li>
+        <li><a href="#4手动模拟一下">4.手动模拟一下</a></li>
+        <li><a href="#7实际案例">7.实际案例</a>
+          <ul>
+            <li><a href="#linux虚拟内存系统">linux虚拟内存系统</a></li>
+          </ul>
+        </li>
+        <li><a href="#8内存映射">8.内存映射</a>
+          <ul>
+            <li><a href="#再看共享对象">再看共享对象</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#malloc-lab">Malloc Lab</a></li>
+    <li><a href="#动态内存分配">动态内存分配</a>
+      <ul>
+        <li><a href="#1malloc和free函数">1.malloc和free函数</a></li>
+        <li><a href="#2为什么要使用动态内存分配">2.为什么要使用动态内存分配？</a></li>
+        <li><a href="#3分配器的要求和目标">3.分配器的要求和目标</a></li>
+        <li><a href="#4fragmentation碎片">4.Fragmentation（碎片）</a></li>
+        <li><a href="#5实现的问题">5.实现的问题</a></li>
+        <li><a href="#6隐式空闲链表">6.隐式空闲链表</a></li>
+        <li><a href="#7放置已经分配的块">7.放置已经分配的块</a></li>
+        <li><a href="#8分割空闲块">8.分割空闲块</a></li>
+        <li><a href="#9获取额外的堆内存">9.获取额外的堆内存</a></li>
+        <li><a href="#10合并空闲块">10.合并空闲块</a></li>
+        <li><a href="#11带边界的标记合并">11.带边界的标记合并</a></li>
+        <li><a href="#实现要求">实现要求</a></li>
+        <li><a href="#你可以使用的一些工具function">你可以使用的一些工具（function）</a></li>
+        <li><a href="#注意事项">注意事项：</a></li>
+        <li><a href="#优化">优化：</a>
+          <ul>
+            <li><a href="#分离空闲链表">分离空闲链表</a></li>
+            <li><a href="#块的更精细的结构">块的更精细的结构</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">Virtual Memory:MallocLab 
+    <div id="virtual-memorymalloclab" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#virtual-memorymalloclab" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>CSAPP中关于虚拟内存的一点简单笔记。</p></blockquote>
+
+
+<h2 class="relative group">1.物理和虚拟寻址 
+    <div id="1%E7%89%A9%E7%90%86%E5%92%8C%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E7%89%A9%E7%90%86%E5%92%8C%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250513200943305.png" alt="image-20250513200943305" />
+      
+    </figure>
+</p>
+<p>就是<strong>CPU</strong>直接找地址。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250513201033710.png" alt="image-20250513201033710" />
+      
+    </figure>
+</p>
+<p><strong>CPU</strong>生成虚拟地址，通过<strong>MMU</strong>翻译。</p>
+<p>MMU Memory Management Unit&mdash;》利用主存中的查询表来翻译虚拟地址。</p>
+
+
+<h2 class="relative group">2.地址空间 
+    <div id="2%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>Address Space</strong></p>
+<p>有物理地址空间和虚拟地址空间。</p>
+<p>自然数的有序的连续的有限的一个集合：</p>
+<p>$$
+{0, 1, 2, &hellip; N - 1}
+$$</p>
+
+
+<h2 class="relative group">3.虚拟内存作为缓存的工具 
+    <div id="3%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%9C%E4%B8%BA%E7%BC%93%E5%AD%98%E7%9A%84%E5%B7%A5%E5%85%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%9C%E4%B8%BA%E7%BC%93%E5%AD%98%E7%9A%84%E5%B7%A5%E5%85%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>发现还是cache魅力时刻。</p></blockquote>
+<p>​	概念上虚拟内存被组织为一个存放在<strong>磁盘</strong>中的<strong>字节数组</strong>，<strong>磁盘上的内容被缓存在主存中</strong>。</p>
+<p>​	磁盘上的内容被分割成一块一块的<strong>page</strong>。</p>
+<p>​	<strong>虚拟内存分割成虚拟页VP，物理内存分割成物理页PP。</strong></p>
+<p>​	VP的集合：</p>
+<p>1.未分配（磁盘上面的这部分地址还没有被分配）</p>
+<p>2.已分配未缓存（分配，但是还没有缓存到物理内存）</p>
+<p>3.已分配已缓存</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250513205753949.png" alt="image-20250513205753949" />
+      
+    </figure>
+</p>
+<p>之后我们用SRAM来表示L1 L2 L3高速缓存。</p>
+<p><strong>DRAM</strong>在主存中缓存虚拟页。</p>
+<p><strong>DRAM</strong>是全相联缓存，也就是任意的物理页可以包含任意的虚拟页。</p>
+
+
+<h3 class="relative group">1.页表 
+    <div id="1%E9%A1%B5%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E9%A1%B5%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	VM要判断某个虚拟页是否存放在DRAM中的某个地方，还要判断放在哪个物理页中，没有就要替换，把磁盘中的虚拟页放在主存中的物理页。</p>
+<p>​	物理内存中放 <strong>page table</strong>（页表），负责把 虚拟地址&mdash;》物理地址。</p>
+<p>​	OS维护页表内容，并且在DRAM和Disk之间传送页。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250513211620651.png" alt="image-20250513211620651" />
+      
+    </figure>
+</p>
+<p>PTE数组。</p>
+
+
+<h4 class="relative group">过程 
+    <div id="%E8%BF%87%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%87%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h5 class="relative group">page hit 
+    <div id="page-hit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#page-hit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250513213129853.png" alt="image-20250513213129853" />
+      
+    </figure>
+</p>
+<p>比如读取VP2中的内容，就会发生页命中。</p>
+
+
+<h5 class="relative group">page fault 
+    <div id="page-fault" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#page-fault" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>就是<strong>缺页异常</strong>：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250513213730326.png" alt="image-20250513213730326" />
+      
+    </figure>
+</p>
+<p>比如在这里，我们想要访问VP3的数据，但是此时valid为0，那么表明没有被加载进DRAM中。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250513214054254.png" alt="image-20250513214054254" />
+      
+    </figure>
+</p>
+<p>​	缺页异常会触发缺页异常的处理程序，接着对于某个<strong>DRAM</strong>中的物理页进行替换，如果页被修改过，还要进行写回，接着把虚拟内存中的Page加载到DRAM中，然后再进行访问。</p>
+<p>​	这就是页面调度，还是cache的思想。</p>
+<p><strong>分配页面</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250513214600959.png" alt="image-20250513214600959" />
+      
+    </figure>
+</p>
+<p>注释。</p>
+<p>那么这样的页面调度算法还是要遵从局部性，来提高程序的性能。</p>
+
+
+<h2 class="relative group">4.虚拟内存作为内存管理的工具 
+    <div id="4%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%9C%E4%B8%BA%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E5%B7%A5%E5%85%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%9C%E4%B8%BA%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E5%B7%A5%E5%85%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515195838858.png" alt="image-20250515195838858" />
+      
+    </figure>
+</p>
+<p>每个进程都有一个独立的页表，也就是独立的虚拟地址空间。</p>
+<p>1.简化link的过程，比如代码段总从0x400000开始，可执行文件需要时加载到物理内存中去执行。</p>
+<p>2.简化load的过程？ mmap 应用程序做内存映射。</p>
+<p>3.简化share，比如上面的shared page。</p>
+<p>4.简化memory allocation：比如调用malloc函数时，VM分配连续的K个VP，这K个VP映射到分散的K个PP上，这就是为什么堆内存慢。</p>
+
+
+<h2 class="relative group">5.虚拟内存作为内存保护的工具 
+    <div id="5%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%9C%E4%B8%BA%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4%E7%9A%84%E5%B7%A5%E5%85%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%9C%E4%B8%BA%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4%E7%9A%84%E5%B7%A5%E5%85%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515201551656.png" alt="image-20250515201551656" />
+      
+    </figure>
+</p>
+<p>​	在PTE表中我们可以对于用户的行为来加以限制，违反就会报segmentation fault。</p>
+
+
+<h2 class="relative group">6.*地址翻译 
+    <div id="6%E5%9C%B0%E5%9D%80%E7%BF%BB%E8%AF%91" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6%E5%9C%B0%E5%9D%80%E7%BF%BB%E8%AF%91" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515202030500.png" alt="image-20250515202030500" />
+      
+    </figure>
+</p>
+<p>首先记录一些简写。</p>
+<p>模拟过程：</p>
+<blockquote>
+<p>虚拟地址是怎么转换的？</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515202451243.png" alt="image-20250515202451243" />
+      
+    </figure>
+</p>
+<p>PTBR：页表基址寄存器，指向当前的页表。</p>
+<p>拿到一个虚拟地址，低P位是VPO，虚拟页面的偏移量，这个值和PPO相等。</p>
+<p>高n - p位是VPN，虚拟页号，在<strong>PTE</strong>中寻找对应的项，如果valid = 1，那么有效，把后面的位取出来作为PPN，就就是物理页号，和PPO组合，那么这样就组成了物理地址。</p>
+<blockquote>
+<p>page hit的过程是怎样的？</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515203201591.png" alt="image-20250515203201591" />
+      
+    </figure>
+</p>
+<p>1.CPU把VA给MMU。</p>
+<p>2.MMU计算出PTE地址，给主存。</p>
+<p>3.主存返回找到的PTE项。</p>
+<p>4.MMU用这个PTE构造出来PA，传给主存来请求数据。</p>
+<p>5.主存把请求的数据返回给CPU。</p>
+<blockquote>
+<p>如果发生了page fault？</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515203423560.png" alt="image-20250515203423560" />
+      
+    </figure>
+</p>
+<p>123和原来相同。</p>
+<p>4.发生了异常，转到缺页异常处理程序。</p>
+<p>5.程序确定逐出的page，如果发生了修改，还要写回到磁盘。</p>
+<p>6.从磁盘中加载到内存并且更新PTE。</p>
+<p>7.返回到原来的导致缺页异常的处理程序，此时就会命中。</p>
+<p>这个过程要<strong>硬件配合OS</strong>来完成。</p>
+
+
+<h3 class="relative group">1.高速缓存和虚拟内存的结合 
+    <div id="1%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E5%92%8C%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E7%BB%93%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E5%92%8C%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E7%BB%93%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515204957910.png" alt="image-20250515204957910" />
+      
+    </figure>
+</p>
+<p>即<strong>PTE</strong>的页表条目也可以存储在高速缓存中，并没有冲突。</p>
+<p>L1寻址在MMU之后，一定使用的是物理地址来寻址，那么取物理地址的过程就和之前的cache是相同的。</p>
+<p>​	<strong>地址翻译发生在高速缓存的查找之前。</strong></p>
+
+
+<h3 class="relative group">2.TLB加速地址翻译 
+    <div id="2tlb%E5%8A%A0%E9%80%9F%E5%9C%B0%E5%9D%80%E7%BF%BB%E8%AF%91" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2tlb%E5%8A%A0%E9%80%9F%E5%9C%B0%E5%9D%80%E7%BF%BB%E8%AF%91" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>cache魅力时刻。</p></blockquote>
+<p><strong>MMU中包含了关于PTE的小的缓存</strong>：（Translation lookaside buffer）<strong>快表</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515205717736.png" alt="image-20250515205717736" />
+      
+    </figure>
+</p>
+<p>虚拟地址中怎么访问TLB。</p>
+<p>和cache类似，把VPN的分开，低p位作为索引，高n - p - t 位作为标记。</p>
+<p>这个过程是类似的：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515210319306.png" alt="image-20250515210319306" />
+      
+    </figure>
+</p>
+<p>1.VA给MMU。</p>
+<p>2.取VPN，在TLB缓存中找相应PTE项。</p>
+<p>后面类似。
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515211147850.png" alt="image-20250515211147850" />
+      
+    </figure>
+</p>
+<p>未命中时从内存中获取的PTE还要加载到TLB缓存中。</p>
+
+
+<h3 class="relative group">3.多级页表 
+    <div id="3%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	问题：如果只有一级页表，那么这个页表的所占的内存可能比较大，如果进程很多还各自拥有各自的页表，会产生问题。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515211803927.png" alt="image-20250515211803927" />
+      
+    </figure>
+</p>
+<p>一级页表中的PTE负责虚拟内存中的一片（<strong>chunk</strong>）。</p>
+<p>二级页表中的<strong>每个PTE</strong>都负责映射一个VP。</p>
+<p><strong>为什么能减少内存压力？</strong></p>
+<p>​	1.只有当二级页表中的有某一个部分存在映射的时候，这个二级页表才会存在在内存中，而一般4GB不会都用，这样就能<strong>大概</strong>做到有多少VP要被映射才会存在多少PTE。<strong>使用才会创建。</strong></p>
+<p>​	2.<strong>只有一级页表才需要总是存储在主存中</strong>。</p>
+<p><strong>K级页表怎么翻译？</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250515212646231.png" alt="image-20250515212646231" />
+      
+    </figure>
+</p>
+<p>​	比如对于第j个位置，<strong>VPNj是第j个页表的索引</strong>，拿到这个页表的索引PTEj,<strong>它是下一个页表的基址</strong>，这样循环找到最后拿到PPN，和VPO连接得到了物理地址。</p>
+<blockquote>
+<p>“Accessing k PTEs may seem expensive and impractical at first glance. However, the TLB comes to the
+rescue here by caching PTEs from the page tables at the different levels. In practice, address translation
+with multi-level page tables is not significantly slower than with single-level page tables.”</p>
+<p>也是很天才的设计。</p></blockquote>
+
+
+<h3 class="relative group">4.手动模拟一下 
+    <div id="4%E6%89%8B%E5%8A%A8%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4%E6%89%8B%E5%8A%A8%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>自己看书，比较简单，和之前的关于cache的模拟也是类似的。</p>
+
+
+<h3 class="relative group">7.实际案例 
+    <div id="7%E5%AE%9E%E9%99%85%E6%A1%88%E4%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#7%E5%AE%9E%E9%99%85%E6%A1%88%E4%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>比较枯燥，到时候再看。</p></blockquote>
+
+
+<h4 class="relative group">linux虚拟内存系统 
+    <div id="linux%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%B3%BB%E7%BB%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linux%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%B3%BB%E7%BB%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250520205751876.png" alt="image-20250520205751876" />
+      
+    </figure>
+</p>
+<p>内核虚拟内存和进程虚拟内存。</p>
+<p><strong>怎样组织虚拟内存：</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250520210606982.png" alt="image-20250520210606982" />
+      
+    </figure>
+</p>
+<p>​	维护一个任务结构，mm_struct维护虚拟内存的当前的一个状态，mmap指向一个链表，链表的每个节点对于虚拟内存中的一些段进行描述。</p>
+
+
+<h3 class="relative group">8.内存映射 
+    <div id="8%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#8%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	把一个<strong>虚拟内存区域和一个磁盘上的对象关联</strong>起来，就是<strong>内存的映射</strong>：映射到普通文件或者匿名文件。</p>
+<p>匿名文件是内核创建的，全部都是二进制0。</p>
+<p>​	在安装linux时，我们会看到swap file，一旦一个虚拟页面被初始化，它就会在这个页面内被换来换去，那么这样的一个空间就会限制进程所能创建的VP的总数。</p>
+
+
+<h4 class="relative group">再看共享对象 
+    <div id="%E5%86%8D%E7%9C%8B%E5%85%B1%E4%BA%AB%E5%AF%B9%E8%B1%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%86%8D%E7%9C%8B%E5%85%B1%E4%BA%AB%E5%AF%B9%E8%B1%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523172406048.png" alt="image-20250523172406048" />
+      
+    </figure>
+</p>
+<p>这是一个公共的对象。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523172918687.png" alt="image-20250523172918687" />
+      
+    </figure>
+</p>
+<p>关于这样的私有的对象，采用写时复制的方法，当试图写入的时候，我们才会在物理内存中进行一次复制。</p>
+<p>​	<strong>fork</strong>函数：当一个进程调用fork的时候，内核为新的进程创建一系列数据结构并且分配PID，返回的时候，两个进程的虚拟内存地址相同，并且设置为写时复制，之后这两个进程中，当有一个试图去写的时候，就会触发写时的复制。</p>
+<p>​	<strong>execve</strong>函数加载程序：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523174339400.png" alt="image-20250523174339400" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Malloc Lab 
+    <div id="malloc-lab" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#malloc-lab" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>听说比CacheLab还要更难，让我来挑战一下。</p></blockquote>
+
+
+<h2 class="relative group">动态内存分配 
+    <div id="%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>运行时想要<strong>额外的虚拟内存</strong>，动态内存分配器(<strong>dynamic</strong> <strong>memory</strong> <strong>allocator</strong>)。</p>
+<p>进程虚拟内存区域中有一片区域称为堆（heap）：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523175257610.png" alt="image-20250523175257610" />
+      
+    </figure>
+</p>
+<p>​	堆顶指针是<strong>brk</strong>指针。</p>
+<p>​	堆是向上增长的，和用户栈相反。</p>
+<p>​	<strong>allocator</strong>把heap内存当成一些不同大小的块（block），每个block都是一些<strong>连续的虚拟内存的片</strong>（<strong>chunk</strong>），每个块要么空闲，要么已经分配，已经分配的块显式的可以被进程使用，空闲的块可以用来被分配。</p>
+<p>​	<strong>分配器</strong>：</p>
+<p>​	1.显式分配器：显式的分配和释放，C中的malloc和free函数。</p>
+<p>​	2.隐式分配器：GC，也叫垃圾回收器，自动释放未使用的已分配块（<strong>Java</strong>中的GC）。</p>
+
+
+<h3 class="relative group">1.malloc和free函数 
+    <div id="1malloc%E5%92%8Cfree%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1malloc%E5%92%8Cfree%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>调用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">void</span> <span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回至少有<strong>size</strong>个字节的内存块，分配失败，返回NULL，同时要保证分配的内存以某种标准对齐。</p>
+<p>calloc：分配的同时<strong>初始化</strong>。</p>
+<p>realloc：给已经分配内存的块<strong>改变大小</strong>（本质是重新分配，并且不改变原来的数据）。</p>
+<p>分配和释放的过程：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523181710163.png" alt="image-20250523181710163" />
+      
+    </figure>
+</p>
+<p>p2的分配就是处于内存的双字对齐的要求。</p>
+<p>p2释放之后，程序应当保证不会再使用p2指针（悬挂指针？）。</p>
+<p>p4申请内存时，会使用之前的释放的内存。</p>
+
+
+<h3 class="relative group">2.为什么要使用动态内存分配？ 
+    <div id="2%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>大一学习C程序设计就应该清楚了，很多数据结构的大小运行时才能确定，而我们不想要这样的hard code。</p>
+
+
+<h3 class="relative group">3.分配器的要求和目标 
+    <div id="3%E5%88%86%E9%85%8D%E5%99%A8%E7%9A%84%E8%A6%81%E6%B1%82%E5%92%8C%E7%9B%AE%E6%A0%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3%E5%88%86%E9%85%8D%E5%99%A8%E7%9A%84%E8%A6%81%E6%B1%82%E5%92%8C%E7%9B%AE%E6%A0%87" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>1.处理任意请求和释放请求的序列：意思就是随机顺序，不像栈或者队列一样。</p>
+<p>2.立即响应请求。</p>
+<p>3.只用heap内存。</p>
+<p>4.满足对齐要求。</p>
+<p>5.不能修改已经分配的块。</p>
+<p>性能：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523205203905.png" alt="image-20250523205203905" />
+      
+    </figure>
+</p>
+<p>Hk为当前已经分配的堆的大小，Pk是已经分配的聚集有效的载荷之和，我们要让这个Uk峰值利用率最大化。</p>
+
+
+<h3 class="relative group">4.Fragmentation（碎片） 
+    <div id="4fragmentation%E7%A2%8E%E7%89%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4fragmentation%E7%A2%8E%E7%89%87" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	内部碎片：已经分配的块的大小比有效载荷更大，比如为了对齐的时候造成的，它的大小就是已分配的字节减去有效载荷的字节的大小。</p>
+<p>​	外部碎片：空闲块的数量够，但是没连起来，不能满足请求的块，就是外部碎片。</p>
+<blockquote>
+<p>分配器要试图维持少量的大空闲块，而不是大量的小空闲块。</p></blockquote>
+
+
+<h3 class="relative group">5.实现的问题 
+    <div id="5%E5%AE%9E%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5%E5%AE%9E%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>空闲块组织：如何记录空闲块？</p>
+<p>放置：选择哪里的空闲块来放置新分配的块？</p>
+<p>分割：新分配的块放置再某个空闲块之后，我们如何处理这个空闲块？</p>
+<p>合并：怎么处理刚刚释放的块？</p>
+
+
+<h3 class="relative group">6.隐式空闲链表 
+    <div id="6%E9%9A%90%E5%BC%8F%E7%A9%BA%E9%97%B2%E9%93%BE%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6%E9%9A%90%E5%BC%8F%E7%A9%BA%E9%97%B2%E9%93%BE%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>分配器的数据结构：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523211842277.png" alt="image-20250523211842277" />
+      
+    </figure>
+</p>
+<p>标注一些头部的信息。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523212256335.png" alt="image-20250523212256335" />
+      
+    </figure>
+</p>
+<p>注意：最后的终止头部标志着结束。</p>
+<p><strong>为什么叫隐含空闲链表？</strong></p>
+<p>因为头部的大小隐含连接着两个块，给当前块的地址加上大小就跳转到了下一个块。</p>
+<p>简单但是任何操作的开销都要<strong>O（n）</strong>，n是已分配和空闲的块的总数。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523213924858.png" alt="image-20250523213924858" />
+      
+    </figure>
+</p>
+<p>注意9.6这道题目，前面表示大小的29bit不用向后移位的意思，直接表示，和cache那里不一样的地方就在这里。</p>
+
+
+<h3 class="relative group">7.放置已经分配的块 
+    <div id="7%E6%94%BE%E7%BD%AE%E5%B7%B2%E7%BB%8F%E5%88%86%E9%85%8D%E7%9A%84%E5%9D%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#7%E6%94%BE%E7%BD%AE%E5%B7%B2%E7%BB%8F%E5%88%86%E9%85%8D%E7%9A%84%E5%9D%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>我们采用的实现是首次适配。</p></blockquote>
+<p>搜索空闲链表，由放置策略来决定的。</p>
+<p>当我们要去找一个能够分配的空闲块时：</p>
+<p>首次适配：从头开始直到第一个满足要求。</p>
+<p>下一次适配：从上一次查询结束的位置开始寻找。</p>
+<p>最佳适配：遍历所有的块，找到<strong>能放进去的并且最小的空闲块</strong>。</p>
+<p>那么上面三者各有利弊，这是很显然的。</p>
+
+
+<h3 class="relative group">8.分割空闲块 
+    <div id="8%E5%88%86%E5%89%B2%E7%A9%BA%E9%97%B2%E5%9D%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#8%E5%88%86%E5%89%B2%E7%A9%BA%E9%97%B2%E5%9D%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523224249727.png" alt="image-20250523224249727" />
+      
+    </figure>
+</p>
+<p>把上面8个字的空闲块分割成两个4字的，前面分配，后面成为空闲块，也可以都分配，就会造成内部的碎片。</p>
+<p>这样也是决策的一种。</p>
+
+
+<h3 class="relative group">9.获取额外的堆内存 
+    <div id="9%E8%8E%B7%E5%8F%96%E9%A2%9D%E5%A4%96%E7%9A%84%E5%A0%86%E5%86%85%E5%AD%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#9%E8%8E%B7%E5%8F%96%E9%A2%9D%E5%A4%96%E7%9A%84%E5%A0%86%E5%86%85%E5%AD%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	首先我们尽可能的合并空闲块，接着看合并之后能否生成一个足够大的块容纳请求的内存，如果不能，使用sbrk函数请求额外的堆内存，然后将这块内存插入空闲链表中，然后把要分配的内存进行分配。</p>
+
+
+<h3 class="relative group">10.合并空闲块 
+    <div id="10%E5%90%88%E5%B9%B6%E7%A9%BA%E9%97%B2%E5%9D%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10%E5%90%88%E5%B9%B6%E7%A9%BA%E9%97%B2%E5%9D%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	当释放某个块时，可能会造成两个空闲块并在一起的情况，这就造成了假碎片，那么我们就要进行合并。</p>
+<p>​	<strong>那么什么时候合并？</strong></p>
+<p>​	1.立即合并：即释放的时候就对两边进行合并。（<strong>但是可能会产生抖动，比如不停的没有意义的合并和分割</strong>）</p>
+<p>​	2.延迟合并：<strong>只有当分配失败的时候</strong>才遍历所有块进行合并。</p>
+
+
+<h3 class="relative group">11.带边界的标记合并 
+    <div id="11%E5%B8%A6%E8%BE%B9%E7%95%8C%E7%9A%84%E6%A0%87%E8%AE%B0%E5%90%88%E5%B9%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#11%E5%B8%A6%E8%BE%B9%E7%95%8C%E7%9A%84%E6%A0%87%E8%AE%B0%E5%90%88%E5%B9%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	考虑我们之前学习过的链表，找链表后面的节点是很简单的，要和后面的块合并，我们只要把当前头部中的块大小加上后面头部的块大小即可，但是前面怎么处理？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523230658578.png" alt="image-20250523230658578" />
+      
+    </figure>
+</p>
+<p>​	每个块的结尾处加一个footer，它是<strong>头部的一个副本</strong>，也能表明是否是空闲块，这是否就类似于一种双向链表？</p>
+<p>那么释放块的时候就会有以下四种情况：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523230938134.png" alt="image-20250523230938134" />
+      
+    </figure>
+</p>
+<p>​	好处很明显，可以看到缺点就是header和footer可能会占用较多的空间。他们都是4bytes，都需要一个字。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250523231828505.png" alt="image-20250523231828505" />
+      
+    </figure>
+</p>
+<p>理解这个就没什么太大问题了。</p>
+<blockquote>
+<p>先来开始具体实现，内容之后再补充。</p></blockquote>
+
+
+<h3 class="relative group">实现要求 
+    <div id="%E5%AE%9E%E7%8E%B0%E8%A6%81%E6%B1%82" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%9E%E7%8E%B0%E8%A6%81%E6%B1%82" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>以下为手册的要求。</p></blockquote>
+<p>​	<strong>内存对齐</strong>。在C语言中，任何一种类型都需要对齐访问，例如指向<code>int</code>类型的指针第一个字节指向的位置是4的倍数（因为<code>sizeof(int)=4</code>），同理指向<code>long long</code>类型指针地址是8的倍数。我们这里要求你<code>malloc</code>返回的指针8字节对齐。</p>
+<p><code>	malloc</code>与<code>free</code>不得移动、修改已经分配的块，若实现<code>realloc</code>数据点，则不得修改原有数据，任何空间分配不能与已经分配的块重叠。</p>
+<p>你的实现需要有：</p>
+<ol>
+<li>尽可能高的响应速度（吞吐量），即应用发出申请内存的请求到获得内存块首地址的速度尽可能快。</li>
+<li>尽可能高的空间利用率，因为内存分配器还需要回收内存，所以你需要想办法重复利用不再使用的内存空间，而不是一味地使用全新的空间。</li>
+</ol>
+
+
+<h3 class="relative group">你可以使用的一些工具（function） 
+    <div id="%E4%BD%A0%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%A0%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>一些有关<strong>内存拷贝</strong>的函数，你可能会在<code>realloc</code>的实现中使用到，如标准库的<code>memcpy</code>和<code>memmove</code>等。</li>
+<li>一些数学有关的函数，如 log（需要<code>math.h</code>头文件）</li>
+</ol>
+<p>driver中给出的一些允许用来控制堆空间的函数，以下这些你大概率会使用到：</p>
+<p><code>void *mem_sbrk(int incr)</code>：把堆的堆顶指针扩展<code>incr</code>个字节。</p>
+<p><code>void *mem_heap_lo(void)</code>：返回当前堆内最低可以访问的字节的地址。</p>
+<p><code>void *mem_heap_hi(void)</code>：返回当前堆内最高可以访问的字节的地址。</p>
+<p><code>size_t mem_heapsize(void)</code>：返回当前堆的大小。</p>
+<p><code>size_t mem_pagesize(void)</code>：返回页的大小（一般来讲是<code>4KB</code>，即字节）。</p>
+
+
+<h3 class="relative group">注意事项： 
+    <div id="%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	由于空间连续，且新申请到的内存是空闲块，所以需要检查一下新申请的块前面是否是空闲块，如果是的话，你需要把它们合并成一个大块。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250524213140663.png" alt="image-20250524213140663" />
+      
+    </figure>
+</p>
+<p>​	隐式空闲链表会使用序言块和结尾块，开始的四字节空数据用于对齐，后面的8字节跟一个序言块，前四个字节是header，后四个字节是footer（并且是已经分配的），我们的指针指向footer，这是一个已经被分配的块并且始终不会被释放，可以跳转到下一个块。</p>
+<p>​	最后放一个结尾块。4bytes已经分配但是大小为0,这样的块就表明已经到达了堆内存的尾部。</p>
+<blockquote>
+<p>通过朴素的隐式链表和简单的首次匹配，我们拿到了70分，接下来我们来进一步优化。</p></blockquote>
+
+
+<h3 class="relative group">优化： 
+    <div id="%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">分离空闲链表 
+    <div id="%E5%88%86%E7%A6%BB%E7%A9%BA%E9%97%B2%E9%93%BE%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%86%E7%A6%BB%E7%A9%BA%E9%97%B2%E9%93%BE%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	思想就是把一类大小相同的空闲块放在一起，维护一系列指针，每个指针指向各个大小的类的块。</p>
+<ul>
+<li>桶（<strong>bucket</strong>）：<strong>桶代表一类大小的空闲链表</strong>，其头指针存储在堆底。</li>
+<li>分离空闲链表（<strong>free_lists</strong>）：所有桶的头指针构成的<strong>指针数组</strong>，其存储在堆底。</li>
+</ul>
+<p>图来自于https://arthals.ink/blog/malloc-lab#%E5%9D%97%E7%9A%84%E7%B2%BE%E7%BB%86%E7%BB%93%E6%9E%84</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250525170034270.png" alt="image-20250525170034270" />
+      
+    </figure>
+</p>
+<p>​	怎么存放在堆底部？那么init的时候是不是要发生变化？</p>
+<p>​	涉及空闲链表指针的操作时，就去加减mem_heap_lo()，来处理。</p>
+<p>​	每个都是64bit。</p>
+
+
+<h4 class="relative group">块的更精细的结构 
+    <div id="%E5%9D%97%E7%9A%84%E6%9B%B4%E7%B2%BE%E7%BB%86%E7%9A%84%E7%BB%93%E6%9E%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9D%97%E7%9A%84%E6%9B%B4%E7%B2%BE%E7%BB%86%E7%9A%84%E7%BB%93%E6%9E%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	优化，我们减少元数据的信息。</p>
+<ul>
+<li>对于<strong>空闲块</strong>，同时存储<strong>头部和脚部</strong>，元数据信息大小为<strong>双字</strong>。</li>
+<li>对于<strong>分配块</strong>，只存储头部，元数据信息大小为<strong>单字</strong>。</li>
+</ul>
+<p>对于分配块，如果有申请奇数个字的话，可以避免一个字的内存碎片。</p>
+<p>空闲块存放可以使前后块迅速获得其信息。</p>
+<p>那么两类块的结构如下：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250525214706388.png" alt="image-20250525214706388" />
+      
+    </figure>
+</p>
+<p>那么一个<strong>空闲块</strong>最少要四个字节<strong>header</strong>，<strong>footer</strong>以及<strong>next</strong>，<strong>prev</strong>来<strong>维护显式空闲链表</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250525214940754.png" alt="image-20250525214940754" />
+      
+    </figure>
+</p>
+<p>​	注意：除了序言块和结尾块，一个指针调用时指向负载的第一个字节或者空闲块的prev字节。</p>
+<p>块的头部一定是单字对齐，块的尾部一定是双字对齐。</p>
+<p>针对逆天测试点的优化：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250530114407560.png" alt="image-20250530114407560" />
+      
+    </figure>
+</p>
+<p>binary文件按照这样的分配逻辑来进行，我们应该怎么处理。</p>
+<blockquote>
+<p>经过了长达20-30个小时的痛苦挣扎，我反思：</p>
+<p>1.知道自己的每一行代码在干嘛，要很清晰。</p>
+<p>2.两个size_t类型的数字相减一定是大于等于0的，我们在第一章就已经学习过了，但还是没有长记性。</p>
+<p>3.哪怕是抄别人的代码也一定要搞清楚，并且不要抄错，否则，debug将是一种痛苦。</p></blockquote>
+<p>成品代码（96/100）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;assert.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;mm.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;memlib.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 定义一些有用的宏，注意有些宏使用了其他的宏，那么你就要注意使用的顺序和方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 比较大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define MIN(X, Y) ((X) &lt; (Y) ? (X) : (Y))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define MAX(X, Y) ((X) &gt; (Y) ? (X) : (Y))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Header的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define WORD_SIZE (sizeof(unsigned int))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define CHUNK_SIZE (1 &lt;&lt; 12)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 用来在Header上写数据或者读取值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define READ(PTR) (*(unsigned int *)(PTR))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define WRITE(PTR, VALUE) ((*(unsigned int *)(PTR)) = (VALUE))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 将块大小和是否被占用的信息合并，便于写入Header
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define PACK(SIZE, IS_ALLOC) ((SIZE) | (IS_ALLOC))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 在alloc位的上一位记录这个块前面的块有没有被分配,这样类似，写入header
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define PACK_ALL(SIZE, IS_PREV_ALLOC, IS_ALLOC) ((SIZE) | (IS_PREV_ALLOC) | (IS_ALLOC))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 传入指向Header的指针p，返回其后的负载块的长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define GET_SIZE(PTR) (unsigned int)((READ(PTR) &gt;&gt; 3) &lt;&lt; 3)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 传入指向Header的指针p，返回其后的负载块是否被占用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define IS_ALLOC(PTR) (READ(PTR) &amp; (unsigned int)1)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 这是对于一个空闲块的操作，查看它前面的块有没有被分配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define IS_PREV_ALLOC(PTR) (READ(PTR) &amp; (unsigned int)2)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 把这个块设置成已分配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define SET_ALLOC(PTR) (READ(PTR) |= (unsigned int)1)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 设置空闲
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define SET_FREE(PTR) (READ(PTR) &amp;= ~0x1)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 设置前面块已经分配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define SET_PREV_ALLOC(PTR) (READ(PTR) |= (unsigned int)2)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 设置前面块未分配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define SET_PREV_FREE(PTR) (READ(PTR) &amp;= ~0x2)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 传入指向负载首个字节的指针，返回指向这个块的头/尾的指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define HEAD_PTR(PTR) ((char *)(PTR) - WORD_SIZE)
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define TAIL_PTR(PTR) ((char *)(PTR) + GET_SIZE(HEAD_PTR(PTR)) - WORD_SIZE * 2)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 传入指向负载首个字节的指针，返回指相邻的下一个块/上一个块的指针
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 注意，指向的是负载块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define NEXT_BLOCK(PTR) ((char *)(PTR) + GET_SIZE(HEAD_PTR(PTR)))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define PREV_BLOCK(PTR) ((char *)(PTR) - GET_SIZE((char *)(PTR) - WORD_SIZE * 2))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 用来debug的宏
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define IS_IN_HEAP(PTR) (((char *)(PTR) &gt;= (char *)mem_heap_lo()) &amp;&amp; ((char *)(PTR) &lt;= (char *)mem_heap_hi()))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 设置一个全局变量heap_list总是指向序言块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">heap_listp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 空闲链表配置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define FREE_LIST_NUMBER 14
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 一个头指针数组，每个指针指向该类链表的第一个空闲块
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 每个块存放的都是偏移量的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kt">char</span> <span class="o">**</span><span class="n">free_lists</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#define FIND_TIMES 8
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 注意这里寻找的逻辑是相对于lo()的偏移量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define PREV_OFFSET(bp) (*(unsigned *)(bp))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define NEXT_OFFSET(bp) (*(unsigned *)((char *)(bp) + WORD_SIZE))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 在这个位置我们只存放偏移量 prev next的
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 这两个一定要返回绝对的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define PREV_NODE(bp) ((char *)(mem_heap_lo() + *(unsigned *)(bp)))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define NEXT_NODE(bp) ((char *)(mem_heap_lo() + *(unsigned *)(bp + WORD_SIZE)))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//static int flag = 0;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 我们在这里设置成偏移量
+</span></span></span><span class="line"><span class="cl"><span class="c1">// #define SET_NODE_PREV(bp, val) (*(unsigned *)(bp) = ((unsigned)(val - mem_heap_lo())))
+</span></span></span><span class="line"><span class="cl"><span class="c1">// #define SET_NODE_NEXT(bp, val) (*(unsigned *)((char *)bp + WORD_SIZE) = ((unsigned)(val - mem_heap_lo())))
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define SET_NODE_PREV(bp, val) (*(unsigned int *)(bp) = (unsigned int)((val) ? (char *)(val) - (char *)mem_heap_lo() : 0))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define SET_NODE_NEXT(bp, val) (*(unsigned int *)((char *)(bp) + WORD_SIZE) = (unsigned int)((val) ? (char *)(val) - (char *)mem_heap_lo() : 0))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">team_t</span> <span class="n">team</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* Team name */</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Ciallo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* First member&#39;s full name */</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Quanye Yang&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* First member&#39;s email address */</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;2236115135@xjtu.edu.cn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* Second member&#39;s full name (leave blank if none) */</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* Second member&#39;s email address (leave blank if none) */</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;&#34;</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* 用来做对齐的操作 */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define ALIGNMENT 8
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* rounds up to the nearest multiple of ALIGNMENT */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define ALIGN(size) (((size) + (ALIGNMENT - 1)) &amp; ~0x7)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define SIZE_T_SIZE (ALIGN(sizeof(size_t)))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 一些静态辅助inline函数的定义，减少开销
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* 合并空闲块 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="o">*</span><span class="nf">coalesce</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">hp</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* 在一块找到的空间内分配内存 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">place</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* 首次适配的逻辑 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="o">*</span><span class="nf">first_fit</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* 当对内存不够用时，堆内存扩展的逻辑 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="o">*</span><span class="nf">extend_heap</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">words</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">size_t</span> <span class="nf">get_index</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">size_t</span> <span class="nf">adjust_size</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">insert_node</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">bp</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">delete_node</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">bp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//static void debug_heap();
+</span></span></span><span class="line"><span class="cl"><span class="c1">//static int test_number = 0;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 合并空闲块
+</span></span></span><span class="line"><span class="cl"><span class="c1">// check!!!
+</span></span></span><span class="line"><span class="cl"><span class="c1">// void*是任意类型的指针
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 最容易出错的逻辑
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="o">*</span><span class="nf">coalesce</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">hp</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">is_prev_alloc</span> <span class="o">=</span> <span class="nf">IS_PREV_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">hp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">is_next_alloc</span> <span class="o">=</span> <span class="nf">IS_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">is_next_alloc</span> <span class="o">&amp;&amp;</span> <span class="n">is_prev_alloc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// printf(&#34;两边都没有空闲块，大小为 %ld \n&#34;, size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 每次free都是前后已经分配并且是4096的大小？
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// printf(&#34; %ld &#34;,size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//++test_number;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// printf(&#34; %d : %ld \n&#34;, test_number, size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">SET_PREV_FREE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">is_prev_alloc</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">is_next_alloc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">delete_node</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">+=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//printf(&#34;后面有一个空闲块，合并之后大小为 %ld \n&#34;, size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">hp</span><span class="p">),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">TAIL_PTR</span><span class="p">(</span><span class="n">hp</span><span class="p">),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_prev_alloc</span> <span class="o">&amp;&amp;</span> <span class="n">is_next_alloc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 前面没有分配，稍微复杂一些
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">delete_node</span><span class="p">(</span><span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">SET_PREV_FREE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">+=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//printf(&#34;前面有空闲块，合并之后大小为 %ld \n&#34;, size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">size_t</span> <span class="n">is_prev_prev_alloc</span> <span class="o">=</span> <span class="nf">IS_PREV_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">is_prev_prev_alloc</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">TAIL_PTR</span><span class="p">(</span><span class="n">hp</span><span class="p">),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">is_prev_prev_alloc</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hp</span> <span class="o">=</span> <span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">delete_node</span><span class="p">(</span><span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">delete_node</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">+=</span> <span class="p">(</span><span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">))))</span> <span class="o">+</span> <span class="p">(</span><span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">))));</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//printf(&#34;两边都有空闲块，合并之后大小为 %ld \n&#34;, size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">size_t</span> <span class="n">is_prev_prev_alloc</span> <span class="o">=</span> <span class="nf">IS_PREV_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">is_prev_prev_alloc</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">TAIL_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">is_prev_prev_alloc</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hp</span> <span class="o">=</span> <span class="nf">PREV_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">insert_node</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// debug_heap();
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">hp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// check!!! 如果有问题，大概就是空闲链表的设计有问题。
+</span></span></span><span class="line"><span class="cl"><span class="c1">//  place函数的全部，它传入指向一个空闲块的负载部分第一个字节的指针，以及需要从中分割出多少空间，你需要把分割出的一段或两段空间填写好相应的头部与尾部。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 被binary攻击了，我们应当选取怎样的策略。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">place</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// assert(ptr != NULL);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">size_t</span> <span class="n">curr_size</span> <span class="o">=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">ptr</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">remaining_size</span> <span class="o">=</span> <span class="n">curr_size</span> <span class="o">-</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// printf(&#34;place(): ptr = %p, curr_size = %zu\n&#34;, ptr, curr_size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// void *next = NEXT_BLOCK(ptr);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// printf(&#34;place(): next = %p\n&#34;, next);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// printf(&#34;place(): tail of next = %p, heap_hi = %p\n&#34;, TAIL_PTR(next), mem_heap_hi());
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nf">delete_node</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 小于最小块的大小，那么我们就不会分割
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">remaining_size</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">SET_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">ptr</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">SET_PREV_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">ptr</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 如果下一个块是空闲块，那么尾部也要设置已经分配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">IS_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">ptr</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">SET_PREV_ALLOC</span><span class="p">(</span><span class="nf">TAIL_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">ptr</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 产生分割
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">ptr</span><span class="p">),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nf">IS_PREV_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">ptr</span><span class="p">)),</span> <span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">ptr</span><span class="p">)),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">remaining_size</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">WRITE</span><span class="p">(</span><span class="nf">TAIL_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">ptr</span><span class="p">)),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">remaining_size</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">insert_node</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">ptr</span><span class="p">),</span> <span class="n">remaining_size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 我们来进行一些关于面向数据点的优化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// if (size &lt;= 72)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     //printf(&#34;分配成功了一下......&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     WRITE(HEAD_PTR(ptr), PACK_ALL(size, IS_PREV_ALLOC(HEAD_PTR(ptr)), 1));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     WRITE(HEAD_PTR(NEXT_BLOCK(ptr)), PACK_ALL(remaining_size, 2, 0));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     WRITE(TAIL_PTR(NEXT_BLOCK(ptr)), PACK_ALL(remaining_size, 2, 0));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     insert_node(NEXT_BLOCK(ptr), remaining_size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// else
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     // 把大的块放到后面去
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     WRITE(HEAD_PTR(ptr), PACK_ALL(remaining_size, IS_PREV_ALLOC(HEAD_PTR(ptr)), 0));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     WRITE(TAIL_PTR(ptr), PACK_ALL(remaining_size, IS_PREV_ALLOC(HEAD_PTR(ptr)), 0));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     insert_node(ptr, remaining_size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//     ptr = NEXT_BLOCK(ptr);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//     WRITE(HEAD_PTR(ptr), PACK_ALL(size, 0, 1));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//     SET_PREV_ALLOC(HEAD_PTR(NEXT_BLOCK(ptr)));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     if(!IS_ALLOC(HEAD_PTR(NEXT_BLOCK(ptr)))){
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//         SET_PREV_ALLOC(TAIL_PTR(NEXT_BLOCK(ptr)));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//     }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            
+</span></span><span class="line"><span class="cl">        <span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// // 实验全部分配的代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// size_t curr_size = GET_SIZE(HEAD_PTR(ptr));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// delete_node(ptr);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// WRITE(HEAD_PTR(ptr), PACK_ALL(curr_size, IS_PREV_ALLOC(ptr), 1));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// SET_PREV_ALLOC(HEAD_PTR(NEXT_BLOCK(ptr)));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// if(!IS_ALLOC(HEAD_PTR(NEXT_BLOCK(ptr)))){
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     SET_PREV_ALLOC(TAIL_PTR(NEXT_BLOCK(ptr)));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// check 逻辑应该没有问题，如果有问题，应该是显式链表的设计有问题
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 从开头开始遍历，直到找到第一个满足条件的分配块，并且返回指向负载部分第一个字节的指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="o">*</span><span class="nf">first_fit</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 找一个合适的桶
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="nf">get_index</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">hp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 从这个桶之后开始向后方进行遍历
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(;</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="n">FREE_LIST_NUMBER</span><span class="p">;</span> <span class="o">++</span><span class="n">number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 怎么设计的显示分离空闲链表???
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 注意使用的是偏移量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 但是在调用的时候，我们使用的都是真实的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="n">hp</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">mem_heap_lo</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)</span><span class="n">free_lists</span><span class="p">[</span><span class="n">number</span><span class="p">];</span> <span class="n">hp</span> <span class="o">!=</span> <span class="nf">mem_heap_lo</span><span class="p">();</span> <span class="n">hp</span> <span class="o">=</span> <span class="nf">NEXT_NODE</span><span class="p">(</span><span class="n">hp</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 首次适配的逻辑
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">long</span> <span class="n">diff</span> <span class="o">=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">hp</span><span class="p">))</span> <span class="o">-</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">diff</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">//printf(&#34;The free block size is %d and the required size is %d...\n&#34;, GET_SIZE(HEAD_PTR(hp)), size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kt">long</span> <span class="n">min_diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">char</span> <span class="o">*</span><span class="n">cur</span> <span class="o">=</span> <span class="n">hp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">FIND_TIMES</span> <span class="o">&amp;&amp;</span> <span class="n">cur</span> <span class="o">!=</span> <span class="nf">mem_heap_lo</span><span class="p">();</span> <span class="n">cur</span> <span class="o">=</span> <span class="nf">NEXT_NODE</span><span class="p">(</span><span class="n">cur</span><span class="p">),</span> <span class="o">++</span><span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="kt">long</span> <span class="n">s</span> <span class="o">=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">cur</span><span class="p">))</span> <span class="o">-</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">min_diff</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">min_diff</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">hp</span> <span class="o">=</span> <span class="n">cur</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">hp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// check!!!
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 用新的空闲块扩展堆
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 要扩展多少个字的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 当我们指向尾部节点的时候，我们会扩展内存，这里的hp指向的是负载的内存（也就是才分配的），那么hp的前面就是刚才的结束foot，那么我们把刚才的结束foot设置成新的header，并且把才分配的内存的最后一个设置成结束foot，那么就处理了边界问题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="o">*</span><span class="nf">extend_heap</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">hp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 首先分配堆内存,必须要是偶数,因为要对齐8字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">words</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="p">((</span><span class="n">words</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="n">words</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hp</span> <span class="o">=</span> <span class="nf">mem_sbrk</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// printf(&#34;Here, we extended %d bytes\n&#34;, size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">hp</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 仔细思考一下，这是很精妙的处理边界情况的方式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// WRITE(HEAD_PTR(hp), PACK(size, 0));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// WRITE(TAIL_PTR(hp), PACK(size, 0));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// WRITE(HEAD_PTR(NEXT_BLOCK(hp)), PACK(0, 1));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">is_prev_alloc</span> <span class="o">=</span> <span class="nf">IS_PREV_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">hp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">WRITE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">hp</span><span class="p">),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">is_prev_alloc</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">WRITE</span><span class="p">(</span><span class="nf">TAIL_PTR</span><span class="p">(</span><span class="n">hp</span><span class="p">),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">is_prev_alloc</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">WRITE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="nf">NEXT_BLOCK</span><span class="p">(</span><span class="n">hp</span><span class="p">)),</span> <span class="nf">PACK</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 假如前面的一个块也是空闲的，调用合并空闲块的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="nf">coalesce</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 根据不同的数值来获取不同大小的桶对应的链表位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kr">inline</span> <span class="kt">size_t</span> <span class="nf">get_index</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// if(size &lt;= 4096)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 1;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 15360)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 11;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 30720)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 12;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 61440)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 13;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// else
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 14;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// if (size &lt;= 1)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 0;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 2)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 1;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 4)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 2;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 8)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 3;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 16)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 4;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 32)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 5;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 64)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 6;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 128)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 7;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 256)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 8;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 512)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 9;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 1024)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 10;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 2048)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 11;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 4096)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 12;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 8192)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 13;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 16384)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 14;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if (size &lt;= 32768)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 15;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// else
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//     return 16;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">256</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">512</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">1024</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">2048</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">4096</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">8192</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">16384</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">11</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">32768</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">12</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// return 0;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">size_t</span> <span class="nf">adjust_size</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;=</span> <span class="mi">112</span> <span class="o">&amp;&amp;</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">128</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// binary.rep
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;=</span> <span class="mi">448</span> <span class="o">&amp;&amp;</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">512</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// printf(&#34;Allocated size changed from %ld to %d...\n&#34;, size, 512);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="mi">512</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 关于空闲链表的插入和删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">insert_node</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">bp</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 我们是往链表的头部进行插入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 找到是属于第几个桶
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">size_t</span> <span class="n">number</span> <span class="o">=</span> <span class="nf">get_index</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 该链表的头节点先拿出来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">curr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">mem_heap_lo</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)</span><span class="n">free_lists</span><span class="p">[</span><span class="n">number</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// free_lists存放了一系列的头节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 直接更新头节点为插入的节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">free_lists</span><span class="p">[</span><span class="n">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">bp</span> <span class="o">-</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">mem_heap_lo</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 插入的节点不是第一个节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="nf">mem_heap_lo</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 把插入的bp作为链表的头节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 这里设置的是指向链表的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 设置双向链表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">SET_NODE_PREV</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span> <span class="nf">mem_heap_lo</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">SET_NODE_NEXT</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span> <span class="n">curr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">SET_NODE_PREV</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="n">bp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// bp是插入的第一个节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">SET_NODE_NEXT</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span> <span class="nf">mem_heap_lo</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">SET_NODE_PREV</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span> <span class="nf">mem_heap_lo</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// check!!!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">delete_node</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">bp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">assert</span><span class="p">(</span><span class="n">bp</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">assert</span><span class="p">(</span><span class="o">!</span><span class="nf">IS_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">bp</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">bp</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">number</span> <span class="o">=</span> <span class="nf">get_index</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">next_node</span> <span class="o">=</span> <span class="nf">NEXT_NODE</span><span class="p">(</span><span class="n">bp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">prev_node</span> <span class="o">=</span> <span class="nf">PREV_NODE</span><span class="p">(</span><span class="n">bp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 是否是头节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">prev_node</span> <span class="o">==</span> <span class="nf">mem_heap_lo</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 是头节点就直接设置成下一个节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">free_lists</span><span class="p">[</span><span class="n">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">next_node</span> <span class="o">-</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">mem_heap_lo</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 是否是唯一的头节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">next_node</span> <span class="o">!=</span> <span class="nf">mem_heap_lo</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">SET_NODE_PREV</span><span class="p">(</span><span class="n">next_node</span><span class="p">,</span> <span class="nf">mem_heap_lo</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// assert((int*)prev_node &gt;= (int*)mem_heap_lo());
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">SET_NODE_NEXT</span><span class="p">(</span><span class="n">prev_node</span><span class="p">,</span> <span class="n">next_node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">next_node</span> <span class="o">!=</span> <span class="nf">mem_heap_lo</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">SET_NODE_PREV</span><span class="p">(</span><span class="n">next_node</span><span class="p">,</span> <span class="n">prev_node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * mm_init - initialize the malloc package.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 这个实现要求返回的指针8字节对齐
+</span></span></span><span class="line"><span class="cl"><span class="c1">// check!!!
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 设计上哪里还有漏洞，再比对一下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">mm_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 先初始化空闲链表free_lists
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 开始时空闲链表的每个指针都定义成堆底的指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">free_lists</span> <span class="o">=</span> <span class="nf">mem_heap_lo</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">FREE_LIST_NUMBER</span><span class="p">;</span> <span class="o">++</span><span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 每个分四字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 我们分配了FREE_LIST_NUMBER个双字，每个双字都用来存放链表的头指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">((</span><span class="n">heap_listp</span> <span class="o">=</span> <span class="nf">mem_sbrk</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">))</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 开始时free_lists所有的指向的地址都为堆底的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 这里就是从堆底开始的15个双字，每个都存放着堆底的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">free_lists</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 此时双字对齐，我们开四个字来存放序言块和结尾块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">((</span><span class="n">heap_listp</span> <span class="o">=</span> <span class="nf">mem_sbrk</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">))</span> <span class="o">==</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 紧接着我们来分配头部
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 第一个字填充
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">WRITE</span><span class="p">(</span><span class="n">heap_listp</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 后两个字是序言块，已分配的8字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">WRITE</span><span class="p">(</span><span class="n">heap_listp</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">),</span> <span class="nf">PACK</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">WRITE</span><span class="p">(</span><span class="n">heap_listp</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">),</span> <span class="nf">PACK</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 然后是结束标志的header,(Epilogue Header),大小为0,但是已经分配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 这里的PACK3是自己分配，并且自己前方的块也已经分配的意思。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">WRITE</span><span class="p">(</span><span class="n">heap_listp</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">),</span> <span class="nf">PACK</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// heap_listp指向序言块的header，这样序言块就不会被释放
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">heap_listp</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">WORD_SIZE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 申请一个page的内存失败。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nf">extend_heap</span><span class="p">(</span><span class="n">CHUNK_SIZE</span> <span class="o">/</span> <span class="n">WORD_SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * mm_malloc - Allocate a block by incrementing the brk pointer.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *     Always allocate a block whose size is a multiple of the alignment.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// check!!! 唯一有可能是因为取整的问题出错
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 接下来要检查其余的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="o">*</span><span class="nf">mm_malloc</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// malloc的新逻辑
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">size_t</span> <span class="n">alloc_size</span><span class="p">,</span> <span class="n">extend_size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="o">*</span><span class="n">hp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">heap_listp</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">mm_init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">size</span> <span class="o">=</span> <span class="nf">adjust_size</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 保证对齐，可以用来存储头部或者脚部
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alloc_size</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 要分配的块向上取整
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 多了8个字节的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">alloc_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="n">size</span> <span class="o">+</span> <span class="p">(</span><span class="n">WORD_SIZE</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">WORD_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">WORD_SIZE</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// alloc_size = adjust_size(alloc_size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//  ++test_number;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//  printf(&#34;%d:要分配%ld个字节......\n&#34;, test_number, alloc_size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//   printf(&#34;Alloc size is %ld...\n&#34;, alloc_size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//    size_t number = size / (2 * WORD_SIZE);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//    number += 1;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//    alloc_size = 2 * WORD_SIZE * number;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">((</span><span class="n">hp</span> <span class="o">=</span> <span class="nf">first_fit</span><span class="p">(</span><span class="n">alloc_size</span><span class="p">))</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// ++test_number;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// printf(&#34;%d Alloc Size IS %d !!!\n&#34;, test_number, alloc_size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">place</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="n">alloc_size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">hp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 扩展堆，内存不足
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 也就是堆内存扩展的时候出了问题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">extend_size</span> <span class="o">=</span> <span class="nf">MAX</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">,</span> <span class="n">alloc_size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//++test_number;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// printf(&#34;%d:产生了堆扩展，扩展大小为 %ld 个字节\n&#34;, test_number, extend_size);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">((</span><span class="n">hp</span> <span class="o">=</span> <span class="nf">extend_heap</span><span class="p">(</span><span class="n">extend_size</span> <span class="o">/</span> <span class="n">WORD_SIZE</span><span class="p">))</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nf">place</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="n">alloc_size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">hp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * mm_free - Freeing a block does nothing.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 释放本身是很简单的逻辑
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// check!!!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">mm_free</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">heap_listp</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">mm_init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">ptr</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">is_prev_alloc</span> <span class="o">=</span> <span class="nf">IS_PREV_ALLOC</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">ptr</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// // 更改头部和尾部
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 因为这是一个空闲块，所以我们前后都要进行写入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">WRITE</span><span class="p">(</span><span class="nf">HEAD_PTR</span><span class="p">(</span><span class="n">ptr</span><span class="p">),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">is_prev_alloc</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">WRITE</span><span class="p">(</span><span class="nf">TAIL_PTR</span><span class="p">(</span><span class="n">ptr</span><span class="p">),</span> <span class="nf">PACK_ALL</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">is_prev_alloc</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 合并空闲块的逻辑
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">coalesce</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * mm_realloc - Implemented simply in terms of mm_malloc and mm_free
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">mm_realloc</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="o">*</span><span class="n">oldptr</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="o">*</span><span class="n">newptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">copySize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">newptr</span> <span class="o">=</span> <span class="nf">mm_malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">newptr</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">copySize</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">size_t</span> <span class="o">*</span><span class="p">)((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">oldptr</span> <span class="o">-</span> <span class="n">SIZE_T_SIZE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;</span> <span class="n">copySize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">copySize</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">memcpy</span><span class="p">(</span><span class="n">newptr</span><span class="p">,</span> <span class="n">oldptr</span><span class="p">,</span> <span class="n">copySize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mm_free</span><span class="p">(</span><span class="n">oldptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">newptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// void debug_heap()
+</span></span></span><span class="line"><span class="cl"><span class="c1">// {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     printf(&#34;======= 空闲链表状态 =======\n&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     for (int i = 0; i &lt; FREE_LIST_NUMBER; ++i)
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         printf(&#34;FreeLists[%d]: &#34;, i);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         char *bp = (char *)mem_heap_lo() + (size_t)free_lists[i];
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         while (bp != mem_heap_lo())
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//             printf(&#34;[%u] -&gt; &#34;, GET_SIZE(HEAD_PTR(bp)));
+</span></span></span><span class="line"><span class="cl"><span class="c1">//             bp = NEXT_NODE(bp);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         }
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         printf(&#34;NULL\n&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     }
+</span></span></span><span class="line"><span class="cl"><span class="c1">// }
+</span></span></span></code></pre></div><p>​					一些注释还只是一些很少部分的debug记录，一定要<strong>反省！！！</strong></p>
+<p>我是真的垃圾。。。。。。</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="mio" src="/img/blowfish_logo_hu_2d15729eafedea4d.png" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      mio
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">I&rsquo;m Just A Student&hellip;</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+          
+
+          
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_csapp\/CSAPP:MallocLab\/index.md"
+        var oid_likes = "likes_csapp\/CSAPP:MallocLab\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/csapp/csapplinkerlab/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >CSAPP:LinkerLab</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-04-19T16:27:09&#43;08:00">19 April 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/reading/"
+            title="">
+            
+            Reading
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      mio
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

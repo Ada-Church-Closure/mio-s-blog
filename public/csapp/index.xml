@@ -9,7 +9,46 @@
     <managingEditor>nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Sat, 19 Apr 2025 16:27:09 +0800</lastBuildDate><atom:link href="http://localhost:1313/csapp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jun 2025 18:18:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/csapp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CSAPP:MallocLab</title>
+      <link>http://localhost:1313/csapp/csappmalloclab/</link>
+      <pubDate>Sun, 01 Jun 2025 18:18:00 +0800</pubDate>
+      <author>nunotabashinobu066@gmail.com (mio)</author>
+      <guid>http://localhost:1313/csapp/csappmalloclab/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;Virtual Memory:MallocLab 
+    &lt;div id=&#34;virtual-memorymalloclab&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#virtual-memorymalloclab&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CSAPP中关于虚拟内存的一点简单笔记。&lt;/p&gt;&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;1.物理和虚拟寻址 
+    &lt;div id=&#34;1%E7%89%A9%E7%90%86%E5%92%8C%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1%E7%89%A9%E7%90%86%E5%92%8C%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/image-20250513200943305.png&#34; alt=&#34;image-20250513200943305&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csappmalloclab/featured.png" />
+    </item>
     
     <item>
       <title>CSAPP:LinkerLab</title>
@@ -43,7 +82,7 @@
     
 &lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。&lt;/p&gt;</description>
+&lt;p&gt;​	有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csapplinkerlab/featured.jpg" />
     </item>
     
@@ -89,9 +128,9 @@
 &lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本次实验我们来优化一段计算多项式值的代码，并且亲自测量其性能，希望能加深同学们对机器特定优化的理解，同时为同学们提供测量性能的经验。&lt;/p&gt;
-&lt;p&gt;基本材料都引用于我校的CSAPP实验指导书页面。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;预习：&lt;/p&gt;
-&lt;p&gt;我们先明确几个概念&lt;/p&gt;</description>
+&lt;p&gt;基本材料都引用于我校的CSAPP实验指导书页面。&lt;/p&gt;
+&lt;p&gt;同时也是考试的复习笔记。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;预习：&lt;/strong&gt;&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csappoptimizationlab/featured.jpg" />
     </item>
     

@@ -1,0 +1,4599 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>DigitalLogicCircuits &middot; Mio&#39;s Tea Time</title>
+  <meta name="title" content="DigitalLogicCircuits &middot; Mio&#39;s Tea Time" />
+  
+  <meta name="description" content="Mio&#39;s Tea Time" />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/notes/digitallogiccircuits/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.721003f09449a0912bb62104688e960d177f51b3c09f0e387a1d0e5fc2e5b6c8158a4ea485544ea400f5efb68debb909febd470b6dea83625d5103f116f771be.css"
+    integrity="sha512-chAD8JRJoJErtiEEaI6WDRd/UbPAnw44eh0OX8LltsgVik6khVROpAD177aN67kJ/r1HC23qg2JdUQPxFvdxvg==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/notes/digitallogiccircuits/">
+  <meta property="og:site_name" content="Mio&#39;s Tea Time">
+  <meta property="og:title" content="DigitalLogicCircuits">
+  <meta property="og:description" content="数字电路基础 # 我对于学校数字电路实验的评教，今天遇到了一些事情，真的非常生气，我不写出来实在是难受：
+​	我校的以vivado为开发平台的数字电路实验是相当不合理的：
+​	1.学生对于vivado没有相当的基础，身为一名计算机学院的学生，对于计算机组成原理的重要性认知很清楚，但是对于硬件开发没有合理的认知水平，理论铺设不到位，对于使用的软件更是一知半解。所以我们的实验是怎么开展的呢，“抄代码”，对着截了很多模糊不清的图片的PPT，抄，抄有着“详细注释”的宋体代码，我们试图在西一楼106机房“抄”出来对于数字电路的认知，这是难以置信的。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-06-27T21:34:27+08:00">
+    <meta property="article:modified_time" content="2025-06-27T21:34:27+08:00">
+    <meta property="og:image" content="http://localhost:1313/notes/digitallogiccircuits/featured.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/notes/digitallogiccircuits/featured.png">
+  <meta name="twitter:title" content="DigitalLogicCircuits">
+  <meta name="twitter:description" content="数字电路基础 # 我对于学校数字电路实验的评教，今天遇到了一些事情，真的非常生气，我不写出来实在是难受：
+​	我校的以vivado为开发平台的数字电路实验是相当不合理的：
+​	1.学生对于vivado没有相当的基础，身为一名计算机学院的学生，对于计算机组成原理的重要性认知很清楚，但是对于硬件开发没有合理的认知水平，理论铺设不到位，对于使用的软件更是一知半解。所以我们的实验是怎么开展的呢，“抄代码”，对着截了很多模糊不清的图片的PPT，抄，抄有着“详细注释”的宋体代码，我们试图在西一楼106机房“抄”出来对于数字电路的认知，这是难以置信的。">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "DigitalLogicCircuits",
+    "headline": "DigitalLogicCircuits",
+    
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003e数字电路基础 \n    \u003cdiv id=\u0022%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cp\u003e我对于学校数字电路实验的评教，今天遇到了一些事情，真的非常生气，我不写出来实在是难受：\u003c\/p\u003e\n\u003cp\u003e​\t我校的以vivado为开发平台的数字电路实验是相当不合理的：\u003c\/p\u003e\n\u003cp\u003e​\t1.学生对于vivado没有相当的基础，身为一名计算机学院的学生，对于计算机组成原理的重要性认知很清楚，但是对于硬件开发没有合理的认知水平，理论铺设不到位，对于使用的软件更是一知半解。所以我们的实验是怎么开展的呢，“抄代码”，对着截了很多模糊不清的图片的PPT，抄，抄有着“详细注释”的宋体代码，我们试图在西一楼106机房“抄”出来对于数字电路的认知，这是难以置信的。\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/notes\/digitallogiccircuits\/",
+    "author" : {
+      "@type": "Person",
+      "name": "mio"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-06-27T21:34:27\u002b08:00",
+    "datePublished": "2025-06-27T21:34:27\u002b08:00",
+    
+    "dateModified": "2025-06-27T21:34:27\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1580"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="mio" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co",
+      authDomain: "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co",
+      projectId: "mio-s-app",
+      storageBucket: "mio-s-app.firebasestorage.app",
+      messagingSenderId: "491061548873",
+      appId: "1:491061548873:web:9de625ab436bdfd1e3ec98",
+      measurementId: "G-EH5EXVC7V4"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    
+    
+    <div>
+        <a href="/" class="flex">
+            <span class="sr-only">Mio&rsquo;s Tea Time</span>
+
+            
+            <img src="/img/logo.png" width="342" height="318"
+                class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Mio&#39;s Tea Time" />
+            
+
+        </a>
+    </div>
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Mio&rsquo;s Tea Time</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Class
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            学校课程笔记
+          </p>
+        </a>
+        
+        <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            CS:APP
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tech">
+        Tech
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Thinking">
+        Thinking
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/life/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Life">
+        せいかつ
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Author
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Class
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            学校课程笔记
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            CS:APP
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tech/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tech">
+            Tech
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Thinking">
+            Thinking
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/life/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Life">
+            せいかつ
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Author
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      DigitalLogicCircuits
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-06-27T21:34:27&#43;08:00">27 June 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1580 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="views_Notes/DigitalLogicCircuits/index.md" class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400" title="views">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="likes_Notes/DigitalLogicCircuits/index.md"
+    class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400"
+    title="likes">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+    <button id="button_likes"
+        class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+        onclick="process_article()">
+        <span id="button_likes_heart" style="display:none" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+ </span>
+        <span id="button_likes_emtpty_heart" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
+  </span>
+
+</span>
+        <span id="button_likes_text">&nbsp;Like</span>
+    </button>
+</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数制和编码">数制和编码</a>
+      <ul>
+        <li><a href="#数制相互转换">数制相互转换</a></li>
+        <li><a href="#数的表示">数的表示</a></li>
+        <li><a href="#十进制数的编码代码表示及其运算">十进制数的编码（代码）表示及其运算</a></li>
+        <li><a href="#可靠性编码">可靠性编码</a>
+          <ul>
+            <li><a href="#格雷码gray"><strong>格雷码（Gray)</strong></a></li>
+            <li><a href="#奇偶校验码parity-code">奇偶校验码（Parity Code）</a></li>
+            <li><a href="#海明校验码hamming-codes">海明校验码（Hamming codes）</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#逻辑代数基础">逻辑代数基础</a>
+      <ul>
+        <li><a href="#定理">定理</a></li>
+        <li><a href="#逻辑函数的基本表达形式">逻辑函数的基本表达形式</a>
+          <ul>
+            <li><a href="#重点卡诺图">*（重点）卡诺图：</a></li>
+            <li><a href="#减少非门的个数的方法">减少非门的个数的方法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#逻辑门电路">逻辑门电路</a>
+      <ul>
+        <li><a href="#早期逻辑门">早期逻辑门</a></li>
+        <li><a href="#双极型晶体管逻辑-基本双极型晶体管逻辑">双极型晶体管逻辑 基本双极型晶体管逻辑</a></li>
+        <li><a href="#mos晶体管传输门">MOS晶体管、传输门</a></li>
+        <li><a href="#集成电路集成电路制造技术封装规模类型以及使用特性">集成电路集成电路制造技术、封装、规模类型以及使用特性</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#描述">描述</a></li>
+    <li><a href="#分析和设计">分析和设计</a>
+      <ul>
+        <li><a href="#1组合逻辑电路的分析">1、组合逻辑电路的分析</a></li>
+        <li><a href="#2组合逻辑电路的设计">2、组合逻辑电路的设计</a></li>
+      </ul>
+    </li>
+    <li><a href="#竞争和险象">竞争和险象</a>
+      <ul>
+        <li><a href="#电路中普遍存在竞争现象">电路中普遍存在竞争现象</a></li>
+        <li><a href="#险象的判别">险象的判别</a>
+          <ul>
+            <li><a href="#卡诺图法">卡诺图法</a></li>
+            <li><a href="#逻辑表达式法">逻辑表达式法</a></li>
+          </ul>
+        </li>
+        <li><a href="#险象的消除">险象的消除</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用的msi组合逻辑器件">常用的MSI组合逻辑器件</a>
+      <ul>
+        <li><a href="#译码器和编码器">译码器和编码器</a></li>
+        <li><a href="#三态门">三态门</a></li>
+        <li><a href="#数据分配器和多路选择器">数据分配器和多路选择器</a></li>
+        <li><a href="#加法器和比较器">加法器和比较器</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#时序电路概述">时序电路概述</a></li>
+        <li><a href="#时序电路的双稳态元件">时序电路的双稳态元件</a>
+          <ul>
+            <li><a href="#s-r-锁存器set-reset-latche">S-R 锁存器（Set-Reset Latche）</a></li>
+            <li><a href="#s---r-锁存器s---r-latche">/S - /R 锁存器(/S - /R Latche)</a></li>
+            <li><a href="#带使能端的s-r-锁存器-s-r-latche-with-enable">带使能端的S-R 锁存器 （S-R latche with enable）</a></li>
+            <li><a href="#d锁存器-d-latche">D锁存器（ D Latche）</a></li>
+            <li><a href="#边沿触发的d触发器">边沿触发的D触发器</a></li>
+            <li><a href="#主从s-r-触发器-masterslave-s-r-flip-flop">主从S-R 触发器（ Master/slave S-R Flip-flop）</a></li>
+            <li><a href="#主从j-k-触发器masterslave-j-k-flip-flop">主从J-K 触发器（Master/slave J-K Flip-flop）</a></li>
+            <li><a href="#边沿触发jk-触发器edge-triggered-jk-flip-flop">边沿触发J－K 触发器（Edge-triggered JK Flip-flop）</a></li>
+            <li><a href="#t触发器-t-flip-flop">T触发器 T Flip-flop</a></li>
+            <li><a href="#无使能控制的-t-触发器">无使能控制的 T 触发器</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#同步时序电路的分析设计">同步时序电路的分析设计</a>
+      <ul>
+        <li><a href="#同步时序电路的分析">同步时序电路的分析</a>
+          <ul>
+            <li><a href="#同步时序电路分析的一般步骤">同步时序电路分析的一般步骤</a></li>
+            <li><a href="#同步时序电路分析举例">同步时序电路分析举例</a></li>
+          </ul>
+        </li>
+        <li><a href="#同步时序电路的设计">同步时序电路的设计</a>
+          <ul>
+            <li><a href="#同步时序电路设计步骤">同步时序电路设计步骤</a></li>
+            <li><a href="#建立原始状态图和原始状态表构图法">建立原始状态图和原始状态表——构图法</a></li>
+            <li><a href="#状态化简完全给定与不完全给定同步时序电路状态表的化简">状态化简：完全给定与不完全给定同步时序电路状态表的化简</a></li>
+            <li><a href="#状态分配相邻状态分配法">状态分配：相邻状态分配法</a></li>
+            <li><a href="#激励函数和输出函数的确定">激励函数和输出函数的确定</a></li>
+            <li><a href="#电路分析与说明设计举例">电路分析与说明、设计举例</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#脉冲异步时序电路的分析设计">脉冲异步时序电路的分析设计</a></li>
+    <li><a href="#常用的时序逻辑器件">常用的时序逻辑器件</a>
+      <ul>
+        <li><a href="#计数器">计数器</a>
+          <ul>
+            <li><a href="#设计例子">设计例子</a></li>
+            <li><a href="#34的计数器">3.4的计数器</a></li>
+          </ul>
+        </li>
+        <li><a href="#寄存器">寄存器</a>
+          <ul>
+            <li><a href="#寄存器的分类">寄存器的分类</a></li>
+            <li><a href="#msi寄存器及其应用">MSI寄存器及其应用</a></li>
+          </ul>
+        </li>
+        <li><a href="#脉冲发生器">脉冲发生器</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#概述">概述</a>
+      <ul>
+        <li><a href="#简单可编程逻辑spldsimple-pld">简单可编程逻辑SPLDSimple PLD</a>
+          <ul>
+            <li><a href="#rom----read--only--memory">ROM    Read  Only  Memory</a></li>
+            <li><a href="#pla---programmable--logic-array">PLA   Programmable  Logic Array</a></li>
+            <li><a href="#pal----programmable--array--logic">PAL    Programmable  Array  Logic</a></li>
+            <li><a href="#gal----generic--logic--array">GAL    Generic  Logic  Array</a></li>
+            <li><a href="#plc----programmable--logic-controller">PLC    Programmable  Logic Controller</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#verilog">Verilog</a></li>
+    <li><a href="#关于考试的信息">关于考试的信息</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数制和编码">数制和编码</a>
+      <ul>
+        <li><a href="#数制相互转换">数制相互转换</a></li>
+        <li><a href="#数的表示">数的表示</a></li>
+        <li><a href="#十进制数的编码代码表示及其运算">十进制数的编码（代码）表示及其运算</a></li>
+        <li><a href="#可靠性编码">可靠性编码</a>
+          <ul>
+            <li><a href="#格雷码gray"><strong>格雷码（Gray)</strong></a></li>
+            <li><a href="#奇偶校验码parity-code">奇偶校验码（Parity Code）</a></li>
+            <li><a href="#海明校验码hamming-codes">海明校验码（Hamming codes）</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#逻辑代数基础">逻辑代数基础</a>
+      <ul>
+        <li><a href="#定理">定理</a></li>
+        <li><a href="#逻辑函数的基本表达形式">逻辑函数的基本表达形式</a>
+          <ul>
+            <li><a href="#重点卡诺图">*（重点）卡诺图：</a></li>
+            <li><a href="#减少非门的个数的方法">减少非门的个数的方法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#逻辑门电路">逻辑门电路</a>
+      <ul>
+        <li><a href="#早期逻辑门">早期逻辑门</a></li>
+        <li><a href="#双极型晶体管逻辑-基本双极型晶体管逻辑">双极型晶体管逻辑 基本双极型晶体管逻辑</a></li>
+        <li><a href="#mos晶体管传输门">MOS晶体管、传输门</a></li>
+        <li><a href="#集成电路集成电路制造技术封装规模类型以及使用特性">集成电路集成电路制造技术、封装、规模类型以及使用特性</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#描述">描述</a></li>
+    <li><a href="#分析和设计">分析和设计</a>
+      <ul>
+        <li><a href="#1组合逻辑电路的分析">1、组合逻辑电路的分析</a></li>
+        <li><a href="#2组合逻辑电路的设计">2、组合逻辑电路的设计</a></li>
+      </ul>
+    </li>
+    <li><a href="#竞争和险象">竞争和险象</a>
+      <ul>
+        <li><a href="#电路中普遍存在竞争现象">电路中普遍存在竞争现象</a></li>
+        <li><a href="#险象的判别">险象的判别</a>
+          <ul>
+            <li><a href="#卡诺图法">卡诺图法</a></li>
+            <li><a href="#逻辑表达式法">逻辑表达式法</a></li>
+          </ul>
+        </li>
+        <li><a href="#险象的消除">险象的消除</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用的msi组合逻辑器件">常用的MSI组合逻辑器件</a>
+      <ul>
+        <li><a href="#译码器和编码器">译码器和编码器</a></li>
+        <li><a href="#三态门">三态门</a></li>
+        <li><a href="#数据分配器和多路选择器">数据分配器和多路选择器</a></li>
+        <li><a href="#加法器和比较器">加法器和比较器</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#时序电路概述">时序电路概述</a></li>
+        <li><a href="#时序电路的双稳态元件">时序电路的双稳态元件</a>
+          <ul>
+            <li><a href="#s-r-锁存器set-reset-latche">S-R 锁存器（Set-Reset Latche）</a></li>
+            <li><a href="#s---r-锁存器s---r-latche">/S - /R 锁存器(/S - /R Latche)</a></li>
+            <li><a href="#带使能端的s-r-锁存器-s-r-latche-with-enable">带使能端的S-R 锁存器 （S-R latche with enable）</a></li>
+            <li><a href="#d锁存器-d-latche">D锁存器（ D Latche）</a></li>
+            <li><a href="#边沿触发的d触发器">边沿触发的D触发器</a></li>
+            <li><a href="#主从s-r-触发器-masterslave-s-r-flip-flop">主从S-R 触发器（ Master/slave S-R Flip-flop）</a></li>
+            <li><a href="#主从j-k-触发器masterslave-j-k-flip-flop">主从J-K 触发器（Master/slave J-K Flip-flop）</a></li>
+            <li><a href="#边沿触发jk-触发器edge-triggered-jk-flip-flop">边沿触发J－K 触发器（Edge-triggered JK Flip-flop）</a></li>
+            <li><a href="#t触发器-t-flip-flop">T触发器 T Flip-flop</a></li>
+            <li><a href="#无使能控制的-t-触发器">无使能控制的 T 触发器</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#同步时序电路的分析设计">同步时序电路的分析设计</a>
+      <ul>
+        <li><a href="#同步时序电路的分析">同步时序电路的分析</a>
+          <ul>
+            <li><a href="#同步时序电路分析的一般步骤">同步时序电路分析的一般步骤</a></li>
+            <li><a href="#同步时序电路分析举例">同步时序电路分析举例</a></li>
+          </ul>
+        </li>
+        <li><a href="#同步时序电路的设计">同步时序电路的设计</a>
+          <ul>
+            <li><a href="#同步时序电路设计步骤">同步时序电路设计步骤</a></li>
+            <li><a href="#建立原始状态图和原始状态表构图法">建立原始状态图和原始状态表——构图法</a></li>
+            <li><a href="#状态化简完全给定与不完全给定同步时序电路状态表的化简">状态化简：完全给定与不完全给定同步时序电路状态表的化简</a></li>
+            <li><a href="#状态分配相邻状态分配法">状态分配：相邻状态分配法</a></li>
+            <li><a href="#激励函数和输出函数的确定">激励函数和输出函数的确定</a></li>
+            <li><a href="#电路分析与说明设计举例">电路分析与说明、设计举例</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#脉冲异步时序电路的分析设计">脉冲异步时序电路的分析设计</a></li>
+    <li><a href="#常用的时序逻辑器件">常用的时序逻辑器件</a>
+      <ul>
+        <li><a href="#计数器">计数器</a>
+          <ul>
+            <li><a href="#设计例子">设计例子</a></li>
+            <li><a href="#34的计数器">3.4的计数器</a></li>
+          </ul>
+        </li>
+        <li><a href="#寄存器">寄存器</a>
+          <ul>
+            <li><a href="#寄存器的分类">寄存器的分类</a></li>
+            <li><a href="#msi寄存器及其应用">MSI寄存器及其应用</a></li>
+          </ul>
+        </li>
+        <li><a href="#脉冲发生器">脉冲发生器</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#概述">概述</a>
+      <ul>
+        <li><a href="#简单可编程逻辑spldsimple-pld">简单可编程逻辑SPLDSimple PLD</a>
+          <ul>
+            <li><a href="#rom----read--only--memory">ROM    Read  Only  Memory</a></li>
+            <li><a href="#pla---programmable--logic-array">PLA   Programmable  Logic Array</a></li>
+            <li><a href="#pal----programmable--array--logic">PAL    Programmable  Array  Logic</a></li>
+            <li><a href="#gal----generic--logic--array">GAL    Generic  Logic  Array</a></li>
+            <li><a href="#plc----programmable--logic-controller">PLC    Programmable  Logic Controller</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#verilog">Verilog</a></li>
+    <li><a href="#关于考试的信息">关于考试的信息</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">数字电路基础 
+    <div id="%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>我对于学校数字电路实验的评教，今天遇到了一些事情，真的非常生气，我不写出来实在是难受：</p>
+<p>​	我校的以vivado为开发平台的数字电路实验是相当不合理的：</p>
+<p>​	1.学生对于vivado没有相当的基础，身为一名计算机学院的学生，对于计算机组成原理的重要性认知很清楚，但是对于硬件开发没有合理的认知水平，理论铺设不到位，对于使用的软件更是一知半解。所以我们的实验是怎么开展的呢，“抄代码”，对着截了很多模糊不清的图片的PPT，抄，抄有着“详细注释”的宋体代码，我们试图在西一楼106机房“抄”出来对于数字电路的认知，这是难以置信的。</p>
+<p>​	2.“你为什么不自己学？”，“自学”，难道我们不懂？一名大二计算机学院的学生，很少有人到现在还体会不到技术上自学的重要性，仅仅是为了搞清楚verilog的语法，你只需要随便上什么菜鸟教程之类的网站看一看就可以，我想说的是，你们给学生泼了一瓢冷水，当我在自己的linux系统上用iverilog编译生成运行测试第一个器件的时候，感受到的兴奋是难以言表的，但是，大多数学生只能在这里感受到重复性劳动的痛苦，以及不明不白的迷惑，因为他们debug的方式就是对这“权威”的PPT进行一行一行的寻找，想找到是否有一个变量名“抄”错了，或者把一个点打成了逗号却没有报错，为什么，因为他们不知道还能使用怎样的方式进行debug了，我还能用怎样的词语来形容这样的学习？</p>
+<p>​	3.而当代码太多的时候，我相信很多老师对于debug也并没有任何头绪，对于一些更深层次的原理也并没有深刻理解，我在实验四中选择了第一个，我相信选择第一个的人是比较少的，因为大家都认为第二个分多，我对于分数的看法是无所谓的，我想，我只要把一个东西弄明白对我来说哪怕是完成任务也是一种收获，在实验四验收期间，我一直在观察，有一位老师基本没有解决任何问题，而是指挥来指挥去，当我向一位老师请教关于第一个学号计数器的问题时，他好像用很好奇的眼神看着我，好像没有人写这个实验一样，不停的请教您们不下5次，我相信不只是我这样，很多同学都是这样，有的人甚至走的时候都没有找到问题在哪里，我不停的对着PPT看，找问题所在，最后把我的counter实现交给了ChatGPT进行优化（实现没有问题，好像是因为边沿检测的问题，原来普通的counter的逻辑不符合要求，最后留下来的很多同学居然是实验1的，简直是难以置信，设计文件的考察更是让人无语，自己补充两个引脚即可，这样考察的意义在哪里？好像是某种脑筋急转弯让人费解。），因为不同老师的不同建议走了很多奇怪的弯路，不过我倒是对此没有什么怨言，因为debug就是这样，我也经历过很多，所以我也并不着急，我只是觉得您们对于自己设计的东西，设计的任务不够熟悉，好像也是在完成任务，我知道你们也是人，也会出错，但是应该起码对于下达的作业有着“<strong>胸有成竹</strong>”的一种状态才是比较合适的。</p>
+<p>​	4.这不是老师们对于学生此方面基础不好的包容，这是一种设计和讲解上的问题，这些做的一塌糊涂的模糊PPT的堆砌，在让学生理解和实践的方面，甚至不如实践教学中心的电工实习！如果您要问我如何解决，<strong>对不起，作为学生，我真的水平很低，我只会动动嘴皮子，我不是讲师也并非教授，我没有那么丰富的经验和知识，这也是我为什么来到大学</strong>，但是本学期一个简单的0.5学分的实验，让我再一次反思。我对于硬件的开发并没有深厚的兴趣，或许在我大学毕业之后的一生中都不会再去进行把代码烧录到开发板这样的工作，但是我还是不吐不快，我现在只希望下个学期的三个1个学分的核心专业课程的实验不会让人感到失望，不会让学生们感到是在完成某项任务，想尽办法和“抄袭”和“查重”作对，总之，大量的学生花费了大量的时间在这里，得到的东西确实寥寥无几，但是讽刺的是，我认为大多数人也不会有怨言，因为我们需要学分，需要GPA来毕业，无法毕业是谁都难以接受的，这是否是单方面的霸凌呢？我不知道。我很明白，因为我之前在后面也观察到了，今年的开课是否是“实验性”的，你们对此也没有把控，但是我想你们应该会想听到这样的声音，因为不会再有学生在期末周浪费自己的备考时间给您们写这些没用的“小作文”，我的批评相当主观甚至可能偏激，略显傲慢，我明白老师们可能也为此付出了努力，但是，如果您还因为认为自己是一名教育工作者而想继续优化和承担责任的话，那么请您继续优化和思考（或许可以先从把PPT上的代码从宋体改成Consolas等宽字体开始，这并不复杂，在Tools里面选择一下就可以），如果您不这么认为，那么当我什么也没有说就好。最后我想告诉您，无论是谁看到，但是希望不是我的自我安慰：</p>
+<blockquote>
+<p><em>&ldquo;Education is not the filling of a pail, but the lighting of a fire.&rdquo; &mdash;William Butler Yeats</em></p>
+<p>（教育不是给桶里灌水，而是点燃一把火）</p></blockquote>
+<p>​	而接下来，对于数字电路的理论，我又要对着PPT复习，这也是没有办法的。我承认孩子们，这就是一场<strong>PPT</strong>大战，但是能写一点代码也是不错的。</p>
+<p>​															&mdash;2025.6.15 21:13  写于西安交通大学仲英书院</p>
+<blockquote>
+<p>[!CAUTION]</p>
+<p>​	有些人不配作为教育者，他们在尝试和学生<strong>斗争</strong>，尝试满足某种**“指标”**，他们连从事科学研究的资格都没有。这是我对于这些人最严厉的攻击和指责。</p></blockquote>
+<blockquote>
+<p><strong>考试大致的情况</strong>：</p>
+<p>教材前4章（<strong>习题</strong>）及教师上课讲解过的内容为<strong>本次考题涉及范围</strong>，复习的重点内容概括如下：
+<strong>第一章</strong>：数制与编码、逻辑代数基础（定律、定理、规则）、逻辑函数的表示及化简方法、逻辑门电路（涉及填空、简答题）。
+<strong>第二章</strong>：组合逻辑电路的<strong>分析与设计</strong>、竞争与险象（<strong>判别和消除方法</strong>）、常用<strong>MSI</strong>器件（<strong>译码器、编码器、多路选择器、三态缓冲器、加法器</strong>）。
+<strong>第三章</strong>：时序电路<strong>概念</strong>、<strong>双稳态元件</strong>的原理（重点是<strong>触发器</strong>）、<strong>同步时序电路的分析与设计方法</strong>、<strong>脉冲异步时序电路分析与设计方法</strong>、常用<strong>时序逻辑器件</strong>（<strong>计数器、寄存器</strong>）。
+<strong>第四章</strong>：<strong>SPLD、CPLD、FPGA</strong>的基本原理（仅涉及<strong>填空、选择、简答题</strong>）、<strong>VHDL</strong>和<strong>Verilog</strong>（涉及<strong>填空、简答和编程题</strong>）。</p>
+<p>​	<strong>考试题型</strong>：1）<strong>填空题20分</strong>，任选<strong>10题</strong>，多选按前10题给分。2）<strong>选择题20分</strong>，任选<strong>5题</strong>，多选按前5题给分，选择题为多选，<strong>错选和少选1项扣1分</strong>。3）简答题<strong>15分</strong>，任选<strong>5题</strong>，多选按前5题给分。4）分析计算题20分，涉及前3章内容，要求给出关键分析步骤，按步骤给分。5）设计题25分，组合和时序逻辑电路设计各1题，VHDL或Verilog编程题1题，要给出<strong>关键设计或编程步骤</strong>，按步骤给分。</p>
+<p>集中答疑时间：下周四（6月26日），时间：9:00 11:30；14:30 17:30，地点：西一楼，B809（伍老师办公室）、A405（刘老师办公室）、A102（王老师办公室）</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/1985BD9BF2A1FF330EB0793C42208793.jpg" alt="1985BD9BF2A1FF330EB0793C42208793" />
+      
+    </figure>
+</p>
+<p>1.精度问题，前面的部分可以把第一章作业过一遍。</p>
+
+
+<h2 class="relative group">数制和编码 
+    <div id="%E6%95%B0%E5%88%B6%E5%92%8C%E7%BC%96%E7%A0%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E5%88%B6%E5%92%8C%E7%BC%96%E7%A0%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">数制相互转换 
+    <div id="%E6%95%B0%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>*<strong>必考：不同进制之间的转换：</strong></p>
+<p>注意需要的小数的位数：</p>
+<p>比如（0.4321）10进制 转 16进制 那么至少这个16进制的数字小数点要多少位？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250613201417669.png" alt="image-20250613201417669" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">数的表示 
+    <div id="%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>浮点表示方法，用阶码和尾数来进行表示的方法。</p>
+<p>带符号数：<strong>原码，补码，反码</strong>。</p>
+<p><strong>原码：最高位是符号位。</strong></p>
+<p>x = ＋5     [x]原 = 00000101
+y = －7     [y]原 = 10000111</p>
+<p><strong>反码：正数和原码相同，负数是原码的非符号位全部取反。&mdash;》注意这个</strong></p>
+<p>x = ＋5     [x]原 = 00000101     [x]反  = 00000101</p>
+<p>y = －7     [y]原 = 10000111     [y]反  = 11111000</p>
+<p>z = 0       [z]反 = 00000000     [z]反  = 11111111</p>
+<p><strong>把符号位看作一位数值位参与运算，一律按加法规则来处理，所得结果的符号位也就是正确结果的符号（不出现进位）。</strong></p>
+<p><strong>当符号位产生进位时，将产生的进位加到数值位的最低位。</strong>&mdash;》这个也要注意</p>
+<p><strong>补码（complement number），又称“对2的补码”。</strong></p>
+<p>x = ＋5     [x]原 = 00000101     [x]补   = 00000101
+y = －7     [y]原 = 10000111     [y]补   = 11111001
+z = 0       [y]原 = 00000000     [z]补   = 00000000
+z=-128                          [z]补  = 10000000</p>
+<p>这个我们已经比较熟悉了。负数是<strong>原码的非符号位按位取反 + 1</strong>。&mdash;》反码 + 1</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250613203403692.png" alt="image-20250613203403692" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">十进制数的编码（代码）表示及其运算 
+    <div id="%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E7%9A%84%E7%BC%96%E7%A0%81%E4%BB%A3%E7%A0%81%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E7%9A%84%E7%BC%96%E7%A0%81%E4%BB%A3%E7%A0%81%E8%A1%A8%E7%A4%BA%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250613204906716.png" alt="image-20250613204906716" />
+      
+    </figure>
+</p>
+<p>8421：8421的权重。</p>
+<p>2421：2421的权重。<strong>对9自补码</strong>。</p>
+<p>余3码：8421权重，然后减去3。</p>
+
+
+<h3 class="relative group">可靠性编码 
+    <div id="%E5%8F%AF%E9%9D%A0%E6%80%A7%E7%BC%96%E7%A0%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%AF%E9%9D%A0%E6%80%A7%E7%BC%96%E7%A0%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group"><strong>格雷码（Gray)</strong> 
+    <div id="%E6%A0%BC%E9%9B%B7%E7%A0%81gray" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%BC%E9%9B%B7%E7%A0%81gray" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>特点：任意两个相邻数的代码（码字）只有一个二进制数位不同。
+目的：减少代码生成时发生错误。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250613210931201.png" alt="image-20250613210931201" />
+      
+    </figure>
+</p>
+<p>原来的二进制码每两个之间做<strong>xor</strong>运算得到<strong>Gray</strong>码。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250613211054376.png" alt="image-20250613211054376" />
+      
+    </figure>
+</p>
+<p>这种典型格雷码还有一个特点：
+所有对应于十进制数2 m -1 (m为正整数）的格雷码，都仅在m位上有 1，
+其他位都为0。
+例：
+m = 1 ,  2 m  -1 = 1,       1的典型格雷码是0001；
+m = 2 ,  2 m -1 = 3,       3的典型格雷码是0010；
+m = 3 ,  2 m -1 = 7,       7的典型格雷码是0100；
+m = 4 ,  2 m -1 = 15,      15的典型格雷码是1000。</p>
+<p>​	这些数与 0 之间只有一位的差别，回到 0仍能保持一位差别的特点，所以称作循环码，特别适用做二进制码计数器的编码。</p>
+
+
+<h4 class="relative group">奇偶校验码（Parity Code） 
+    <div id="%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81parity-code" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81parity-code" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250613211808489.png" alt="image-20250613211808489" />
+      
+    </figure>
+</p>
+<p>注意：<strong>是P的取值使得其中的1的个数是奇数还是偶数</strong>。&mdash;》重点。</p>
+<p>那么生成的原理也就很简单了。</p>
+
+
+<h4 class="relative group">海明校验码（Hamming codes） 
+    <div id="%E6%B5%B7%E6%98%8E%E6%A0%A1%E9%AA%8C%E7%A0%81hamming-codes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B5%B7%E6%98%8E%E6%A0%A1%E9%AA%8C%E7%A0%81hamming-codes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250613212252832.png" alt="image-20250613212252832" />
+      
+    </figure>
+</p>
+<p>很巧妙，考试之前再过一遍比较好。</p>
+
+
+<h2 class="relative group">逻辑代数基础 
+    <div id="%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>不说废话，重要的几个定理：</p>
+
+
+<h3 class="relative group">定理 
+    <div id="%E5%AE%9A%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>要注意书上的例子，吸收定理之类的东西用来化简。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250614212927823.png" alt="image-20250614212927823" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250614213028431.png" alt="image-20250614213028431" />
+      
+    </figure>
+</p>
+<p>对偶函数和反演函数：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250614213329286.png" alt="image-20250614213329286" />
+      
+    </figure>
+</p>
+<p>同或和异或运算：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250614214037738.png" alt="image-20250614214037738" />
+      
+    </figure>
+</p>
+<p>基本表达式：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250614214223290.png" alt="image-20250614214223290" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">逻辑函数的基本表达形式 
+    <div id="%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A1%A8%E8%BE%BE%E5%BD%A2%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A1%A8%E8%BE%BE%E5%BD%A2%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>与或 或与</p>
+<p>最小项和最大项：</p>
+<p><strong>0替代反变量</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615163648802.png" alt="image-20250615163648802" />
+      
+    </figure>
+</p>
+<p><strong>1替代反变量</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615163846369.png" alt="image-20250615163846369" />
+      
+    </figure>
+</p>
+<p>关系：（这也是为什么表示的方法会不一样）</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615164312690.png" alt="image-20250615164312690" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">*（重点）卡诺图： 
+    <div id="%E9%87%8D%E7%82%B9%E5%8D%A1%E8%AF%BA%E5%9B%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%87%8D%E7%82%B9%E5%8D%A1%E8%AF%BA%E5%9B%BE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>要不要记忆？考试前看一看。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615165208923.png" alt="image-20250615165208923" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615165347311.png" alt="image-20250615165347311" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615170252240.png" alt="image-20250615170252240" />
+      
+    </figure>
+</p>
+<p><strong>n 变量函数卡诺图有2n个小方格(或称为单元), 小方格对应最小项。一个逻辑函数可以唯一地图示于卡诺图上。</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615170536712.png" alt="image-20250615170536712" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615170702979.png" alt="image-20250615170702979" />
+      
+    </figure>
+</p>
+<p>简单的例题，我们去求或与项的一个表示：</p>
+<p>（先求反函数的与或式）</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615171040378.png" alt="image-20250615171040378" />
+      
+    </figure>
+</p>
+<p>对偶方法：</p>
+<p>先算出对偶式接着进行化简，同样使用反函数的方法也可以。</p>
+<p>那么在卡诺图上也类似：</p>
+<p>我们用这样的方法求最简的或与式。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615172210301.png" alt="image-20250615172210301" />
+      
+    </figure>
+</p>
+<p>如果有无关项尽可能多包含，这样就可以减少变量的个数。</p>
+
+
+<h4 class="relative group">减少非门的个数的方法 
+    <div id="%E5%87%8F%E5%B0%91%E9%9D%9E%E9%97%A8%E7%9A%84%E4%B8%AA%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%8F%E5%B0%91%E9%9D%9E%E9%97%A8%E7%9A%84%E4%B8%AA%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	 1.  <strong>替代尾因子法</strong> 定义：<strong>每个与项中原变量部分称为“头因子”，反变量部分称为“尾因子”。 特点：把头因子中的任何变量放入任一个尾因子中，该与项不变，即头因子是不变的，尾因子是可变的</strong> 。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615173153635.png" alt="image-20250615173153635" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615173243218.png" alt="image-20250615173243218" />
+      
+    </figure>
+</p>
+<p>​	2.<strong>禁止逻辑法</strong>：从卡诺图中干掉一部分，这样就能构成更多的大极大圈。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615212811011.png" alt="image-20250615212811011" />
+      
+    </figure>
+</p>
+<p>直接用最小项之和的非进行 * 操作。</p>
+
+
+<h2 class="relative group">逻辑门电路 
+    <div id="%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>这一章感觉不是东西，考试前再看一下。</p>
+<blockquote>
+<p>必须好好看一下，防止送了。</p></blockquote>
+
+
+<h3 class="relative group">早期逻辑门 
+    <div id="%E6%97%A9%E6%9C%9F%E9%80%BB%E8%BE%91%E9%97%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%A9%E6%9C%9F%E9%80%BB%E8%BE%91%E9%97%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">双极型晶体管逻辑 基本双极型晶体管逻辑 
+    <div id="%E5%8F%8C%E6%9E%81%E5%9E%8B%E6%99%B6%E4%BD%93%E7%AE%A1%E9%80%BB%E8%BE%91-%E5%9F%BA%E6%9C%AC%E5%8F%8C%E6%9E%81%E5%9E%8B%E6%99%B6%E4%BD%93%E7%AE%A1%E9%80%BB%E8%BE%91" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%8C%E6%9E%81%E5%9E%8B%E6%99%B6%E4%BD%93%E7%AE%A1%E9%80%BB%E8%BE%91-%E5%9F%BA%E6%9C%AC%E5%8F%8C%E6%9E%81%E5%9E%8B%E6%99%B6%E4%BD%93%E7%AE%A1%E9%80%BB%E8%BE%91" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">MOS晶体管、传输门 
+    <div id="mos%E6%99%B6%E4%BD%93%E7%AE%A1%E4%BC%A0%E8%BE%93%E9%97%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mos%E6%99%B6%E4%BD%93%E7%AE%A1%E4%BC%A0%E8%BE%93%E9%97%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">集成电路集成电路制造技术、封装、规模类型以及使用特性 
+    <div id="%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%88%B6%E9%80%A0%E6%8A%80%E6%9C%AF%E5%B0%81%E8%A3%85%E8%A7%84%E6%A8%A1%E7%B1%BB%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%89%B9%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E5%88%B6%E9%80%A0%E6%8A%80%E6%9C%AF%E5%B0%81%E8%A3%85%E8%A7%84%E6%A8%A1%E7%B1%BB%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%89%B9%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h1 class="relative group">组合逻辑电路 
+    <div id="%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">描述 
+    <div id="%E6%8F%8F%E8%BF%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8F%8F%E8%BF%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615215044116.png" alt="image-20250615215044116" />
+      
+    </figure>
+</p>
+<p>常用逻辑门的符号：注意<strong>xor</strong>门的方框内的数字是1。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615215356649.png" alt="image-20250615215356649" />
+      
+    </figure>
+</p>
+<p>表明有效的形式：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250615220407027.png" alt="image-20250615220407027" />
+      
+    </figure>
+</p>
+<p>延迟时间等等的基本概念，我们之后还会再次提到。</p>
+
+
+<h2 class="relative group">分析和设计 
+    <div id="%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">1、组合逻辑电路的分析 
+    <div id="1%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%86%E6%9E%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%86%E6%9E%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	电路输出仅取决于当时（前）的输入，而与过去的输入情况无关。</p>
+<p>​	<strong>逻辑图，真值表。</strong></p>
+
+
+<h3 class="relative group">2、组合逻辑电路的设计 
+    <div id="2%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E7%9A%84%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E7%9A%84%E8%AE%BE%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>设计的一般步骤：</p>
+<blockquote>
+<p>做几个题试一试就行。</p>
+<p>下面这个顺序有可能会考察，第一部不是先列出真值表。</p>
+<p>分析要求&mdash;真值表（卡诺图化简）&mdash;最简表达式&mdash;变换（使用不同的门电路）&mdash;作出电路逻辑图</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250617205047984.png" alt="image-20250617205047984" />
+      
+    </figure>
+</p>
+<p>可能会有逻辑电路变换的要求，这样的性能更好。基本都是在进行二次求反。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250617210843236.png" alt="image-20250617210843236" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250617210917219.png" alt="image-20250617210917219" />
+      
+    </figure>
+</p>
+<p>这样的设计目前感觉还是比较基础的：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250617212249328.png" alt="image-20250617212249328" />
+      
+    </figure>
+</p>
+<p>简单的HalfAdder的描述：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250617212942435.png" alt="image-20250617212942435" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">竞争和险象 
+    <div id="%E7%AB%9E%E4%BA%89%E5%92%8C%E9%99%A9%E8%B1%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AB%9E%E4%BA%89%E5%92%8C%E9%99%A9%E8%B1%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>注意很多比较细节的考察问题。</p></blockquote>
+
+
+<h3 class="relative group">电路中普遍存在竞争现象 
+    <div id="%E7%94%B5%E8%B7%AF%E4%B8%AD%E6%99%AE%E9%81%8D%E5%AD%98%E5%9C%A8%E7%AB%9E%E4%BA%89%E7%8E%B0%E8%B1%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%B5%E8%B7%AF%E4%B8%AD%E6%99%AE%E9%81%8D%E5%AD%98%E5%9C%A8%E7%AB%9E%E4%BA%89%E7%8E%B0%E8%B1%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>静态险象</strong>：功能险象、逻辑险象</p>
+<p>动态险象</p>
+<p>​	<strong>在实际电路中，信号变化不是即时的，存在边沿转换时间；信号在电路中传送必定有导线上的传播时延，信号通过门电路也必定有时间延迟。</strong></p>
+<p>​	比如这样的一个<strong>尖峰脉冲</strong>的延迟：</p>
+<p>​	
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250617224759748.png" alt="image-20250617224759748" />
+      
+    </figure>
+</p>
+<p>​	上述这些时延都可能使电路信号的中间结果及最终输出产生错误的信号。为简化讨论，下面假设信号变化的边沿转换时间为“0”，信号在导线上的传输时间为“0”， 仅考虑逻辑门的时延时间td(Delays) 。</p>
+<blockquote>
+<p>就是说关于<strong>delay</strong>，我们只考虑在逻辑门上面的时延。</p></blockquote>
+<p>1.<strong>竞争现象</strong></p>
+<p>​	<strong>竞争定义</strong>：某一个信号或同时变化的多个信号，经过不同路径到达某一点时有<strong>时差</strong>（<strong>传输及器件延时等造成的</strong>），这 种现象称为<strong>竞争</strong>。</p>
+<p>​	<strong>竞争分类</strong>：对于<strong>有错误输出的竞争称之为临界竞争</strong>，对于<strong>未产生错误输出的竞争称之为非临界竞争</strong>。</p>
+<p>​	<strong>2.Hazard&mdash;险象</strong></p>
+<p>​	险象定义：由于<strong>临界竞争</strong>的存在，在<strong>输出端得到稳定输出之前</strong>，输出中有一段的<strong>错误输出</strong>（干扰），这种现象称之为险象。险象一定是竞争的结果。</p>
+<p>​	险象分类：通常将险象分为<strong>静态险象</strong>和<strong>动态险象</strong>两种类型。</p>
+<p>​	<strong>静态险象</strong>：</p>
+<p>​	当<strong>输入信号变化</strong>时，按逻辑表达式，输出不应有变化的情况下，而实际上会在输出端产生一个与逻辑状态“1”或“0”对应的<strong>高低窄（矮）脉冲</strong>的情况，则称之为<strong>静态险象</strong>。</p>
+<p>​	就比如说下图就是一个静态的险象：</p>
+<p>​	
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250617230043234.png" alt="image-20250617230043234" />
+      
+    </figure>
+</p>
+<p>​	它可进一步分为：<strong>功能险象，逻辑险象</strong>。</p>
+<p>​	1.<strong>功能险象</strong>：</p>
+<p>​	产生的必要条件：</p>
+<p>​		1.<strong>K个输入信号同时产生变化（因为多个信号变化的时候应该是在实现某种功能）</strong>。2.这K个信号组成的序列中，必须既有0又有1。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250618235610515.png" alt="image-20250618235610515" />
+      
+    </figure>
+</p>
+<p>​	2.<strong>逻辑险象</strong>：</p>
+<p>​	必要条件：<strong>只有1个输入信号发生变化</strong>。</p>
+<blockquote>
+<p>其实都是一个例子。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250618235852694.png" alt="image-20250618235852694" />
+      
+    </figure>
+</p>
+<p><strong>静态险象的产生：由于输入信号经过不同的路径又汇合到同一个门上的竞争所引起的。</strong></p>
+<p>原来一直是1,但是中间出现了0,比如上面的例子，就是<strong>静态“1”险象</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250619000655618.png" alt="image-20250619000655618" />
+      
+    </figure>
+</p>
+<p><strong>动态险象</strong></p>
+<blockquote>
+<p>这里考察了例子，以及动态险象的概念。</p></blockquote>
+<p>​	多级组合逻辑电路，若输入信号的变化通过多条路径向输出端汇合时，输出信号稳定前会发生<strong>三次变化</strong>，其间经过暂时状态0、1或者1、0，这种险象称之为<strong>动态险象</strong>。输入信号变化的<strong>第一次会合只可能产生静态险象</strong>，只有在产生了静态险象，输入信号变化的再一次会合，才有可能产生动态险象。动态险象是由静态险象引起的，它也是竞争的结果。同样，在两级“与或”和“或与”电路中都不会发生。</p>
+<blockquote>
+<p>也就是多个静态险象的<strong>2次以上的会合</strong>才会导致静态的险象&mdash;》二级电路肯定<strong>没有动态险象</strong>。</p>
+<p>动态险象的变化<strong>肯定不会只有1次</strong>。</p></blockquote>
+<p>举个简单的例子：</p>
+<p><strong>也要注意下面的这个动态的险象</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250619001114700.png" alt="image-20250619001114700" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">险象的判别 
+    <div id="%E9%99%A9%E8%B1%A1%E7%9A%84%E5%88%A4%E5%88%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%99%A9%E8%B1%A1%E7%9A%84%E5%88%A4%E5%88%AB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">卡诺图法 
+    <div id="%E5%8D%A1%E8%AF%BA%E5%9B%BE%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8D%A1%E8%AF%BA%E5%9B%BE%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>用卡诺图可以判别出两级“与或电路”和两级“或与电路”是否存在静态险象。</p>
+<p><strong>（1）静态 1 险象判别</strong></p>
+<p>​	在两级“<strong>与或</strong>”电路或两级“<strong>与非-与非</strong>”电路中只可能出现静态 1 险象。&mdash;》本质是很多与项的相加，那么<strong>就只能是1中间出现了0这样的情况</strong>。</p>
+<p>​	在<strong>卡诺图</strong>中，<strong>与或式中的每个与项对应于一个卡诺圈</strong>，如果<strong>两个卡诺圈存在着部分“相切”</strong>，而这个“<strong>相切</strong>”的部分又<strong>没有被另外的卡诺圈所包含</strong>，则该电路<strong>必然存在静态 1 险象</strong>。</p>
+<p>举个🌰：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250620214859866.png" alt="image-20250620214859866" />
+      
+    </figure>
+</p>
+<p>与项相切的位置就会出现静态“1”险象。</p>
+<p><strong>静态 0 险象判别</strong></p>
+<p>​	在两级“<strong>或与</strong>”电路或两级“<strong>或非—或非</strong>”电路中只可能出现静态 0 险象。&mdash;》<strong>与项之间更容易出现0，就会出现静态0的险象</strong>。</p>
+<p>​	在卡诺图中，按照圈<strong>0单元的卡诺圈是否存在着部分相切</strong>，而这个<strong>相切的部分又没有被另外的卡诺圈所包含</strong>，则该电路必然存在静态 0 险象。</p>
+<p>例子：那么要注意这里先取反函数，接着在画0，最后把相切的位置都要覆盖掉就没有问题了。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250620220437510.png" alt="image-20250620220437510" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">逻辑表达式法 
+    <div id="%E9%80%BB%E8%BE%91%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%BB%E8%BE%91%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><strong>当某一变量同时以原变量和反变量的形式出现在逻辑表达式中，则该变量就具备了竞争的条件。</strong></p>
+<p>比如几个典型的例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250620220809101.png" alt="image-20250620220809101" />
+      
+    </figure>
+</p>
+<p>你去主动选择，促使这个式子出现静态0险象。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621205339548.png" alt="image-20250621205339548" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">险象的消除 
+    <div id="%E9%99%A9%E8%B1%A1%E7%9A%84%E6%B6%88%E9%99%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%99%A9%E8%B1%A1%E7%9A%84%E6%B6%88%E9%99%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>增加多余项法和乘以多余因子法</strong></p>
+<p>和上面消除的例子是类似的：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621210456111.png" alt="image-20250621210456111" />
+      
+    </figure>
+</p>
+<p><strong>连接低通环节与增加选通脉冲</strong></p>
+<p>减弱输出端的波动：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621210716208.png" alt="image-20250621210716208" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621210907855.png" alt="image-20250621210907855" />
+      
+    </figure>
+</p>
+<p>上面这个应该不会考察。</p>
+
+
+<h2 class="relative group">常用的MSI组合逻辑器件 
+    <div id="%E5%B8%B8%E7%94%A8%E7%9A%84msi%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B8%B8%E7%94%A8%E7%9A%84msi%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">译码器和编码器 
+    <div id="%E8%AF%91%E7%A0%81%E5%99%A8%E5%92%8C%E7%BC%96%E7%A0%81%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AF%91%E7%A0%81%E5%99%A8%E5%92%8C%E7%BC%96%E7%A0%81%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>译码器和编码器的一般结构、二进制译码器、MSI器件及其级联与应用</strong></p>
+<p>有时候要注意<strong>使能端</strong>的作用。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621213046928.png" alt="image-20250621213046928" />
+      
+    </figure>
+</p>
+<p>编码器，是把<strong>代码编的更少</strong>，译码器，是把代码翻译出来，所以<strong>端口会变多</strong>。</p>
+<p><strong>二进制译码器</strong></p>
+<p>译码器输出最小项：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621213327625.png" alt="image-20250621213327625" />
+      
+    </figure>
+</p>
+<p>输入一个<strong>二进制</strong>的数字，输出是哪一个bit的值是1。</p>
+<p><strong>74LS139</strong></p>
+<p>我们直接控制<strong>输出端为0</strong>：</p>
+<p>注意是一个<strong>双译码器</strong>：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621215315640.png" alt="image-20250621215315640" />
+      
+    </figure>
+</p>
+<p><strong>74LS138</strong></p>
+<p>注意<strong>这里都是控制输出端为0</strong>的位置。注意是CAB定下来某个位置为0。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621215621604.png" alt="image-20250621215621604" />
+      
+    </figure>
+</p>
+<p>电路图大概看一下：
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621215732453.png" alt="image-20250621215732453" />
+      
+    </figure>
+</p>
+<p>这是使用的要点：</p>
+<p>注意<strong>LSB</strong>和<strong>MSB</strong>的含义，高有效位在下面，低有效位在上面。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621220030345.png" alt="image-20250621220030345" />
+      
+    </figure>
+</p>
+<p><strong>BCD译码器74LS49</strong></p>
+<p>这就是七段显示管的基本原理：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621220228529.png" alt="image-20250621220228529" />
+      
+    </figure>
+</p>
+<p>有对应的真值表来显示某种数字：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621220347269.png" alt="image-20250621220347269" />
+      
+    </figure>
+</p>
+<p>我们可以实现<strong>最小项的输出（理解这里）</strong>：</p>
+<p>当<strong>xyz</strong>对应了<strong>函数中的某个输出</strong>的时候，我们才会输出。</p>
+<blockquote>
+<p>注意是对应的位连在一起，然后使用<strong>与非门</strong>。（<strong>本来的输出是非门</strong>）</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621220857322.png" alt="image-20250621220857322" />
+      
+    </figure>
+</p>
+<p>对于一个<strong>全加器</strong>，是<strong>三个输入和两个输出（输出由最小项之和来组成）</strong>，那么这也是可以使用译码器来编程的：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250621231656964.png" alt="image-20250621231656964" />
+      
+    </figure>
+</p>
+<p><strong>编码器</strong></p>
+<p>编码器和译码器的<strong>逻辑就是完全相反</strong>的。</p>
+<p>注意<strong>只有一个输入端是有效</strong>的。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622205003888.png" alt="image-20250622205003888" />
+      
+    </figure>
+</p>
+<p>我们来考察一个<strong>8-3编码器</strong>：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622205223465.png" alt="image-20250622205223465" />
+      
+    </figure>
+</p>
+<p>I1 = I2 = 1的时候应该就是 0 0 1,重复？</p>
+<p>我们关注一下这个底层逻辑：谁让这些Y成为1？</p>
+<blockquote>
+<p>下标二进制对应的bit是1的I，和起来做或运算即可。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622205432942.png" alt="image-20250622205432942" />
+      
+    </figure>
+</p>
+<p><strong>优先权编码器 Priority Encoders</strong></p>
+<p>​	<strong>如果同时</strong>出现了多个<strong>bit</strong>是1的情况，<strong>必定是有重复的</strong>，因为两者的和一定在3个bit的区间之内，这是没有问题的。</p>
+<p>我们<strong>设置最高的为最优先</strong>的部分。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622210911812.png" alt="image-20250622210911812" />
+      
+    </figure>
+</p>
+<p>处理的逻辑，考察？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622212510853.png" alt="image-20250622212510853" />
+      
+    </figure>
+</p>
+<p><strong>MSI优先权编码器  74LS148</strong></p>
+<p>注意这里的输入和输出都是<strong>低位有效</strong>！&mdash;》<strong>0才是代表有效位表达</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622213245716.png" alt="image-20250622213245716" />
+      
+    </figure>
+</p>
+<p>当高bit有效的时候，低bit就直接不会在进行考虑了。</p>
+
+
+<h3 class="relative group">三态门 
+    <div id="%E4%B8%89%E6%80%81%E9%97%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%89%E6%80%81%E9%97%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>可能会考察。&mdash;》概念：又被称为<strong>三态门，可以使得多个源数据分时共享一根数据线。并且注意有三种输出的状态。</strong></p></blockquote>
+<p>三态门、多路收发器和双向收发器</p>
+<p><strong>三态缓冲器</strong></p>
+<p>比如右边的这个器件，左边连接一个译码器，就能<strong>对于源数据端进行选通</strong>的操作。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622213606080.png" alt="image-20250622213606080" />
+      
+    </figure>
+</p>
+<p><strong>逻辑符号的表达</strong>也很简单：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622213702599.png" alt="image-20250622213702599" />
+      
+    </figure>
+</p>
+<p>用这个来构建三态缓冲器：</p>
+<p>也就是等A1-A7都准备好了，当G1和G2都有效的时候，才把这些进行输出。&mdash;》起到了<strong>缓冲</strong>的作用。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622230326305.png" alt="image-20250622230326305" />
+      
+    </figure>
+</p>
+<p>接下来是一个双向的缓冲器，观察一下图即可：</p>
+<p>当DIR = 1的时候（图画错了，这个“/”在G的前面），A-B的EN端有效，所以从<strong>A传送数据到B端</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622230804835.png" alt="image-20250622230804835" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">数据分配器和多路选择器 
+    <div id="%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8%E5%92%8C%E5%A4%9A%E8%B7%AF%E9%80%89%E6%8B%A9%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E9%85%8D%E5%99%A8%E5%92%8C%E5%A4%9A%E8%B7%AF%E9%80%89%E6%8B%A9%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>考点中强调的是<strong>多路选择器</strong>。</p></blockquote>
+<p>数据分配器原理和MSI数据多路选择器</p>
+<p><strong>数据分配器</strong></p>
+<p>简单来说就是根据输入的bit，选定一个输出的通道。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622231550355.png" alt="image-20250622231550355" />
+      
+    </figure>
+</p>
+<p>从这个角度来看，类似于<strong>译码器</strong>：</p>
+<p>G作为EN端，直接决定了是否有有效的输出。</p>
+<blockquote>
+<p>注意这里考察了。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622232059176.png" alt="image-20250622232059176" />
+      
+    </figure>
+</p>
+<p><strong>多路选择器</strong></p>
+<p>MUX：那么这个器件在<strong>使用的逻辑上和译码器就是相反的</strong>，从n路，每一路是Bbit的数据源中选择一路来进行输出。</p>
+<p>n输入b位多路选择器。&mdash;》那么显然输出是Bbit。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622232339931.png" alt="image-20250622232339931" />
+      
+    </figure>
+</p>
+<p>所以输出是怎么决定的？</p>
+<p>比如有8组数据，s = 3bit，那么不同的组合就对应不同的组从而输出。0～n-1组中选取进行输出。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622232956031.png" alt="image-20250622232956031" />
+      
+    </figure>
+</p>
+<p>相当于是<strong>译码器选通了某一组数据</strong>。</p>
+<p>注意：下面这张图片只是说明了某一组中的某一个bit是怎么选取出来的。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250622234354970.png" alt="image-20250622234354970" />
+      
+    </figure>
+</p>
+<p><strong>MSI多路选择器及其扩展和应用</strong></p>
+<p>就是<strong>简单的选通</strong>，非常好明白，注意CBA从高bit到低bit。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624091318095.png" alt="image-20250624091318095" />
+      
+    </figure>
+</p>
+<p>总之扩展就会有很多n输入，bbit的选择器。比如：</p>
+<p>直接根据门电路进行分析即可。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624092313045.png" alt="image-20250624092313045" />
+      
+    </figure>
+</p>
+<p>怎么扩展？</p>
+<p>这样的方式，高2bit通过一个2-4译码器，连接到EN来进行选择哪个器件，而低3bit选择端口输出。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624093504339.png" alt="image-20250624093504339" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624093635173.png" alt="image-20250624093635173" />
+      
+    </figure>
+</p>
+<p>​	具有<strong>三态输出的多路选择器</strong>，当其使能输入无效时，将强制输出端处于高阻抗。有三态输出端的<strong>多路选择器的输出端可以直接连接在一起</strong>，使得用这种器件可以方便地组成更大的多路选择器 MUX，常用的这种器件有74LS251，74LS253和74LS257等。</p>
+<p>​	比如74LS251举例子：</p>
+<p>输出端在EN没有打通的时候处于高阻态的状态，可以直接连接在一起。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624094910447.png" alt="image-20250624094910447" />
+      
+    </figure>
+</p>
+<p><strong>采用多级MUX的树形结构</strong></p>
+<p>将<strong>多路选择器MUX分级连接</strong>，低一级(前一级) MUX的输出作为其<strong>高一级(后一级) MUX的数据输入</strong>。</p>
+<p>用选择输入信号的<strong>低位控制低一级MUX</strong>，<strong>高位控制高一级MUX各级的使能输入</strong>用同一个信号进行控制。</p>
+<p>注意这个树形的逻辑，比如111111,前三个111,使得每个器件的D7都通，最后111选择最后一个器件，这和mod是类似的。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624095707841.png" alt="image-20250624095707841" />
+      
+    </figure>
+</p>
+<p><strong>用多路选择器实现任意组合逻辑函数</strong></p>
+<blockquote>
+<p>怪不得考察MUX，太多了。</p></blockquote>
+<p>这里的逻辑就是当我们<strong>xyz</strong>有对应1输出的时候，这里的选通为1。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624100006326.png" alt="image-20250624100006326" />
+      
+    </figure>
+</p>
+<p>下面这个就是稍微有点技巧性的处理：</p>
+<p>考前可以再看一下。可能会考察关于4选1的系列问题。</p>
+<blockquote>
+<p>这里会考察，比如8选1实现一个4变量的函数。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624100402011.png" alt="image-20250624100402011" />
+      
+    </figure>
+</p>
+<p>这里要根据卡诺图来看每个位置对应的输出是什么？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624102614222.png" alt="image-20250624102614222" />
+      
+    </figure>
+</p>
+<p>比如D4 = w/x/y，那么图上对应右上角的01,要把这个1包括进去，那么就要和z作&amp;运算，所以D4 = z。</p>
+<p>分两个情况讨论：把xy的所有情况在卡诺图上遍历一遍即可。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624103000418.png" alt="image-20250624103000418" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">加法器和比较器 
+    <div id="%E5%8A%A0%E6%B3%95%E5%99%A8%E5%92%8C%E6%AF%94%E8%BE%83%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%A0%E6%B3%95%E5%99%A8%E5%92%8C%E6%AF%94%E8%BE%83%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>重点应该是adder。</p></blockquote>
+<p><strong>加法器</strong></p>
+<p>注意<strong>半加器和全加器的基本逻辑</strong>：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624105533294.png" alt="image-20250624105533294" />
+      
+    </figure>
+</p>
+<p>n位<strong>串行加法器</strong>：&mdash;》<strong>行波进位</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624110324334.png" alt="image-20250624110324334" />
+      
+    </figure>
+</p>
+<p><strong>超前的进位</strong>：</p>
+<p>特点：所有进位都是同时产生的，故电路延时时间与位数多少无关。在位数较多时其运算速度比行波加法器的要快得多。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624111111204.png" alt="image-20250624111111204" />
+      
+    </figure>
+</p>
+<p>由两个半加器构成一个全加器：</p>
+<p>两个半加的CO异或生成最终的CO。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624110724380.png" alt="image-20250624110724380" />
+      
+    </figure>
+</p>
+<p>我们来看一个加法器模块：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624111306564.png" alt="image-20250624111306564" />
+      
+    </figure>
+</p>
+<p><strong>BCD加法，那么当大于10的时候，我们就要进位并且进行修改：</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624111438838.png" alt="image-20250624111438838" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624111721238.png" alt="image-20250624111721238" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">时序逻辑电路 
+    <div id="%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>​	重点：时序电路<strong>概念</strong>、<strong>双稳态元件</strong>的原理（重点是<strong>触发器</strong>）、<strong>同步时序电路的分析与设计方法</strong>、<strong>脉冲异步时序电路分析与设计方法</strong>、常用<strong>时序逻辑器件</strong>（<strong>计数器、寄存器</strong>）。</p>
+<p>​	就是分析设计方法，<strong>触发器，计数器和寄存器</strong>的原理。</p>
+
+
+<h2 class="relative group">基础 
+    <div id="%E5%9F%BA%E7%A1%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E7%A1%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">时序电路概述 
+    <div id="%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E6%A6%82%E8%BF%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E6%A6%82%E8%BF%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>逻辑电路的特性，时序电路状态</strong></p>
+<p>特性:<strong>接收输入信号</strong>且产生与输入信号有<strong>确定关系的</strong>正确且<strong>稳定</strong>的输出信号。</p>
+<p>状态:  用来反映电路以往输入的情况，称为电路状态。在实际电路中，以二进制的形式表示，其中的每一位都称为一个状态变量。时序电路的状态是状态变量的集合,它在任何时刻的值都包含所有的对确定电路将来行为所必需的过去信息。&mdash;》说的什么东西？看书。</p>
+<p><strong>时序电路的一般结构</strong></p>
+<p>一般形式：</p>
+<p>分为一部分组合电路和存储电路，存储电路和组合电路会进行作用和反作用。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624175332569.png" alt="image-20250624175332569" />
+      
+    </figure>
+</p>
+<p><strong>时序电路的分类</strong></p>
+<p>① 按照<strong>引起状态发生变化的原（诱）因</strong>可分为：</p>
+<p><strong>同步时序电路</strong>：其状态的改变受<strong>同一个时钟脉冲</strong>的控制，且与时钟脉冲同步。即电路在统一时钟<strong>CP/CLK</strong>控制下，同步改变状态。在两个时钟脉冲中间，输入信号的变化不会改变电路状态。&mdash;》由系统的CLK同步控制电路。</p>
+<p><strong>异步时序电路</strong>：<strong>无统一的时钟脉冲使整个系统的工作同步</strong>，输入直接引起状态改变。&mdash;》直接由外部控制输入，也就是可以自己控制速度的感觉。</p>
+<p>② 按输入<strong>信号x的特性</strong>可分为：</p>
+<p><strong>同步时序电路中</strong>，输入信号x相对时钟脉冲CP的变化速度而言，如果<strong>输入信号x在两个时钟脉冲之间信号完成0 →1→0</strong>(或1 →0 →1)两次变化则称为<strong>脉冲输入同步时序电路</strong>，<strong>否则称为电平输入同步时序电路</strong>。</p>
+<p><strong>异步时序电路中</strong>，输入信号x按照电路研究的目的区分：如果研究的是输入信号x完成<strong>0 →1→0(或1 →0 →1)两次变化</strong>对电路的影响，则称为<strong>脉冲输入异步时序电路</strong>，否则称为<strong>电平输入异步时序电路</strong>。</p>
+<p>即：<strong>脉冲输入</strong>：在<strong>两个时钟脉冲之间信号完成0 →1→0(或1 →0 →1)两次变化后</strong>对电路的影响；<strong>电平输入</strong>：<strong>信号完成一次0 →1(或1 →0) 变化</strong>对电路的影响。</p>
+<p>在<strong>两个时钟信号之间</strong>（如两个上升沿之间），我们看输入信号 <code>x</code> 的变化：</p>
+<ul>
+<li>如果 <code>x</code> 在这段时间内是<strong>短暂跳变</strong>的（即从 0→1 然后马上又变回 0），这种变化我们叫它“脉冲” ⇒ <strong>脉冲输入</strong></li>
+<li>如果 <code>x</code> 只改变一次（如从 0 变成 1 然后就一直保持），这叫“<strong>电平输入</strong>”</li>
+</ul>
+<p>📌 <strong>总结一句话</strong>：在“一个时钟周期内”，</p>
+<ul>
+<li><strong>快速跳变两次 ⇒ 脉冲输入</strong></li>
+<li><strong>只变一次或不变 ⇒ 电平输入</strong></li>
+</ul>
+<p>如图所示：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624180448977.png" alt="image-20250624180448977" />
+      
+    </figure>
+</p>
+<p>③ 按输出信号的特性可分为：<strong>Mealy</strong>型时序电路和<strong>Moore</strong>型时序电路。</p>
+<table>
+  <thead>
+      <tr>
+          <th>项目</th>
+          <th><strong>Mealy 型电路</strong></th>
+          <th><strong>Moore 型电路</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>输出依赖</strong></td>
+          <td>当前状态 + <strong>当前输入</strong></td>
+          <td><strong>仅当前状态</strong></td>
+      </tr>
+      <tr>
+          <td><strong>输出变化时机</strong></td>
+          <td><strong>输入变化时立即改变</strong></td>
+          <td>仅在<strong>状态变化</strong>时改变</td>
+      </tr>
+      <tr>
+          <td><strong>输出位置</strong></td>
+          <td>接在**状态转移边（箭头）**上</td>
+          <td>接在状态结点（<strong>圆圈</strong>）内</td>
+      </tr>
+      <tr>
+          <td><strong>状态数</strong></td>
+          <td>少，通常更紧凑</td>
+          <td>多，通常冗余些</td>
+      </tr>
+      <tr>
+          <td><strong>延迟反应</strong></td>
+          <td>无（更快）</td>
+          <td>有（一个周期）</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Mealy</strong>型电路要考虑当前的输入，并且输入变化的时候立刻发生改变。看表即可。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624212109553.png" alt="image-20250624212109553" />
+      
+    </figure>
+</p>
+<p>状态在边上进行改变：</p>
+<pre tabindex="0"><code>状态A —— x=1 / y=0 ——&gt; 状态B
+           ↑
+         输入决定输出
+</code></pre><p><strong>Moore</strong>型电路，状态在节点上面。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624212117086.png" alt="image-20250624212117086" />
+      
+    </figure>
+</p>
+<pre tabindex="0"><code>[状态A] ——x=1——&gt; [状态B]
+  y=0              y=1
+</code></pre><p><strong>时序电路的描述方法</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624212749470.png" alt="image-20250624212749470" />
+      
+    </figure>
+</p>
+<p>可以看出来区别，<strong>Mealy</strong>的输入可以决定不同的输出，但是<strong>Moore</strong>型的输入就只能决定次态。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624213314580.png" alt="image-20250624213314580" />
+      
+    </figure>
+</p>
+<p>从状态图也能看出来区别：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624213808246.png" alt="image-20250624213808246" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">时序电路的双稳态元件 
+    <div id="%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E5%8F%8C%E7%A8%B3%E6%80%81%E5%85%83%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E5%8F%8C%E7%A8%B3%E6%80%81%E5%85%83%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>双稳态元件</strong>是构成<strong>存储电路</strong>的基本模块，通常指<strong>锁存器(Latch)<strong>或</strong>触发器(Flip-flop)</strong> 。</p>
+<p>双稳态元件的<strong>特点</strong>是：</p>
+<p>⑴  有<strong>两个稳定状态</strong>，分别表示存储数码（数字、逻辑状态） 0 或 1。  &mdash;》为什么叫双稳态的元件。</p>
+<p>⑵  在触发（激励）信号作用下，它可从一个<strong>稳态翻转到另一个稳态</strong>。</p>
+<p>每个双稳态元件可保存<strong>一位二进制</strong>数，对应一个状态变量。每个双稳态元件有<strong>两个互反（补）的输出端 Q 和 /Q</strong>，               分别被称为：1 态 (Q = 1，/Q = 0)；0 态 (Q = 0，/Q = 1)。</p>
+<p><strong>触发器或锁存器</strong>翻转前的状态称为现态 Qn (Q)，翻转后的状态称为次态 Qn+1。</p>
+<p><strong>锁存器</strong>是利用<strong>电平信号</strong>控制数据的输入；</p>
+<p><strong>触发器</strong>是利用<strong>脉冲信号或信号的边沿</strong>控制数据的输入。  &mdash;》基本都是要用CLK来控制的。</p>
+<p><strong>锁存器</strong>包括：<strong>不带使能控制的锁存器</strong>(输入电平直接影响输出)；</p>
+<p>带使能控制的锁存器(仅当<strong>使能输入</strong>有效时，其输入才直接影响输出)。</p>
+<p>触发器包括：</p>
+<p><strong>主从结构的脉冲</strong>触发器；</p>
+<p><strong>维持阻塞结构的边沿</strong>触发器。</p>
+
+
+<h4 class="relative group">S-R 锁存器（Set-Reset Latche） 
+    <div id="s-r-%E9%94%81%E5%AD%98%E5%99%A8set-reset-latche" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#s-r-%E9%94%81%E5%AD%98%E5%99%A8set-reset-latche" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624223805256.png" alt="image-20250624223805256" />
+      
+    </figure>
+</p>
+<p>工作原理：注意利用的是或非门。</p>
+<p>通过R和S来进行设置。得到了<strong>简化的次态真值表</strong>，我们之后画卡诺图，最后得到次态方程即可。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624224227960.png" alt="image-20250624224227960" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624224351199.png" alt="image-20250624224351199" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">/S - /R 锁存器(/S - /R Latche) 
+    <div id="s---r-%E9%94%81%E5%AD%98%E5%99%A8s---r-latche" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#s---r-%E9%94%81%E5%AD%98%E5%99%A8s---r-latche" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>只是变成了<strong>低有效的使能</strong>，并且是<strong>与非门</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624225042180.png" alt="image-20250624225042180" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624225643351.png" alt="image-20250624225643351" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">带使能端的S-R 锁存器 （S-R latche with enable） 
+    <div id="%E5%B8%A6%E4%BD%BF%E8%83%BD%E7%AB%AF%E7%9A%84s-r-%E9%94%81%E5%AD%98%E5%99%A8-s-r-latche-with-enable" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B8%A6%E4%BD%BF%E8%83%BD%E7%AB%AF%E7%9A%84s-r-%E9%94%81%E5%AD%98%E5%99%A8-s-r-latche-with-enable" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>带一个看是否有效的EN端。</p>
+<p>工作过程也是类似的，只是当C有效的时候才能正常工作。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250624225834364.png" alt="image-20250624225834364" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">D锁存器（ D Latche） 
+    <div id="d%E9%94%81%E5%AD%98%E5%99%A8-d-latche" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#d%E9%94%81%E5%AD%98%E5%99%A8-d-latche" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	 S-R 锁存器由于能够<strong>独立地控制置位端及复位</strong>（清除、清零）端，因此，它可应用在根据某些条件“<strong>置位</strong>”而在另外一些条件下“复位”的场所，但这需要置位、复位二根输入信号线。</p>
+<p>​	在实际工作中经常需要简单地<strong>锁存一位二进制数</strong>，这时应用D锁存器保存数据就更方便些。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625131108753.png" alt="image-20250625131108753" />
+      
+    </figure>
+</p>
+<p>其实还是<strong>S-R</strong>锁存器，但是<strong>简化了输入的控制</strong>，很方便。而且还有一个<strong>EN</strong>。</p>
+<p>注意要在EN<strong>有效的时候才能进行工作</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625131326015.png" alt="image-20250625131326015" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625131400256.png" alt="image-20250625131400256" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>所以锁存器工作原理还是比较简单的。</p></blockquote>
+
+
+<h4 class="relative group">边沿触发的D触发器 
+    <div id="%E8%BE%B9%E6%B2%BF%E8%A7%A6%E5%8F%91%E7%9A%84d%E8%A7%A6%E5%8F%91%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BE%B9%E6%B2%BF%E8%A7%A6%E5%8F%91%E7%9A%84d%E8%A7%A6%E5%8F%91%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	D锁存器要求在控制(时钟)输入C （ CLK ）有效期间内，输入数据D 稳定不变。</p>
+<p>​	这就给实际使用带来不便。因而提出了<strong>边沿触发器</strong>需求。边沿触发器是指，只在控制信号的<strong>有效边沿(<strong>前沿、后沿或称为</strong>上升沿、下降沿</strong>)时接收数据。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625131638810.png" alt="image-20250625131638810" />
+      
+    </figure>
+</p>
+<p>这是什么东西？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625132757997.png" alt="image-20250625132757997" />
+      
+    </figure>
+</p>
+<p>工作过程：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625133041165.png" alt="image-20250625133041165" />
+      
+    </figure>
+</p>
+<p>也就是说，<strong>CLK</strong>是<strong>SR</strong>的门控信号，只有当<strong>CLK</strong>为高电平的时候，D的输入才会有效。</p>
+<p>我们来分析一下上面这个电路。（考试前可以看看）</p>
+<p>开始，当CLK为0的时候，a，b，c三条线都是1。</p>
+<p>如果D从0变成1,那么6的输出成为0,5的输出成为1。</p>
+<p>那么当CLK上升为1的时候，3的输出为0,4的输出为1，那么此时Q为1。也就是CLK使得Q和D同步了。</p>
+<p>并且此时a，b两条线都变成了0，因为是与非门，相当于a封锁了4的输入，b封锁了5的输入。</p>
+<p>那么如果这个时候，D从1变成0,虽然CLK还是1,但是这个6输出的1没有办法传到SR（被a阻塞了），Q还是保持为1。</p>
+<p>所以<strong>a&mdash;》置0阻塞线</strong>（D从1变成0的时候会被阻塞） <strong>b&mdash;》置1阻塞线 c&mdash;》置0维持线</strong>（分析方法类似，阻塞了门6的输入）</p>
+<p>总结一下：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625135632843.png" alt="image-20250625135632843" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625135800527.png" alt="image-20250625135800527" />
+      
+    </figure>
+</p>
+<p>注意<strong>有效沿到达之前和到达之后</strong>都应该保持一段时间：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625141750627.png" alt="image-20250625141750627" />
+      
+    </figure>
+</p>
+<p>用verilog设计D触发器：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625154510972.png" alt="image-20250625154510972" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">主从S-R 触发器（ Master/slave S-R Flip-flop） 
+    <div id="%E4%B8%BB%E4%BB%8Es-r-%E8%A7%A6%E5%8F%91%E5%99%A8-masterslave-s-r-flip-flop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E4%BB%8Es-r-%E8%A7%A6%E5%8F%91%E5%99%A8-masterslave-s-r-flip-flop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>主从触发器由<strong>主触发器和从触发器</strong>两部分构成。 &mdash;》由两个SR构成</p>
+<p>主从触发器是在<strong>脉冲下降沿</strong>改变输出：</p>
+<p>即 ① 在触发脉冲<strong>CLK</strong>作用时间(<strong>CLK为高电平期间</strong>)，<strong>S、R状态的变化将记入主触发器</strong>；</p>
+<p>② 在<strong>CLK下降沿时间</strong>，从<strong>触发器接收此时刻的主触发器状态</strong>。</p>
+<p>（在高电平期间记录变化，在下降沿接收状态）</p>
+<p>这个实现也很清晰：在高电平期间，主SR有效，记录下来，接着在下降之后，后面的从SR有效，进行输出。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625142420879.png" alt="image-20250625142420879" />
+      
+    </figure>
+</p>
+<p>那么工作的情况也是类似的：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625142707247.png" alt="image-20250625142707247" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625142948377.png" alt="image-20250625142948377" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">主从J-K 触发器（Master/slave J-K Flip-flop） 
+    <div id="%E4%B8%BB%E4%BB%8Ej-k-%E8%A7%A6%E5%8F%91%E5%99%A8masterslave-j-k-flip-flop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E4%BB%8Ej-k-%E8%A7%A6%E5%8F%91%E5%99%A8masterslave-j-k-flip-flop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	在<strong>主从 S-R 触发器</strong>的使用过程中不允许S、R信号同时有效，这给应用带来不便。J-K 触发器利用输出Q及/Q不会同时为1或0这一特性，将输入J、K先分别同/Q及Q “相与” 后再输入到主触发器的S及R输入端，从而保证主触发器的S及R端不会同时有效，见图。</p>
+<p>就只是在主从SR的基础上面加了JK的处理，和Q和/Q做了&amp;运算。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625143254937.png" alt="image-20250625143254937" />
+      
+    </figure>
+</p>
+<p>当JK都是1的时候就会反转：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625143433770.png" alt="image-20250625143433770" />
+      
+    </figure>
+</p>
+<p>根据上面的次态真值表画卡诺图：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625144019789.png" alt="image-20250625144019789" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625144138878.png" alt="image-20250625144138878" />
+      
+    </figure>
+</p>
+<p>​	为使触发器稳定工作，要求触发脉冲（clk）的最小宽度大于主触发器的状态转换稳定时间，即大于2个门的传输时间；时间间隔要大于4个门的传输时间。&mdash;》<strong>因为SR中有两个门</strong>。</p>
+
+
+<h4 class="relative group">边沿触发J－K 触发器（Edge-triggered JK Flip-flop） 
+    <div id="%E8%BE%B9%E6%B2%BF%E8%A7%A6%E5%8F%91jk-%E8%A7%A6%E5%8F%91%E5%99%A8edge-triggered-jk-flip-flop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BE%B9%E6%B2%BF%E8%A7%A6%E5%8F%91jk-%E8%A7%A6%E5%8F%91%E5%99%A8edge-triggered-jk-flip-flop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	<strong>边沿触发JK触发器</strong>类似于D触发器也要求有<strong>建立时间和保持时间</strong>，但其建立时间较脉冲触发（主从结构）的JK 触发器为短，因此应用更为广泛。</p>
+<p>​	<strong>主从结构的JK触发器</strong>要求在时钟脉冲CLK的下降沿到来之前，输入端<strong>J、K必须稳定较长时间</strong>，以便输入（激励）的变化能传送到主触发器的输出QM及/QM。</p>
+<pre><code>JK触发器常用于同步时序电路中，有时JK触发器的次态逻辑要比D触发器简单，不过大部分时序电路采用的是D触发器。这是由于**D触发器只需一个数据输入端，使得设计出的电路更加简单**。因此，在大多数可编程逻辑器件(PLD)中包含的只有 D触发器。
+</code></pre>
+<p>比如可能会考察怎么<strong>用D触发器构成JK触发器</strong>。&mdash;》直接由逻辑表达式画图即可。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625152846450.png" alt="image-20250625152846450" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625153431798.png" alt="image-20250625153431798" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625153458523.png" alt="image-20250625153458523" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">T触发器 T Flip-flop 
+    <div id="t%E8%A7%A6%E5%8F%91%E5%99%A8-t-flip-flop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#t%E8%A7%A6%E5%8F%91%E5%99%A8-t-flip-flop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625153550190.png" alt="image-20250625153550190" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625153647679.png" alt="image-20250625153647679" />
+      
+    </figure>
+</p>
+<p><strong>怎么实现？</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625153834479.png" alt="image-20250625153834479" />
+      
+    </figure>
+</p>
+<p>用D实现的时候，简单的<strong>将Q和T异或运算</strong>然后输入即可。</p>
+
+
+<h4 class="relative group">无使能控制的 T 触发器 
+    <div id="%E6%97%A0%E4%BD%BF%E8%83%BD%E6%8E%A7%E5%88%B6%E7%9A%84-t-%E8%A7%A6%E5%8F%91%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%A0%E4%BD%BF%E8%83%BD%E6%8E%A7%E5%88%B6%E7%9A%84-t-%E8%A7%A6%E5%8F%91%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>这个实现也很简单：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625154052203.png" alt="image-20250625154052203" />
+      
+    </figure>
+</p>
+<p><strong>锁存器是利用电平控制数据的输入</strong>；</p>
+<p>触发器是利用<strong>脉冲或边沿控制数据</strong>的输入。</p>
+<p>锁存器包括：</p>
+<p>不带使能控制的锁存器(输入电平直接影响输出)；</p>
+<p>带使能控制的锁存器(仅当使能输入有效时，其输入才直接影响输出)。</p>
+<p>触发器包括：</p>
+<p>主从结构的脉冲触发器；    &mdash;》主从SR 主从JK</p>
+<p>维持阻塞结构的边沿触发器。 &mdash;》D触发器 边沿JK触发器</p>
+
+
+<h2 class="relative group">同步时序电路的分析设计 
+    <div id="%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%86%E6%9E%90%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%86%E6%9E%90%E8%AE%BE%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">同步时序电路的分析 
+    <div id="%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%86%E6%9E%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%86%E6%9E%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">同步时序电路分析的一般步骤 
+    <div id="%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>过程比较复杂，我们根据具体的例子来看下。</p></blockquote>
+<p><strong>（1）列出激励函数及输出函数表达式</strong>：</p>
+<p>a、<strong>激励函数</strong> = G( 输入，现态 )</p>
+<p>b、<strong>Mealy</strong>型输出函数  = F( <strong>输入，现态</strong> )	OR	<strong>Moore</strong>型输出函数 = F( <strong>现态</strong> )</p>
+<p><strong>（2）根据触发器的次态方程得到各个状态变量的次态方程</strong>：</p>
+<p>​	次态变量 = Q( 输入，现态 )</p>
+<p>（3）<strong>根据状态变量的次态方程填写二进制状态表。</strong></p>
+<p>（4）根据<strong>输出函数表达式填写输出值，得到二进制状态输出表</strong>。</p>
+<p>（5）每一个<strong>二进制状态分配一个字母状态名</strong>，从而得到<strong>字母状态输出表</strong>。</p>
+<p>（6）根据<strong>状态输出表</strong>，画出<strong>状态图</strong>。</p>
+<p>（7）<strong>电路特性描述，确定电路的逻辑功能</strong>（很容易漏了这个分析步骤！）。&mdash;》这个电路<strong>实际上是什么意思</strong>？</p>
+
+
+<h4 class="relative group">同步时序电路分析举例 
+    <div id="%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E4%B8%BE%E4%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E4%B8%BE%E4%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>举例子分析：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625163501231.png" alt="image-20250625163501231" />
+      
+    </figure>
+</p>
+<p><strong>1.激励函数针对于状态存储器，确定激励函数和输出函数。</strong></p>
+<p><strong>2.针对存储器，写出状态变量的次态方程。</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625164246292.png" alt="image-20250625164246292" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625170544204.png" alt="image-20250625170544204" />
+      
+    </figure>
+</p>
+<p>作二进制状态输出表。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625170651757.png" alt="image-20250625170651757" />
+      
+    </figure>
+</p>
+<p>再举一个例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625170835600.png" alt="image-20250625170835600" />
+      
+    </figure>
+</p>
+<p>分析过程手写：（<strong>可能会出现这样的一道题目</strong>）</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/7d8def03001ec93b61cae416eeec7615.jpg" alt="7d8def03001ec93b61cae416eeec7615" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">同步时序电路的设计 
+    <div id="%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E8%AE%BE%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">同步时序电路设计步骤 
+    <div id="%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%AD%A5%E9%AA%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E6%AD%A5%E9%AA%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>设计和分析的过程是相反的。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625173052178.png" alt="image-20250625173052178" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">建立原始状态图和原始状态表——构图法 
+    <div id="%E5%BB%BA%E7%AB%8B%E5%8E%9F%E5%A7%8B%E7%8A%B6%E6%80%81%E5%9B%BE%E5%92%8C%E5%8E%9F%E5%A7%8B%E7%8A%B6%E6%80%81%E8%A1%A8%E6%9E%84%E5%9B%BE%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BB%BA%E7%AB%8B%E5%8E%9F%E5%A7%8B%E7%8A%B6%E6%80%81%E5%9B%BE%E5%92%8C%E5%8E%9F%E5%A7%8B%E7%8A%B6%E6%80%81%E8%A1%A8%E6%9E%84%E5%9B%BE%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>基本方法：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625173452455.png" alt="image-20250625173452455" />
+      
+    </figure>
+</p>
+<p>简单例子，直接根据要求画图：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625173911806.png" alt="image-20250625173911806" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625174123467.png" alt="image-20250625174123467" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">状态化简：完全给定与不完全给定同步时序电路状态表的化简 
+    <div id="%E7%8A%B6%E6%80%81%E5%8C%96%E7%AE%80%E5%AE%8C%E5%85%A8%E7%BB%99%E5%AE%9A%E4%B8%8E%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%BB%99%E5%AE%9A%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%8A%B6%E6%80%81%E8%A1%A8%E7%9A%84%E5%8C%96%E7%AE%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%8A%B6%E6%80%81%E5%8C%96%E7%AE%80%E5%AE%8C%E5%85%A8%E7%BB%99%E5%AE%9A%E4%B8%8E%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%BB%99%E5%AE%9A%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%8A%B6%E6%80%81%E8%A1%A8%E7%9A%84%E5%8C%96%E7%AE%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h5 class="relative group">完全给定同步时序电路状态表的化简 
+    <div id="%E5%AE%8C%E5%85%A8%E7%BB%99%E5%AE%9A%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%8A%B6%E6%80%81%E8%A1%A8%E7%9A%84%E5%8C%96%E7%AE%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%8C%E5%85%A8%E7%BB%99%E5%AE%9A%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%8A%B6%E6%80%81%E8%A1%A8%E7%9A%84%E5%8C%96%E7%AE%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>等效的相关概念状态等效定义&mdash;》都是很字面的意思。</p>
+<p>​	设：S1 和 S2 是完全给定时序电路 M1和  M2 ( M1和 M2可以是同一个电路)的两个状态，作为初态同时加入任意输入序列，所产生的输出序列完全一致，则状态 <strong>S1 和 S2 是等效</strong>(或等价)的，称 <strong>S1和 S2 是等效对</strong>，记为 (S1，S2)。<strong>在同一电路中等效状态可以合并为一个状态</strong>。</p>
+<p><strong>怎么判断是否等效</strong></p>
+<p>条件1： 它们的<strong>输出完全相同</strong>（identical outputs ）。</p>
+<p>条件2：它们的次态满足下列条件之一：</p>
+<p>① <strong>次态相同</strong></p>
+<p>② <strong>次态交错</strong></p>
+<p>③ <strong>次态维持</strong></p>
+<p>④ <strong>后续状态等效</strong></p>
+<p>⑤ <strong>次态循环</strong></p>
+<p>注意次态交错，就是相同的输入的时候，他们的<strong>次态都是对方</strong>。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625174650122.png" alt="image-20250625174650122" />
+      
+    </figure>
+</p>
+<p>次态维持就是相同的输入，他们的<strong>次态都是自己</strong>：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625174757628.png" alt="image-20250625174757628" />
+      
+    </figure>
+</p>
+<p><strong>后续等效</strong>就是类似于一种递归的判断等效类的方法：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625174857895.png" alt="image-20250625174857895" />
+      
+    </figure>
+</p>
+<p>这个比较抽象，就是一种循环的递归：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625175059973.png" alt="image-20250625175059973" />
+      
+    </figure>
+</p>
+<p>那么当我们拿到一张表怎么办？</p>
+<p><strong>利用隐含表进行状态化简</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625175238345.png" alt="image-20250625175238345" />
+      
+    </figure>
+</p>
+<p>用隐含表手动操作一下这样的化简过程。</p>
+
+
+<h5 class="relative group">接下来是不完全给定的部分： 
+    <div id="%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%98%AF%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%BB%99%E5%AE%9A%E7%9A%84%E9%83%A8%E5%88%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%98%AF%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%BB%99%E5%AE%9A%E7%9A%84%E9%83%A8%E5%88%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<blockquote>
+<p>注意：只有在不完全的时候我们会考虑相容类的问题。</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625181535767.png" alt="image-20250625181535767" />
+      
+    </figure>
+</p>
+<p>和前面有差异：&mdash;》相对来说比较复杂。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625181626716.png" alt="image-20250625181626716" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625181909496.png" alt="image-20250625181909496" />
+      
+    </figure>
+</p>
+<p>比如化简这样一个状态表：（没有给定的部分直接当作是相同的）</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625181730037.png" alt="image-20250625181730037" />
+      
+    </figure>
+</p>
+<p>分析如下：</p>
+<p>覆盖闭合表就是找不冲突的一个过程，并且尝试覆盖所有的变量。</p>
+<p>并且其中x = 0,以及x = 1的输出都必须在一个已经选定的相容类之中。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/5b2351ec2fc43c6cba149a5c0dca7ee2.jpg" alt="5b2351ec2fc43c6cba149a5c0dca7ee2" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">状态分配：相邻状态分配法 
+    <div id="%E7%8A%B6%E6%80%81%E5%88%86%E9%85%8D%E7%9B%B8%E9%82%BB%E7%8A%B6%E6%80%81%E5%88%86%E9%85%8D%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%8A%B6%E6%80%81%E5%88%86%E9%85%8D%E7%9B%B8%E9%82%BB%E7%8A%B6%E6%80%81%E5%88%86%E9%85%8D%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>状态分配就是给最小化状态表中的每个字母状态指定（指派）一个二进制代码来表示，又称为状态编码。</p>
+<p>我们刚才已经化简得到了状态表，现在我们要进行分配一些二进制数字。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625202903988.png" alt="image-20250625202903988" />
+      
+    </figure>
+</p>
+<p>比如说我们来进行一种分配：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625203058293.png" alt="image-20250625203058293" />
+      
+    </figure>
+</p>
+<p>有K个触发器，n种状态，我们怎么计算？</p>
+<p>总共可能的总数：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625203315721.png" alt="image-20250625203315721" />
+      
+    </figure>
+</p>
+<p>真实的数量：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625204309057.png" alt="image-20250625204309057" />
+      
+    </figure>
+</p>
+<p>继续上面的分配，我们一共有两种方案：</p>
+<p><strong>第一种方案：</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625205236225.png" alt="image-20250625205236225" />
+      
+    </figure>
+</p>
+<p><strong>第二种方案：</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625205403959.png" alt="image-20250625205403959" />
+      
+    </figure>
+</p>
+<p>明显可以看出来第二种更麻烦，那我们怎么处理？显然1都在一起的话是最好的，这样可以形成更大的卡诺圈。</p>
+<p><strong>相邻状态分配法 State Assignment Rules</strong></p>
+<p>​	思路：尽可能使<strong>次态和输出函数</strong>在卡诺图上**“1”、“0”<strong>单元的</strong>分布为相邻**，以便<strong>形成较大的卡诺圈</strong>，从而得到最简的<strong>次态方程</strong>（实际上是激励方程，D器件两者能统一）和输出函数表达式。</p>
+<p>规则  I：在<strong>相同输入条件</strong>下，<strong>次态相同</strong>，<strong>安排现态的编码相邻</strong>。</p>
+<p>规则 II：在<strong>相邻输入条件</strong>下，<strong>同一现态</strong>，<strong>安排次态的编码相邻</strong>。</p>
+<p>规则III：<strong>输出完全相同</strong>，安排<strong>现态的编码相邻</strong>。（有利于优化输出函数）</p>
+<p>考试之前再看一下这里。</p>
+<p><strong>规则I：在相同输入条件下，次态相同，安排现态的编码相邻。</strong></p>
+<p>在<strong>同一个列</strong>中，看有多少次<strong>次态是相同</strong>的，显然右边的图中，一共出现了4次是相同的情况。</p>
+<p>让<strong>现态</strong>相邻。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625210251928.png" alt="image-20250625210251928" />
+      
+    </figure>
+</p>
+<p><strong>规则II：在相邻的输入条件下，同一现态，安排次态的编码相邻。 &mdash;》这里的相邻和卡诺图是类似的。</strong></p>
+<p>让<strong>次态</strong>相邻。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625210614959.png" alt="image-20250625210614959" />
+      
+    </figure>
+</p>
+<p><strong>规则III：输出完全相同，安排现态的编码相邻。</strong></p>
+<p>比如这里的BC相邻的话，由于满足了一次，那么改善效果就是2 * 1 * 1 = 4</p>
+<p>那么要注意这里p是组合数量，但是q是位数，q = 1。</p>
+<p><strong>现态</strong>相邻。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625211217847.png" alt="image-20250625211217847" />
+      
+    </figure>
+</p>
+<p><strong>那么我们到底怎么分配？我曹！</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625211648668.png" alt="image-20250625211648668" />
+      
+    </figure>
+</p>
+<p>做题：</p>
+<p><strong>完成这个状态表的分配：</strong></p>
+<p>K = 2 p = 2 q = 1</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625233544277.png" alt="image-20250625233544277" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/de2320dc9baa01a814d7f108f64a56db.jpg" alt="de2320dc9baa01a814d7f108f64a56db" />
+      
+    </figure>
+</p>
+<p>再把规则搞清楚一次：</p>
+<p><strong>三个规则怎么计算？（这里，规则1不考虑输入为“11”的组合）</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625234449812.png" alt="image-20250625234449812" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">激励函数和输出函数的确定 
+    <div id="%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0%E5%92%8C%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0%E7%9A%84%E7%A1%AE%E5%AE%9A" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0%E5%92%8C%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0%E7%9A%84%E7%A1%AE%E5%AE%9A" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>这个时候我们很不容易的把二进制状态分配出来了，我们怎么确认函数？</p>
+<p>根据所选择的激励表直接画就可以了。</p></blockquote>
+<p><strong>（1）触发器类型的选择</strong></p>
+<p>触发器类型的不同将决定电路中<strong>激励函数的繁简</strong>。</p>
+<p>因此，选择触发器类型的重要条件就是能使激励函数最简。</p>
+<p>在大多数情况下，<strong>最常选用的是D触发器</strong>，<strong>其次是选用JK触发器和T触发器</strong>。</p>
+<p>在非计数型的时序电路中，有时可选用SR触发器。在小规模 PLD器件中只包含D触发器。</p>
+<p>大规模PLD中有些型号有其他触发器的。</p>
+<p><strong>激励函数和输出函数的确定</strong></p>
+<p>根据这个二进制状态表。</p>
+<p><strong>D1 = Y1 D0 = Y0对于D触发器，直接和次态是一样的。</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250625235238821.png" alt="image-20250625235238821" />
+      
+    </figure>
+</p>
+<p>用JK实现，稍微就要看看表了：</p>
+<p>记住JK的激励表。。。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626000716785.png" alt="image-20250626000716785" />
+      
+    </figure>
+</p>
+<p>用T触发器，也是类似的做法。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626083719155.png" alt="image-20250626083719155" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">电路分析与说明、设计举例 
+    <div id="%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E4%B8%8E%E8%AF%B4%E6%98%8E%E8%AE%BE%E8%AE%A1%E4%B8%BE%E4%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E4%B8%8E%E8%AF%B4%E6%98%8E%E8%AE%BE%E8%AE%A1%E4%B8%BE%E4%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>举一个简单的例子：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626084051807.png" alt="image-20250626084051807" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626084126834.png" alt="image-20250626084126834" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626084220117.png" alt="image-20250626084220117" />
+      
+    </figure>
+</p>
+<p><strong>注意最终的电路图中触发器的CLK端连接CLK！！！</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626085247382.png" alt="image-20250626085247382" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>这块可以做上几个题目，考试应该不会考察过于复杂的情况。</p></blockquote>
+
+
+<h2 class="relative group">脉冲异步时序电路的分析设计 
+    <div id="%E8%84%89%E5%86%B2%E5%BC%82%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%86%E6%9E%90%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%84%89%E5%86%B2%E5%BC%82%E6%AD%A5%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%86%E6%9E%90%E8%AE%BE%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>这里注意<strong>概念</strong>问题：</p>
+<p>时序电路的<strong>分类</strong>：<strong>按其引起状态发生变化的原因不同</strong>而分类。</p>
+<p>同步时序电路受**统一的时钟脉冲信号（CLK）**控制，<strong>工作特点</strong>为：</p>
+<p>（1）时钟脉冲信号<strong>同时到达各记忆器件</strong>，促使电路状态发生<strong>预期改变</strong>。&mdash;》各个触发器连接相同的CLK。</p>
+<p>（2）只有<strong>前一个脉冲信号引起的电路响应完全结束后，第二个脉冲信号方能到来</strong>。（周期T=最大路径延迟时间+组合险象的消失时间。）&mdash;》两个CLK之间结束变化。</p>
+<p>（3）<strong>外部输入信号的变化应满足触发器正常工作所需的建立和保持时间</strong>。这些特点简化了电路分析与设计工作。但电路的工作速度的<strong>提高受到了限制</strong>，且对<strong>时钟脉冲信号到达各记忆器件的时间及外部信号的变化有较严格的要求</strong>。</p>
+<p><strong>异步时序电路的特点</strong>：</p>
+<p>（1）没有<strong>统一的同步时钟脉冲</strong>，电路状态的改变是由<strong>外部输入信号的变化直接引起</strong>的。&mdash;》<strong>可以不用CLK</strong>。</p>
+<p>（2）按输入信号的特征分为：<strong>脉冲型与电平型</strong>。</p>
+<p>1.脉冲型：<strong>输入是脉冲信号</strong>，即输入信号的电平变化是**“高-&gt;低-&gt;高”或“低-&gt;高-&gt;低”<strong>，且在输</strong>入脉冲的一个周期内使电路状态只改变一次。所以分析与设计方法与同步时序类似。**</p>
+<p>差别：异步脉冲电路的特殊规定引起的（对<strong>输入进行了限定</strong>！）。    &mdash;》<strong>一个脉冲改变一次，但是对于输入的值会限定</strong>。</p>
+<p>2.电平型：<strong>输入是电平信号</strong>，即输入信号的电平变化是**“高-&gt;低”或“低-&gt;高”<strong>，且在电平变化后的一段时间里，电路可能发生多次状态改变，最后才趋于稳定。因此，<strong>输入与输出间存在延迟与竞争现象</strong>，设计比较复杂。&mdash;》<strong>只有一次电平</strong>的变化，但是</strong>可能会产生多次改变**。</p>
+<p>也分为Mealy和Moore。</p>
+<p>A.脉冲异步时序电路与同步时序电路的<strong>相同点</strong>是：</p>
+<p>（1） 存储元件都是<strong>触发器/锁存器</strong>。   &mdash;》使用器件相同</p>
+<p>（2） 状态的改变<strong>都依赖于外部输入（脉冲）信号和电路当前状态</strong>。 &mdash;》都依赖与外部和当前状态</p>
+<p>B.脉冲异步时序电路与同步时序电路的<strong>差异</strong>是：</p>
+<p>⑴ 脉冲异步时序电路<strong>无外加的统一的时钟脉冲</strong>。   &mdash;》不用CLK</p>
+<p>⑵ 输入变量为<strong>脉冲信号</strong>，由<strong>输入脉冲直接引起电路的状态改变</strong>。</p>
+<p>⑶ 由<strong>次态逻辑电路产生各触发器控制输入</strong>（<strong>激励</strong>）信号(Y1, Y2 , …,Yr) ,而且还产生时间有先后的各触发器的时钟控制信号(CLK1, CLK2, …,CLKr) 。？？？</p>
+<p>C.脉冲异步时序电路输入信号的限制：</p>
+<p>为了使电路可靠工作，电路状态变化可预知，对脉冲异步时序电路的输入信号作如下规定：</p>
+<p>⑴ 不允许<strong>两根或两根以上输入线上同时有输入脉冲信号</strong>。</p>
+<p>⑵ 在上一个输入脉冲信号引起的电路状态变化<strong>未稳定以前，不允许加入新的输入脉冲信号</strong>。</p>
+<p>D.<strong>脉冲异步时序电路</strong>分析方法:</p>
+<p>​	可将同步时序电路的分析与设计过程及工具稍作修改直接应用于脉冲异步电路。每个外部输入脉冲信号加入时，电路中所有的触发器均发生从现态到次态的转换。如果其中触发器的时钟端无时钟脉冲，则认为该触发器的次态等于现态。</p>
+<p>分析方法修改：</p>
+<p>脉冲异步时序电路的分析步骤基本上与同步电路一样，仅作以下修改：</p>
+<p>⑴  输入变量<strong>取值为1表示有脉冲信号</strong>，<strong>取值为 0 表示无脉冲信号</strong>。触发器的时钟输入端也按上述规定。</p>
+<p>⑵ 控制函数包括触发器的控制（激励）输入(Y1,Y2 , …,Yn)及触发器的时钟输入  (CLK1, CLK1, …,CLKr) 。</p>
+<p>⑶ 两个或两个以上的输入变量<strong>不能同时为1</strong>；输入变量全为0时，电路状态不变。&mdash;》这里要注意！</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626100432111.png" alt="image-20250626100432111" />
+      
+    </figure>
+</p>
+<p>举一个考试中考过的例子：</p>
+<p><strong>用D触发器设计一个“x1–x1–x2”序列检测器（米勒型）。</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/34d6e006d55d62ccb06b4a0c5e15fc6b.jpg" alt="34d6e006d55d62ccb06b4a0c5e15fc6b" />
+      
+    </figure>
+</p>
+<p>关于CLK和D的关系一定要搞清楚，比较复杂：</p>
+<blockquote>
+<p>这里也是考试的重点。</p></blockquote>
+<p>1.扩展的情况，CLK为d&mdash;》D也为d。</p>
+<p>2.x1x2不同时为1&mdash;》CLK为d&mdash;》D也是d。</p>
+<p>3.针对于比如y1,现态和次态之间没有变化（认为⌚没有作用），那么CLK = 0&mdash;》D = d。</p>
+<p>4.如果发生了变化（认为⌚驱动了D触发器），那么CLK = 1&mdash;》D的值就是次态的值（和激励表是一样的）。</p>
+
+
+<h2 class="relative group">常用的时序逻辑器件 
+    <div id="%E5%B8%B8%E7%94%A8%E7%9A%84%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>重点应该主要是计数器和寄存器。</p></blockquote>
+
+
+<h3 class="relative group">计数器 
+    <div id="%E8%AE%A1%E6%95%B0%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%A1%E6%95%B0%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>主要类型：</p>
+<p>无（不）规则计数器</p>
+<p>有规则计数器：1.升计数器2.降计数器3.升降计数器</p>
+<p>可载入（可置初值）计数器</p>
+<table>
+  <thead>
+      <tr>
+          <th>计数器类型</th>
+          <th>n 个触发器的计数模</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>普通二进制计数器</td>
+          <td>2^n</td>
+      </tr>
+      <tr>
+          <td>环形计数器（Ring）</td>
+          <td>n</td>
+      </tr>
+      <tr>
+          <td>扭环计数器（Johnson）</td>
+          <td>2n</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>不规则Counter</strong></p>
+<blockquote>
+<p>就是提前规定好数字了？</p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626085827622.png" alt="image-20250626085827622" />
+      
+    </figure>
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vhdl" data-lang="vhdl"><span class="line"><span class="cl"><span class="k">architecture</span> <span class="nc">C1357_arch</span> <span class="k">of</span> <span class="nc">C1357</span> <span class="k">is</span>
+</span></span><span class="line"><span class="cl"><span class="k">begin</span>
+</span></span><span class="line"><span class="cl"><span class="k">process</span> <span class="p">(</span><span class="n">CLK</span><span class="p">,</span><span class="n">RESET</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">begin</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span>  <span class="n">RESET</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span>  <span class="k">then</span> 
+</span></span><span class="line"><span class="cl">       <span class="n">Q</span> <span class="o">&lt;=</span> <span class="s">&#34;001&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elsif</span> <span class="n">CLK</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">CLK</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">       <span class="k">case</span> <span class="n">Q</span> <span class="k">is</span>
+</span></span><span class="line"><span class="cl">          <span class="k">when</span> <span class="s">&#34;001&#34;</span>    <span class="o">=&gt;</span>    <span class="n">Q</span> <span class="o">&lt;=</span> <span class="s">&#34;011&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">when</span> <span class="s">&#34;011&#34;</span>    <span class="o">=&gt;</span>    <span class="n">Q</span> <span class="o">&lt;=</span> <span class="s">&#34;101&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">when</span> <span class="s">&#34;101&#34;</span>    <span class="o">=&gt;</span>    <span class="n">Q</span> <span class="o">&lt;=</span> <span class="s">&#34;111&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">when</span> <span class="s">&#34;111&#34;</span>    <span class="o">=&gt;</span>    <span class="n">Q</span> <span class="o">&lt;=</span> <span class="s">&#34;001&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">when</span> <span class="k">others</span>   <span class="o">=&gt;</span>    <span class="n">Q</span> <span class="o">&lt;=</span> <span class="s">&#34;001&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">       <span class="k">end</span> <span class="k">case</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span> <span class="k">process</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span> <span class="nc">C1357_arch</span><span class="p">;</span> 
+</span></span></code></pre></div>
+
+<h4 class="relative group">设计例子 
+    <div id="%E8%AE%BE%E8%AE%A1%E4%BE%8B%E5%AD%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%BE%E8%AE%A1%E4%BE%8B%E5%AD%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><strong>步进码</strong>&mdash;》4bit能表示八个数字。</p>
+<p>0 0000</p>
+<p>1 0001</p>
+<p>2 0011</p>
+<p>3 0111</p>
+<p>4 1111</p>
+<p>5 1110</p>
+<p>6 1100</p>
+<p>7 1000</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626090323548.png" alt="image-20250626090323548" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626090944880.png" alt="image-20250626090944880" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626091214350.png" alt="image-20250626091214350" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626091328910.png" alt="image-20250626091328910" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626091530692.png" alt="image-20250626091530692" />
+      
+    </figure>
+</p>
+<p><strong>规则计数器</strong></p>
+<p>​	<strong>有规则计数器</strong>：指计数器的计数值以连续的方式计数，如1-2-3-4-5…或9-8-7-6-5-4….这种计数器的计数方式一般可以分成升计数器和降计数器。</p>
+<p>例1：设计一个升计数器，其计数范围依顺序为：0-255。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vhdl" data-lang="vhdl"><span class="line"><span class="cl"><span class="c1">--***************************</span>
+</span></span><span class="line"><span class="cl"><span class="c1">--*     8 Bit UP Counter    *</span>
+</span></span><span class="line"><span class="cl"><span class="c1">--*   Filename : counter8   *</span>
+</span></span><span class="line"><span class="cl"><span class="c1">--***************************  </span>
+</span></span><span class="line"><span class="cl"><span class="k">library</span> <span class="nn">IEEE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nn">IEEE.std_logic_1164.</span><span class="k">all</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nn">IEEE.std_logic_unsigned.</span><span class="k">all</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">entity</span> <span class="nc">counter8</span> <span class="k">is</span>
+</span></span><span class="line"><span class="cl">    <span class="k">port</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">          <span class="n">CLK</span><span class="o">:</span>   <span class="k">in</span> <span class="kt">STD_LOGIC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">Q</span><span class="o">:</span>     <span class="k">inout</span> <span class="kt">STD_LOGIC_VECTOR</span> <span class="p">(</span><span class="mi">0</span> <span class="k">to</span> <span class="mi">7</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">RESET</span><span class="o">:</span> <span class="k">in</span> <span class="kt">STD_LOGIC</span>
+</span></span><span class="line"><span class="cl">         <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span> <span class="nc">counter8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">architecture</span> <span class="nc">counter8_arch</span> <span class="k">of</span> <span class="nc">counter8</span> <span class="k">is</span>
+</span></span><span class="line"><span class="cl"><span class="k">begin</span>
+</span></span><span class="line"><span class="cl"><span class="k">process</span> <span class="p">(</span><span class="n">CLK</span><span class="p">,</span><span class="n">RESET</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">begin</span>
+</span></span><span class="line"><span class="cl">     <span class="k">if</span> <span class="n">RESET</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Q</span> <span class="o">&lt;=</span> <span class="s">&#34;00000000&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">elsif</span> <span class="n">CLK</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">CLK</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Q</span> <span class="o">&lt;=</span> <span class="n">Q</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span> <span class="k">process</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span> <span class="nc">counter8_arch</span><span class="p">;</span>
+</span></span></code></pre></div>
+
+<h4 class="relative group">3.4的计数器 
+    <div id="34%E7%9A%84%E8%AE%A1%E6%95%B0%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#34%E7%9A%84%E8%AE%A1%E6%95%B0%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>还剩下整整24个小时，此时，任务主要分为三个：
+1.计数器和寄存器的内容理解。</p>
+<p>2.语言VHDL和Verilog。</p>
+<p>3.大量刷题。</p>
+<p><strong>“不要浪费时间，但是可以休息。”</strong></p></blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626165707255.png" alt="image-20250626165707255" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">计数器的分类及原理 
+    <div id="%E8%AE%A1%E6%95%B0%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB%E5%8F%8A%E5%8E%9F%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%A1%E6%95%B0%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB%E5%8F%8A%E5%8E%9F%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>考试填空重点：</p>
+<p>1.按照<strong>功能</strong>分类：<strong>加法</strong>计数器，<strong>减法</strong>计数器，<strong>可逆</strong>计数器（74LS169,根据UP/DN可以选择加法还是减法）</p>
+<p>2.<strong>进位方式</strong>：1.<strong>串行计数</strong>器&mdash;》异步2.<strong>并行计数</strong>器&mdash;》同步</p>
+<p>3.进位的基数：2进制 10进制 n 个触发器可以构成模 m 的计数器，其中：m ≤ $$2^n$$</p>
+
+
+<h6 class="relative group">二进制串行计数器： 
+    <div id="%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%B2%E8%A1%8C%E8%AE%A1%E6%95%B0%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%B2%E8%A1%8C%E8%AE%A1%E6%95%B0%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>直接取反。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626171820055.png" alt="image-20250626171820055" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626172001148.png" alt="image-20250626172001148" />
+      
+    </figure>
+</p>
+<p>这个就比较直观了，因为只有在上升沿才发生变化。</p>
+<p>怎么用D触发器来实现的？T触发器实现？</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626172711770.png" alt="image-20250626172711770" />
+      
+    </figure>
+</p>
+<p><strong>上升沿就是加法计数器，下降沿就是减法计数器（分情况）：</strong></p>
+<p>注意规律：&mdash;》只要记住+1计数器并且是前沿触发的情况就可 <strong>CLKi = /Qi-1</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626173232900.png" alt="image-20250626173232900" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626172843018.png" alt="image-20250626172843018" />
+      
+    </figure>
+</p>
+
+
+<h6 class="relative group">二进制同步计数器 
+    <div id="%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%90%8C%E6%AD%A5%E8%AE%A1%E6%95%B0%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%90%8C%E6%AD%A5%E8%AE%A1%E6%95%B0%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626173634581.png" alt="image-20250626173634581" />
+      
+    </figure>
+</p>
+<p>这个传递关系是好理解的：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626173802433.png" alt="image-20250626173802433" />
+      
+    </figure>
+</p>
+<p>那么减法也是类似的：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626174012335.png" alt="image-20250626174012335" />
+      
+    </figure>
+</p>
+<p>那么用JK来实现：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626174128638.png" alt="image-20250626174128638" />
+      
+    </figure>
+</p>
+<p>前面的所有项&amp;起来，一起加到JK端，是否让输出反转，只有所有的值都是1的时候才会进行反转的操作。</p>
+
+
+<h6 class="relative group">用跳越的方法实现任意模数的计数器 
+    <div id="%E7%94%A8%E8%B7%B3%E8%B6%8A%E7%9A%84%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0%E4%BB%BB%E6%84%8F%E6%A8%A1%E6%95%B0%E7%9A%84%E8%AE%A1%E6%95%B0%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%A8%E8%B7%B3%E8%B6%8A%E7%9A%84%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0%E4%BB%BB%E6%84%8F%E6%A8%A1%E6%95%B0%E7%9A%84%E8%AE%A1%E6%95%B0%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>一般来说会有$$2^n$$但是我只想要m个：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626174422878.png" alt="image-20250626174422878" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626174520854.png" alt="image-20250626174520854" />
+      
+    </figure>
+</p>
+<p>处理方法：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626174700498.png" alt="image-20250626174700498" />
+      
+    </figure>
+</p>
+<p><strong>强置位计数器 (Resetting)</strong></p>
+<p>​	设计电路时，先设计一个二进制计数器，然后再加入强置位电路。</p>
+<p>​	假设起跳状态为Sa，则有： 在没有出现 Sa+1 时，不影响二进制计数器的状态转换规律，强置位的逻辑电平为无效。 在出现 Sa+1时，强置位电平有效，从而对预定的某些位触发器实行预定的“强制置位”或“强制复位”。&mdash;》一拍两跳。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626174947198.png" alt="image-20250626174947198" />
+      
+    </figure>
+</p>
+<p>分析这个例子：</p>
+<p>其实比较简单，当输出为111的时候，Q1端PR设置为1,Q2端CLR，Q3端CLR，就可以直接从001开始。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626175405792.png" alt="image-20250626175405792" />
+      
+    </figure>
+</p>
+<p>提前准备好就跳跃：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626175742242.png" alt="image-20250626175742242" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626180025686.png" alt="image-20250626180025686" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626183259031.png" alt="image-20250626183259031" />
+      
+    </figure>
+</p>
+<p>电路图：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626183654977.png" alt="image-20250626183654977" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">MSI计数器及其应用 
+    <div id="msi%E8%AE%A1%E6%95%B0%E5%99%A8%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#msi%E8%AE%A1%E6%95%B0%E5%99%A8%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p><strong>74LS163</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626192101149.png" alt="" />
+      
+    </figure>
+</p>
+<p><strong>同步计数器，并且有清零端。</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626192250889.png" alt="image-20250626192250889" />
+      
+    </figure>
+</p>
+<p>比如怎么mod11：</p>
+<blockquote>
+<p>这里会简单的考察怎么设计。</p></blockquote>
+<p>当输出为1010的时候，就给两个1与非门，然后加载回/LD和/CLR，这样就是mod11。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626192433455.png" alt="image-20250626192433455" />
+      
+    </figure>
+</p>
+<p>这里比如我们置位设置成0101，那么当RCO进位的时候，会直接load DCBA这里的二进制数字，从而mod。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626192626734.png" alt="image-20250626192626734" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>注意这个余3码计数器的实现：</p></blockquote>
+<p>开始是0011,就是3,当为1100（12）的时候，开始循环。</p>
+<p>3-12 因为余三码是减去3。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626193244868.png" alt="image-20250626193244868" />
+      
+    </figure>
+</p>
+<p>其余类型的MSI：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626193734240.png" alt="image-20250626193734240" />
+      
+    </figure>
+</p>
+<p>注意UP和/DN</p>
+<p>不想看节拍分配器了。</p>
+
+
+<h3 class="relative group">寄存器 
+    <div id="%E5%AF%84%E5%AD%98%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AF%84%E5%AD%98%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">寄存器的分类 
+    <div id="%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><strong>用于暂时存放二进制代码的逻辑器件称为寄存器。</strong></p>
+<p>reg按照功能可以分为 <strong>串行寄存器 并行寄存器 串并行寄存器</strong></p>
+<p><strong>串行及串并行寄存器具有移位功能</strong>，通常称为<strong>移位寄存器 Shift Registers</strong>。&mdash;》带<strong>串行就可以移位</strong>。</p>
+<p>用处分类：</p>
+<p>1.<strong>通用</strong>寄存器&mdash;》rax 2.<strong>指令</strong>寄存器&mdash;》rip 3.<strong>地址</strong>寄存器&mdash;》rbp（某些基址变址寄存器） 4<strong>I/O</strong>寄存器？</p>
+<p>并行寄存器：总之就是暂时存放数据。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626194821229.png" alt="image-20250626194821229" />
+      
+    </figure>
+</p>
+<p><strong>74LS374</strong></p>
+<p><strong>和通用总线相连的都是三态器件。</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626195113648.png" alt="image-20250626195113648" />
+      
+    </figure>
+</p>
+<p>在⌚信号的CLK有效沿：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626195318141.png" alt="image-20250626195318141" />
+      
+    </figure>
+</p>
+<p><strong>移位寄存器 Shift Registers</strong></p>
+<p>一共有四种结构：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626195404697.png" alt="image-20250626195404697" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626195509898.png" alt="image-20250626195509898" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626195533757.png" alt="image-20250626195533757" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626195642075.png" alt="image-20250626195642075" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">MSI寄存器及其应用 
+    <div id="msi%E5%AF%84%E5%AD%98%E5%99%A8%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#msi%E5%AF%84%E5%AD%98%E5%99%A8%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><strong>74LS194</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626195841699.png" alt="image-20250626195841699" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">脉冲发生器 
+    <div id="%E8%84%89%E5%86%B2%E5%8F%91%E7%94%9F%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%84%89%E5%86%B2%E5%8F%91%E7%94%9F%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>没时间看了，给了。</p></blockquote>
+
+
+<h1 class="relative group">可编程逻辑器件 
+    <div id="%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">概述 
+    <div id="%E6%A6%82%E8%BF%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A6%82%E8%BF%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>​	<strong>第四章</strong>：<strong>SPLD、CPLD、FPGA</strong>的基本原理（仅涉及<strong>填空、选择、简答题</strong>）、<strong>VHDL</strong>和<strong>Verilog</strong>（涉及<strong>填空、简答和编程题</strong>）。&mdash;》考察重点，时间来不及，我们大概过一下。</p>
+<p>​	PLD：Programmable  Logic  Device 可编程逻辑器件。</p>
+<p>​	PLD 是由半导体工厂制好，不需要为（应用）定制任何掩模，用户可以利用软件开发工具（EDA： Electronics Design Automation ）和编程器设备（也可能只是一根电缆），对芯片功能进行编程（实现具体应用）的大规模集成电路器件。</p>
+<p>​	
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626210834539.png" alt="image-20250626210834539" />
+      
+    </figure>
+</p>
+<p>分类方法：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626211014468.png" alt="image-20250626211014468" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626211103657.png" alt="image-20250626211103657" />
+      
+    </figure>
+</p>
+<p>记住上面的。<strong>PLA 都可以编程，GAL和PAL输入&amp;阵列可以编程。 ROM输出或阵列可以编程</strong>。</p>
+<p><strong>有哪些PLD：PPLD，EPPLD，EEPPLD</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626211505043.png" alt="image-20250626211505043" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626211559304.png" alt="image-20250626211559304" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626211733913.png" alt="image-20250626211733913" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">简单可编程逻辑SPLDSimple PLD 
+    <div id="%E7%AE%80%E5%8D%95%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91spldsimple-pld" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AE%80%E5%8D%95%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91spldsimple-pld" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">ROM    Read  Only  Memory 
+    <div id="rom----read--only--memory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rom----read--only--memory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626212234567.png" alt="image-20250626212234567" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">PLA   Programmable  Logic Array 
+    <div id="pla---programmable--logic-array" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pla---programmable--logic-array" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626212759861.png" alt="image-20250626212759861" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">PAL    Programmable  Array  Logic 
+    <div id="pal----programmable--array--logic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pal----programmable--array--logic" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626212725867.png" alt="image-20250626212725867" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">GAL    Generic  Logic  Array 
+    <div id="gal----generic--logic--array" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gal----generic--logic--array" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626212845440.png" alt="image-20250626212845440" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>考察。</p></blockquote>
+<p>添加了OLMC。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626212947768.png" alt="image-20250626212947768" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">PLC    Programmable  Logic Controller 
+    <div id="plc----programmable--logic-controller" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#plc----programmable--logic-controller" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h2 class="relative group">Verilog 
+    <div id="verilog" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#verilog" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>我们会随着上面的过程在这里逐渐学习Verilog的语法：</p>
+<p>​	always @(*) begin &hellip; end 是 <strong>Verilog 硬件描述语言（HDL）</strong> 中的一种语法，用于描述<strong>组合逻辑</strong>，是数字电路设计中非常常见的结构。</p>
+<p>注意，块中用到的信号发生了变化，就要进行重新计算。</p>
+<p><code>always</code>：表示一个“过程块”，用来描述硬件行为。</p>
+<p><code>@(*)</code>：表示<strong>敏感列表</strong>，即<strong>只要块中用到的任意信号发生变化，就重新计算执行</strong></p>
+<p><code>begin ... end</code>：表示组合逻辑块的代码段。</p>
+<table>
+  <thead>
+      <tr>
+          <th>结构</th>
+          <th>类型</th>
+          <th>是否需要时钟</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>always @(*)</code></td>
+          <td>组合逻辑</td>
+          <td>否</td>
+          <td>解码器、多路选择器、ALU等</td>
+      </tr>
+      <tr>
+          <td><code>always @(posedge clk)</code></td>
+          <td>时序逻辑</td>
+          <td>是</td>
+          <td>寄存器、计数器、状态机等</td>
+      </tr>
+  </tbody>
+</table>
+<p>所以clk就是控制⌚的问题。</p>
+<p><strong>wire和reg的区别</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>wire</th>
+          <th>reg</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>中文名称</td>
+          <td>线网类型（导线）</td>
+          <td>寄存器变量</td>
+      </tr>
+      <tr>
+          <td>是否具有存储功能</td>
+          <td>❌ 没有，值<strong>不能保持</strong></td>
+          <td>✅ 有，<strong>保存上一个赋值结果</strong></td>
+      </tr>
+      <tr>
+          <td>是否可以在 <code>always</code> 块中赋值</td>
+          <td>❌ 不可以（只能由 <code>assign</code> 赋值）</td>
+          <td>✅ 可以（<code>always</code> 或初始块赋值）</td>
+      </tr>
+      <tr>
+          <td>是否需要时钟</td>
+          <td>❌ 不需要（组合逻辑）</td>
+          <td>✅ 一般用于时序逻辑（需要 clk）</td>
+      </tr>
+      <tr>
+          <td>默认值</td>
+          <td>无</td>
+          <td>初始为未知（X）</td>
+      </tr>
+      <tr>
+          <td>驱动方式</td>
+          <td><code>assign</code> 或其他模块输出</td>
+          <td><code>always</code> 或 <code>initial</code> 块中赋值</td>
+      </tr>
+  </tbody>
+</table>
+<pre tabindex="0"><code>wire a;
+always @(*) begin
+    a = b &amp; c;  // ❌ 错误：wire 不能在 always 中赋值
+end
+
+reg a;
+assign a = b;  // ❌ 错误：reg 不能用 assign 连续赋值
+</code></pre><p>注意上面两点的核心区别。</p>
+<p>assign只能给wire类型赋值。</p>
+<p>下面也可以看的很清楚区别。</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626232729482.png" alt="image-20250626232729482" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626232214481.png" alt="image-20250626232214481" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626233204985.png" alt="image-20250626233204985" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>怎么写一个4bit加法器，考试考察：</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl"><span class="k">module</span> <span class="n">_4Adder</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">cin</span><span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">cout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//端口类型定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">input</span><span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">input</span> <span class="n">cin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">output</span><span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="n">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">output</span> <span class="n">cout</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//数据流描述逻辑电路功能
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">assign</span> <span class="p">{</span><span class="n">cout</span><span class="p">,</span><span class="n">sum</span><span class="p">}</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">cin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">endmodule</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626234051607.png" alt="image-20250626234051607" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">关于考试的信息 
+    <div id="%E5%85%B3%E4%BA%8E%E8%80%83%E8%AF%95%E7%9A%84%E4%BF%A1%E6%81%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%B3%E4%BA%8E%E8%80%83%E8%AF%95%E7%9A%84%E4%BF%A1%E6%81%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li></li>
+</ol>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626155416531.png" alt="image-20250626155416531" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626155731509.png" alt="image-20250626155731509" />
+      
+    </figure>
+</p>
+<p>2.先判断最后的符号，然后用绝对值相减。
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626202612717.png" alt="image-20250626202612717" />
+      
+    </figure>
+</p>
+<p>3.纯小数，和确定机器字长的大小：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626203029377.png" alt="image-20250626203029377" />
+      
+    </figure>
+</p>
+<p>4.注意haming校验的问题：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250626205945472.png" alt="image-20250626205945472" />
+      
+    </figure>
+</p>
+<ol start="5">
+<li></li>
+</ol>
+<p>卡诺图中为 0 的部分表示：</p>
+<blockquote>
+<p><strong>逻辑函数在对应输入组合下的输出为 0</strong>。</p></blockquote>
+<hr>
+<p>📌 简要说：</p>
+<ul>
+<li><strong>用于最小化反函数（如 SOP 的反、POS 表达式）</strong></li>
+<li>在进行<strong>与非实现</strong>或<strong>反函数化简</strong>时，要关注为 0 的区域</li>
+</ul>
+<hr>
+<p>💡补充一句（应对考试）：</p>
+<blockquote>
+<p>如果你要求最小<strong>与-或表达式（SOP）</strong>，就圈 <strong>为 1</strong> 的部分；
+如果你要求最小<strong>或-与表达式（POS）</strong>，就圈 <strong>为 0</strong> 的部分。</p></blockquote>
+<p>5.课后2.3&mdash;》考试原题。</p>
+<p>6.易错，看起来好像是有反馈，但是并非时序电路：</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250627103621803.png" alt="image-20250627103621803" />
+      
+    </figure>
+</p>
+<p>7.
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/img/image-20250627104104514.png" alt="image-20250627104104514" />
+      
+    </figure>
+</p>
+<p>考试原题。</p>
+<blockquote>
+<p>​	考完，简单总结一下，10分的题没时间写了，纯空（主要是一直想上厕所有debuff），接着就是设计题还比较简单，但是考察了5变量卡诺图，并且基础概念很多，这也是我认为这个考试比较逆天的地方，有40-50分的题目都在考察概念性问题，并且第4章的占比很多，如果你追求高分，要仔细背，不过我是无所谓了。</p></blockquote>
+
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="mio" src="/img/blowfish_logo_hu_2d15729eafedea4d.png" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      mio
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">I&rsquo;m Just A Student&hellip;</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+          
+
+          
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_Notes\/DigitalLogicCircuits\/index.md"
+        var oid_likes = "likes_Notes\/DigitalLogicCircuits\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/notes/80x86assembly/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >80X86:Assembly</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-05-11T15:06:35&#43;08:00">11 May 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/reading/"
+            title="">
+            
+            Reading
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      mio
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
