@@ -2,9 +2,12 @@
 date = '2025-07-07T01:25:55+08:00'
 draft = false
 title = 'Japanese_N2'
+
 +++
 
 
+
+# Japanese_N2
 
 > 这是我在**N2**考试之前的学习之中简单整理的一些错误点。
 >
