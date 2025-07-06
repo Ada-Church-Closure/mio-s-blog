@@ -4,13 +4,13 @@
 
   <url>
     <loc>http://localhost:1313/life/japanese_n2/</loc>
-    <lastmod>2025-07-07T01:25:55+08:00</lastmod>
+    <lastmod>2025-07-07T05:28:50+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-07-07T01:25:55+08:00</lastmod>
+    <lastmod>2025-07-07T05:28:50+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
