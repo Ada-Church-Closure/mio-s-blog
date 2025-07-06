@@ -11,5 +11,30 @@
     <copyright>© 2025 mio</copyright>
     <lastBuildDate>Sat, 19 Apr 2025 16:32:59 +0800</lastBuildDate><atom:link href="http://localhost:1313/life/index.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>Japanese_N2</title>
+      <link>http://localhost:1313/life/japanese_n2/</link>
+      <pubDate>Mon, 07 Jul 2025 01:25:55 +0800</pubDate>
+      <author>nunotabashinobu066@gmail.com (mio)</author>
+      <guid>http://localhost:1313/life/japanese_n2/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;Japanese（N2） 
+    &lt;div id=&#34;japanesen2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#japanesen2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是我在&lt;strong&gt;N2&lt;/strong&gt;考试之前的学习之中简单整理的一些错误点。&lt;/p&gt;
+&lt;p&gt;这个可以简单理解成N2错题本。&amp;mdash;》如果考过了我会总结一下经验（备考的）&lt;/p&gt;
+&lt;p&gt;我觉得这是很好的学习方法，说实话感觉整理迟了，在N1学习的时候我会系统的这样进行整理！&lt;/p&gt;
+&lt;p&gt;日本語を勉強しましょう！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;​	现在考完了，简单总结一下，大概基础错了6-7个，阅读错了两个（但是我认为阅读是这次比较难的部分，很多都拿不准，答案也是moji的回忆版本，应该差不多），听力错了3个（听力状态不错，虽然前一天晚上没怎么睡觉），总的来说肯定是能过，而且分数应该还挺高，半年左右不算白学（N2本身也不是算很难），之后就是冲N1了，一直考，直到考过了为止，继续加油吧！&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/life/japanese_n2/featured.jpg" />
+    </item>
+    
   </channel>
 </rss>
