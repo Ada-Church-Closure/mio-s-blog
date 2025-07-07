@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mio&#39;s Tea Time</title>
-    <link>http://localhost:1313/</link>
+    <link>https://Ada-Church-Closure.github.io/</link>
     <description>Recent content on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Mon, 07 Jul 2025 05:28:50 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Jul 2025 05:28:50 +0800</lastBuildDate><atom:link href="https://Ada-Church-Closure.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Japanese_N2</title>
-      <link>http://localhost:1313/life/japanese_n2/</link>
+      <link>https://Ada-Church-Closure.github.io/life/japanese_n2/</link>
       <pubDate>Mon, 07 Jul 2025 05:28:50 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/life/japanese_n2/</guid>
+      <guid>https://Ada-Church-Closure.github.io/life/japanese_n2/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Japanese_N2 
     &lt;div id=&#34;japanese_n2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -33,15 +33,15 @@
 &lt;p&gt;我觉得这是很好的学习方法，说实话感觉整理迟了，在N1学习的时候我会系统的这样进行整理！&lt;/p&gt;
 &lt;p&gt;日本語を勉強しましょう！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;​	现在考完了，简单总结一下，大概基础错了6-7个，阅读错了两个（但是我认为阅读是这次比较难的部分，很多都拿不准，答案也是moji的回忆版本，应该差不多），听力错了3个（听力状态不错，虽然前一天晚上没怎么睡觉），总的来说肯定是能过，而且分数应该还挺高，半年左右不算白学（N2本身也不是算很难），之后就是冲N1了，一直考，直到考过了为止，继续加油吧！&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/life/japanese_n2/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/life/japanese_n2/featured.png" />
     </item>
     
     <item>
       <title>DigitalLogicCircuits</title>
-      <link>http://localhost:1313/notes/digitallogiccircuits/</link>
+      <link>https://Ada-Church-Closure.github.io/notes/digitallogiccircuits/</link>
       <pubDate>Fri, 27 Jun 2025 21:34:27 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/notes/digitallogiccircuits/</guid>
+      <guid>https://Ada-Church-Closure.github.io/notes/digitallogiccircuits/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;数字电路基础 
     &lt;div id=&#34;%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -55,15 +55,15 @@
 &lt;p&gt;我对于学校数字电路实验的评教，今天遇到了一些事情，真的非常生气，我不写出来实在是难受：&lt;/p&gt;
 &lt;p&gt;​	我校的以vivado为开发平台的数字电路实验是相当不合理的：&lt;/p&gt;
 &lt;p&gt;​	1.学生对于vivado没有相当的基础，身为一名计算机学院的学生，对于计算机组成原理的重要性认知很清楚，但是对于硬件开发没有合理的认知水平，理论铺设不到位，对于使用的软件更是一知半解。所以我们的实验是怎么开展的呢，“抄代码”，对着截了很多模糊不清的图片的PPT，抄，抄有着“详细注释”的宋体代码，我们试图在西一楼106机房“抄”出来对于数字电路的认知，这是难以置信的。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/notes/digitallogiccircuits/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/notes/digitallogiccircuits/featured.png" />
     </item>
     
     <item>
       <title>CSAPP:MallocLab</title>
-      <link>http://localhost:1313/csapp/csappmalloclab/</link>
+      <link>https://Ada-Church-Closure.github.io/csapp/csappmalloclab/</link>
       <pubDate>Sun, 01 Jun 2025 18:18:00 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/csapp/csappmalloclab/</guid>
+      <guid>https://Ada-Church-Closure.github.io/csapp/csappmalloclab/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Virtual Memory:MallocLab 
     &lt;div id=&#34;virtual-memorymalloclab&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -90,19 +90,19 @@
 &lt;/h2&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/image-20250513200943305.png&#34; alt=&#34;image-20250513200943305&#34; /&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://Ada-Church-Closure.github.io/img/image-20250513200943305.png&#34; alt=&#34;image-20250513200943305&#34; /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csappmalloclab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/csapp/csappmalloclab/featured.png" />
     </item>
     
     <item>
       <title>80X86:Assembly</title>
-      <link>http://localhost:1313/notes/80x86assembly/</link>
+      <link>https://Ada-Church-Closure.github.io/notes/80x86assembly/</link>
       <pubDate>Sun, 11 May 2025 15:06:35 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/notes/80x86assembly/</guid>
+      <guid>https://Ada-Church-Closure.github.io/notes/80x86assembly/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;汇编语言复习 
     &lt;div id=&#34;%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -117,15 +117,15 @@
 &lt;p&gt;​	1.这是某学校汇编语言的课程内容，简单做一个复习的笔记，如果能帮到校友就更好了&amp;hellip;&amp;hellip;&lt;/p&gt;
 &lt;p&gt;​	2.整体来看感觉内容不多，但是很杂很乱，容易一开始让人很不知所以然，再加上讲课老师感觉逻辑性不算很强，可能让人感觉有点劝退，但是这门课程本身还是相当重要的&amp;hellip;&amp;hellip;&lt;/p&gt;
 &lt;p&gt;​	3.然后就是关于本课程的实验，我的评价就是善用AI，如果你觉得很难写，但是前提是你先要看得懂并且会用MASM工具来调试。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/notes/80x86assembly/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/notes/80x86assembly/featured.jpg" />
     </item>
     
     <item>
       <title>AlgorithmDesign</title>
-      <link>http://localhost:1313/notes/algorithmdesign/</link>
+      <link>https://Ada-Church-Closure.github.io/notes/algorithmdesign/</link>
       <pubDate>Sun, 11 May 2025 15:06:21 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/notes/algorithmdesign/</guid>
+      <guid>https://Ada-Church-Closure.github.io/notes/algorithmdesign/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;算法设计与分析 
     &lt;div id=&#34;%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -141,26 +141,26 @@
 &lt;p&gt;2.大量的数学笔记都是我复制下来的，我没有手打这么多公式的耐心，只能感谢那名陌生的同学了,原来的仓库https://github.com/DANNHIROAKI/XJTU-CS-Courses/tree/master,可能这篇文章的阅读体验相对会更好一点，因为数学公式会直接渲染并且我会多余做一些补充和更改，如果原作者看到并且觉得这样不好，您可以直接联系我删除。&lt;/p&gt;
 &lt;p&gt;3.代码就会按照原书中来的，利用&lt;strong&gt;Java&lt;/strong&gt;来实现。&lt;/p&gt;
 &lt;p&gt;4.&lt;a href=&#34;https://csdiy.wiki/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95/CS170/&#34; target=&#34;_blank&#34;&gt;https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/CS170/&lt;/a&gt; 笔者非常后悔在学校老师狂念PPT的时候没有自学这个CS170,如果你还有机会，一定要看一看。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/notes/algorithmdesign/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/notes/algorithmdesign/featured.png" />
     </item>
     
     <item>
       <title>谈谈鸡汤</title>
-      <link>http://localhost:1313/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/</link>
+      <link>https://Ada-Church-Closure.github.io/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/</link>
       <pubDate>Tue, 22 Apr 2025 12:48:43 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/</guid>
+      <guid>https://Ada-Church-Closure.github.io/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本文章大量意识流文字，就是我单纯发牢骚写的东西。&lt;/p&gt;&lt;/blockquote&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/featured.png" />
     </item>
     
     <item>
       <title>CSAPP:LinkerLab</title>
-      <link>http://localhost:1313/csapp/csapplinkerlab/</link>
+      <link>https://Ada-Church-Closure.github.io/csapp/csapplinkerlab/</link>
       <pubDate>Sat, 19 Apr 2025 16:27:09 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/csapp/csapplinkerlab/</guid>
+      <guid>https://Ada-Church-Closure.github.io/csapp/csapplinkerlab/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;CSAPP:LinkerLab 
     &lt;div id=&#34;csapplinkerlab&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -188,15 +188,15 @@
 &lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;​	有多详细？这很难定义吧，是否详细应当取决于读者本来的理解,linking本身就是看起来好像就是打包一下很简单的东西，但是涉及到的知识比较复杂，应用也相当广泛。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csapplinkerlab/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/csapp/csapplinkerlab/featured.jpg" />
     </item>
     
     <item>
       <title>CSAPP:CacheLab</title>
-      <link>http://localhost:1313/csapp/csappcachelab/</link>
+      <link>https://Ada-Church-Closure.github.io/csapp/csappcachelab/</link>
       <pubDate>Sun, 13 Apr 2025 18:04:22 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/csapp/csappcachelab/</guid>
+      <guid>https://Ada-Church-Closure.github.io/csapp/csappcachelab/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;CSAPP:CacheLab 
     &lt;div id=&#34;csappcachelab&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -212,15 +212,15 @@
 &lt;p&gt;注意：以下不会从零开始讲述Cache的知识，并且&lt;strong&gt;不要抄袭，不要抄袭，不要抄袭&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;Cache:计算机的世界无处不在的伟大思想&amp;hellip;&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;熟悉：&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csappcachelab/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/csapp/csappcachelab/featured.png" />
     </item>
     
     <item>
       <title>CSAPP:OptimizationLab</title>
-      <link>http://localhost:1313/csapp/csappoptimizationlab/</link>
+      <link>https://Ada-Church-Closure.github.io/csapp/csappoptimizationlab/</link>
       <pubDate>Thu, 10 Apr 2025 23:57:57 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/csapp/csappoptimizationlab/</guid>
+      <guid>https://Ada-Church-Closure.github.io/csapp/csappoptimizationlab/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;CSAPP:OptimizationLab 
     &lt;div id=&#34;csappoptimizationlab&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -236,15 +236,15 @@
 &lt;p&gt;基本材料都引用于我校的CSAPP实验指导书页面。&lt;/p&gt;
 &lt;p&gt;同时也是考试的复习笔记。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;预习：&lt;/strong&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csappoptimizationlab/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/csapp/csappoptimizationlab/featured.jpg" />
     </item>
     
     <item>
       <title>IT:Solving_Problems</title>
-      <link>http://localhost:1313/thinking/itsolving_problems/</link>
+      <link>https://Ada-Church-Closure.github.io/thinking/itsolving_problems/</link>
       <pubDate>Fri, 21 Mar 2025 18:05:17 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/thinking/itsolving_problems/</guid>
+      <guid>https://Ada-Church-Closure.github.io/thinking/itsolving_problems/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本期封面是《響け！ユーフォニアム》配角之一，中川夏纪，声音真的很好听，听说这个动漫到《利兹与青鸟》就完结了来着（？）&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -263,15 +263,15 @@
 &lt;p&gt;&lt;strong&gt;1.学历在CS的行业不会成为任何优势（但是它重要），过硬的技术和能力才是，记清楚这一点，才不会盲目。请勿再将未来的希望寄托在你所在的学校身上了，你的一切，你的兴趣，都要自己费力去追寻&amp;hellip;&amp;hellip;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2.Caution!本篇博文是强烈带有主观意见的意识流笔记，部分观点可能跟不上时代（2021年），并且不代表笔者的全部观点，但是希望能对于在校的尚对于目标不明确的学生带来一些帮助，视频来源（https://space.bilibili.com/19658621），顺带推荐一下他的C语言视频，如果你还没有学过，或者已经工作但是有进一步理解的需要，学习一下这个视频，会颠覆你对于POP编程的认知。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3.随着我个人的阅历和经验的增长，我会不断更新这个文章的内容，直到它能够替代我对于这个行业的全部看法而不是简单的视频笔记，我个人的看法就是纯主观的，一个人或者一个组织都不可能给出所谓的“纯粹理性客观”这样的观点，如果真的是这样，那么很多历史怎么会被改写？总之，希望能帮助到你一点的同时也能满足我的分享欲。&lt;/strong&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thinking/itsolving_problems/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/thinking/itsolving_problems/featured.png" />
     </item>
     
     <item>
       <title>CSAPP:AttackLab</title>
-      <link>http://localhost:1313/csapp/csappattacklab/</link>
+      <link>https://Ada-Church-Closure.github.io/csapp/csappattacklab/</link>
       <pubDate>Thu, 20 Mar 2025 15:49:11 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/csapp/csappattacklab/</guid>
+      <guid>https://Ada-Church-Closure.github.io/csapp/csappattacklab/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本期封面是动漫《Girls Band Cry》的主角团一行人参拜时的场景。&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -288,15 +288,15 @@
 &lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[!WARNING]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csappattacklab/featured1.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/csapp/csappattacklab/featured1.png" />
     </item>
     
     <item>
       <title>MySQL</title>
-      <link>http://localhost:1313/tech/mysql/</link>
+      <link>https://Ada-Church-Closure.github.io/tech/mysql/</link>
       <pubDate>Wed, 12 Mar 2025 18:02:43 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/tech/mysql/</guid>
+      <guid>https://Ada-Church-Closure.github.io/tech/mysql/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本期封面是笔者早期最喜欢的动漫角色之一，《とある科学の超電磁砲》中的长点上机学园的天才少女布束砥信，至今笔者的github头像都是她&amp;hellip;&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -326,15 +326,15 @@
     
 &lt;/h2&gt;
 &lt;p&gt;创建表：有B格的创建一张表&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/tech/mysql/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/mysql/featured.jpg" />
     </item>
     
     <item>
       <title>ComputerOrgnization</title>
-      <link>http://localhost:1313/csapp/computerorgnization/</link>
+      <link>https://Ada-Church-Closure.github.io/csapp/computerorgnization/</link>
       <pubDate>Mon, 10 Mar 2025 12:35:52 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/csapp/computerorgnization/</guid>
+      <guid>https://Ada-Church-Closure.github.io/csapp/computerorgnization/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本期封面出自《轻音少女》的第20集，是我个人认为所看的动漫中印象最深刻的一集。&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -352,15 +352,15 @@
 &lt;blockquote&gt;
 &lt;p&gt;[!NOTE]&lt;/p&gt;
 &lt;p&gt;在本篇之前，我已经实现了一个非常简单的CPU（感觉都是属于数字电路的内容，当然也是计组的一部分），课程笔记以及资源都来自于B站：Cs Primer。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/computerorgnization/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/csapp/computerorgnization/featured.png" />
     </item>
     
     <item>
       <title>CSAPP:BombLab</title>
-      <link>http://localhost:1313/csapp/csappbomblab/</link>
+      <link>https://Ada-Church-Closure.github.io/csapp/csappbomblab/</link>
       <pubDate>Sun, 09 Mar 2025 18:11:55 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/csapp/csappbomblab/</guid>
+      <guid>https://Ada-Church-Closure.github.io/csapp/csappbomblab/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本期封面是动漫《轻音少女》第一季时唯一律澪之间发生小矛盾的故事，此时，她们三个正在远远的看着mio&amp;hellip;&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -378,7 +378,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;[!NOTE]&lt;/p&gt;
 &lt;p&gt;本文主要参考博客：arthals.ink，如果你要学习方法，你只要看TA写的就可以了，我只看了前两层，    只是做个记录，我认为对于我来说很好的解决问题方式就是写注释(所以我这里有逐行的注释)。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/csapp/csappbomblab/featured2.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/csapp/csappbomblab/featured2.png" />
     </item>
     
   </channel>
