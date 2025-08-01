@@ -16,13 +16,13 @@ title = "Mio's Tea Time"
 
  [params.author]
    name = "mio"
-   email = "nunotabashinobu066@gmail.com"
+   email = "https://nunotabashinobu066@gmail.com"
    image = "img/blowfish_logo.png"
    imageQuality = 96
 #   headline = "I'm only human"
    bio = "I'm Just A Student..."
    links = [
-     { email = "nunotabashinobu066@gmail.com" },
+     { email = "https://nunotabashinobu066@gmail.com" },
 #     { link = "https://link-to-some-website.com/" },
 #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
 #     { apple = "https://www.apple.com" },

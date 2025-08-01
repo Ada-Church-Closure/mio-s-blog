@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Mio&#39;s Tea Time</title>
-    <link>http://localhost:45029/authors/</link>
+    <link>http://localhost:1313/authors/</link>
     <description>Recent content in Authors on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>nunotabashinobu066@gmail.com (mio)</managingEditor>
-    <webMaster>nunotabashinobu066@gmail.com (mio)</webMaster>
+    <managingEditor>https://nunotabashinobu066@gmail.com (mio)</managingEditor>
+    <webMaster>https://nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <atom:link href="http://localhost:45029/authors/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/authors/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
