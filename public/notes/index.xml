@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mio&#39;s Tea Time</title>
-    <link>https://Ada-Church-Closure.github.io/notes/</link>
+    <link>http://localhost:45029/notes/</link>
     <description>Recent content on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Fri, 27 Jun 2025 21:34:27 +0800</lastBuildDate><atom:link href="https://Ada-Church-Closure.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Jun 2025 21:34:27 +0800</lastBuildDate><atom:link href="http://localhost:45029/notes/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>DigitalLogicCircuits</title>
-      <link>https://Ada-Church-Closure.github.io/notes/digitallogiccircuits/</link>
+      <link>http://localhost:45029/notes/digitallogiccircuits/</link>
       <pubDate>Fri, 27 Jun 2025 21:34:27 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>https://Ada-Church-Closure.github.io/notes/digitallogiccircuits/</guid>
+      <guid>http://localhost:45029/notes/digitallogiccircuits/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;数字电路基础 
     &lt;div id=&#34;%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -30,15 +30,15 @@
 &lt;p&gt;我对于学校数字电路实验的评教，今天遇到了一些事情，真的非常生气，我不写出来实在是难受：&lt;/p&gt;
 &lt;p&gt;​	我校的以vivado为开发平台的数字电路实验是相当不合理的：&lt;/p&gt;
 &lt;p&gt;​	1.学生对于vivado没有相当的基础，身为一名计算机学院的学生，对于计算机组成原理的重要性认知很清楚，但是对于硬件开发没有合理的认知水平，理论铺设不到位，对于使用的软件更是一知半解。所以我们的实验是怎么开展的呢，“抄代码”，对着截了很多模糊不清的图片的PPT，抄，抄有着“详细注释”的宋体代码，我们试图在西一楼106机房“抄”出来对于数字电路的认知，这是难以置信的。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/notes/digitallogiccircuits/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:45029/notes/digitallogiccircuits/featured.png" />
     </item>
     
     <item>
       <title>80X86:Assembly</title>
-      <link>https://Ada-Church-Closure.github.io/notes/80x86assembly/</link>
+      <link>http://localhost:45029/notes/80x86assembly/</link>
       <pubDate>Sun, 11 May 2025 15:06:35 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>https://Ada-Church-Closure.github.io/notes/80x86assembly/</guid>
+      <guid>http://localhost:45029/notes/80x86assembly/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;汇编语言复习 
     &lt;div id=&#34;%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -53,15 +53,15 @@
 &lt;p&gt;​	1.这是某学校汇编语言的课程内容，简单做一个复习的笔记，如果能帮到校友就更好了&amp;hellip;&amp;hellip;&lt;/p&gt;
 &lt;p&gt;​	2.整体来看感觉内容不多，但是很杂很乱，容易一开始让人很不知所以然，再加上讲课老师感觉逻辑性不算很强，可能让人感觉有点劝退，但是这门课程本身还是相当重要的&amp;hellip;&amp;hellip;&lt;/p&gt;
 &lt;p&gt;​	3.然后就是关于本课程的实验，我的评价就是善用AI，如果你觉得很难写，但是前提是你先要看得懂并且会用MASM工具来调试。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/notes/80x86assembly/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:45029/notes/80x86assembly/featured.jpg" />
     </item>
     
     <item>
       <title>AlgorithmDesign</title>
-      <link>https://Ada-Church-Closure.github.io/notes/algorithmdesign/</link>
+      <link>http://localhost:45029/notes/algorithmdesign/</link>
       <pubDate>Sun, 11 May 2025 15:06:21 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>https://Ada-Church-Closure.github.io/notes/algorithmdesign/</guid>
+      <guid>http://localhost:45029/notes/algorithmdesign/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;算法设计与分析 
     &lt;div id=&#34;%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -77,7 +77,7 @@
 &lt;p&gt;2.大量的数学笔记都是我复制下来的，我没有手打这么多公式的耐心，只能感谢那名陌生的同学了,原来的仓库https://github.com/DANNHIROAKI/XJTU-CS-Courses/tree/master,可能这篇文章的阅读体验相对会更好一点，因为数学公式会直接渲染并且我会多余做一些补充和更改，如果原作者看到并且觉得这样不好，您可以直接联系我删除。&lt;/p&gt;
 &lt;p&gt;3.代码就会按照原书中来的，利用&lt;strong&gt;Java&lt;/strong&gt;来实现。&lt;/p&gt;
 &lt;p&gt;4.&lt;a href=&#34;https://csdiy.wiki/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95/CS170/&#34; target=&#34;_blank&#34;&gt;https://csdiy.wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/CS170/&lt;/a&gt; 笔者非常后悔在学校老师狂念PPT的时候没有自学这个CS170,如果你还有机会，一定要看一看。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/notes/algorithmdesign/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:45029/notes/algorithmdesign/featured.png" />
     </item>
     
   </channel>

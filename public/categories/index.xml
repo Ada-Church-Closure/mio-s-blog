@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Mio&#39;s Tea Time</title>
-    <link>https://Ada-Church-Closure.github.io/categories/</link>
+    <link>http://localhost:45029/categories/</link>
     <description>Recent content in Categories on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <atom:link href="https://Ada-Church-Closure.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:45029/categories/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
