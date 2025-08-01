@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tech on Mio&#39;s Tea Time</title>
-    <link>http://localhost:1313/tech/</link>
+    <link>https://Ada-Church-Closure.github.io/tech/</link>
     <description>Recent content in Tech on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Sat, 08 Mar 2025 21:28:15 +0800</lastBuildDate><atom:link href="http://localhost:1313/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Mar 2025 21:28:15 +0800</lastBuildDate><atom:link href="https://Ada-Church-Closure.github.io/tech/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Web_Development</title>
-      <link>http://localhost:1313/tech/web_development/</link>
+      <link>https://Ada-Church-Closure.github.io/tech/web_development/</link>
       <pubDate>Fri, 01 Aug 2025 12:05:12 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/tech/web_development/</guid>
+      <guid>https://Ada-Church-Closure.github.io/tech/web_development/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Web_Development 
     &lt;div id=&#34;web_development&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -31,15 +31,15 @@
 &lt;p&gt;​	本文是关于&lt;strong&gt;web开发导论&lt;/strong&gt;的一些内容，主要是为了对于web开发有一个现代并且全面的认知，说来惭愧，笔者现在大二已经结束，但是对于web开发还是没有一个深刻的认知，仅仅停留在写过一些前端和Java代码上面，从这里作为起点，我们来开始对于Web开发的探索，希望能成为我dev的指明灯。&lt;/p&gt;
 &lt;p&gt;​	这里就仅仅是&lt;strong&gt;通识性&lt;/strong&gt;的知识。仅作个人笔记使用。&lt;/p&gt;
 &lt;p&gt;​	“什么是”，但是不是“怎么用”。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/tech/web_development/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/web_development/featured.png" />
     </item>
     
     <item>
       <title>Env_setup_log</title>
-      <link>http://localhost:1313/tech/env_setup_log/</link>
+      <link>https://Ada-Church-Closure.github.io/tech/env_setup_log/</link>
       <pubDate>Mon, 28 Jul 2025 12:23:03 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/tech/env_setup_log/</guid>
+      <guid>https://Ada-Church-Closure.github.io/tech/env_setup_log/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;logs 
     &lt;div id=&#34;logs&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -64,15 +64,15 @@
 &lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;​	关于安装和后期维护的问题.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/tech/env_setup_log/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/env_setup_log/featured.png" />
     </item>
     
     <item>
       <title>MySQL</title>
-      <link>http://localhost:1313/tech/mysql/</link>
+      <link>https://Ada-Church-Closure.github.io/tech/mysql/</link>
       <pubDate>Wed, 12 Mar 2025 18:02:43 +0800</pubDate>
       <author>nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/tech/mysql/</guid>
+      <guid>https://Ada-Church-Closure.github.io/tech/mysql/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本期封面是笔者早期最喜欢的动漫角色之一，《とある科学の超電磁砲》中的长点上机学园的天才少女布束砥信，至今笔者的github头像都是她&amp;hellip;&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -102,7 +102,7 @@
     
 &lt;/h2&gt;
 &lt;p&gt;创建表：有B格的创建一张表&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/tech/mysql/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://Ada-Church-Closure.github.io/tech/mysql/featured.jpg" />
     </item>
     
   </channel>

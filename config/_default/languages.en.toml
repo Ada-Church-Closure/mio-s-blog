@@ -21,8 +21,8 @@ title = "Mio's Tea Time"
    imageQuality = 96
 #   headline = "I'm only human"
    bio = "I'm Just A Student..."
-#   links = [
-#     { email = "mailto:hello@your_domain.com" },
+   links = [
+     { email = "nunotabashinobu066@gmail.com" },
 #     { link = "https://link-to-some-website.com/" },
 #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
 #     { apple = "https://www.apple.com" },
@@ -70,4 +70,4 @@ title = "Mio's Tea Time"
 #     { youtube = "https://youtube.com/username" },
 #     { ko-fi = "https://ko-fi.com/username" },
 #     { codeberg = "https://codeberg.org/username"},
-#   ]
+   ]
