@@ -50,6 +50,11 @@
 	parent = "Class"
 	pageRef = "Notes"
 	weight = 10
+[[main]]
+    name = "CS61:Series"
+    parent = "Class"
+    pageRef = "cs61"
+    weight = 25
 #[[subnavigation]]
 #  name = "An interesting topic"
 #  pageRef = "tags/interesting-topic"

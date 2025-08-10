@@ -3,8 +3,20 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>http://localhost:1313/cs61/cs61astructure-and-interpretation-of-computer-programs/</loc>
+    <lastmod>2025-08-10T16:28:19+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/cs61/</loc>
+    <lastmod>2025-08-10T16:28:19+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-08-01T12:05:12+08:00</lastmod>
+    <lastmod>2025-08-10T16:28:19+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
