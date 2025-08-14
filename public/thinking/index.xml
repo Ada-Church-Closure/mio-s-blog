@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thinking on Mio&#39;s Tea Time</title>
-    <link>http://localhost:1313/thinking/</link>
+    <link>https://ada-church-closure.github.io/thinking/</link>
     <description>Recent content in Thinking on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>https://nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>https://nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Fri, 21 Mar 2025 18:02:52 +0800</lastBuildDate><atom:link href="http://localhost:1313/thinking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Mar 2025 18:02:52 +0800</lastBuildDate><atom:link href="https://ada-church-closure.github.io/thinking/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>谈谈鸡汤</title>
-      <link>http://localhost:1313/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/</link>
+      <link>https://ada-church-closure.github.io/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/</link>
       <pubDate>Tue, 22 Apr 2025 12:48:43 +0800</pubDate>
       <author>https://nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/</guid>
+      <guid>https://ada-church-closure.github.io/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本文章大量意识流文字，就是我单纯发牢骚写的东西。&lt;/p&gt;&lt;/blockquote&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ada-church-closure.github.io/thinking/%E8%B0%88%E8%B0%88%E9%B8%A1%E6%B1%A4/featured.png" />
     </item>
     
     <item>
       <title>IT:Solving_Problems</title>
-      <link>http://localhost:1313/thinking/itsolving_problems/</link>
+      <link>https://ada-church-closure.github.io/thinking/itsolving_problems/</link>
       <pubDate>Fri, 21 Mar 2025 18:05:17 +0800</pubDate>
       <author>https://nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/thinking/itsolving_problems/</guid>
+      <guid>https://ada-church-closure.github.io/thinking/itsolving_problems/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本期封面是《響け！ユーフォニアム》配角之一，中川夏纪，声音真的很好听，听说这个动漫到《利兹与青鸟》就完结了来着（？）&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -46,7 +46,7 @@
 &lt;p&gt;&lt;strong&gt;1.学历在CS的行业不会成为任何优势（但是它重要），过硬的技术和能力才是，记清楚这一点，才不会盲目。请勿再将未来的希望寄托在你所在的学校身上了，你的一切，你的兴趣，都要自己费力去追寻&amp;hellip;&amp;hellip;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2.Caution!本篇博文是强烈带有主观意见的意识流笔记，部分观点可能跟不上时代（2021年），并且不代表笔者的全部观点，但是希望能对于在校的尚对于目标不明确的学生带来一些帮助，视频来源（https://space.bilibili.com/19658621），顺带推荐一下他的C语言视频，如果你还没有学过，或者已经工作但是有进一步理解的需要，学习一下这个视频，会颠覆你对于POP编程的认知。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3.随着我个人的阅历和经验的增长，我会不断更新这个文章的内容，直到它能够替代我对于这个行业的全部看法而不是简单的视频笔记，我个人的看法就是纯主观的，一个人或者一个组织都不可能给出所谓的“纯粹理性客观”这样的观点，如果真的是这样，那么很多历史怎么会被改写？总之，希望能帮助到你一点的同时也能满足我的分享欲。&lt;/strong&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thinking/itsolving_problems/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ada-church-closure.github.io/thinking/itsolving_problems/featured.png" />
     </item>
     
   </channel>

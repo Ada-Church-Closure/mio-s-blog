@@ -14,3 +14,5 @@ title = 'Env_setup_log'
 ### grub引导报内核不存在
 
 放一个gpt的链接,连续解决了两次问题,总体就是要在ubuntu里面整理一下引导项.
+
+https://chatgpt.com/share/689dc2a8-b5e8-8012-a02e-354b56a7c802
