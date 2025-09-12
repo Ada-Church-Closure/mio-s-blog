@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cs61s on Mio&#39;s Tea Time</title>
-    <link>https://ada-church-closure.github.io/cs61/</link>
+    <link>http://localhost:1313/cs61/</link>
     <description>Recent content in Cs61s on Mio&#39;s Tea Time</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>https://nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>https://nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Sun, 10 Aug 2025 16:28:19 +0800</lastBuildDate><atom:link href="https://ada-church-closure.github.io/cs61/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Aug 2025 16:28:19 +0800</lastBuildDate><atom:link href="http://localhost:1313/cs61/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CS61A:Structure and Interpretation of Computer Programs</title>
-      <link>https://ada-church-closure.github.io/cs61/cs61astructure-and-interpretation-of-computer-programs/</link>
+      <link>http://localhost:1313/cs61/cs61astructure-and-interpretation-of-computer-programs/</link>
       <pubDate>Sun, 10 Aug 2025 16:28:19 +0800</pubDate>
       <author>https://nunotabashinobu066@gmail.com (mio)</author>
-      <guid>https://ada-church-closure.github.io/cs61/cs61astructure-and-interpretation-of-computer-programs/</guid>
+      <guid>http://localhost:1313/cs61/cs61astructure-and-interpretation-of-computer-programs/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;CS61A：Structure and Interpretation of Computer Programs 
     &lt;div id=&#34;cs61astructure-and-interpretation-of-computer-programs&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -29,7 +29,7 @@
 &lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;​	相当于简单学习一下py，再打一打编程的基础，因为课程lab的质量很高。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ada-church-closure.github.io/cs61/cs61astructure-and-interpretation-of-computer-programs/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/cs61/cs61astructure-and-interpretation-of-computer-programs/featured.png" />
     </item>
     
   </channel>
