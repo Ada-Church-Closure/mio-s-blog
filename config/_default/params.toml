@@ -19,7 +19,7 @@ replyByEmail = false
 
 disableImageOptimization = false
 disableTextInHeader = false
- backgroundImageWidth = 1200
+backgroundImageWidth = 1200
 
  defaultBackgroundImage = "/img/background.jpg" # used as default for background images 
  defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
@@ -42,14 +42,14 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   showScrollToTop = true
 
 [homepage]
-  layout = "backgroud" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "/img/background.jpg" # used in: hero, and card
-  showRecent = false
+  layout = "hero" # valid options: page, profile, hero, card, background, custom
+  homepageImage = "/img/background.png" # used in: hero, and card
+  showRecent = true
   showRecentItems = 5
-  showMoreLink = false
-  showMoreLinkDest = "/posts/"
-  cardView = false
-  cardViewScreenWidth = false
+  showMoreLink = true
+  showMoreLinkDest = "/csapp/"
+  cardView = true
+  cardViewScreenWidth = true
   layoutBackgroundBlur = true # only used when layout equals background
 
 [article]
@@ -57,11 +57,11 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   showViews = true
   showLikes = true
   showDateOnlyInArticle = false
-  showDateUpdated = false
+  showDateUpdated = true
   showAuthor = true
-   showAuthorBottom = true
-  showHero = false
-  # heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
+  showAuthorBottom = true
+  showHero = true
+  heroStyle = "backgroud" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
@@ -72,10 +72,10 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   seriesOpened = false
   showHeadingAnchors = true
   showPagination = true
-  invertPagination = false
+  invertPagination = true
   showReadingTime = true
   showTableOfContents = true
-  # showRelatedContent = false
+  # showRelatedContent = true
   # relatedContentLimit = 3
   showTaxonomies = false
   showAuthorsBadges = false
@@ -84,7 +84,7 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   showZenMode = false
 
 [list]
-  showHero = false
+  showHero = true
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
@@ -149,11 +149,11 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   # enableTrackEvent = true
 
 [buymeacoffee]
-  # identifier = ""
-  # globalWidget = true
-  # globalWidgetMessage = "Hello"
-  # globalWidgetColor = "#FFDD00"
-  # globalWidgetPosition = "Right"
+ # identifier = ""
+ # globalWidget = true
+ # globalWidgetMessage = "If you like my posts, consider buying me a coffee ☕"
+ # globalWidgetColor = "#FFDD00"
+ # globalWidgetPosition = "Right"
 
 [verification]
   # google = ""

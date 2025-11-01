@@ -41,12 +41,12 @@
    weight = 10
 
 [[main]]
-	name = "せいかつ"
+	name = "Life"
 	pageRef = "life"
 	weight = 29
 	
 [[main]]
-	name = "学校课程笔记"
+	name = "Lecture Notes"
 	parent = "Class"
 	pageRef = "Notes"
 	weight = 10
