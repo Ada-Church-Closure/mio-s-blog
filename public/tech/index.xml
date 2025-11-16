@@ -67,31 +67,5 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/tech/env_setup_log/featured.png" />
     </item>
     
-    <item>
-      <title>MySQL</title>
-      <link>http://localhost:1313/tech/mysql/</link>
-      <pubDate>Wed, 12 Mar 2025 18:02:43 +0800</pubDate>
-      <author>https://nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/tech/mysql/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;本期封面是笔者早期最喜欢的动漫角色之一，《とある科学の超電磁砲》中的长点上机学园的天才少女布束砥信，至今笔者的github头像都是她&amp;hellip;&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;MySQL 
-    &lt;div id=&#34;mysql&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#mysql&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;​	1.本文仅仅是笔者对于SQL语句的&lt;strong&gt;简单熟悉和复习的笔记&lt;/strong&gt;，所以并不会对于更深刻的细节进行考究，也不会介绍怎么安装和配置MySQL的环境以及为什么我们要使用关系型数据库。Linux肯定是最方便的.&lt;/p&gt;
-&lt;p&gt;​	2.2025.10.8,为了找实习,我们进行第二次的学习,会深入一些关于SQL的细节问题.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/tech/mysql/featured.jpg" />
-    </item>
-    
   </channel>
 </rss>

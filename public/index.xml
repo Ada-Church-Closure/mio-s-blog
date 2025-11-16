@@ -9,7 +9,61 @@
     <managingEditor>https://nunotabashinobu066@gmail.com (mio)</managingEditor>
     <webMaster>https://nunotabashinobu066@gmail.com (mio)</webMaster>
     <copyright>© 2025 mio</copyright>
-    <lastBuildDate>Sun, 10 Aug 2025 16:28:19 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Nov 2025 13:13:09 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SQL优化问题</title>
+      <link>http://localhost:1313/mysql/sql%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 16 Nov 2025 13:13:09 +0800</pubDate>
+      <author>https://nunotabashinobu066@gmail.com (mio)</author>
+      <guid>http://localhost:1313/mysql/sql%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;SQL优化问题 
+    &lt;div id=&#34;sql%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#sql%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;慢SQL 
+    &lt;div id=&#34;%E6%85%A2sql&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%85%A2sql&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;MySQL 中有⼀个叫 long_query_time 的参数，原则上执⾏时间超过该参数值的 SQL 就是慢 SQL，会被记录到慢查询⽇志中。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/mysql/sql%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>MiniDB</title>
+      <link>http://localhost:1313/mysql/minidb/</link>
+      <pubDate>Sun, 16 Nov 2025 13:07:06 +0800</pubDate>
+      <author>https://nunotabashinobu066@gmail.com (mio)</author>
+      <guid>http://localhost:1313/mysql/minidb/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;Mio&amp;rsquo;sDB 
+    &lt;div id=&#34;miosdb&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#miosdb&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一个由Java实现的轻量级的关系型数据库.&lt;/p&gt;
+&lt;p&gt;基于 socket 的 server 和 client进行前后端的通信.&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/mysql/minidb/featured.jpg" />
+    </item>
     
     <item>
       <title>CS61A:Structure and Interpretation of Computer Programs</title>
@@ -477,29 +531,29 @@
     </item>
     
     <item>
-      <title>MySQL</title>
-      <link>http://localhost:1313/tech/mysql/</link>
+      <title>MySQL基础</title>
+      <link>http://localhost:1313/mysql/mysql%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Wed, 12 Mar 2025 18:02:43 +0800</pubDate>
       <author>https://nunotabashinobu066@gmail.com (mio)</author>
-      <guid>http://localhost:1313/tech/mysql/</guid>
+      <guid>http://localhost:1313/mysql/mysql%E5%9F%BA%E7%A1%80/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本期封面是笔者早期最喜欢的动漫角色之一，《とある科学の超電磁砲》中的长点上机学园的天才少女布束砥信，至今笔者的github头像都是她&amp;hellip;&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
 
 
-&lt;h1 class=&#34;relative group&#34;&gt;MySQL 
-    &lt;div id=&#34;mysql&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+&lt;h1 class=&#34;relative group&#34;&gt;MySQL基础 
+    &lt;div id=&#34;mysql%E5%9F%BA%E7%A1%80&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
     &lt;span
         class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
         &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#mysql&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#mysql%E5%9F%BA%E7%A1%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
     &lt;/span&gt;        
     
 &lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;​	1.本文仅仅是笔者对于SQL语句的&lt;strong&gt;简单熟悉和复习的笔记&lt;/strong&gt;，所以并不会对于更深刻的细节进行考究，也不会介绍怎么安装和配置MySQL的环境以及为什么我们要使用关系型数据库。Linux肯定是最方便的.&lt;/p&gt;
+&lt;p&gt;​	1.2024.7.6,本文仅仅是笔者对于SQL语句的&lt;strong&gt;简单熟悉和复习的笔记&lt;/strong&gt;，所以并不会对于更深刻的细节进行考究，也不会介绍怎么安装和配置MySQL的环境以及为什么我们要使用关系型数据库。Linux肯定是最方便的.&lt;/p&gt;
 &lt;p&gt;​	2.2025.10.8,为了找实习,我们进行第二次的学习,会深入一些关于SQL的细节问题.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/tech/mysql/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/mysql/mysql%E5%9F%BA%E7%A1%80/featured.jpg" />
     </item>
     
     <item>

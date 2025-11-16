@@ -37,7 +37,7 @@
 
 [[main]]
    name = "Tech"
-   pageRef = "tech"
+   pageRef = "Tech"
    weight = 10
 
 [[main]]
@@ -55,6 +55,11 @@
     parent = "Class"
     pageRef = "cs61"
     weight = 25
+[[main]]
+    name = "MySQL"
+    parent = "Tech"
+    pageRef = "MySQL"
+    weight = 15
 #[[subnavigation]]
 #  name = "An interesting topic"
 #  pageRef = "tags/interesting-topic"

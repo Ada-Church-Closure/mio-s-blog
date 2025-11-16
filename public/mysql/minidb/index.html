@@ -1,0 +1,2700 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>MiniDB &middot; Mio&#39;s Tea Time</title>
+  <meta name="title" content="MiniDB &middot; Mio&#39;s Tea Time" />
+  
+  <meta name="description" content="Mio&#39;s Tea Time" />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/mysql/minidb/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
+    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.65b5de43825ad54a420102c9ddccece1f1015665fe76e5b399ba259e1de29f6c83ac1b3cf77beed3d29e26604dfebf561a8e1db523cb6add0d6acccc9e8f1307.js"
+    integrity="sha512-ZbXeQ4Ja1UpCAQLJ3czs4fEBVmX&#43;duWzmbolnh3in2yDrBs893vu09KeJmBN/r9WGo4dtSPLat0NaszMno8TBw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  <meta name="google-site-verification" content="wgfczhyzH3lSC7Nvoty3A1-Ekb1NZsLDiZjGnjb-LbU" />
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/mysql/minidb/">
+  <meta property="og:site_name" content="Mio&#39;s Tea Time">
+  <meta property="og:title" content="MiniDB">
+  <meta property="og:description" content="Mio’sDB # 这是一个由Java实现的轻量级的关系型数据库.
+基于 socket 的 server 和 client进行前后端的通信.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="mysql">
+    <meta property="article:published_time" content="2025-11-16T13:07:06+08:00">
+    <meta property="article:modified_time" content="2025-11-16T13:07:06+08:00">
+    <meta property="og:image" content="http://localhost:1313/mysql/minidb/featured.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/mysql/minidb/featured.jpg">
+  <meta name="twitter:title" content="MiniDB">
+  <meta name="twitter:description" content="Mio’sDB # 这是一个由Java实现的轻量级的关系型数据库.
+基于 socket 的 server 和 client进行前后端的通信.">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "MiniDB",
+    "headline": "MiniDB",
+    
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eMio\u0026rsquo;sDB \n    \u003cdiv id=\u0022miosdb\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#miosdb\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e这是一个由Java实现的轻量级的关系型数据库.\u003c\/p\u003e\n\u003cp\u003e基于 socket 的 server 和 client进行前后端的通信.\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/mysql\/minidb\/",
+    "author" : {
+      "@type": "Person",
+      "name": "mio"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-11-16T13:07:06\u002b08:00",
+    "datePublished": "2025-11-16T13:07:06\u002b08:00",
+    
+    "dateModified": "2025-11-16T13:07:06\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1985"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="mio" />
+  
+  
+  
+  <link href="https://nunotabashinobu066@gmail.com" rel="me" />
+  
+  
+  <link href="https://space.bilibili.com/167160408" rel="me" />
+  
+  
+  <link href="https://github.com/Ada-Church-Closure" rel="me" />
+  
+  
+  <link href="https://www.google.com/" rel="me" />
+  
+  
+  <link href="https://steamcommunity.com/id/331979248/" rel="me" />
+  
+  
+  <link href="https://www.youtube.com/@NunotabaShinobu" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co",
+      authDomain: "AIzaSyCswaKAVVuCYg9UesFR0aQOkre1tVIv5co",
+      projectId: "mio-s-app",
+      storageBucket: "mio-s-app.firebasestorage.app",
+      messagingSenderId: "491061548873",
+      appId: "1:491061548873:web:9de625ab436bdfd1e3ec98",
+      measurementId: "G-EH5EXVC7V4"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    
+    
+    <div>
+        <a href="/" class="flex">
+            <span class="sr-only">Mio&rsquo;s Tea Time</span>
+
+            
+            <img src="/img/logo.png" width="342" height="318"
+                class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Mio&#39;s Tea Time" />
+            
+
+        </a>
+    </div>
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Mio&rsquo;s Tea Time</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Class
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            Lecture Notes
+          </p>
+        </a>
+        
+        <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            CS:APP
+          </p>
+        </a>
+        
+        <a href="/cs61/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Cs61s">
+            CS61:Series
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/tech/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Tech">
+      Tech
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/mysql/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            MySQL
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Thinking">
+        Thinking
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/life/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Life">
+        Life
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Author
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Class
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            Lecture Notes
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/csapp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            CS:APP
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/cs61/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Cs61s">
+            CS61:Series
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="/tech/" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tech">
+            Tech
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/mysql/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            MySQL
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thinking/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Thinking">
+            Thinking
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/life/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Life">
+            Life
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/author/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Author
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Ada-Church-Closure"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+        
+            <div class="w-full h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/mysql/minidb/featured_hu_f84eec2ca132a8c1.jpg);"></div>
+        
+    
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      MiniDB
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-11-16T13:07:06&#43;08:00">16 November 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1985 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">10 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="views_MySQL/MiniDB/index.md" class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400" title="views">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+  
+  
+    
+    
+      
+      
+        
+        
+      
+      
+    
+  
+  <span id="likes_MySQL/MiniDB/index.md"
+    class="animate-pulse inline-block text-transparent max-h-3 rounded-full mt-[-2px] align-middle bg-neutral-300 dark:bg-neutral-400"
+    title="likes">loading</span>
+  <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+</span>
+</span><span class="px-2 text-primary-500">&middot;</span><span>
+    <button id="button_likes"
+        class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+        onclick="process_article()">
+        <span id="button_likes_heart" style="display:none" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+  </span>
+
+ </span>
+        <span id="button_likes_emtpty_heart" class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path fill="currentColor" d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
+  </span>
+
+</span>
+        <span id="button_likes_text">&nbsp;Like</span>
+    </button>
+</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#运行方式">运行方式</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#0overview">0.Overview</a>
+      <ul>
+        <li><a href="#核心模块">核心模块</a>
+          <ul>
+            <li><a href="#transaction-manager-事务管理器">Transaction Manager 事务管理器</a></li>
+            <li><a href="#data-manager-数据管理器">Data Manager 数据管理器</a></li>
+            <li><a href="#version-manager-版本管理器">Version Manager 版本管理器</a></li>
+            <li><a href="#index-manager-索引管理器">Index Manager 索引管理器</a></li>
+            <li><a href="#table-manager-表管理器">Table Manager 表管理器</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#1实现事务管理器-tm">1.实现事务管理器 TM</a>
+      <ul>
+        <li><a href="#xid">XID</a></li>
+        <li><a href="#核心特性直接内存映射-memory-mapped-io">核心特性：直接内存映射 (Memory-Mapped I/O)</a></li>
+      </ul>
+    </li>
+    <li><a href="#2实现数据管理器-dm">2.实现数据管理器 DM</a>
+      <ul>
+        <li><a href="#实现引用计数缓存框架共享内存数组java没有指针">实现引用计数缓存框架/共享内存数组(Java没有指针)</a></li>
+        <li><a href="#数据页的缓存和管理问题">数据页的缓存和管理问题</a>
+          <ul>
+            <li><a href="#页面管理">页面管理</a></li>
+          </ul>
+        </li>
+        <li><a href="#日志文件和恢复策略">日志文件和恢复策略</a>
+          <ul>
+            <li><a href="#恢复策略">恢复策略</a></li>
+            <li><a href="#单线程">单线程</a></li>
+          </ul>
+        </li>
+        <li><a href="#索引和data-item的抽象">索引和Data Item的抽象</a></li>
+      </ul>
+    </li>
+    <li><a href="#3实现version-manager-vm">3.实现version manager VM</a>
+      <ul>
+        <li><a href="#2pl-和-mvcc">2PL 和 MVCC</a>
+          <ul>
+            <li><a href="#核心原理两阶段-2pl">核心原理：两阶段 2PL</a></li>
+            <li><a href="#mvcc">MVCC</a></li>
+          </ul>
+        </li>
+        <li><a href="#事务的隔离级别">事务的隔离级别</a>
+          <ul>
+            <li><a href="#读提交">读提交</a></li>
+            <li><a href="#解决不可重复读引入新的隔离级别可重复读">解决不可重复读,引入新的隔离级别:可重复读</a></li>
+            <li><a href="#真正实现vm">真正实现VM</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4实现index-manager-索引管理器">4.实现index manager 索引管理器</a></li>
+    <li><a href="#5实现table-manager-字段与表管理器-tbm">5.实现table manager 字段与表管理器 TBM</a>
+      <ul>
+        <li><a href="#sql解析器">SQL解析器</a></li>
+        <li><a href="#表和字段的管理">表和字段的管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#6最终实现软件server和client的通信">6.最终实现软件:Server和Client的通信</a>
+      <ul>
+        <li><a href="#通信">通信</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#运行方式">运行方式</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#0overview">0.Overview</a>
+      <ul>
+        <li><a href="#核心模块">核心模块</a>
+          <ul>
+            <li><a href="#transaction-manager-事务管理器">Transaction Manager 事务管理器</a></li>
+            <li><a href="#data-manager-数据管理器">Data Manager 数据管理器</a></li>
+            <li><a href="#version-manager-版本管理器">Version Manager 版本管理器</a></li>
+            <li><a href="#index-manager-索引管理器">Index Manager 索引管理器</a></li>
+            <li><a href="#table-manager-表管理器">Table Manager 表管理器</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#1实现事务管理器-tm">1.实现事务管理器 TM</a>
+      <ul>
+        <li><a href="#xid">XID</a></li>
+        <li><a href="#核心特性直接内存映射-memory-mapped-io">核心特性：直接内存映射 (Memory-Mapped I/O)</a></li>
+      </ul>
+    </li>
+    <li><a href="#2实现数据管理器-dm">2.实现数据管理器 DM</a>
+      <ul>
+        <li><a href="#实现引用计数缓存框架共享内存数组java没有指针">实现引用计数缓存框架/共享内存数组(Java没有指针)</a></li>
+        <li><a href="#数据页的缓存和管理问题">数据页的缓存和管理问题</a>
+          <ul>
+            <li><a href="#页面管理">页面管理</a></li>
+          </ul>
+        </li>
+        <li><a href="#日志文件和恢复策略">日志文件和恢复策略</a>
+          <ul>
+            <li><a href="#恢复策略">恢复策略</a></li>
+            <li><a href="#单线程">单线程</a></li>
+          </ul>
+        </li>
+        <li><a href="#索引和data-item的抽象">索引和Data Item的抽象</a></li>
+      </ul>
+    </li>
+    <li><a href="#3实现version-manager-vm">3.实现version manager VM</a>
+      <ul>
+        <li><a href="#2pl-和-mvcc">2PL 和 MVCC</a>
+          <ul>
+            <li><a href="#核心原理两阶段-2pl">核心原理：两阶段 2PL</a></li>
+            <li><a href="#mvcc">MVCC</a></li>
+          </ul>
+        </li>
+        <li><a href="#事务的隔离级别">事务的隔离级别</a>
+          <ul>
+            <li><a href="#读提交">读提交</a></li>
+            <li><a href="#解决不可重复读引入新的隔离级别可重复读">解决不可重复读,引入新的隔离级别:可重复读</a></li>
+            <li><a href="#真正实现vm">真正实现VM</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4实现index-manager-索引管理器">4.实现index manager 索引管理器</a></li>
+    <li><a href="#5实现table-manager-字段与表管理器-tbm">5.实现table manager 字段与表管理器 TBM</a>
+      <ul>
+        <li><a href="#sql解析器">SQL解析器</a></li>
+        <li><a href="#表和字段的管理">表和字段的管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#6最终实现软件server和client的通信">6.最终实现软件:Server和Client的通信</a>
+      <ul>
+        <li><a href="#通信">通信</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">Mio&rsquo;sDB 
+    <div id="miosdb" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#miosdb" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>这是一个由Java实现的轻量级的关系型数据库.</p>
+<p>基于 socket 的 server 和 client进行前后端的通信.</p>
+<p>原博客教程及仓库:</p>
+<p><a href="https://shinya.click/projects/mydb/mydb0" target="_blank">https://shinya.click/projects/mydb/mydb0</a></p></blockquote>
+
+
+<h2 class="relative group">运行方式 
+    <div id="%E8%BF%90%E8%A1%8C%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%90%E8%A1%8C%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>注意首先需要在 pom.xml 中调整编译版本，如果导入 IDE，请更改项目的编译版本以适应你的 JDK</p>
+<p>首先执行以下命令编译源码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> mvn compile
+</span></span></code></pre></div><p>接着执行以下命令以 /tmp/mydb 作为路径创建数据库：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> mvn exec:java -Dexec.mainClass<span class="o">=</span><span class="s2">&#34;top.guoziyang.mydb.backend.Launcher&#34;</span> -Dexec.args<span class="o">=</span><span class="s2">&#34;-create /tmp/mydb&#34;</span>
+</span></span></code></pre></div><p>随后通过以下命令以默认参数启动数据库服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> mvn exec:java -Dexec.mainClass<span class="o">=</span><span class="s2">&#34;top.guoziyang.mydb.backend.Launcher&#34;</span> -Dexec.args<span class="o">=</span><span class="s2">&#34;-open /tmp/mydb&#34;</span>
+</span></span></code></pre></div><p>这时数据库服务就已经启动在本机的 9999 端口。重新启动一个终端，执行以下命令启动客户端连接数据库：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> mvn exec:java -Dexec.mainClass<span class="o">=</span><span class="s2">&#34;top.guoziyang.mydb.client.Launcher&#34;</span>
+</span></span></code></pre></div><p>会启动一个交互式命令行，就可以在这里输入类 SQL 语法，回车会发送语句到服务，并输出执行的结果。</p>
+
+
+<h1 class="relative group">数据库原理 
+    <div id="%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>我个人认为现在的后端,应当以数据库为中心.</p>
+<p>这是借鉴的一个简单项目,手写一个数据库,利用java语言.</p>
+<p>原博客教程及仓库:</p>
+<p><a href="https://shinya.click/projects/mydb/mydb0" target="_blank">https://shinya.click/projects/mydb/mydb0</a></p></blockquote>
+
+
+<h2 class="relative group">0.Overview 
+    <div id="0overview" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#0overview" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>前后端利用socket通信进行交互.</p>
+
+
+<h3 class="relative group">核心模块 
+    <div id="%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">Transaction Manager 事务管理器 
+    <div id="transaction-manager-%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#transaction-manager-%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	管理事务的生命周期,实现ACID特性.</p>
+<p>​	<strong>交互：</strong> 与 <strong>Version Manager (VM)</strong> 协作来实现隔离性和回滚，并通知 <strong>Data Manager (DM)</strong> 何时需要将变更写入磁盘。</p>
+
+
+<h4 class="relative group">Data Manager 数据管理器 
+    <div id="data-manager-%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#data-manager-%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	管理读写,物理存储和持久性.</p>
+
+
+<h4 class="relative group">Version Manager 版本管理器 
+    <div id="version-manager-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#version-manager-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	实现多版本并发控制,MVCC.</p>
+
+
+<h4 class="relative group">Index Manager 索引管理器 
+    <div id="index-manager-%E7%B4%A2%E5%BC%95%E7%AE%A1%E7%90%86%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#index-manager-%E7%B4%A2%E5%BC%95%E7%AE%A1%E7%90%86%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	管理索引,实现B+树或者B树.</p>
+
+
+<h4 class="relative group">Table Manager 表管理器 
+    <div id="table-manager-%E8%A1%A8%E7%AE%A1%E7%90%86%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#table-manager-%E8%A1%A8%E7%AE%A1%E7%90%86%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​	比较上层的一个组件,管理table,存储table的元信息.</p>
+<blockquote>
+<p>本教程的实现顺序是 TM -&gt; DM -&gt; VM -&gt; IM -&gt; TBM</p></blockquote>
+
+
+<h2 class="relative group">1.实现事务管理器 TM 
+    <div id="1%E5%AE%9E%E7%8E%B0%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8-tm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1%E5%AE%9E%E7%8E%B0%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8-tm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>​	你可以理解,我们的事务管理器,只是一直在做一些关于文件的维护,维护当前处理的每一个事务的状态,同时要支持并发的访问.</p></blockquote>
+
+
+<h3 class="relative group">XID 
+    <div id="xid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#xid" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>xid唯一标识了一个事务.</p>
+<p>自增 不重复</p>
+<p>0:超级事务,可以在没有申请事务的情况下进行.&mdash;&gt;状态一直是<strong>commited</strong></p>
+<blockquote>
+<p>TransactionManager <strong>维护了一个 XID 格式的文件</strong>，用来<strong>记录各个事务的状态</strong>。MYDB 中，每个事务都有下面的三种状态：</p>
+<ol>
+<li><strong>active</strong>，正在进行，尚未结束</li>
+<li><strong>committed</strong>，已提交</li>
+<li><strong>aborted</strong>，已撤销（回滚）</li>
+</ol></blockquote>
+<blockquote>
+<p>XID 文件给每个事务分配了一个字节的空间，用来保存其状态。同时，在 XID 文件的头部，还保存了一个 8 字节的数字，记录了这个 XID 文件管理的事务的个数。于是，事务 xid 在文件中的状态就存储在 (xid-1)+8 字节处，xid-1 是因为 xid 0（Super XID）的状态不需要记录。</p></blockquote>
+<p>基本的接口:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// 开启事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="kt">long</span><span class="w"> </span><span class="nf">begin</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// 提交事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="nf">commit</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// 取消事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="nf">abort</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// 查询事务状态</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isActive</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isCommitted</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isAborted</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// 关闭事务管理器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="nf">close</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p>我们这里使用Java的 NIO来进行文件的读写.</p></blockquote>
+
+
+<h3 class="relative group">核心特性：直接内存映射 (Memory-Mapped I/O) 
+    <div id="%E6%A0%B8%E5%BF%83%E7%89%B9%E6%80%A7%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84-memory-mapped-io" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%B8%E5%BF%83%E7%89%B9%E6%80%A7%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84-memory-mapped-io" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><code>FileChannel</code> 最强大的特性之一是它支持 <strong>直接内存映射 I/O (Memory-Mapped I/O, MappedByteBuffer)</strong>。</p>
+<ul>
+<li><strong>工作原理：</strong> 你可以将文件的一部分甚至整个文件，<strong>映射 (map)</strong> 到 Java 虚拟机的内存中。</li>
+<li><strong>好处：</strong>
+<ul>
+<li>一旦映射完成，对文件内容的读写就像读写内存中的数组一样简单。</li>
+<li>操作系统负责在内存和磁盘之间同步数据，<strong>避免了传统 I/O 中数据在内核缓冲区和用户缓冲区之间的多次拷贝</strong>（这是一个巨大的性能提升点）。</li>
+</ul>
+</li>
+</ul>
+<p>对于你的 <strong>Data Manager (DM)</strong> 来说，这非常理想，因为 DM 需要处理大量的随机读写，而内存映射能极大地加速对数据页的访问。</p>
+
+
+<h2 class="relative group">2.实现数据管理器 DM 
+    <div id="2%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%99%A8-dm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%99%A8-dm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">实现引用计数缓存框架/共享内存数组(Java没有指针) 
+    <div id="%E5%AE%9E%E7%8E%B0%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%BC%93%E5%AD%98%E6%A1%86%E6%9E%B6%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E6%95%B0%E7%BB%84java%E6%B2%A1%E6%9C%89%E6%8C%87%E9%92%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%9E%E7%8E%B0%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%BC%93%E5%AD%98%E6%A1%86%E6%9E%B6%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E6%95%B0%E7%BB%84java%E6%B2%A1%E6%9C%89%E6%8C%87%E9%92%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>我们接下来去实现DM.</p></blockquote>
+<p>1.分页管理DB.</p>
+<p>2.管理日志文件,发生错误时可以进行恢复.</p>
+<p>3.抽象DB文件给上层使用,提供缓存.</p>
+<blockquote>
+<p>这就是DAO层的核心,向下会直接管理数据,并且会为上层提供调用的接口.</p></blockquote>
+<p>我们引入<strong>缓存系统</strong>,而我们管理的方式是<strong>引用计数</strong>.</p>
+<blockquote>
+<p><strong>为什么不使用LRU算法?</strong></p>
+<p>​	<em>某个时刻缓存满了，缓存驱逐了一个资源，这时上层模块想要将某个资源强制刷回数据源，这个资源恰好是刚刚被驱逐的资源。那么上层模块就发现，这个数据在缓存里消失了，这时候就陷入了一种尴尬的境地：是否有必要做回源操作？</em></p>
+<ol>
+<li>不回源。由于没法确定缓存被驱逐的时间，更没法确定被驱逐之后数据项是否被修改，这样是极其不安全的</li>
+<li>回源。如果数据项被驱逐时的数据和现在又是相同的，那就是一次无效回源</li>
+<li>放回缓存里，等下次被驱逐时回源。看起来解决了问题，但是此时缓存已经满了，这意味着你还需要驱逐一个资源才能放进去。这有可能会导致缓存抖动问题</li>
+</ol></blockquote>
+<p>release释放引用,引用为0的时候,就自动驱逐这个资源.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// 尝试获取该资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="k">if</span><span class="p">(</span><span class="n">maxResource</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">maxResource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="c1">// 缓存已满，抛出异常</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="k">throw</span><span class="w"> </span><span class="n">Error</span><span class="p">.</span><span class="na">CacheFullException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>缓存满的时候,直接结束.</p>
+<p>这里的所有资源,我们都是使用三张<strong>hash table</strong>来管理的.</p>
+
+
+<h3 class="relative group">数据页的缓存和管理问题 
+    <div id="%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E7%BC%93%E5%AD%98%E5%92%8C%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E7%BC%93%E5%AD%98%E5%92%8C%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>我们怎么操作文件系统?</p>
+<blockquote>
+<p><strong>读写和缓存</strong>都是以<strong>page</strong>作为<strong>基本单位</strong>.</p></blockquote>
+<p>数据即文件,我们的数据都存放在磁盘文件内部.</p>
+<blockquote>
+<p>这里缓存的实现,就是比较基本的缓存思想.</p></blockquote>
+
+
+<h4 class="relative group">页面管理 
+    <div id="%E9%A1%B5%E9%9D%A2%E7%AE%A1%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%A1%B5%E9%9D%A2%E7%AE%A1%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>db的第一页存放一些元数据,每次打开的时候,和上一次进行校验,看是否合法</p>
+<p>剩下的就是正常的数据页.</p>
+<p>2bytes 存放当前页面内部的空闲位置的偏移,在做insert的时候,我们主要就是使用这里的数据</p>
+
+
+<h3 class="relative group">日志文件和恢复策略 
+    <div id="%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%92%8C%E6%81%A2%E5%A4%8D%E7%AD%96%E7%95%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%92%8C%E6%81%A2%E5%A4%8D%E7%AD%96%E7%95%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>这里的恢复思想和文件系统的崩溃恢复是类似的.</p>
+<p>MYDB 提供了崩溃后的数据恢复功能。DM 层在每次对底层数据操作时，都会记录一条日志到磁盘上。在数据库奔溃之后，再次启动时，可以根据日志的内容，恢复数据文件，保证其一致性。</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">  [XChecksum][Log1][Log2][Log3]...[LogN][BadTail]
+</span></span></code></pre></div><p>一个基本的日志文件的组成:</p>
+<p>1.Checksum对所有log做校验和.</p>
+<p>2.BadTail就是崩溃时没有写完的日志数据.</p>
+<blockquote>
+<p>“Write-Ahead Logging(WAL)”的意思是：<strong>在数据页面的实际修改（写入主数据文件）之前，必须先把描述这个修改的记录（日志）写入并持久化到日志文件。</strong></p></blockquote>
+
+
+<h4 class="relative group">恢复策略 
+    <div id="%E6%81%A2%E5%A4%8D%E7%AD%96%E7%95%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%81%A2%E5%A4%8D%E7%AD%96%E7%95%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Data Manager 为上层提供了两种操作: insert and update with no delete why?</p>
+<p>And the same as file system,we use the strategy of WAL.</p>
+<blockquote>
+<p>对于两种数据操作，DM 记录的日志如下：</p>
+<ul>
+<li>(Ti, I, A, x)，表示事务 Ti 在 A 位置插入了一条数据 x</li>
+<li>(Ti, U, A, oldx, newx)，表示事务 Ti 将 A 位置的数据，从 oldx 更新成 newx</li>
+</ul></blockquote>
+<p>非并发的情况下,log可能是这样:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">  (Ti, x, x), ..., (Ti, x, x), (Tj, x, x), ..., (Tj, x, x), (Tk, x, x), ..., (Tk, x, x)
+</span></span></code></pre></div><blockquote>
+<h4 class="relative group">单线程 
+    <div id="%E5%8D%95%E7%BA%BF%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>由于单线程，Ti、Tj 和 Tk 的日志永远不会相交。这种情况下利用日志恢复很简单，假设日志中最后一个事务是 Ti：</p>
+<ol>
+<li>对 Ti 之前所有的事务的日志，进行重做（redo）</li>
+<li>接着检查 Ti 的状态（XID 文件），如果 Ti 的状态是已完成（包括 committed 和 aborted,这里意味着这里的一个log是完整的.），就将 Ti 重做，否则进行撤销（undo）</li>
+</ol>
+<p>接着，是如何对事务 T 进行 redo：</p>
+<ol>
+<li>正序扫描事务 T 的所有日志</li>
+<li>如果日志是插入操作 (Ti, I, A, x)，就将 x 重新插入 A 位置</li>
+<li>如果日志是更新操作 (Ti, U, A, oldx, newx)，就将 A 位置的值设置为 newx</li>
+</ol>
+<p>undo 也很好理解：</p>
+<ol>
+<li>倒序扫描事务 T 的所有日志</li>
+<li>如果日志是插入操作 (Ti, I, A, x)，就将 A 位置的数据删除</li>
+<li>如果日志是更新操作 (Ti, U, A, oldx, newx)，就将 A 位置的值设置为 oldx</li>
+</ol>
+<p>注意，MYDB 中其实没有真正的删除操作，对于插入操作的 undo，只是将其中的标志位设置为 invalid。对于删除的探讨将在 VM 一节中进行。</p></blockquote>
+<p>考察几种多线程的情况:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl"> T1 begin
+</span></span><span class="line"><span class="cl"> T2 begin
+</span></span><span class="line"><span class="cl"> T2 U(x)
+</span></span><span class="line"><span class="cl"> T1 R(x)
+</span></span><span class="line"><span class="cl"> ...
+</span></span><span class="line"><span class="cl"> T1 commit
+</span></span><span class="line"><span class="cl"> T2 Running
+</span></span><span class="line"><span class="cl"> MYDB break down
+</span></span></code></pre></div><p>两个事务都在进行的时候,一个事务读取了另外一个事务的更新的内容,但是breakdown的时候,T2应当被撤销.</p>
+<p><strong>级联回滚.</strong></p>
+<blockquote>
+<p>I.一个正在进行的事务,不应当读取其余的未提交的事务的数据!</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl"> T1 begin
+</span></span><span class="line"><span class="cl"> T2 begin
+</span></span><span class="line"><span class="cl"> T1 set x = x+1 // 产生的日志为 (T1, U, A, 0, 1)
+</span></span><span class="line"><span class="cl"> T2 set x = x+1 // 产生的日志为 (T1, U, A, 1, 2)
+</span></span><span class="line"><span class="cl"> T2 commit
+</span></span><span class="line"><span class="cl"> T1 Running
+</span></span><span class="line"><span class="cl"> MYDB break down
+</span></span></code></pre></div><p>breakdown的时候,T2已经提交事务,但是T1还在进行.</p>
+<p>那么我们恢复的时候,对于T2进行重做,对于T1撤销,这个顺序无论怎样,结果都是0或者2.</p>
+<blockquote>
+<p>II.一个正在进行的事务,不应当修改其余未提交的事务的数据!(但其实是可以的)</p></blockquote>
+<p>实际上VM层可以保证这两点的实现.</p>
+<blockquote>
+<p>我们只要保证:</p>
+<ol>
+<li><strong>重做所有崩溃时已完成</strong>（committed 或 aborted）的<strong>事务</strong></li>
+<li><strong>撤销所有崩溃时未完成（active）的事务</strong></li>
+</ol></blockquote>
+
+
+<h3 class="relative group">索引和Data Item的抽象 
+    <div id="%E7%B4%A2%E5%BC%95%E5%92%8Cdata-item%E7%9A%84%E6%8A%BD%E8%B1%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B4%A2%E5%BC%95%E5%92%8Cdata-item%E7%9A%84%E6%8A%BD%E8%B1%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>页面索引，缓存了每一页的空闲空间。用于在上层模块进行插入操作时，能够快速找到一个合适空间的页面，而无需从磁盘或者缓存中检查每一个页面的信息。</p>
+<p>MYDB 用一个比较粗略的算法实现了页面索引，将一页的空间划分成了 40 个区间。在启动时，就会遍历所有的页面信息，获取页面的空闲空间，安排到这 40 个区间中。insert 在请求一个页时，会首先将所需的空间向上取整，映射到某一个区间，随后取出这个区间的任何一页，都可以满足需求。</p></blockquote>
+
+
+<h2 class="relative group">3.实现version manager VM 
+    <div id="3%E5%AE%9E%E7%8E%B0version-manager-vm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3%E5%AE%9E%E7%8E%B0version-manager-vm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p><strong>版本控制器</strong>? <strong>事务</strong> 和 <strong>数据版本管理</strong>的核心.</p>
+<p>要实现版本管理器的主要问题就是解决并发!</p></blockquote>
+
+
+<h3 class="relative group">2PL 和 MVCC 
+    <div id="2pl-%E5%92%8C-mvcc" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2pl-%E5%92%8C-mvcc" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>​	<strong>2PL (Two-Phase Locking, 两阶段锁定)</strong> 和 <strong>MVCC (Multi-Version Concurrency Control, 多版本并发控制)</strong> 是现代数据库用来保证事务 <strong>隔离性 (Isolation)</strong> 的主要方法.</p>
+<p>​	我们定义冲突:</p>
+<p>​		两个不同的事务,对于一块资源同时<strong>update</strong>或者一个update另一个read&mdash;&gt;冲突.</p>
+
+
+<h4 class="relative group">核心原理：两阶段 2PL 
+    <div id="%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E4%B8%A4%E9%98%B6%E6%AE%B5-2pl" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E4%B8%A4%E9%98%B6%E6%AE%B5-2pl" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>顾名思义，2PL 将事务的锁定行为分为两个严格的阶段：</p>
+<ol>
+<li>增长阶段 (Growing Phase)</li>
+</ol>
+<ul>
+<li><strong>行为：</strong> 事务可以 <strong>获取 (Acquire)</strong> 任何它需要的锁，但 <strong>不能释放</strong> 任何已持有的锁。</li>
+<li><strong>目的：</strong> 确保事务在执行过程中，它所需的所有资源都能被安全地保护起来。</li>
+</ul>
+<ol>
+<li>收缩阶段 (Shrinking Phase)</li>
+</ol>
+<ul>
+<li><strong>行为：</strong> 事务可以 <strong>释放 (Release)</strong> 锁，但 <strong>不能再获取</strong> 任何新的锁。</li>
+<li><strong>目的：</strong> 一旦事务进入收缩阶段，它不能再请求新的资源，这保证了锁的释放是单向的，从而保证了 <strong>可串行化 (Serializability)</strong> 的隔离级别。</li>
+</ul>
+<p>锁的类型</p>
+<ol>
+<li>
+<p><strong>共享锁 (S-Lock / Read Lock)：</strong> 允许多个事务同时读取数据。</p>
+</li>
+<li>
+<p><strong>排他锁 (X-Lock / Write Lock)：</strong> 只允许一个事务修改数据，阻止所有其他事务的读写。</p>
+</li>
+<li>
+<blockquote>
+<p>比如上面我们就会使用排他锁,两个正在进行的事务不能同时或者至少有一个在进行update操作.</p></blockquote>
+</li>
+</ol>
+<p>优点和缺点</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center"><strong>特点</strong></th>
+          <th style="text-align: center"><strong>描述</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><strong>优点：</strong></td>
+          <td style="text-align: center"><strong>隔离性强：</strong> 很容易实现最高的 <strong>可串行化</strong> 隔离级别。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>缺点：</strong></td>
+          <td style="text-align: center"><strong>低并发性：</strong> 读操作（即使是共享锁）也会阻塞写操作，反之亦然，降低了系统的并行处理能力。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>缺点：</strong></td>
+          <td style="text-align: center"><strong>死锁 (Deadlock)：</strong> 事务可能因为互相等待对方释放锁而陷入僵局，需要额外的死锁检测和解决机制。</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h4 class="relative group">MVCC 
+    <div id="mvcc" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mvcc" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>在介绍 MVCC 之前，首先明确<strong>记录和版本</strong>的概念。</p>
+<p>DM 层向上层提供了数据项（Data Item）的概念，VM 通过管理所有的数据项，向上层提供了记录（<strong>Entry</strong>）的概念。上层模块通过 **VM 操作数据的最小单位，就是记录。**VM 则在其内部，**为每个记录，维护了多个版本（Version）。**每当上层模块对某个记录进行修改时，VM 就会为这个记录创建一个新的版本。</p>
+<p>MYDB 通过 MVCC，降低了事务的阻塞概率。譬如，T1 想要更新记录 X 的值，于是 T1 需要首先获取 X 的锁，接着更新，也就是创建了一个新的 X 的版本，假设为 x3。假设 T1 还没有释放 X 的锁时，T2 想要读取 X 的值，这时候就不会阻塞，MYDB 会返回一个较老版本的 X(<strong>所以叫多版本并发控制</strong>)，例如 x2。这样最后执行的结果，就等价于，T2 先执行(<strong>也就是T2会读取到没有更新的值,我们的两个事务本来没有前后逻辑的要求.</strong>)，T1 后执行，调度序列依然是可串行化的。如果 X 没有一个更老的版本，那只能等待 T1 释放锁了。所以只是降低了概率。</p>
+<p>还记得我们在第四章中，为了保证数据的可恢复，VM 层传递到 DM 的操作序列需要满足以下两个规则：</p>
+<blockquote>
+<p>规定 1：正在进行的事务，不会读取其他任何未提交的事务产生的数据。(<strong>这是由MVCC实现的,你想读取的时候,我们返回给你一个老版本的数据.</strong>) 规定 2：正在进行的事务，不会修改其他任何未提交的事务修改或产生的数据。(<strong>直接使用2PL中的排他锁实现的.</strong>)</p></blockquote>
+<p>由于 2PL 和 MVCC，我们可以看到，这两个条件都被很轻易地满足了。</p></blockquote>
+<p>​	MVCC 是一种 <strong>乐观 (Optimistic)</strong> 的并发控制机制，它避免了读写之间的锁竞争，通过 <strong>保存数据的多个版本</strong> 来实现隔离。</p>
+<p>核心原理：版本和快照</p>
+<ol>
+<li><strong>不阻塞读取：</strong> 当一个事务 T_{read} 读取数据时，它不会申请锁，而是获取一个 <strong>数据快照 (Snapshot)</strong>。</li>
+<li><strong>多版本存储：</strong> 当一个写入事务 T_{write} 修改数据时，它不会覆盖旧数据，而是创建一个数据的 <strong>新版本</strong>。旧版本被保留下来。</li>
+<li><strong>可见性判断：</strong> 每个数据版本都标记有创建它的事务 ID（T*{start}）和删除它的事务 ID（T*{end}）。事务 T_{read} 根据其启动时的 <strong>Read View</strong>（活跃事务集合），判断哪个版本对它是“可见”的。
+<ul>
+<li>简单来说，读取事务 T_{read} 只会看到在它开始之前就已经提交的数据版本。</li>
+</ul>
+</li>
+</ol>
+<p>隔离性实现</p>
+<p>MVCC 特别适合实现 <strong>读提交 (Read Committed)</strong> 和 <strong>可重复读 (Repeatable Read)</strong> 等隔离级别：</p>
+<ul>
+<li><strong>读取事务</strong> 永远不会被 <strong>写入事务</strong> 阻塞。</li>
+<li><strong>写入事务</strong> 只在提交时进行冲突检查或锁定，但不会阻塞读取。</li>
+</ul>
+<p>优点和缺点</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>特点</strong></th>
+          <th><strong>描述</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>优点：</strong></td>
+          <td><strong>高并发性：</strong> 读操作和写操作很少互相阻塞，极大地提高了 OLTP (在线事务处理) 的性能。</td>
+      </tr>
+      <tr>
+          <td><strong>优点：</strong></td>
+          <td><strong>无死锁（读写）：</strong> 读事务不需要锁，因此不会发生读写之间的死锁。</td>
+      </tr>
+      <tr>
+          <td><strong>缺点：</strong></td>
+          <td><strong>存储开销：</strong> 需要额外的存储空间来保存数据的多个历史版本。</td>
+      </tr>
+      <tr>
+          <td><strong>缺点：</strong></td>
+          <td><strong>垃圾回收 (GC)：</strong> 需要一个 <strong>Version Manager (VM)</strong> 机制来定期清理（垃圾回收）那些不再被任何活跃事务引用的旧版本数据。</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h3 class="relative group">事务的隔离级别 
+    <div id="%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">读提交 
+    <div id="%E8%AF%BB%E6%8F%90%E4%BA%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AF%BB%E6%8F%90%E4%BA%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>当一个记录的最新版本被加锁,有另一个事务尝试进行读取的时候,会返回旧的版本数据,那么新版本对于这个事务来说就是,<strong>不可见</strong>的,这就是 <strong>版本可见性</strong> 的问题.</p>
+<p>​	<strong>最低隔离度</strong>:读取<strong>数据</strong>时,<strong>只能读取已经提交的事务产生的数据</strong>.</p>
+<blockquote>
+<p>MYDB 实现读提交，为每个版本维护了两个变量，就是上面提到的 XMIN 和 XMAX：</p>
+<ul>
+<li>XMIN：创建该版本的事务编号</li>
+<li>XMAX：删除该版本的事务编号</li>
+</ul>
+<p>XMIN 应当在版本创建时填写，而 XMAX 则在版本被删除，或者有新版本出现时填写。</p>
+<p>XMAX 这个变量，也就解释了为什么 DM 层不提供删除操作，当想删除一个版本时，只需要设置其 XMAX，这样，这个版本对每一个 XMAX 之后的事务都是不可见的，也就等价于删除了。</p>
+<p><strong>利用版本可见性,我们就实现了删除.</strong></p></blockquote>
+<p>我们判断一个记录对于某个事务t是否是可见的:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 读提交,判断一个版本对事务t是否可见
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param tm 事务管理器
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param t 事务
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param e 记录
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return 版本是否对事务可见
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">readCommitted</span><span class="p">(</span><span class="n">TransactionManager</span><span class="w"> </span><span class="n">tm</span><span class="p">,</span><span class="w"> </span><span class="n">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">xid</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">xmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getXmin</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getXmax</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 自己创建的记录且未删除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">xmin</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">xid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 创建该记录的事务已提交</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tm</span><span class="p">.</span><span class="na">isCommitted</span><span class="p">(</span><span class="n">xmin</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 并且还未被删除,就是可见的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">xmax</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 否则,如果删除该记录的事务不是自己且未提交,也是可见的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 因为如果提交了,说明记录被删除了,对当前事务不可见</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">xmax</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">xid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">tm</span><span class="p">.</span><span class="na">isCommitted</span><span class="p">(</span><span class="n">xmax</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h5 class="relative group">读提交的问题:不可重复读/幻读 
+    <div id="%E8%AF%BB%E6%8F%90%E4%BA%A4%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E5%B9%BB%E8%AF%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AF%BB%E6%8F%90%E4%BA%A4%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E5%B9%BB%E8%AF%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+
+
+<h6 class="relative group">Non-Repeatable Read: 
+    <div id="non-repeatable-read" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#non-repeatable-read" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>​	之前的问题:在一个事务内,我对于一个记录访问了两次:</p>
+<p>​	1.第一次访问的时候,返回的是旧版本.</p>
+<p>​	2.第二次事务已经读提交,变得可见,返回新版本,两次不一样.</p>
+<ol>
+<li><strong>事务 A</strong> 开始，并执行第一次查询：<code>SELECT * FROM users WHERE id = 10;</code> 得到数据 R_1。</li>
+<li><strong>事务 B</strong> 紧接着修改了这条记录：<code>UPDATE users SET balance = 500 WHERE id = 10;</code> 并 <strong>提交 (COMMIT)</strong> 事务。</li>
+<li><strong>事务 A</strong> 再次执行同样的查询：<code>SELECT * FROM users WHERE id = 10;</code> 得到数据 R_2。</li>
+<li><strong>结果：</strong> R_1 \neq R_2。事务 A 在 R_1 和 R_2 之间看到了另一个已提交事务 B 的修改。</li>
+</ol>
+
+
+<h6 class="relative group">Phantom Read: 
+    <div id="phantom-read" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#phantom-read" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>​	多次执行同一个范围查询的时候,两次出现的集合不一样,其实和上面是类似的:</p>
+<ol>
+<li><strong>事务 A</strong> 开始，执行第一次范围查询：<code>SELECT COUNT(*) FROM products WHERE type = 'Electronics';</code> 得到结果 C_1。</li>
+<li><strong>事务 B</strong> 紧接着插入了一条满足查询条件的新记录：<code>INSERT INTO products (name, type) VALUES ('Phone', 'Electronics');</code> 并 <strong>提交 (COMMIT)</strong> 事务。</li>
+<li><strong>事务 A</strong> 再次执行同样的范围查询：<code>SELECT COUNT(*) FROM products WHERE type = 'Electronics';</code> 得到结果 C_2。</li>
+<li><strong>结果：</strong> C_1 \neq C_2。事务 A 发现了一个 <strong>幻影行 (Phantom Row)</strong>，这条新行是事务 B 插入的</li>
+</ol>
+<blockquote>
+<p>多帅的名字!</p></blockquote>
+<table>
+  <thead>
+      <tr>
+          <th><strong>异常行为</strong></th>
+          <th><strong>隔离级别</strong></th>
+          <th><strong>如何解决？</strong></th>
+          <th><strong>机制</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>不可重复读</strong></td>
+          <td><strong>可重复读 (Repeatable Read)</strong></td>
+          <td>事务 A 在第一次读取时，会锁定或快照这条记录，阻止事务 B 的修改或看不到事务 B 的修改。</td>
+          <td>2PL (行锁) 或 MVCC (事务快照)</td>
+      </tr>
+      <tr>
+          <td><strong>幻读</strong></td>
+          <td><strong>可串行化 (Serializable)</strong></td>
+          <td>事务 A 在第一次范围查询时，需要锁定 <strong>整个查询范围</strong>，阻止事务 B 在这个范围内进行 <strong>INSERT</strong>。</td>
+          <td><strong>间隙锁 (Gap Lock)</strong> 或 <strong>谓词锁 (Predicate Lock)</strong></td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h4 class="relative group">解决不可重复读,引入新的隔离级别:可重复读 
+    <div id="%E8%A7%A3%E5%86%B3%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E5%BC%95%E5%85%A5%E6%96%B0%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A7%A3%E5%86%B3%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E5%BC%95%E5%85%A5%E6%96%B0%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<blockquote>
+<p><strong>事务只能读取它开始时，就已经结束的那些事务产生的数据版本.</strong></p></blockquote>
+<p>这条规定，增加于，事务需要忽略：</p>
+<ol>
+<li>在本事务后开始的事务的数据;</li>
+<li>本事务开始时还是 active 状态的事务的数据</li>
+<li><strong>就是非常保守,我只认定在我之前就结束的记录.</strong></li>
+</ol></blockquote>
+<blockquote>
+<p>​	对于<strong>第一条</strong>，只需要<strong>比较事务 ID</strong>，即可确定。而对于第二条，则需要在事务 Ti 开始时，记录下当前活跃的所有事务 <strong>SP(Ti)</strong>，如果记录的某个版本，<strong>XMIN</strong> 在 <strong>SP(Ti)</strong> 中，也应当对 Ti 不可见。</p>
+<p>​	也就是事务开始的时候,要保存一个快照.</p></blockquote>
+<p>我们先使用一个<strong>hashmap</strong>保存所有活跃事务的id:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 创建一个新的事务对象,并根据隔离级别生成快照,snapshot中包含了所有在该事务开始时活跃的事务id
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param xid 事务id
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param level 事务隔离级别
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param active 当前活跃的事务列表
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return 新的事务对象
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Transaction</span><span class="w"> </span><span class="nf">newTransaction</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">Transaction</span><span class="o">&gt;</span><span class="w"> </span><span class="n">active</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Transaction</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transaction</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">xid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xid</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">level</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">level</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">t</span><span class="p">.</span><span class="na">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">active</span><span class="p">.</span><span class="na">keySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">t</span><span class="p">.</span><span class="na">snapshot</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>我们可重复读级别可见性的逻辑就是:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 可重复读,判断一个版本对事务t是否可见
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param tm 事务管理器
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param t 事务
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param e 记录
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return 版本是否对事务可见,在可重复读隔离级别下
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">repeatableRead</span><span class="p">(</span><span class="n">TransactionManager</span><span class="w"> </span><span class="n">tm</span><span class="p">,</span><span class="w"> </span><span class="n">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">xid</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">xmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getXmin</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getXmax</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 自己创建的记录且未删除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">xmin</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">xid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 创建该记录的事务已提交,且在当前事务开始前就已经提交,且不在当前事务的活跃快照中</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tm</span><span class="p">.</span><span class="na">isCommitted</span><span class="p">(</span><span class="n">xmin</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">xmin</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">xid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">t</span><span class="p">.</span><span class="na">isInSnapshot</span><span class="p">(</span><span class="n">xmin</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 并且还未被删除,就是可见的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">xmax</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 否则,如果删除该记录的事务不是自己且未提交,或者在当前事务的活跃快照中,也是可见的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 说白了,在我可重复读级别看来,你就是没删除也没修改</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">xmax</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">xid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">tm</span><span class="p">.</span><span class="na">isCommitted</span><span class="p">(</span><span class="n">xmax</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">xid</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">isInSnapshot</span><span class="p">(</span><span class="n">xmax</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h4 class="relative group">真正实现VM 
+    <div id="%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0vm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0vm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>​	说到<strong>版本跳跃</strong>之前，顺便提一嘴，<strong>MVCC</strong> 的实现，使得 <strong>MYDB</strong> 在<strong>撤销或是回滚事务</strong>很简单：只需要将这个事务标记为 <strong>aborted</strong> 即可。根据前一章提到的可见性，每个事务都只能看到其他 committed 的<strong>事务</strong>所产生的数据，一个 aborted 事务产生的数据，就不会对其他事务产生任何影响了，也就相当于，这个事务不曾存在过。</p></blockquote>
+
+
+<h5 class="relative group">MVCC版本跳跃问题 
+    <div id="mvcc%E7%89%88%E6%9C%AC%E8%B7%B3%E8%B7%83%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mvcc%E7%89%88%E6%9C%AC%E8%B7%B3%E8%B7%83%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">T1 begin
+</span></span><span class="line"><span class="cl">T2 begin
+</span></span><span class="line"><span class="cl">R1(X) // T1 读取 x0
+</span></span><span class="line"><span class="cl">R2(X) // T2 读取 x0
+</span></span><span class="line"><span class="cl">U1(X) // T1 将 X 更新到 x1
+</span></span><span class="line"><span class="cl">T1 commit
+</span></span><span class="line"><span class="cl">U2(X) // T2 将 X 更新到 x2
+</span></span><span class="line"><span class="cl">T2 commit
+</span></span></code></pre></div><blockquote>
+<p>中间跳跃了一个x1的版本,但是你可以看出来,如果是读提交的隔离级别,就是没有问题的.</p>
+<p>但是可重复读是不允许的.</p></blockquote>
+<blockquote>
+<p>Ti 不可见的 Tj，有两种情况：</p>
+<ol>
+<li>XID(Tj) &gt; XID(Ti) 这个事务在我之后<strong>创建</strong>.</li>
+<li>Tj in SP(Ti)          这个事务在<strong>活跃快照</strong>之中.</li>
+</ol>
+<p>于是<strong>版本跳跃的检查</strong>也就很简单了，取出要修改的数据 <strong>X</strong> 的最新<strong>提交版本</strong>，并检查该最新版本的创建者对当前事务是否可见：</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 是否有版本跳跃的问题</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isVersionSkip</span><span class="p">(</span><span class="n">TransactionManager</span><span class="w"> </span><span class="n">tm</span><span class="p">,</span><span class="w"> </span><span class="n">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getXmax</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">level</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 读提交不存在问题</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 之前有一个事务:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//      修改了并且已经提交 &amp;&amp; 这个事务还是我不可见的事务!</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">tm</span><span class="p">.</span><span class="na">isCommitted</span><span class="p">(</span><span class="n">xmax</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">xmax</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">xid</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">isInSnapshot</span><span class="p">(</span><span class="n">xmax</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h5 class="relative group">死锁检测:解决2PL带来的问题 
+    <div id="%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B%E8%A7%A3%E5%86%B32pl%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B%E8%A7%A3%E5%86%B32pl%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<blockquote>
+<p>​	当一个事务等待另外一个事务释放lock的时候,这个关系我们称为一个有向边,每次有 <strong>等待</strong> 的时候,就加上一条边,然后检测图中是否出现了环,出现的话,就要撤销刚刚增加的这个事务.</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 维护了一个依赖等待图，以进行死锁检测.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 这里比较像OS中的死锁检测问题.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LockTable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x2u</span><span class="p">;</span><span class="w">  </span><span class="c1">// 某个XID已经获得的资源的UID列表</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">u2x</span><span class="p">;</span><span class="w">        </span><span class="c1">// UID被某个XID持有</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">wait</span><span class="p">;</span><span class="w"> </span><span class="c1">// 正在等待UID的XID列表</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">Lock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">waitLock</span><span class="p">;</span><span class="w">   </span><span class="c1">// 正在等待资源的XID的锁</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">waitU</span><span class="p">;</span><span class="w">      </span><span class="c1">// XID正在等待的UID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">4.实现index manager 索引管理器 
+    <div id="4%E5%AE%9E%E7%8E%B0index-manager-%E7%B4%A2%E5%BC%95%E7%AE%A1%E7%90%86%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4%E5%AE%9E%E7%8E%B0index-manager-%E7%B4%A2%E5%BC%95%E7%AE%A1%E7%90%86%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>在实现之前,我们先来理解一下B+ Tree:</p>
+<blockquote>
+<p><code>B+树</code>是一种数据结构，是一个N叉排序树，每个节点通常有多个孩子，一棵<code>B+树</code>包含根节点、内部节点和叶子节点。根节点可能是一个叶子节点， 也可能是一个包含两个或两个以上孩子节点的节点。</p>
+<p><code>B+树</code>通常用于数据库和操作系统的<code>文件系统</code>中。NTFS、ReiserFS、NSS、XFS、JFS、ReFS和BFS等文件系统都在使用<code>B+树</code>作为元数据索引。<code>B+树</code>的特点是能够保持数据稳定有序， 其插入与修改拥有较稳定的对数时间复杂度。<code>B+树</code>元素自底向上插入。</p>
+<p>自己找图去看也行.</p></blockquote>
+<p>1.n棵子树就有n个关键字,一个关键字对应一颗子树(或者比孩子的个数小1).</p>
+<p>2.所有叶子节点包含全部关键字的信息.(所有的数据都会存放在叶子节点中)</p>
+<blockquote>
+<p>非叶子节点含其子树中的<strong>最大关键字</strong>.</p></blockquote>
+<p>3.两个指针,一个指向root(随机查找),一个指向最小节点(从最小开始顺序查找).</p>
+<blockquote>
+<p>除此之外B+树还有以下的要求:</p>
+<ul>
+<li>B+树包含2种类型的结点：内部结点（也称索引结点）和叶子结点。根结点本身即可以是内部结点，也可以是叶子结点。根结点的关键字个数最少可以只有1个。</li>
+<li>B+树与B树最大的不同是内部结点不保存数据，只用于索引，所有数据（或者说记录）都保存在叶子结点中。</li>
+<li>m阶B+树表示了内部结点最多有m-1个关键字（或者说内部结点最多有m个子树），阶数m同时限制了叶子结点最多存储m-1个记录。</li>
+<li>内部结点中的key都按照从小到大的顺序排列，对于内部结点中的一个key，左树中的所有key都小于它，右子树中的key都大于等于它。叶子结点中的记录也按照key的大小排列。</li>
+<li>每个叶子结点都存有相邻叶子结点的指针，叶子结点本身依关键字的大小自小而大顺序链接。</li>
+</ul></blockquote>
+<p>那么B+树就会有这样的特性:</p>
+<blockquote>
+<ul>
+<li>所有关键字都出现在叶子节点的链表中（稠密索引），且链表中的关键字恰好是有序的；</li>
+<li>不可能在非叶子节点命中；</li>
+<li>非叶子节点相当于叶子节点的索引（稀疏索引），叶子节点相当于是存储（关键字）数据的数据层；</li>
+<li>更适合文件索引系统；</li>
+</ul></blockquote>
+<p>核心就是查询和insert操作:</p>
+<p>查询:</p>
+<blockquote>
+<p><strong>1)</strong> 从最小关键字起<strong>顺序查找</strong>;</p>
+<p><strong>2)</strong> 从<strong>根节点</strong>开始，进行<strong>随机查找</strong>;</p>
+<p>​	在查找时，若非终端节点上的关键字等于给定值，并不终止，而是继续向下直到叶子节点。因此，在<code>B+树</code>中，不管查找成功与否，每次查找都是走了一条从根到叶子节点的路径。其余同<code>B-树</code>的查找类似。</p></blockquote>
+<p>insert:显然<strong>insert</strong>操作只会在叶子节点上进行.</p>
+<blockquote>
+<p><a href="https://ivanzz1001.github.io/records/post/data-structure/2018/06/16/ds-bplustree#31-b%e6%a0%91%e6%8f%92%e5%85%a5%e7%a4%ba%e4%be%8b" target="_blank">直接看这篇文章</a></p></blockquote>
+<p>和B-树的区别:</p>
+<blockquote>
+<p>一棵m阶的<code>B+树</code>和m阶的<code>B树</code>的异同点在于：</p>
+<ul>
+<li>所有的<strong>叶子节点中包含了全部关键字的信息</strong>，即指向含有这些关键字记录的<strong>指针</strong>，且<strong>叶子节点</strong>本身依关键字的大小<code>自小而大</code>的<strong>顺序链接</strong>。（而<code>B-树</code>的叶子节点并没有包括全部需要查找的信息）</li>
+<li>所有的<strong>非终端节点</strong>可以看成是<strong>索引</strong>部分，节点中仅含有其子树根节点中最大（或最小）关键字。（而<code>B-树</code>的非终端节点也包含需要查找的有效信息）</li>
+</ul></blockquote>
+<p>一个问题:</p>
+<blockquote>
+<p><strong><code>B+树</code>主要适用于索引操作。为什么说<code>B+树</code>比<code>B-树</code>更适合实际应用于操作系统的文件索引和数据库索引？</strong></p>
+<ul>
+<li><code>B+树</code>的磁盘读写代价更低: <code>B+树</code>的<strong>内部节点并没有指向关键字具体信息的指针</strong>。因此其内部节点相对<code>B-树</code>更小。如果把所有同一内部节点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多。一次性读入内存中的需要查找的关键字也就越多。相对来说IO读写次数也就降低了。举个例子：假设磁盘中的一个盘块容纳16bytes，而一个关键字2bytes, 一个关键字具体信息指针2bytes。一棵9阶<code>B-树</code>(一个节点最多8个关键字）的内部节点需要2个盘块。而<code>B+树</code>内部节点只需要1个盘块。当需要把内部节点读入内存的时候，<code>B-树</code>就比<code>B+树</code>多一次盘块查找时间（在磁盘中就是盘片旋转时间）</li>
+<li><strong>就是因为在寻找一个叶子节点的时候,前面的内部节点没有存储具体的信息,而仅仅是一些index,这是很好的.</strong></li>
+<li>B+树的<strong>查询效率更加稳定</strong>: 由于非终节点并不是最终指向文件内容的节点，而只是叶子节点中关键字的索引。<strong>所以任何关键字的查找必须走一条从根节点到叶子节点的路</strong>。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当。</li>
+<li><strong>因为只有叶子节点存储了信息,所以大家要走的路是类似的.</strong></li>
+<li><code>B+树</code>所有的Data域在叶子节点，一般来说都会进行一个优化，就是将所有的叶子节点用指针串起来。这样遍历叶子节点就能获得全部数据，这样就能进行<strong>区间访问</strong>了。</li>
+<li><strong>我们之前提到的两个指针.</strong></li>
+</ul></blockquote>
+<p>什么是聚簇索引:</p>
+<blockquote>
+<p>​	在《数据库原理》里面，对<strong>聚簇索引</strong>的解释是： <strong>聚簇索引的顺序就是数据的物理存储顺序</strong>； 而对<strong>非聚簇索引</strong>的解释是： <strong>索引顺序与数据物理排列无关</strong>。正是因为如此，所以一个表最多只能有一个聚簇索引。直观上来说，聚簇索引的叶子节点就是数据节点； 而非聚簇索引的叶子节点仍然是索引节点，只不过是指向对应数据块的指针。</p></blockquote>
+
+
+<h2 class="relative group">5.实现table manager 字段与表管理器 TBM 
+    <div id="5%E5%AE%9E%E7%8E%B0table-manager-%E5%AD%97%E6%AE%B5%E4%B8%8E%E8%A1%A8%E7%AE%A1%E7%90%86%E5%99%A8-tbm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5%E5%AE%9E%E7%8E%B0table-manager-%E5%AD%97%E6%AE%B5%E4%B8%8E%E8%A1%A8%E7%AE%A1%E7%90%86%E5%99%A8-tbm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">SQL解析器 
+    <div id="sql%E8%A7%A3%E6%9E%90%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sql%E8%A7%A3%E6%9E%90%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>实现了以下的SQL:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="k">begin</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w"> </span><span class="o">#</span><span class="w"> </span><span class="err">开启事务</span><span class="p">,</span><span class="err">设置隔离级别</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">begin</span><span class="w"> </span><span class="p">[</span><span class="k">isolation</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="p">(</span><span class="k">read</span><span class="w"> </span><span class="n">committedrepeatable</span><span class="w"> </span><span class="k">read</span><span class="p">)]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">begin</span><span class="w"> </span><span class="k">isolation</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="k">read</span><span class="w"> </span><span class="k">committed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">commit</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">提交事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">commit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">abort</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">回滚事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">abort</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">create</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">创建</span><span class="k">table</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="k">type</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="k">type</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="k">type</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">[(</span><span class="k">index</span><span class="w"> </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">list</span><span class="o">&gt;</span><span class="p">)]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">students</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">id</span><span class="w"> </span><span class="n">int32</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">age</span><span class="w"> </span><span class="n">int32</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">(</span><span class="k">index</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">drop</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">废弃</span><span class="k">table</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">students</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">select</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">查询语句</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="p">(</span><span class="o">*&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">list</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;</span><span class="k">where</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">insert</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">插入语句</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="o">&lt;</span><span class="n">value</span><span class="w"> </span><span class="n">list</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="s2">&#34;Zhang Yuanjia&#34;</span><span class="w"> </span><span class="mi">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">delete</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">删除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="k">where</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;Zhang Yuanjia&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">update</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">更新</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">update</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;=&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;</span><span class="k">where</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">update</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;ZYJ&#34;</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">where</span><span class="w"> </span><span class="k">statement</span><span class="o">&gt;</span><span class="w">	</span><span class="o">#</span><span class="w"> </span><span class="err">条件查询</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;&lt;=</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[(</span><span class="n">andor</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;&lt;=</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="o">#</span><span class="w"> </span><span class="err">字段和表名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">zA</span><span class="o">-</span><span class="n">Z</span><span class="p">][</span><span class="n">a</span><span class="o">-</span><span class="n">zA</span><span class="o">-</span><span class="n">Z0</span><span class="o">-</span><span class="mi">9</span><span class="n">_</span><span class="p">]</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="o">#</span><span class="w"> </span><span class="err">字段类型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">field</span><span class="w"> </span><span class="k">type</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">int64</span><span class="w"> </span><span class="n">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="o">*</span><span class="w">
+</span></span></span></code></pre></div><p>解析就是parser对于输入的语句做逐字节的解析,并且切割成token,根据首个token来包装成不同的类.</p>
+
+
+<h3 class="relative group">表和字段的管理 
+    <div id="%E8%A1%A8%E5%92%8C%E5%AD%97%E6%AE%B5%E7%9A%84%E7%AE%A1%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%A8%E5%92%8C%E5%AD%97%E6%AE%B5%E7%9A%84%E7%AE%A1%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>基本的结构:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Table 维护了表结构
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 二进制结构如下：
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * [TableName][NextTable]
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * [Field1Uid][Field2Uid]...[FieldNUid]
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Table</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">TableManager</span><span class="w"> </span><span class="n">tbm</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">uid</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="w"> </span><span class="n">status</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">nextUid</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Field</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>一个字段的结构:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * field 表示字段信息
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 二进制格式为：
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * [FieldName][TypeName][IndexUid] [字段名][类型][是否建立了index索引(有index,这个字段会直接指向索引二叉树的root)]
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 如果field无索引，IndexUid为0
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 字段信息直接保存在一个entry内部.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Field</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">uid</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Table</span><span class="w"> </span><span class="n">tb</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">fieldName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">fieldType</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">index</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BPlusTree</span><span class="w"> </span><span class="n">bt</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>一个database中存在多张table,我们使用链表的形式把这些table连接起来:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">[TableName][NextTable]
+</span></span><span class="line"><span class="cl">[Field1Uid][Field2Uid]...[FieldNUid]
+</span></span></code></pre></div><blockquote>
+<p>​	这里由于每个 <strong>Entry</strong> 中的数据，字节数是确定的，于是无需保存字段的个数。根据 UID 从 Entry 中读取表数据的过程和读取字段的过程类似。</p>
+<p>​	对表和字段的操作，有一个很重要的步骤，就是计算 Where 条件的范围，目前 MYDB 的 Where 只支持两个条件的与和或。例如有条件的 Delete，计算 Where，最终就需要获取到条件范围内所有的 UID。MYDB 只支持已索引字段作为 Where 的条件。计算 Where 的范围，具体可以查看 Table 的 <code>parseWhere()</code> 和 <code>calWhere()</code> 方法，以及 Field 类的 <code>calExp()</code> 方法。</p>
+<p>​	由于 TBM 的表管理，使用的是链表串起的 Table 结构，所以就必须保存一个链表的头节点，即第一个表的 UID，这样在 MYDB 启动时，才能快速找到表信息。</p>
+<p>​	MYDB 使用 Booter 类和 bt 文件，来管理 MYDB 的启动信息，虽然现在所需的启动信息，只有一个：头表的 UID。<strong>Booter 类对外提供了两个方法：load 和 update，并保证了其原子性。</strong></p>
+<p>​	<strong>update 在修改 bt 文件内容时，没有直接对 bt 文件进行修改，而是首先将内容写入一个 bt_tmp 文件中，随后将这个文件重命名为 bt 文件。以期通过操作系统重命名文件的原子性，来保证操作的原子性。</strong></p></blockquote>
+<p>要用一个<strong>bt</strong>文件保存第一个table的uid,因为我们要快速找到table的信息:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 记录第一个表的uid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Booter</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">BOOTER_SUFFIX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;.bt&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">BOOTER_TMP_SUFFIX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;.bt_tmp&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>最终TBM实现给server使用的所有接口:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 这里就已经是提供给最外层的Server所使用的接口了.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">TableManager</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BeginRes</span><span class="w"> </span><span class="nf">begin</span><span class="p">(</span><span class="n">Begin</span><span class="w"> </span><span class="n">begin</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">commit</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">abort</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">,</span><span class="w"> </span><span class="n">Create</span><span class="w"> </span><span class="n">create</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">,</span><span class="w"> </span><span class="n">Insert</span><span class="w"> </span><span class="n">insert</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">,</span><span class="w"> </span><span class="n">Select</span><span class="w"> </span><span class="n">select</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">,</span><span class="w"> </span><span class="n">Update</span><span class="w"> </span><span class="n">update</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">xid</span><span class="p">,</span><span class="w"> </span><span class="n">Delete</span><span class="w"> </span><span class="n">delete</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 创建新表使用的是头插法,每次创建的时候,都要更新bt文件.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">TableManager</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">VersionManager</span><span class="w"> </span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="n">DataManager</span><span class="w"> </span><span class="n">dm</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Booter</span><span class="w"> </span><span class="n">booter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Booter</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">path</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">booter</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">Parser</span><span class="p">.</span><span class="na">long2Byte</span><span class="p">(</span><span class="n">0</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TableManagerImpl</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="n">dm</span><span class="p">,</span><span class="w"> </span><span class="n">booter</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">TableManager</span><span class="w"> </span><span class="nf">open</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">VersionManager</span><span class="w"> </span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="n">DataManager</span><span class="w"> </span><span class="n">dm</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Booter</span><span class="w"> </span><span class="n">booter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Booter</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="n">path</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TableManagerImpl</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span><span class="w"> </span><span class="n">dm</span><span class="p">,</span><span class="w"> </span><span class="n">booter</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">6.最终实现软件:Server和Client的通信 
+    <div id="6%E6%9C%80%E7%BB%88%E5%AE%9E%E7%8E%B0%E8%BD%AF%E4%BB%B6server%E5%92%8Cclient%E7%9A%84%E9%80%9A%E4%BF%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6%E6%9C%80%E7%BB%88%E5%AE%9E%E7%8E%B0%E8%BD%AF%E4%BB%B6server%E5%92%8Cclient%E7%9A%84%E9%80%9A%E4%BF%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>通信是利用Socket.</p></blockquote>
+
+
+<h3 class="relative group">通信 
+    <div id="%E9%80%9A%E4%BF%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%9A%E4%BF%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>用<strong>Package</strong>作为一个基本的结构:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Package</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Exception</span><span class="w"> </span><span class="n">err</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Package</span><span class="p">(</span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">err</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">getData</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="nf">getErr</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">err</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>发送前<strong>编码</strong>,收到之后会进行<strong>解码</strong>的操作.</p>
+<p>基本格式:(其实就是字节数组前面加了一个1.)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">[</span><span class="n">Flag</span><span class="o">][</span><span class="n">data</span><span class="o">]</span><span class="w">
+</span></span></span></code></pre></div><p>利用Encoder的类:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Encoder</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">Package</span><span class="w"> </span><span class="n">pkg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">getErr</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Exception</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">getErr</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;Intern server error!&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">err</span><span class="p">.</span><span class="na">getMessage</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">err</span><span class="p">.</span><span class="na">getMessage</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 1,表明出错.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Bytes</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="p">{</span><span class="n">1</span><span class="p">},</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 0,表示数据本身没错.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Bytes</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="p">{</span><span class="n">0</span><span class="p">},</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">getData</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Package</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">Error</span><span class="p">.</span><span class="na">InvalidPkgDataException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Package</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">copyOfRange</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">length</span><span class="p">),</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Package</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">copyOfRange</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">length</span><span class="p">))));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">Error</span><span class="p">.</span><span class="na">InvalidPkgDataException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p>END.</p></blockquote>
+
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="mio" src="/img/blowfish_logo_hu_2d15729eafedea4d.png" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      mio
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">I&rsquo;m Just A Student&hellip;</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://nunotabashinobu066@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://space.bilibili.com/167160408"
+          target="_blank"
+          aria-label="Link"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/Ada-Church-Closure"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://www.google.com/"
+          target="_blank"
+          aria-label="Google"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://steamcommunity.com/id/331979248/"
+          target="_blank"
+          aria-label="Steam"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L176.6 279c-15.5-.9-30.7 3.4-43.5 12.1L0 236.1C10.2 108.4 117.1 8 247.6 8 384.8 8 496 119 496 256zM155.7 384.3l-30.5-12.6a52.79 52.79 0 0 0 27.2 25.8c26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3.1-40.3-5.4-13-15.5-23.2-28.5-28.6-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21zm173.8-129.9c-34.4 0-62.4-28-62.4-62.3s28-62.3 62.4-62.3 62.4 28 62.4 62.3-27.9 62.3-62.4 62.3zm.1-15.6c25.9 0 46.9-21 46.9-46.8 0-25.9-21-46.8-46.9-46.8s-46.9 21-46.9 46.8c.1 25.8 21.1 46.8 46.9 46.8z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://www.youtube.com/@NunotabaShinobu"
+          target="_blank"
+          aria-label="Youtube"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+          
+
+          
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_MySQL\/MiniDB\/index.md"
+        var oid_likes = "likes_MySQL\/MiniDB\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/mysql/sql%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >SQL优化问题</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-11-16T13:13:09&#43;08:00">16 November 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/mysql/mysql%E5%9F%BA%E7%A1%80/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >MySQL基础</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-03-12T18:02:43&#43;08:00">12 March 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/reading/"
+            title="">
+            
+            Reading
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      mio
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
